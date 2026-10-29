@@ -1,0 +1,30 @@
+{
+  "page": "https://hub.moondroplab.tech/",
+  "observed_at": "2026-10-29T15:27:06.706Z",
+  "assets": [
+    {
+      "id": "a22f5922de118cbe",
+      "kind": "other",
+      "name": "UDFyUvjf1JV01ZnhvQSQ1kadenz5128.txt",
+      "sources": [
+        {
+          "kind": "resource",
+          "property": "xmlhttprequest"
+        }
+      ],
+      "url": "https://cdn.moondroplab.tech/peq-config-file/UDFyUvjf1JV01ZnhvQSQ1kadenz5128.txt"
+    },
+    {
+      "id": "02ee71e7cd55f59f",
+      "kind": "other",
+      "name": "PT-Zgr2njD1VuGt3GMy8Hkadenz4128.txt",
+      "sources": [
+        {
+          "kind": "resource",
+          "property": "xmlhttprequest"
+        }
+      ],
+      "url": "https://cdn.moondroplab.tech/peq-config-file/PT-Zgr2njD1VuGt3GMy8Hkadenz4128.txt"
+    }
+  ]
+}

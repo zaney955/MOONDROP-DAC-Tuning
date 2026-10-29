@@ -1,0 +1,11 @@
+{
+  "all_56_operations_acknowledged": true,
+  "save_command_acknowledged": true,
+  "metadata_matches": true,
+  "current_coefficients_match_rates": [
+    "48000"
+  ],
+  "physical_unplug_tested": false,
+  "current_all_9_bands_verified": true,
+  "coefficient_decode": "signed 24-bit, exactly matching device format"
+}

@@ -1,0 +1,11 @@
+{
+  "metadata_matches": true,
+  "mode_matches": true,
+  "current_coefficients_match_rates": [
+    "48000"
+  ],
+  "physical_unplug_tested": false,
+  "all_56_operations_acknowledged": true,
+  "save_command_acknowledged": true,
+  "readback_retried_without_rewrite": true
+}

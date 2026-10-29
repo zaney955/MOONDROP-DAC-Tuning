@@ -1,0 +1,8 @@
+{
+  "version": 1,
+  "device": "MOONDROP ECHO-B",
+  "name": "全局降低 2 dB",
+  "description": "以平直频响为基准，全频段统一衰减 2 dB，不叠加之前的闷声测试 EQ。",
+  "preamp_db": -2,
+  "filters": []
+}

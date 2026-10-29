@@ -1,0 +1,28 @@
+{
+  "source": "https://cdn-service.moondroplab.tech/api/v1/refresponse/all?pageSize=999&type=OFFICIAL",
+  "retrieved_date": "2026-10-29",
+  "entries": [
+    {
+      "uuid": "198576d3-da62-4803-9e58-e9bd717b6571",
+      "name": "kadenz 终章 5128",
+      "file": "peq-config-file/UDFyUvjf1JV01ZnhvQSQ1kadenz5128.txt",
+      "tags": [
+        "moondrop"
+      ],
+      "userUuid": null,
+      "status": true,
+      "type": "OFFICIAL"
+    },
+    {
+      "uuid": "9868f61b-bab7-4b37-a662-266d66c1fb02",
+      "name": "kadenz 终章 4128",
+      "file": "peq-config-file/PT-Zgr2njD1VuGt3GMy8Hkadenz4128.txt",
+      "tags": [
+        "moondrop"
+      ],
+      "userUuid": null,
+      "status": true,
+      "type": "OFFICIAL"
+    }
+  ]
+}

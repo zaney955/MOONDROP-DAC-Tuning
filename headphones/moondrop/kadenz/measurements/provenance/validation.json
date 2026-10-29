@@ -1,0 +1,22 @@
+{
+  "5128": {
+    "point_count": 957,
+    "columns": 3,
+    "finite": true,
+    "strictly_increasing_frequency": true,
+    "csv_matches_source_text_numbers": true,
+    "frequency_min_hz": 20.0,
+    "frequency_max_hz": 19896.974609,
+    "sha256": "a8a187adfe44d58c75b32e690201a61a9836c345d389873d8e07eb8e660af479"
+  },
+  "4128": {
+    "point_count": 957,
+    "columns": 3,
+    "finite": true,
+    "strictly_increasing_frequency": true,
+    "csv_matches_source_text_numbers": true,
+    "frequency_min_hz": 20.0,
+    "frequency_max_hz": 19896.974609,
+    "sha256": "8ac81768385540190d3558f94b67924614994dc04bca05357019878bc255fb6b"
+  }
+}

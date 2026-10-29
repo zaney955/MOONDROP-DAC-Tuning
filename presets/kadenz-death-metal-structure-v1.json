@@ -1,0 +1,13 @@
+{
+  "version": 1,
+  "device": "MOONDROP ECHO-B",
+  "name": "Kadenz · 死亡金属结构清晰 V1",
+  "description": "为密集死亡金属的 Riff、鼓组与贝斯线条辨识设计，兼顾 Evoken、Esoteric 等葬礼厄运的低频深度与氛围。适度削减 180 Hz 厚重感，微补 900 Hz 中频主体，轻收 3 kHz 压迫感，小幅补充 5.2 kHz 轮廓；不增加深低频或极高频。完整替换配置，基于官方 Kadenz 数据和用户偏好的首版，导管/耳套未知，效果待本人试听确认。",
+  "preamp_db": -2,
+  "filters": [
+    {"type": "peak", "frequency_hz": 180, "q": 0.9, "gain_db": -2},
+    {"type": "peak", "frequency_hz": 3000, "q": 1.2, "gain_db": -1},
+    {"type": "peak", "frequency_hz": 900, "q": 0.8, "gain_db": 1},
+    {"type": "peak", "frequency_hz": 5200, "q": 1.4, "gain_db": 1}
+  ]
+}

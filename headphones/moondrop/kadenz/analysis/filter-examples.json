@@ -1,0 +1,322 @@
+[
+  {
+    "example": {
+      "version": 1,
+      "device": "MOONDROP ECHO-B",
+      "name": "sub_bass",
+      "preamp_db": -3,
+      "filters": [
+        {
+          "type": "low_shelf",
+          "frequency_hz": 80,
+          "gain_db": 2,
+          "q": 1
+        }
+      ]
+    },
+    "quantized_response": {
+      "44100": {
+        "min_gain_db": -3.000001183545689,
+        "max_gain_db": -1.0051637939805107
+      },
+      "48000": {
+        "min_gain_db": -3.0000000239119204,
+        "max_gain_db": -1.0139790730216105
+      },
+      "96000": {
+        "min_gain_db": -2.999999128153367,
+        "max_gain_db": -1.049035944663849
+      },
+      "192000": {
+        "min_gain_db": -3.0176096302055533,
+        "max_gain_db": -0.623711632215839
+      },
+      "384000": {
+        "min_gain_db": -3.018133010411044,
+        "max_gain_db": -0.5512823488826477
+      }
+    },
+    "device_written": false,
+    "device_auditioned": false
+  },
+  {
+    "example": {
+      "version": 1,
+      "device": "MOONDROP ECHO-B",
+      "name": "less_bass",
+      "preamp_db": -3,
+      "filters": [
+        {
+          "type": "low_shelf",
+          "frequency_hz": 120,
+          "gain_db": -2,
+          "q": 1
+        }
+      ]
+    },
+    "quantized_response": {
+      "44100": {
+        "min_gain_db": -5.003875537338325,
+        "max_gain_db": -2.999996823573228
+      },
+      "48000": {
+        "min_gain_db": -4.999284082833401,
+        "max_gain_db": -2.999999519796543
+      },
+      "96000": {
+        "min_gain_db": -5.0190793769793185,
+        "max_gain_db": -2.9999395083801317
+      },
+      "192000": {
+        "min_gain_db": -4.996909638493551,
+        "max_gain_db": -2.9999674169373702
+      },
+      "384000": {
+        "min_gain_db": -5.174795972593217,
+        "max_gain_db": -2.9974785510028177
+      }
+    },
+    "device_written": false,
+    "device_auditioned": false
+  },
+  {
+    "example": {
+      "version": 1,
+      "device": "MOONDROP ECHO-B",
+      "name": "midbass",
+      "preamp_db": -3,
+      "filters": [
+        {
+          "type": "peak",
+          "frequency_hz": 180,
+          "gain_db": -2,
+          "q": 0.8
+        }
+      ]
+    },
+    "quantized_response": {
+      "44100": {
+        "min_gain_db": -5.000010546689495,
+        "max_gain_db": -3.0000107120890025
+      },
+      "48000": {
+        "min_gain_db": -4.999957508278013,
+        "max_gain_db": -3.000030875003916
+      },
+      "96000": {
+        "min_gain_db": -5.000038812141344,
+        "max_gain_db": -3.0001853209426077
+      },
+      "192000": {
+        "min_gain_db": -4.999818163456626,
+        "max_gain_db": -3.000236380214047
+      },
+      "384000": {
+        "min_gain_db": -4.999484274539114,
+        "max_gain_db": -3.000249819159592
+      }
+    },
+    "device_written": false,
+    "device_auditioned": false
+  },
+  {
+    "example": {
+      "version": 1,
+      "device": "MOONDROP ECHO-B",
+      "name": "body",
+      "preamp_db": -3,
+      "filters": [
+        {
+          "type": "peak",
+          "frequency_hz": 700,
+          "gain_db": 1,
+          "q": 0.8
+        }
+      ]
+    },
+    "quantized_response": {
+      "44100": {
+        "min_gain_db": -2.99991529801203,
+        "max_gain_db": -2.000014620334271
+      },
+      "48000": {
+        "min_gain_db": -2.9997641459905156,
+        "max_gain_db": -1.9999999188768625
+      },
+      "96000": {
+        "min_gain_db": -2.9987237228668553,
+        "max_gain_db": -2.0000300476201534
+      },
+      "192000": {
+        "min_gain_db": -2.9987238731749515,
+        "max_gain_db": -2.0000052778403474
+      },
+      "384000": {
+        "min_gain_db": -2.9987254090766333,
+        "max_gain_db": -2.0000276070793546
+      }
+    },
+    "device_written": false,
+    "device_auditioned": false
+  },
+  {
+    "example": {
+      "version": 1,
+      "device": "MOONDROP ECHO-B",
+      "name": "presence",
+      "preamp_db": -3,
+      "filters": [
+        {
+          "type": "peak",
+          "frequency_hz": 3000,
+          "gain_db": -2,
+          "q": 1
+        }
+      ]
+    },
+    "quantized_response": {
+      "44100": {
+        "min_gain_db": -4.9999416571357616,
+        "max_gain_db": -3.0001006660339624
+      },
+      "48000": {
+        "min_gain_db": -4.999943179132327,
+        "max_gain_db": -3.0000869021670136
+      },
+      "96000": {
+        "min_gain_db": -4.999952993646757,
+        "max_gain_db": -3.0000886226223553
+      },
+      "192000": {
+        "min_gain_db": -4.9999311976641145,
+        "max_gain_db": -3.0000890537542957
+      },
+      "384000": {
+        "min_gain_db": -4.999918036042386,
+        "max_gain_db": -3.0000891562838197
+      }
+    },
+    "device_written": false,
+    "device_auditioned": false
+  },
+  {
+    "example": {
+      "version": 1,
+      "device": "MOONDROP ECHO-B",
+      "name": "clarity",
+      "preamp_db": -3,
+      "filters": [
+        {
+          "type": "peak",
+          "frequency_hz": 5500,
+          "gain_db": 1,
+          "q": 1
+        }
+      ]
+    },
+    "quantized_response": {
+      "44100": {
+        "min_gain_db": -2.9999876003984847,
+        "max_gain_db": -2.000009391167619
+      },
+      "48000": {
+        "min_gain_db": -2.999981924143553,
+        "max_gain_db": -2.0000124997731827
+      },
+      "96000": {
+        "min_gain_db": -2.999986550659956,
+        "max_gain_db": -2.0000044743044496
+      },
+      "192000": {
+        "min_gain_db": -2.999916823048614,
+        "max_gain_db": -2.0000146991077172
+      },
+      "384000": {
+        "min_gain_db": -3.00025301202027,
+        "max_gain_db": -2.0000060251332066
+      }
+    },
+    "device_written": false,
+    "device_auditioned": false
+  },
+  {
+    "example": {
+      "version": 1,
+      "device": "MOONDROP ECHO-B",
+      "name": "sibilance",
+      "preamp_db": -3,
+      "filters": [
+        {
+          "type": "peak",
+          "frequency_hz": 7500,
+          "gain_db": -2,
+          "q": 2
+        }
+      ]
+    },
+    "quantized_response": {
+      "44100": {
+        "min_gain_db": -4.999760982831368,
+        "max_gain_db": -3.000002442861816
+      },
+      "48000": {
+        "min_gain_db": -4.999774858673755,
+        "max_gain_db": -3.0000025433105337
+      },
+      "96000": {
+        "min_gain_db": -4.999819728390133,
+        "max_gain_db": -3.000012890533884
+      },
+      "192000": {
+        "min_gain_db": -4.999834115020453,
+        "max_gain_db": -3.000003069141358
+      },
+      "384000": {
+        "min_gain_db": -4.999855036011117,
+        "max_gain_db": -2.999860686180915
+      }
+    },
+    "device_written": false,
+    "device_auditioned": false
+  },
+  {
+    "example": {
+      "version": 1,
+      "device": "MOONDROP ECHO-B",
+      "name": "air",
+      "preamp_db": -3,
+      "filters": [
+        {
+          "type": "high_shelf",
+          "frequency_hz": 10000,
+          "gain_db": 1,
+          "q": 1
+        }
+      ]
+    },
+    "quantized_response": {
+      "44100": {
+        "min_gain_db": -2.9999995179972645,
+        "max_gain_db": -2.00026166320019
+      },
+      "48000": {
+        "min_gain_db": -3.000001792902172,
+        "max_gain_db": -2.00178719818999
+      },
+      "96000": {
+        "min_gain_db": -2.999999517969246,
+        "max_gain_db": -2.036958706167084
+      },
+      "192000": {
+        "min_gain_db": -2.9999995180026056,
+        "max_gain_db": -2.053093005897958
+      },
+      "384000": {
+        "min_gain_db": -2.9999995180128023,
+        "max_gain_db": -2.0574535625496964
+      }
+    },
+    "device_written": false,
+    "device_auditioned": false
+  }
+]

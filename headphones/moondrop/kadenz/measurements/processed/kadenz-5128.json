@@ -1,0 +1,4827 @@
+{
+  "metadata": {
+    "official_label": "kadenz 终章 5128",
+    "measurement_system_label": "5128",
+    "source_page": "https://hub.moondroplab.tech/",
+    "source_file": "https://cdn.moondroplab.tech/peq-config-file/UDFyUvjf1JV01ZnhvQSQ1kadenz5128.txt",
+    "download_date": "2026-10-29",
+    "source_encoding_used": "gb18030",
+    "original_bytes": 26676,
+    "original_sha256": "a8a187adfe44d58c75b32e690201a61a9836c345d389873d8e07eb8e660af479",
+    "point_count": 957,
+    "frequency_min_hz": 20.0,
+    "frequency_max_hz": 19896.974609,
+    "header_verbatim": [
+      "* Measurement data measured by REW V5.31.1",
+      "* Source: Analogue 1 + 2 (Focusrite USB Audio), no input selected, L, volume: 0.250",
+      "* Format: 256k Log Swept Sine, 1 sweep at 0.0 dBFS with no timing reference",
+      "* Dated: 2024-8-28 14:07:52",
+      "* REW Settings:",
+      "*  C-weighting compensation: Off",
+      "*  Target level: 75.0 dB",
+      "* Note: ",
+      "* Measurement: L+R 八月 28",
+      "* Smoothing: 1/24 octave",
+      "* Frequency Step: 1/96 octave",
+      "* Start Frequency: 20.000 Hz",
+      "*",
+      "* Freq(Hz) SPL(dB) Phase(degrees)"
+    ],
+    "processing": "CSV/JSON retain all original numeric rows, no normalization, EQ, resampling or extra smoothing.",
+    "unconfirmed_conditions": [
+      "nozzle",
+      "ear tips",
+      "insertion depth",
+      "sample identity",
+      "calibration",
+      "measurement date validity"
+    ]
+  },
+  "data": [
+    {
+      "frequency_hz": 20.0,
+      "spl_db": 63.315,
+      "phase_degrees": 28.1422
+    },
+    {
+      "frequency_hz": 20.144928,
+      "spl_db": 63.326,
+      "phase_degrees": 27.8408
+    },
+    {
+      "frequency_hz": 20.290907,
+      "spl_db": 63.334,
+      "phase_degrees": 27.5311
+    },
+    {
+      "frequency_hz": 20.437943,
+      "spl_db": 63.337,
+      "phase_degrees": 27.2194
+    },
+    {
+      "frequency_hz": 20.586044,
+      "spl_db": 63.336,
+      "phase_degrees": 26.9125
+    },
+    {
+      "frequency_hz": 20.73522,
+      "spl_db": 63.33,
+      "phase_degrees": 26.6161
+    },
+    {
+      "frequency_hz": 20.885475,
+      "spl_db": 63.322,
+      "phase_degrees": 26.3364
+    },
+    {
+      "frequency_hz": 21.036821,
+      "spl_db": 63.311,
+      "phase_degrees": 26.0776
+    },
+    {
+      "frequency_hz": 21.189262,
+      "spl_db": 63.299,
+      "phase_degrees": 25.8412
+    },
+    {
+      "frequency_hz": 21.342808,
+      "spl_db": 63.287,
+      "phase_degrees": 25.6263
+    },
+    {
+      "frequency_hz": 21.497467,
+      "spl_db": 63.277,
+      "phase_degrees": 25.4295
+    },
+    {
+      "frequency_hz": 21.653246,
+      "spl_db": 63.27,
+      "phase_degrees": 25.2434
+    },
+    {
+      "frequency_hz": 21.810154,
+      "spl_db": 63.266,
+      "phase_degrees": 25.0603
+    },
+    {
+      "frequency_hz": 21.968201,
+      "spl_db": 63.266,
+      "phase_degrees": 24.8698
+    },
+    {
+      "frequency_hz": 22.12739,
+      "spl_db": 63.269,
+      "phase_degrees": 24.6619
+    },
+    {
+      "frequency_hz": 22.287735,
+      "spl_db": 63.274,
+      "phase_degrees": 24.429
+    },
+    {
+      "frequency_hz": 22.449242,
+      "spl_db": 63.281,
+      "phase_degrees": 24.1648
+    },
+    {
+      "frequency_hz": 22.611917,
+      "spl_db": 63.288,
+      "phase_degrees": 23.8676
+    },
+    {
+      "frequency_hz": 22.775772,
+      "spl_db": 63.293,
+      "phase_degrees": 23.5396
+    },
+    {
+      "frequency_hz": 22.940815,
+      "spl_db": 63.296,
+      "phase_degrees": 23.1852
+    },
+    {
+      "frequency_hz": 23.107054,
+      "spl_db": 63.294,
+      "phase_degrees": 22.8138
+    },
+    {
+      "frequency_hz": 23.274498,
+      "spl_db": 63.289,
+      "phase_degrees": 22.4344
+    },
+    {
+      "frequency_hz": 23.443153,
+      "spl_db": 63.28,
+      "phase_degrees": 22.0572
+    },
+    {
+      "frequency_hz": 23.613033,
+      "spl_db": 63.269,
+      "phase_degrees": 21.6908
+    },
+    {
+      "frequency_hz": 23.784142,
+      "spl_db": 63.257,
+      "phase_degrees": 21.34
+    },
+    {
+      "frequency_hz": 23.956491,
+      "spl_db": 63.245,
+      "phase_degrees": 21.0068
+    },
+    {
+      "frequency_hz": 24.130091,
+      "spl_db": 63.236,
+      "phase_degrees": 20.6882
+    },
+    {
+      "frequency_hz": 24.304947,
+      "spl_db": 63.231,
+      "phase_degrees": 20.3776
+    },
+    {
+      "frequency_hz": 24.481071,
+      "spl_db": 63.23,
+      "phase_degrees": 20.067
+    },
+    {
+      "frequency_hz": 24.65847,
+      "spl_db": 63.233,
+      "phase_degrees": 19.7468
+    },
+    {
+      "frequency_hz": 24.837156,
+      "spl_db": 63.239,
+      "phase_degrees": 19.41
+    },
+    {
+      "frequency_hz": 25.017136,
+      "spl_db": 63.247,
+      "phase_degrees": 19.0524
+    },
+    {
+      "frequency_hz": 25.198421,
+      "spl_db": 63.254,
+      "phase_degrees": 18.6741
+    },
+    {
+      "frequency_hz": 25.38102,
+      "spl_db": 63.26,
+      "phase_degrees": 18.28
+    },
+    {
+      "frequency_hz": 25.564941,
+      "spl_db": 63.263,
+      "phase_degrees": 17.8781
+    },
+    {
+      "frequency_hz": 25.750195,
+      "spl_db": 63.263,
+      "phase_degrees": 17.4796
+    },
+    {
+      "frequency_hz": 25.93679,
+      "spl_db": 63.26,
+      "phase_degrees": 17.0942
+    },
+    {
+      "frequency_hz": 26.124741,
+      "spl_db": 63.255,
+      "phase_degrees": 16.7319
+    },
+    {
+      "frequency_hz": 26.314051,
+      "spl_db": 63.248,
+      "phase_degrees": 16.3975
+    },
+    {
+      "frequency_hz": 26.504732,
+      "spl_db": 63.243,
+      "phase_degrees": 16.0925
+    },
+    {
+      "frequency_hz": 26.696796,
+      "spl_db": 63.239,
+      "phase_degrees": 15.8141
+    },
+    {
+      "frequency_hz": 26.890253,
+      "spl_db": 63.237,
+      "phase_degrees": 15.5562
+    },
+    {
+      "frequency_hz": 27.085112,
+      "spl_db": 63.239,
+      "phase_degrees": 15.3114
+    },
+    {
+      "frequency_hz": 27.281382,
+      "spl_db": 63.242,
+      "phase_degrees": 15.0723
+    },
+    {
+      "frequency_hz": 27.479073,
+      "spl_db": 63.247,
+      "phase_degrees": 14.8339
+    },
+    {
+      "frequency_hz": 27.678198,
+      "spl_db": 63.253,
+      "phase_degrees": 14.593
+    },
+    {
+      "frequency_hz": 27.878765,
+      "spl_db": 63.258,
+      "phase_degrees": 14.3498
+    },
+    {
+      "frequency_hz": 28.080786,
+      "spl_db": 63.262,
+      "phase_degrees": 14.1055
+    },
+    {
+      "frequency_hz": 28.284271,
+      "spl_db": 63.264,
+      "phase_degrees": 13.8621
+    },
+    {
+      "frequency_hz": 28.489231,
+      "spl_db": 63.266,
+      "phase_degrees": 13.621
+    },
+    {
+      "frequency_hz": 28.695675,
+      "spl_db": 63.265,
+      "phase_degrees": 13.382
+    },
+    {
+      "frequency_hz": 28.903616,
+      "spl_db": 63.264,
+      "phase_degrees": 13.1433
+    },
+    {
+      "frequency_hz": 29.113064,
+      "spl_db": 63.262,
+      "phase_degrees": 12.9026
+    },
+    {
+      "frequency_hz": 29.324028,
+      "spl_db": 63.257,
+      "phase_degrees": 12.6582
+    },
+    {
+      "frequency_hz": 29.536524,
+      "spl_db": 63.251,
+      "phase_degrees": 12.4094
+    },
+    {
+      "frequency_hz": 29.750557,
+      "spl_db": 63.242,
+      "phase_degrees": 12.158
+    },
+    {
+      "frequency_hz": 29.966141,
+      "spl_db": 63.229,
+      "phase_degrees": 11.9071
+    },
+    {
+      "frequency_hz": 30.183289,
+      "spl_db": 63.215,
+      "phase_degrees": 11.661
+    },
+    {
+      "frequency_hz": 30.40201,
+      "spl_db": 63.198,
+      "phase_degrees": 11.4225
+    },
+    {
+      "frequency_hz": 30.622314,
+      "spl_db": 63.18,
+      "phase_degrees": 11.1926
+    },
+    {
+      "frequency_hz": 30.844217,
+      "spl_db": 63.163,
+      "phase_degrees": 10.9685
+    },
+    {
+      "frequency_hz": 31.067726,
+      "spl_db": 63.147,
+      "phase_degrees": 10.7452
+    },
+    {
+      "frequency_hz": 31.292856,
+      "spl_db": 63.132,
+      "phase_degrees": 10.5156
+    },
+    {
+      "frequency_hz": 31.519617,
+      "spl_db": 63.118,
+      "phase_degrees": 10.2738
+    },
+    {
+      "frequency_hz": 31.74802,
+      "spl_db": 63.104,
+      "phase_degrees": 10.0165
+    },
+    {
+      "frequency_hz": 31.978081,
+      "spl_db": 63.09,
+      "phase_degrees": 9.7449
+    },
+    {
+      "frequency_hz": 32.209808,
+      "spl_db": 63.074,
+      "phase_degrees": 9.4636
+    },
+    {
+      "frequency_hz": 32.443211,
+      "spl_db": 63.056,
+      "phase_degrees": 9.1807
+    },
+    {
+      "frequency_hz": 32.67831,
+      "spl_db": 63.038,
+      "phase_degrees": 8.9034
+    },
+    {
+      "frequency_hz": 32.915108,
+      "spl_db": 63.02,
+      "phase_degrees": 8.6373
+    },
+    {
+      "frequency_hz": 33.153625,
+      "spl_db": 63.003,
+      "phase_degrees": 8.3833
+    },
+    {
+      "frequency_hz": 33.393871,
+      "spl_db": 62.989,
+      "phase_degrees": 8.1387
+    },
+    {
+      "frequency_hz": 33.635857,
+      "spl_db": 62.979,
+      "phase_degrees": 7.8983
+    },
+    {
+      "frequency_hz": 33.879597,
+      "spl_db": 62.971,
+      "phase_degrees": 7.6565
+    },
+    {
+      "frequency_hz": 34.125103,
+      "spl_db": 62.966,
+      "phase_degrees": 7.4102
+    },
+    {
+      "frequency_hz": 34.372387,
+      "spl_db": 62.963,
+      "phase_degrees": 7.1595
+    },
+    {
+      "frequency_hz": 34.621464,
+      "spl_db": 62.96,
+      "phase_degrees": 6.9077
+    },
+    {
+      "frequency_hz": 34.872345,
+      "spl_db": 62.957,
+      "phase_degrees": 6.6586
+    },
+    {
+      "frequency_hz": 35.125042,
+      "spl_db": 62.956,
+      "phase_degrees": 6.4147
+    },
+    {
+      "frequency_hz": 35.379574,
+      "spl_db": 62.956,
+      "phase_degrees": 6.1758
+    },
+    {
+      "frequency_hz": 35.635948,
+      "spl_db": 62.957,
+      "phase_degrees": 5.9385
+    },
+    {
+      "frequency_hz": 35.89418,
+      "spl_db": 62.959,
+      "phase_degrees": 5.6986
+    },
+    {
+      "frequency_hz": 36.154285,
+      "spl_db": 62.96,
+      "phase_degrees": 5.4534
+    },
+    {
+      "frequency_hz": 36.416275,
+      "spl_db": 62.96,
+      "phase_degrees": 5.204
+    },
+    {
+      "frequency_hz": 36.680161,
+      "spl_db": 62.957,
+      "phase_degrees": 4.9552
+    },
+    {
+      "frequency_hz": 36.945961,
+      "spl_db": 62.951,
+      "phase_degrees": 4.7137
+    },
+    {
+      "frequency_hz": 37.213688,
+      "spl_db": 62.942,
+      "phase_degrees": 4.485
+    },
+    {
+      "frequency_hz": 37.483353,
+      "spl_db": 62.931,
+      "phase_degrees": 4.2702
+    },
+    {
+      "frequency_hz": 37.754974,
+      "spl_db": 62.92,
+      "phase_degrees": 4.0653
+    },
+    {
+      "frequency_hz": 38.028561,
+      "spl_db": 62.908,
+      "phase_degrees": 3.8634
+    },
+    {
+      "frequency_hz": 38.304131,
+      "spl_db": 62.894,
+      "phase_degrees": 3.6586
+    },
+    {
+      "frequency_hz": 38.581699,
+      "spl_db": 62.877,
+      "phase_degrees": 3.4509
+    },
+    {
+      "frequency_hz": 38.861279,
+      "spl_db": 62.857,
+      "phase_degrees": 3.2467
+    },
+    {
+      "frequency_hz": 39.142883,
+      "spl_db": 62.832,
+      "phase_degrees": 3.0572
+    },
+    {
+      "frequency_hz": 39.426529,
+      "spl_db": 62.806,
+      "phase_degrees": 2.892
+    },
+    {
+      "frequency_hz": 39.712231,
+      "spl_db": 62.781,
+      "phase_degrees": 2.7513
+    },
+    {
+      "frequency_hz": 40.0,
+      "spl_db": 62.761,
+      "phase_degrees": 2.6237
+    },
+    {
+      "frequency_hz": 40.289856,
+      "spl_db": 62.745,
+      "phase_degrees": 2.4872
+    },
+    {
+      "frequency_hz": 40.581814,
+      "spl_db": 62.735,
+      "phase_degrees": 2.3174
+    },
+    {
+      "frequency_hz": 40.875885,
+      "spl_db": 62.725,
+      "phase_degrees": 2.1
+    },
+    {
+      "frequency_hz": 41.172089,
+      "spl_db": 62.712,
+      "phase_degrees": 1.838
+    },
+    {
+      "frequency_hz": 41.47044,
+      "spl_db": 62.693,
+      "phase_degrees": 1.5521
+    },
+    {
+      "frequency_hz": 41.77095,
+      "spl_db": 62.667,
+      "phase_degrees": 1.2738
+    },
+    {
+      "frequency_hz": 42.073643,
+      "spl_db": 62.636,
+      "phase_degrees": 1.0325
+    },
+    {
+      "frequency_hz": 42.378525,
+      "spl_db": 62.607,
+      "phase_degrees": 0.8409
+    },
+    {
+      "frequency_hz": 42.685616,
+      "spl_db": 62.585,
+      "phase_degrees": 0.6877
+    },
+    {
+      "frequency_hz": 42.994934,
+      "spl_db": 62.572,
+      "phase_degrees": 0.5428
+    },
+    {
+      "frequency_hz": 43.306492,
+      "spl_db": 62.569,
+      "phase_degrees": 0.3687
+    },
+    {
+      "frequency_hz": 43.620308,
+      "spl_db": 62.572,
+      "phase_degrees": 0.1371
+    },
+    {
+      "frequency_hz": 43.936401,
+      "spl_db": 62.573,
+      "phase_degrees": -0.1592
+    },
+    {
+      "frequency_hz": 44.25478,
+      "spl_db": 62.568,
+      "phase_degrees": -0.5031
+    },
+    {
+      "frequency_hz": 44.57547,
+      "spl_db": 62.554,
+      "phase_degrees": -0.8615
+    },
+    {
+      "frequency_hz": 44.898483,
+      "spl_db": 62.531,
+      "phase_degrees": -1.2012
+    },
+    {
+      "frequency_hz": 45.223835,
+      "spl_db": 62.502,
+      "phase_degrees": -1.5003
+    },
+    {
+      "frequency_hz": 45.551544,
+      "spl_db": 62.472,
+      "phase_degrees": -1.7535
+    },
+    {
+      "frequency_hz": 45.88163,
+      "spl_db": 62.442,
+      "phase_degrees": -1.9692
+    },
+    {
+      "frequency_hz": 46.214108,
+      "spl_db": 62.413,
+      "phase_degrees": -2.1588
+    },
+    {
+      "frequency_hz": 46.548996,
+      "spl_db": 62.385,
+      "phase_degrees": -2.3273
+    },
+    {
+      "frequency_hz": 46.886307,
+      "spl_db": 62.356,
+      "phase_degrees": -2.4695
+    },
+    {
+      "frequency_hz": 47.226067,
+      "spl_db": 62.33,
+      "phase_degrees": -2.5763
+    },
+    {
+      "frequency_hz": 47.568283,
+      "spl_db": 62.307,
+      "phase_degrees": -2.6475
+    },
+    {
+      "frequency_hz": 47.912983,
+      "spl_db": 62.294,
+      "phase_degrees": -2.7004
+    },
+    {
+      "frequency_hz": 48.260181,
+      "spl_db": 62.29,
+      "phase_degrees": -2.7667
+    },
+    {
+      "frequency_hz": 48.609894,
+      "spl_db": 62.293,
+      "phase_degrees": -2.8774
+    },
+    {
+      "frequency_hz": 48.962143,
+      "spl_db": 62.299,
+      "phase_degrees": -3.0471
+    },
+    {
+      "frequency_hz": 49.31694,
+      "spl_db": 62.303,
+      "phase_degrees": -3.2667
+    },
+    {
+      "frequency_hz": 49.674313,
+      "spl_db": 62.302,
+      "phase_degrees": -3.5116
+    },
+    {
+      "frequency_hz": 50.034271,
+      "spl_db": 62.296,
+      "phase_degrees": -3.7579
+    },
+    {
+      "frequency_hz": 50.396843,
+      "spl_db": 62.289,
+      "phase_degrees": -3.9939
+    },
+    {
+      "frequency_hz": 50.762039,
+      "spl_db": 62.281,
+      "phase_degrees": -4.2188
+    },
+    {
+      "frequency_hz": 51.129883,
+      "spl_db": 62.271,
+      "phase_degrees": -4.4312
+    },
+    {
+      "frequency_hz": 51.500389,
+      "spl_db": 62.26,
+      "phase_degrees": -4.6201
+    },
+    {
+      "frequency_hz": 51.873581,
+      "spl_db": 62.248,
+      "phase_degrees": -4.772
+    },
+    {
+      "frequency_hz": 52.249481,
+      "spl_db": 62.24,
+      "phase_degrees": -4.8883
+    },
+    {
+      "frequency_hz": 52.628101,
+      "spl_db": 62.238,
+      "phase_degrees": -4.9977
+    },
+    {
+      "frequency_hz": 53.009464,
+      "spl_db": 62.241,
+      "phase_degrees": -5.1444
+    },
+    {
+      "frequency_hz": 53.393593,
+      "spl_db": 62.242,
+      "phase_degrees": -5.3549
+    },
+    {
+      "frequency_hz": 53.780506,
+      "spl_db": 62.229,
+      "phase_degrees": -5.6084
+    },
+    {
+      "frequency_hz": 54.170223,
+      "spl_db": 62.199,
+      "phase_degrees": -5.8405
+    },
+    {
+      "frequency_hz": 54.562763,
+      "spl_db": 62.155,
+      "phase_degrees": -5.9822
+    },
+    {
+      "frequency_hz": 54.958145,
+      "spl_db": 62.11,
+      "phase_degrees": -6.0094
+    },
+    {
+      "frequency_hz": 55.356396,
+      "spl_db": 62.075,
+      "phase_degrees": -5.9655
+    },
+    {
+      "frequency_hz": 55.75753,
+      "spl_db": 62.053,
+      "phase_degrees": -5.9349
+    },
+    {
+      "frequency_hz": 56.161572,
+      "spl_db": 62.037,
+      "phase_degrees": -5.9882
+    },
+    {
+      "frequency_hz": 56.568542,
+      "spl_db": 62.015,
+      "phase_degrees": -6.1385
+    },
+    {
+      "frequency_hz": 56.978462,
+      "spl_db": 61.98,
+      "phase_degrees": -6.3431
+    },
+    {
+      "frequency_hz": 57.39135,
+      "spl_db": 61.931,
+      "phase_degrees": -6.5375
+    },
+    {
+      "frequency_hz": 57.807232,
+      "spl_db": 61.876,
+      "phase_degrees": -6.6738
+    },
+    {
+      "frequency_hz": 58.226128,
+      "spl_db": 61.824,
+      "phase_degrees": -6.7421
+    },
+    {
+      "frequency_hz": 58.648056,
+      "spl_db": 61.783,
+      "phase_degrees": -6.7704
+    },
+    {
+      "frequency_hz": 59.073048,
+      "spl_db": 61.759,
+      "phase_degrees": -6.8127
+    },
+    {
+      "frequency_hz": 59.501114,
+      "spl_db": 61.749,
+      "phase_degrees": -6.9282
+    },
+    {
+      "frequency_hz": 59.932281,
+      "spl_db": 61.748,
+      "phase_degrees": -7.1544
+    },
+    {
+      "frequency_hz": 60.366577,
+      "spl_db": 61.746,
+      "phase_degrees": -7.4879
+    },
+    {
+      "frequency_hz": 60.80402,
+      "spl_db": 61.736,
+      "phase_degrees": -7.8859
+    },
+    {
+      "frequency_hz": 61.244629,
+      "spl_db": 61.717,
+      "phase_degrees": -8.2921
+    },
+    {
+      "frequency_hz": 61.688435,
+      "spl_db": 61.69,
+      "phase_degrees": -8.6636
+    },
+    {
+      "frequency_hz": 62.135452,
+      "spl_db": 61.659,
+      "phase_degrees": -8.9782
+    },
+    {
+      "frequency_hz": 62.585712,
+      "spl_db": 61.626,
+      "phase_degrees": -9.2217
+    },
+    {
+      "frequency_hz": 63.039234,
+      "spl_db": 61.593,
+      "phase_degrees": -9.3792
+    },
+    {
+      "frequency_hz": 63.49604,
+      "spl_db": 61.563,
+      "phase_degrees": -9.4474
+    },
+    {
+      "frequency_hz": 63.956161,
+      "spl_db": 61.54,
+      "phase_degrees": -9.4489
+    },
+    {
+      "frequency_hz": 64.419617,
+      "spl_db": 61.525,
+      "phase_degrees": -9.4216
+    },
+    {
+      "frequency_hz": 64.886421,
+      "spl_db": 61.513,
+      "phase_degrees": -9.3889
+    },
+    {
+      "frequency_hz": 65.356621,
+      "spl_db": 61.501,
+      "phase_degrees": -9.3478
+    },
+    {
+      "frequency_hz": 65.830215,
+      "spl_db": 61.491,
+      "phase_degrees": -9.3
+    },
+    {
+      "frequency_hz": 66.307251,
+      "spl_db": 61.487,
+      "phase_degrees": -9.2827
+    },
+    {
+      "frequency_hz": 66.787743,
+      "spl_db": 61.484,
+      "phase_degrees": -9.35
+    },
+    {
+      "frequency_hz": 67.271713,
+      "spl_db": 61.473,
+      "phase_degrees": -9.5187
+    },
+    {
+      "frequency_hz": 67.759193,
+      "spl_db": 61.448,
+      "phase_degrees": -9.7493
+    },
+    {
+      "frequency_hz": 68.250206,
+      "spl_db": 61.411,
+      "phase_degrees": -9.9937
+    },
+    {
+      "frequency_hz": 68.744774,
+      "spl_db": 61.368,
+      "phase_degrees": -10.2477
+    },
+    {
+      "frequency_hz": 69.242928,
+      "spl_db": 61.319,
+      "phase_degrees": -10.5329
+    },
+    {
+      "frequency_hz": 69.74469,
+      "spl_db": 61.26,
+      "phase_degrees": -10.8281
+    },
+    {
+      "frequency_hz": 70.250084,
+      "spl_db": 61.188,
+      "phase_degrees": -11.0513
+    },
+    {
+      "frequency_hz": 70.759148,
+      "spl_db": 61.118,
+      "phase_degrees": -11.1326
+    },
+    {
+      "frequency_hz": 71.271896,
+      "spl_db": 61.066,
+      "phase_degrees": -11.0927
+    },
+    {
+      "frequency_hz": 71.788361,
+      "spl_db": 61.038,
+      "phase_degrees": -11.0161
+    },
+    {
+      "frequency_hz": 72.308571,
+      "spl_db": 61.028,
+      "phase_degrees": -10.9578
+    },
+    {
+      "frequency_hz": 72.83255,
+      "spl_db": 61.032,
+      "phase_degrees": -10.9181
+    },
+    {
+      "frequency_hz": 73.360321,
+      "spl_db": 61.05,
+      "phase_degrees": -10.9125
+    },
+    {
+      "frequency_hz": 73.891922,
+      "spl_db": 61.08,
+      "phase_degrees": -11.004
+    },
+    {
+      "frequency_hz": 74.427376,
+      "spl_db": 61.106,
+      "phase_degrees": -11.2302
+    },
+    {
+      "frequency_hz": 74.966705,
+      "spl_db": 61.114,
+      "phase_degrees": -11.537
+    },
+    {
+      "frequency_hz": 75.509949,
+      "spl_db": 61.103,
+      "phase_degrees": -11.8362
+    },
+    {
+      "frequency_hz": 76.057121,
+      "spl_db": 61.081,
+      "phase_degrees": -12.1117
+    },
+    {
+      "frequency_hz": 76.608261,
+      "spl_db": 61.047,
+      "phase_degrees": -12.4059
+    },
+    {
+      "frequency_hz": 77.163399,
+      "spl_db": 60.993,
+      "phase_degrees": -12.7026
+    },
+    {
+      "frequency_hz": 77.722557,
+      "spl_db": 60.916,
+      "phase_degrees": -12.8987
+    },
+    {
+      "frequency_hz": 78.285767,
+      "spl_db": 60.836,
+      "phase_degrees": -12.9307
+    },
+    {
+      "frequency_hz": 78.853058,
+      "spl_db": 60.769,
+      "phase_degrees": -12.8655
+    },
+    {
+      "frequency_hz": 79.424461,
+      "spl_db": 60.715,
+      "phase_degrees": -12.7997
+    },
+    {
+      "frequency_hz": 80.0,
+      "spl_db": 60.666,
+      "phase_degrees": -12.7275
+    },
+    {
+      "frequency_hz": 80.579712,
+      "spl_db": 60.628,
+      "phase_degrees": -12.5938
+    },
+    {
+      "frequency_hz": 81.163628,
+      "spl_db": 60.614,
+      "phase_degrees": -12.4426
+    },
+    {
+      "frequency_hz": 81.75177,
+      "spl_db": 60.621,
+      "phase_degrees": -12.3992
+    },
+    {
+      "frequency_hz": 82.344177,
+      "spl_db": 60.629,
+      "phase_degrees": -12.4935
+    },
+    {
+      "frequency_hz": 82.94088,
+      "spl_db": 60.629,
+      "phase_degrees": -12.6276
+    },
+    {
+      "frequency_hz": 83.541901,
+      "spl_db": 60.629,
+      "phase_degrees": -12.7487
+    },
+    {
+      "frequency_hz": 84.147285,
+      "spl_db": 60.634,
+      "phase_degrees": -12.9331
+    },
+    {
+      "frequency_hz": 84.75705,
+      "spl_db": 60.629,
+      "phase_degrees": -13.241
+    },
+    {
+      "frequency_hz": 85.371231,
+      "spl_db": 60.597,
+      "phase_degrees": -13.5895
+    },
+    {
+      "frequency_hz": 85.989868,
+      "spl_db": 60.546,
+      "phase_degrees": -13.8608
+    },
+    {
+      "frequency_hz": 86.612984,
+      "spl_db": 60.491,
+      "phase_degrees": -14.0656
+    },
+    {
+      "frequency_hz": 87.240616,
+      "spl_db": 60.433,
+      "phase_degrees": -14.2852
+    },
+    {
+      "frequency_hz": 87.872803,
+      "spl_db": 60.361,
+      "phase_degrees": -14.5079
+    },
+    {
+      "frequency_hz": 88.50956,
+      "spl_db": 60.278,
+      "phase_degrees": -14.6388
+    },
+    {
+      "frequency_hz": 89.15094,
+      "spl_db": 60.201,
+      "phase_degrees": -14.6636
+    },
+    {
+      "frequency_hz": 89.796967,
+      "spl_db": 60.135,
+      "phase_degrees": -14.6702
+    },
+    {
+      "frequency_hz": 90.44767,
+      "spl_db": 60.073,
+      "phase_degrees": -14.697
+    },
+    {
+      "frequency_hz": 91.103088,
+      "spl_db": 60.009,
+      "phase_degrees": -14.672
+    },
+    {
+      "frequency_hz": 91.76326,
+      "spl_db": 59.954,
+      "phase_degrees": -14.5526
+    },
+    {
+      "frequency_hz": 92.428215,
+      "spl_db": 59.914,
+      "phase_degrees": -14.4153
+    },
+    {
+      "frequency_hz": 93.097992,
+      "spl_db": 59.882,
+      "phase_degrees": -14.3354
+    },
+    {
+      "frequency_hz": 93.772614,
+      "spl_db": 59.845,
+      "phase_degrees": -14.2683
+    },
+    {
+      "frequency_hz": 94.452133,
+      "spl_db": 59.808,
+      "phase_degrees": -14.1422
+    },
+    {
+      "frequency_hz": 95.136566,
+      "spl_db": 59.782,
+      "phase_degrees": -14.0051
+    },
+    {
+      "frequency_hz": 95.825966,
+      "spl_db": 59.761,
+      "phase_degrees": -13.9531
+    },
+    {
+      "frequency_hz": 96.520363,
+      "spl_db": 59.732,
+      "phase_degrees": -13.9625
+    },
+    {
+      "frequency_hz": 97.219788,
+      "spl_db": 59.697,
+      "phase_degrees": -13.9398
+    },
+    {
+      "frequency_hz": 97.924286,
+      "spl_db": 59.672,
+      "phase_degrees": -13.9137
+    },
+    {
+      "frequency_hz": 98.633881,
+      "spl_db": 59.651,
+      "phase_degrees": -14.0081
+    },
+    {
+      "frequency_hz": 99.348625,
+      "spl_db": 59.615,
+      "phase_degrees": -14.215
+    },
+    {
+      "frequency_hz": 100.068542,
+      "spl_db": 59.56,
+      "phase_degrees": -14.3873
+    },
+    {
+      "frequency_hz": 100.793686,
+      "spl_db": 59.502,
+      "phase_degrees": -14.489
+    },
+    {
+      "frequency_hz": 101.524078,
+      "spl_db": 59.442,
+      "phase_degrees": -14.6312
+    },
+    {
+      "frequency_hz": 102.259766,
+      "spl_db": 59.363,
+      "phase_degrees": -14.8119
+    },
+    {
+      "frequency_hz": 103.000778,
+      "spl_db": 59.261,
+      "phase_degrees": -14.8748
+    },
+    {
+      "frequency_hz": 103.747162,
+      "spl_db": 59.158,
+      "phase_degrees": -14.7947
+    },
+    {
+      "frequency_hz": 104.498962,
+      "spl_db": 59.058,
+      "phase_degrees": -14.7167
+    },
+    {
+      "frequency_hz": 105.256203,
+      "spl_db": 58.94,
+      "phase_degrees": -14.6365
+    },
+    {
+      "frequency_hz": 106.018929,
+      "spl_db": 58.807,
+      "phase_degrees": -14.3634
+    },
+    {
+      "frequency_hz": 106.787186,
+      "spl_db": 58.684,
+      "phase_degrees": -13.8765
+    },
+    {
+      "frequency_hz": 107.561012,
+      "spl_db": 58.577,
+      "phase_degrees": -13.3604
+    },
+    {
+      "frequency_hz": 108.340446,
+      "spl_db": 58.467,
+      "phase_degrees": -12.8103
+    },
+    {
+      "frequency_hz": 109.125526,
+      "spl_db": 58.356,
+      "phase_degrees": -12.025
+    },
+    {
+      "frequency_hz": 109.91629,
+      "spl_db": 58.273,
+      "phase_degrees": -11.038
+    },
+    {
+      "frequency_hz": 110.712791,
+      "spl_db": 58.213,
+      "phase_degrees": -10.0549
+    },
+    {
+      "frequency_hz": 111.51506,
+      "spl_db": 58.158,
+      "phase_degrees": -8.9891
+    },
+    {
+      "frequency_hz": 112.323143,
+      "spl_db": 58.126,
+      "phase_degrees": -7.6539
+    },
+    {
+      "frequency_hz": 113.137085,
+      "spl_db": 58.147,
+      "phase_degrees": -6.2593
+    },
+    {
+      "frequency_hz": 113.956924,
+      "spl_db": 58.201,
+      "phase_degrees": -5.0663
+    },
+    {
+      "frequency_hz": 114.7827,
+      "spl_db": 58.267,
+      "phase_degrees": -3.9178
+    },
+    {
+      "frequency_hz": 115.614464,
+      "spl_db": 58.368,
+      "phase_degrees": -2.7198
+    },
+    {
+      "frequency_hz": 116.452255,
+      "spl_db": 58.511,
+      "phase_degrees": -1.7668
+    },
+    {
+      "frequency_hz": 117.296112,
+      "spl_db": 58.659,
+      "phase_degrees": -1.1338
+    },
+    {
+      "frequency_hz": 118.146095,
+      "spl_db": 58.806,
+      "phase_degrees": -0.5585
+    },
+    {
+      "frequency_hz": 119.002228,
+      "spl_db": 58.978,
+      "phase_degrees": -0.0897
+    },
+    {
+      "frequency_hz": 119.864563,
+      "spl_db": 59.156,
+      "phase_degrees": 0.0188
+    },
+    {
+      "frequency_hz": 120.733154,
+      "spl_db": 59.307,
+      "phase_degrees": -0.0897
+    },
+    {
+      "frequency_hz": 121.60804,
+      "spl_db": 59.448,
+      "phase_degrees": -0.1895
+    },
+    {
+      "frequency_hz": 122.489258,
+      "spl_db": 59.593,
+      "phase_degrees": -0.4365
+    },
+    {
+      "frequency_hz": 123.376869,
+      "spl_db": 59.717,
+      "phase_degrees": -0.9294
+    },
+    {
+      "frequency_hz": 124.270905,
+      "spl_db": 59.81,
+      "phase_degrees": -1.4419
+    },
+    {
+      "frequency_hz": 125.171425,
+      "spl_db": 59.896,
+      "phase_degrees": -1.9038
+    },
+    {
+      "frequency_hz": 126.078468,
+      "spl_db": 59.975,
+      "phase_degrees": -2.4828
+    },
+    {
+      "frequency_hz": 126.992081,
+      "spl_db": 60.029,
+      "phase_degrees": -3.1387
+    },
+    {
+      "frequency_hz": 127.912323,
+      "spl_db": 60.065,
+      "phase_degrees": -3.7002
+    },
+    {
+      "frequency_hz": 128.839233,
+      "spl_db": 60.1,
+      "phase_degrees": -4.2343
+    },
+    {
+      "frequency_hz": 129.772842,
+      "spl_db": 60.124,
+      "phase_degrees": -4.85
+    },
+    {
+      "frequency_hz": 130.713242,
+      "spl_db": 60.127,
+      "phase_degrees": -5.4307
+    },
+    {
+      "frequency_hz": 131.660431,
+      "spl_db": 60.125,
+      "phase_degrees": -5.9045
+    },
+    {
+      "frequency_hz": 132.614502,
+      "spl_db": 60.122,
+      "phase_degrees": -6.383
+    },
+    {
+      "frequency_hz": 133.575485,
+      "spl_db": 60.107,
+      "phase_degrees": -6.8715
+    },
+    {
+      "frequency_hz": 134.543427,
+      "spl_db": 60.084,
+      "phase_degrees": -7.2651
+    },
+    {
+      "frequency_hz": 135.518387,
+      "spl_db": 60.063,
+      "phase_degrees": -7.5975
+    },
+    {
+      "frequency_hz": 136.500412,
+      "spl_db": 60.041,
+      "phase_degrees": -7.9434
+    },
+    {
+      "frequency_hz": 137.489548,
+      "spl_db": 60.012,
+      "phase_degrees": -8.254
+    },
+    {
+      "frequency_hz": 138.485855,
+      "spl_db": 59.985,
+      "phase_degrees": -8.5039
+    },
+    {
+      "frequency_hz": 139.48938,
+      "spl_db": 59.961,
+      "phase_degrees": -8.7592
+    },
+    {
+      "frequency_hz": 140.500168,
+      "spl_db": 59.935,
+      "phase_degrees": -9.0272
+    },
+    {
+      "frequency_hz": 141.518295,
+      "spl_db": 59.906,
+      "phase_degrees": -9.2598
+    },
+    {
+      "frequency_hz": 142.543793,
+      "spl_db": 59.88,
+      "phase_degrees": -9.4695
+    },
+    {
+      "frequency_hz": 143.576721,
+      "spl_db": 59.853,
+      "phase_degrees": -9.6847
+    },
+    {
+      "frequency_hz": 144.617142,
+      "spl_db": 59.824,
+      "phase_degrees": -9.8847
+    },
+    {
+      "frequency_hz": 145.6651,
+      "spl_db": 59.794,
+      "phase_degrees": -10.0594
+    },
+    {
+      "frequency_hz": 146.720642,
+      "spl_db": 59.764,
+      "phase_degrees": -10.2316
+    },
+    {
+      "frequency_hz": 147.783844,
+      "spl_db": 59.731,
+      "phase_degrees": -10.4058
+    },
+    {
+      "frequency_hz": 148.854752,
+      "spl_db": 59.696,
+      "phase_degrees": -10.5703
+    },
+    {
+      "frequency_hz": 149.933411,
+      "spl_db": 59.66,
+      "phase_degrees": -10.7264
+    },
+    {
+      "frequency_hz": 151.019897,
+      "spl_db": 59.622,
+      "phase_degrees": -10.876
+    },
+    {
+      "frequency_hz": 152.114243,
+      "spl_db": 59.583,
+      "phase_degrees": -11.011
+    },
+    {
+      "frequency_hz": 153.216522,
+      "spl_db": 59.544,
+      "phase_degrees": -11.1306
+    },
+    {
+      "frequency_hz": 154.326797,
+      "spl_db": 59.505,
+      "phase_degrees": -11.2409
+    },
+    {
+      "frequency_hz": 155.445114,
+      "spl_db": 59.465,
+      "phase_degrees": -11.3453
+    },
+    {
+      "frequency_hz": 156.571533,
+      "spl_db": 59.424,
+      "phase_degrees": -11.4425
+    },
+    {
+      "frequency_hz": 157.706116,
+      "spl_db": 59.383,
+      "phase_degrees": -11.5331
+    },
+    {
+      "frequency_hz": 158.848923,
+      "spl_db": 59.342,
+      "phase_degrees": -11.6202
+    },
+    {
+      "frequency_hz": 160.0,
+      "spl_db": 59.302,
+      "phase_degrees": -11.7025
+    },
+    {
+      "frequency_hz": 161.159424,
+      "spl_db": 59.262,
+      "phase_degrees": -11.7745
+    },
+    {
+      "frequency_hz": 162.327255,
+      "spl_db": 59.223,
+      "phase_degrees": -11.829
+    },
+    {
+      "frequency_hz": 163.50354,
+      "spl_db": 59.184,
+      "phase_degrees": -11.8632
+    },
+    {
+      "frequency_hz": 164.688354,
+      "spl_db": 59.146,
+      "phase_degrees": -11.8891
+    },
+    {
+      "frequency_hz": 165.88176,
+      "spl_db": 59.108,
+      "phase_degrees": -11.9221
+    },
+    {
+      "frequency_hz": 167.083801,
+      "spl_db": 59.068,
+      "phase_degrees": -11.9626
+    },
+    {
+      "frequency_hz": 168.294571,
+      "spl_db": 59.026,
+      "phase_degrees": -11.9996
+    },
+    {
+      "frequency_hz": 169.514099,
+      "spl_db": 58.984,
+      "phase_degrees": -12.0267
+    },
+    {
+      "frequency_hz": 170.742462,
+      "spl_db": 58.943,
+      "phase_degrees": -12.0435
+    },
+    {
+      "frequency_hz": 171.979736,
+      "spl_db": 58.905,
+      "phase_degrees": -12.0497
+    },
+    {
+      "frequency_hz": 173.225967,
+      "spl_db": 58.868,
+      "phase_degrees": -12.0455
+    },
+    {
+      "frequency_hz": 174.481232,
+      "spl_db": 58.833,
+      "phase_degrees": -12.0314
+    },
+    {
+      "frequency_hz": 175.745605,
+      "spl_db": 58.797,
+      "phase_degrees": -12.0034
+    },
+    {
+      "frequency_hz": 177.019119,
+      "spl_db": 58.76,
+      "phase_degrees": -11.959
+    },
+    {
+      "frequency_hz": 178.30188,
+      "spl_db": 58.722,
+      "phase_degrees": -11.9025
+    },
+    {
+      "frequency_hz": 179.593933,
+      "spl_db": 58.683,
+      "phase_degrees": -11.8419
+    },
+    {
+      "frequency_hz": 180.89534,
+      "spl_db": 58.643,
+      "phase_degrees": -11.7787
+    },
+    {
+      "frequency_hz": 182.206177,
+      "spl_db": 58.602,
+      "phase_degrees": -11.7153
+    },
+    {
+      "frequency_hz": 183.52652,
+      "spl_db": 58.563,
+      "phase_degrees": -11.6567
+    },
+    {
+      "frequency_hz": 184.85643,
+      "spl_db": 58.524,
+      "phase_degrees": -11.6016
+    },
+    {
+      "frequency_hz": 186.195984,
+      "spl_db": 58.488,
+      "phase_degrees": -11.5438
+    },
+    {
+      "frequency_hz": 187.545227,
+      "spl_db": 58.454,
+      "phase_degrees": -11.4796
+    },
+    {
+      "frequency_hz": 188.904266,
+      "spl_db": 58.42,
+      "phase_degrees": -11.4008
+    },
+    {
+      "frequency_hz": 190.273132,
+      "spl_db": 58.387,
+      "phase_degrees": -11.2961
+    },
+    {
+      "frequency_hz": 191.651932,
+      "spl_db": 58.353,
+      "phase_degrees": -11.1637
+    },
+    {
+      "frequency_hz": 193.040726,
+      "spl_db": 58.317,
+      "phase_degrees": -11.0162
+    },
+    {
+      "frequency_hz": 194.439575,
+      "spl_db": 58.279,
+      "phase_degrees": -10.8658
+    },
+    {
+      "frequency_hz": 195.848572,
+      "spl_db": 58.24,
+      "phase_degrees": -10.7176
+    },
+    {
+      "frequency_hz": 197.267761,
+      "spl_db": 58.203,
+      "phase_degrees": -10.5763
+    },
+    {
+      "frequency_hz": 198.69725,
+      "spl_db": 58.169,
+      "phase_degrees": -10.4387
+    },
+    {
+      "frequency_hz": 200.137085,
+      "spl_db": 58.139,
+      "phase_degrees": -10.2868
+    },
+    {
+      "frequency_hz": 201.587372,
+      "spl_db": 58.113,
+      "phase_degrees": -10.1044
+    },
+    {
+      "frequency_hz": 203.048157,
+      "spl_db": 58.089,
+      "phase_degrees": -9.889
+    },
+    {
+      "frequency_hz": 204.519531,
+      "spl_db": 58.065,
+      "phase_degrees": -9.6487
+    },
+    {
+      "frequency_hz": 206.001556,
+      "spl_db": 58.041,
+      "phase_degrees": -9.3986
+    },
+    {
+      "frequency_hz": 207.494324,
+      "spl_db": 58.02,
+      "phase_degrees": -9.1613
+    },
+    {
+      "frequency_hz": 208.997925,
+      "spl_db": 58.005,
+      "phase_degrees": -8.9539
+    },
+    {
+      "frequency_hz": 210.512405,
+      "spl_db": 57.997,
+      "phase_degrees": -8.7701
+    },
+    {
+      "frequency_hz": 212.037857,
+      "spl_db": 57.996,
+      "phase_degrees": -8.5917
+    },
+    {
+      "frequency_hz": 213.574371,
+      "spl_db": 57.997,
+      "phase_degrees": -8.4159
+    },
+    {
+      "frequency_hz": 215.122025,
+      "spl_db": 57.998,
+      "phase_degrees": -8.2552
+    },
+    {
+      "frequency_hz": 216.680893,
+      "spl_db": 57.995,
+      "phase_degrees": -8.129
+    },
+    {
+      "frequency_hz": 218.251053,
+      "spl_db": 57.99,
+      "phase_degrees": -8.0546
+    },
+    {
+      "frequency_hz": 219.832581,
+      "spl_db": 57.985,
+      "phase_degrees": -8.0281
+    },
+    {
+      "frequency_hz": 221.425583,
+      "spl_db": 57.979,
+      "phase_degrees": -8.0249
+    },
+    {
+      "frequency_hz": 223.030121,
+      "spl_db": 57.974,
+      "phase_degrees": -8.0219
+    },
+    {
+      "frequency_hz": 224.646286,
+      "spl_db": 57.967,
+      "phase_degrees": -8.0104
+    },
+    {
+      "frequency_hz": 226.27417,
+      "spl_db": 57.955,
+      "phase_degrees": -7.99
+    },
+    {
+      "frequency_hz": 227.913849,
+      "spl_db": 57.939,
+      "phase_degrees": -7.9645
+    },
+    {
+      "frequency_hz": 229.565399,
+      "spl_db": 57.92,
+      "phase_degrees": -7.945
+    },
+    {
+      "frequency_hz": 231.228928,
+      "spl_db": 57.901,
+      "phase_degrees": -7.9337
+    },
+    {
+      "frequency_hz": 232.90451,
+      "spl_db": 57.88,
+      "phase_degrees": -7.9199
+    },
+    {
+      "frequency_hz": 234.592224,
+      "spl_db": 57.859,
+      "phase_degrees": -7.9025
+    },
+    {
+      "frequency_hz": 236.292191,
+      "spl_db": 57.836,
+      "phase_degrees": -7.8904
+    },
+    {
+      "frequency_hz": 238.004456,
+      "spl_db": 57.812,
+      "phase_degrees": -7.8804
+    },
+    {
+      "frequency_hz": 239.729126,
+      "spl_db": 57.787,
+      "phase_degrees": -7.8556
+    },
+    {
+      "frequency_hz": 241.466309,
+      "spl_db": 57.762,
+      "phase_degrees": -7.8103
+    },
+    {
+      "frequency_hz": 243.21608,
+      "spl_db": 57.736,
+      "phase_degrees": -7.7527
+    },
+    {
+      "frequency_hz": 244.978516,
+      "spl_db": 57.709,
+      "phase_degrees": -7.6878
+    },
+    {
+      "frequency_hz": 246.753738,
+      "spl_db": 57.68,
+      "phase_degrees": -7.6164
+    },
+    {
+      "frequency_hz": 248.541809,
+      "spl_db": 57.652,
+      "phase_degrees": -7.542
+    },
+    {
+      "frequency_hz": 250.34285,
+      "spl_db": 57.624,
+      "phase_degrees": -7.4673
+    },
+    {
+      "frequency_hz": 252.156937,
+      "spl_db": 57.596,
+      "phase_degrees": -7.3876
+    },
+    {
+      "frequency_hz": 253.984161,
+      "spl_db": 57.569,
+      "phase_degrees": -7.3005
+    },
+    {
+      "frequency_hz": 255.824646,
+      "spl_db": 57.542,
+      "phase_degrees": -7.2086
+    },
+    {
+      "frequency_hz": 257.678467,
+      "spl_db": 57.515,
+      "phase_degrees": -7.1123
+    },
+    {
+      "frequency_hz": 259.545685,
+      "spl_db": 57.486,
+      "phase_degrees": -7.0104
+    },
+    {
+      "frequency_hz": 261.426483,
+      "spl_db": 57.457,
+      "phase_degrees": -6.9041
+    },
+    {
+      "frequency_hz": 263.320862,
+      "spl_db": 57.428,
+      "phase_degrees": -6.7975
+    },
+    {
+      "frequency_hz": 265.229004,
+      "spl_db": 57.399,
+      "phase_degrees": -6.6882
+    },
+    {
+      "frequency_hz": 267.15097,
+      "spl_db": 57.37,
+      "phase_degrees": -6.5692
+    },
+    {
+      "frequency_hz": 269.086853,
+      "spl_db": 57.342,
+      "phase_degrees": -6.4418
+    },
+    {
+      "frequency_hz": 271.036774,
+      "spl_db": 57.314,
+      "phase_degrees": -6.3132
+    },
+    {
+      "frequency_hz": 273.000824,
+      "spl_db": 57.286,
+      "phase_degrees": -6.1838
+    },
+    {
+      "frequency_hz": 274.979095,
+      "spl_db": 57.257,
+      "phase_degrees": -6.0464
+    },
+    {
+      "frequency_hz": 276.97171,
+      "spl_db": 57.228,
+      "phase_degrees": -5.8998
+    },
+    {
+      "frequency_hz": 278.97876,
+      "spl_db": 57.2,
+      "phase_degrees": -5.7469
+    },
+    {
+      "frequency_hz": 281.000336,
+      "spl_db": 57.172,
+      "phase_degrees": -5.593
+    },
+    {
+      "frequency_hz": 283.036591,
+      "spl_db": 57.144,
+      "phase_degrees": -5.4438
+    },
+    {
+      "frequency_hz": 285.087585,
+      "spl_db": 57.117,
+      "phase_degrees": -5.297
+    },
+    {
+      "frequency_hz": 287.153442,
+      "spl_db": 57.09,
+      "phase_degrees": -5.1465
+    },
+    {
+      "frequency_hz": 289.234283,
+      "spl_db": 57.063,
+      "phase_degrees": -4.9874
+    },
+    {
+      "frequency_hz": 291.3302,
+      "spl_db": 57.036,
+      "phase_degrees": -4.8164
+    },
+    {
+      "frequency_hz": 293.441284,
+      "spl_db": 57.009,
+      "phase_degrees": -4.639
+    },
+    {
+      "frequency_hz": 295.567688,
+      "spl_db": 56.981,
+      "phase_degrees": -4.4617
+    },
+    {
+      "frequency_hz": 297.709503,
+      "spl_db": 56.954,
+      "phase_degrees": -4.2814
+    },
+    {
+      "frequency_hz": 299.866821,
+      "spl_db": 56.928,
+      "phase_degrees": -4.0955
+    },
+    {
+      "frequency_hz": 302.039795,
+      "spl_db": 56.903,
+      "phase_degrees": -3.9105
+    },
+    {
+      "frequency_hz": 304.228485,
+      "spl_db": 56.88,
+      "phase_degrees": -3.7298
+    },
+    {
+      "frequency_hz": 306.433044,
+      "spl_db": 56.856,
+      "phase_degrees": -3.5471
+    },
+    {
+      "frequency_hz": 308.653595,
+      "spl_db": 56.833,
+      "phase_degrees": -3.359
+    },
+    {
+      "frequency_hz": 310.890228,
+      "spl_db": 56.809,
+      "phase_degrees": -3.1711
+    },
+    {
+      "frequency_hz": 313.143066,
+      "spl_db": 56.785,
+      "phase_degrees": -2.9875
+    },
+    {
+      "frequency_hz": 315.412231,
+      "spl_db": 56.76,
+      "phase_degrees": -2.8029
+    },
+    {
+      "frequency_hz": 317.697845,
+      "spl_db": 56.735,
+      "phase_degrees": -2.6144
+    },
+    {
+      "frequency_hz": 320.0,
+      "spl_db": 56.71,
+      "phase_degrees": -2.4292
+    },
+    {
+      "frequency_hz": 322.318848,
+      "spl_db": 56.685,
+      "phase_degrees": -2.2485
+    },
+    {
+      "frequency_hz": 324.65451,
+      "spl_db": 56.657,
+      "phase_degrees": -2.0601
+    },
+    {
+      "frequency_hz": 327.00708,
+      "spl_db": 56.63,
+      "phase_degrees": -1.8564
+    },
+    {
+      "frequency_hz": 329.376709,
+      "spl_db": 56.605,
+      "phase_degrees": -1.6479
+    },
+    {
+      "frequency_hz": 331.763519,
+      "spl_db": 56.581,
+      "phase_degrees": -1.4479
+    },
+    {
+      "frequency_hz": 334.167603,
+      "spl_db": 56.557,
+      "phase_degrees": -1.2505
+    },
+    {
+      "frequency_hz": 336.589142,
+      "spl_db": 56.532,
+      "phase_degrees": -1.0438
+    },
+    {
+      "frequency_hz": 339.028198,
+      "spl_db": 56.507,
+      "phase_degrees": -0.8311
+    },
+    {
+      "frequency_hz": 341.484924,
+      "spl_db": 56.481,
+      "phase_degrees": -0.623
+    },
+    {
+      "frequency_hz": 343.959473,
+      "spl_db": 56.455,
+      "phase_degrees": -0.4175
+    },
+    {
+      "frequency_hz": 346.451935,
+      "spl_db": 56.428,
+      "phase_degrees": -0.2039
+    },
+    {
+      "frequency_hz": 348.962463,
+      "spl_db": 56.401,
+      "phase_degrees": 0.0204
+    },
+    {
+      "frequency_hz": 351.491211,
+      "spl_db": 56.374,
+      "phase_degrees": 0.249
+    },
+    {
+      "frequency_hz": 354.038239,
+      "spl_db": 56.347,
+      "phase_degrees": 0.4775
+    },
+    {
+      "frequency_hz": 356.60376,
+      "spl_db": 56.318,
+      "phase_degrees": 0.7086
+    },
+    {
+      "frequency_hz": 359.187866,
+      "spl_db": 56.29,
+      "phase_degrees": 0.944
+    },
+    {
+      "frequency_hz": 361.79068,
+      "spl_db": 56.261,
+      "phase_degrees": 1.1808
+    },
+    {
+      "frequency_hz": 364.412354,
+      "spl_db": 56.233,
+      "phase_degrees": 1.4166
+    },
+    {
+      "frequency_hz": 367.05304,
+      "spl_db": 56.203,
+      "phase_degrees": 1.6544
+    },
+    {
+      "frequency_hz": 369.71286,
+      "spl_db": 56.173,
+      "phase_degrees": 1.9012
+    },
+    {
+      "frequency_hz": 372.391968,
+      "spl_db": 56.143,
+      "phase_degrees": 2.1613
+    },
+    {
+      "frequency_hz": 375.090454,
+      "spl_db": 56.111,
+      "phase_degrees": 2.4387
+    },
+    {
+      "frequency_hz": 377.808533,
+      "spl_db": 56.081,
+      "phase_degrees": 2.7307
+    },
+    {
+      "frequency_hz": 380.546265,
+      "spl_db": 56.05,
+      "phase_degrees": 3.0261
+    },
+    {
+      "frequency_hz": 383.303864,
+      "spl_db": 56.02,
+      "phase_degrees": 3.3226
+    },
+    {
+      "frequency_hz": 386.081451,
+      "spl_db": 55.989,
+      "phase_degrees": 3.6245
+    },
+    {
+      "frequency_hz": 388.87915,
+      "spl_db": 55.957,
+      "phase_degrees": 3.9333
+    },
+    {
+      "frequency_hz": 391.697144,
+      "spl_db": 55.924,
+      "phase_degrees": 4.2494
+    },
+    {
+      "frequency_hz": 394.535522,
+      "spl_db": 55.891,
+      "phase_degrees": 4.5746
+    },
+    {
+      "frequency_hz": 397.394501,
+      "spl_db": 55.858,
+      "phase_degrees": 4.9114
+    },
+    {
+      "frequency_hz": 400.27417,
+      "spl_db": 55.824,
+      "phase_degrees": 5.2619
+    },
+    {
+      "frequency_hz": 403.174744,
+      "spl_db": 55.789,
+      "phase_degrees": 5.6245
+    },
+    {
+      "frequency_hz": 406.096313,
+      "spl_db": 55.755,
+      "phase_degrees": 6.0007
+    },
+    {
+      "frequency_hz": 409.039062,
+      "spl_db": 55.722,
+      "phase_degrees": 6.3959
+    },
+    {
+      "frequency_hz": 412.003113,
+      "spl_db": 55.689,
+      "phase_degrees": 6.8102
+    },
+    {
+      "frequency_hz": 414.988647,
+      "spl_db": 55.657,
+      "phase_degrees": 7.2414
+    },
+    {
+      "frequency_hz": 417.99585,
+      "spl_db": 55.624,
+      "phase_degrees": 7.6961
+    },
+    {
+      "frequency_hz": 421.024811,
+      "spl_db": 55.589,
+      "phase_degrees": 8.1807
+    },
+    {
+      "frequency_hz": 424.075714,
+      "spl_db": 55.553,
+      "phase_degrees": 8.6899
+    },
+    {
+      "frequency_hz": 427.148743,
+      "spl_db": 55.517,
+      "phase_degrees": 9.2164
+    },
+    {
+      "frequency_hz": 430.244049,
+      "spl_db": 55.484,
+      "phase_degrees": 9.7623
+    },
+    {
+      "frequency_hz": 433.361786,
+      "spl_db": 55.455,
+      "phase_degrees": 10.3368
+    },
+    {
+      "frequency_hz": 436.502106,
+      "spl_db": 55.429,
+      "phase_degrees": 10.9445
+    },
+    {
+      "frequency_hz": 439.665161,
+      "spl_db": 55.408,
+      "phase_degrees": 11.5848
+    },
+    {
+      "frequency_hz": 442.851166,
+      "spl_db": 55.39,
+      "phase_degrees": 12.2544
+    },
+    {
+      "frequency_hz": 446.060242,
+      "spl_db": 55.376,
+      "phase_degrees": 12.9479
+    },
+    {
+      "frequency_hz": 449.292572,
+      "spl_db": 55.368,
+      "phase_degrees": 13.6604
+    },
+    {
+      "frequency_hz": 452.54834,
+      "spl_db": 55.367,
+      "phase_degrees": 14.3869
+    },
+    {
+      "frequency_hz": 455.827698,
+      "spl_db": 55.373,
+      "phase_degrees": 15.123
+    },
+    {
+      "frequency_hz": 459.130798,
+      "spl_db": 55.386,
+      "phase_degrees": 15.8683
+    },
+    {
+      "frequency_hz": 462.457855,
+      "spl_db": 55.406,
+      "phase_degrees": 16.6174
+    },
+    {
+      "frequency_hz": 465.809021,
+      "spl_db": 55.434,
+      "phase_degrees": 17.3631
+    },
+    {
+      "frequency_hz": 469.184448,
+      "spl_db": 55.469,
+      "phase_degrees": 18.1073
+    },
+    {
+      "frequency_hz": 472.584381,
+      "spl_db": 55.512,
+      "phase_degrees": 18.8503
+    },
+    {
+      "frequency_hz": 476.008911,
+      "spl_db": 55.562,
+      "phase_degrees": 19.5751
+    },
+    {
+      "frequency_hz": 479.458252,
+      "spl_db": 55.619,
+      "phase_degrees": 20.2595
+    },
+    {
+      "frequency_hz": 482.932617,
+      "spl_db": 55.682,
+      "phase_degrees": 20.8947
+    },
+    {
+      "frequency_hz": 486.432159,
+      "spl_db": 55.751,
+      "phase_degrees": 21.4786
+    },
+    {
+      "frequency_hz": 489.957031,
+      "spl_db": 55.823,
+      "phase_degrees": 22.0082
+    },
+    {
+      "frequency_hz": 493.507477,
+      "spl_db": 55.896,
+      "phase_degrees": 22.4797
+    },
+    {
+      "frequency_hz": 497.083618,
+      "spl_db": 55.97,
+      "phase_degrees": 22.8938
+    },
+    {
+      "frequency_hz": 500.685699,
+      "spl_db": 56.044,
+      "phase_degrees": 23.2527
+    },
+    {
+      "frequency_hz": 504.313873,
+      "spl_db": 56.115,
+      "phase_degrees": 23.5616
+    },
+    {
+      "frequency_hz": 507.968323,
+      "spl_db": 56.183,
+      "phase_degrees": 23.8333
+    },
+    {
+      "frequency_hz": 511.649292,
+      "spl_db": 56.248,
+      "phase_degrees": 24.0732
+    },
+    {
+      "frequency_hz": 515.356934,
+      "spl_db": 56.311,
+      "phase_degrees": 24.2828
+    },
+    {
+      "frequency_hz": 519.09137,
+      "spl_db": 56.371,
+      "phase_degrees": 24.4699
+    },
+    {
+      "frequency_hz": 522.852966,
+      "spl_db": 56.427,
+      "phase_degrees": 24.646
+    },
+    {
+      "frequency_hz": 526.641724,
+      "spl_db": 56.477,
+      "phase_degrees": 24.8156
+    },
+    {
+      "frequency_hz": 530.458008,
+      "spl_db": 56.522,
+      "phase_degrees": 24.9816
+    },
+    {
+      "frequency_hz": 534.301941,
+      "spl_db": 56.563,
+      "phase_degrees": 25.1458
+    },
+    {
+      "frequency_hz": 538.173706,
+      "spl_db": 56.6,
+      "phase_degrees": 25.3087
+    },
+    {
+      "frequency_hz": 542.073547,
+      "spl_db": 56.635,
+      "phase_degrees": 25.4723
+    },
+    {
+      "frequency_hz": 546.001648,
+      "spl_db": 56.669,
+      "phase_degrees": 25.6395
+    },
+    {
+      "frequency_hz": 549.958191,
+      "spl_db": 56.702,
+      "phase_degrees": 25.8141
+    },
+    {
+      "frequency_hz": 553.94342,
+      "spl_db": 56.735,
+      "phase_degrees": 25.9976
+    },
+    {
+      "frequency_hz": 557.95752,
+      "spl_db": 56.766,
+      "phase_degrees": 26.1882
+    },
+    {
+      "frequency_hz": 562.000671,
+      "spl_db": 56.794,
+      "phase_degrees": 26.3824
+    },
+    {
+      "frequency_hz": 566.073181,
+      "spl_db": 56.819,
+      "phase_degrees": 26.5813
+    },
+    {
+      "frequency_hz": 570.175171,
+      "spl_db": 56.843,
+      "phase_degrees": 26.7884
+    },
+    {
+      "frequency_hz": 574.306885,
+      "spl_db": 56.868,
+      "phase_degrees": 26.9996
+    },
+    {
+      "frequency_hz": 578.468567,
+      "spl_db": 56.891,
+      "phase_degrees": 27.2111
+    },
+    {
+      "frequency_hz": 582.6604,
+      "spl_db": 56.914,
+      "phase_degrees": 27.425
+    },
+    {
+      "frequency_hz": 586.882568,
+      "spl_db": 56.935,
+      "phase_degrees": 27.6458
+    },
+    {
+      "frequency_hz": 591.135376,
+      "spl_db": 56.956,
+      "phase_degrees": 27.8769
+    },
+    {
+      "frequency_hz": 595.419006,
+      "spl_db": 56.977,
+      "phase_degrees": 28.1221
+    },
+    {
+      "frequency_hz": 599.733643,
+      "spl_db": 56.998,
+      "phase_degrees": 28.3864
+    },
+    {
+      "frequency_hz": 604.07959,
+      "spl_db": 57.02,
+      "phase_degrees": 28.6723
+    },
+    {
+      "frequency_hz": 608.45697,
+      "spl_db": 57.041,
+      "phase_degrees": 28.9774
+    },
+    {
+      "frequency_hz": 612.866089,
+      "spl_db": 57.063,
+      "phase_degrees": 29.3014
+    },
+    {
+      "frequency_hz": 617.30719,
+      "spl_db": 57.085,
+      "phase_degrees": 29.6416
+    },
+    {
+      "frequency_hz": 621.780457,
+      "spl_db": 57.11,
+      "phase_degrees": 29.9946
+    },
+    {
+      "frequency_hz": 626.286133,
+      "spl_db": 57.137,
+      "phase_degrees": 30.3583
+    },
+    {
+      "frequency_hz": 630.824463,
+      "spl_db": 57.167,
+      "phase_degrees": 30.7288
+    },
+    {
+      "frequency_hz": 635.395691,
+      "spl_db": 57.201,
+      "phase_degrees": 31.0999
+    },
+    {
+      "frequency_hz": 640.0,
+      "spl_db": 57.238,
+      "phase_degrees": 31.4653
+    },
+    {
+      "frequency_hz": 644.637695,
+      "spl_db": 57.28,
+      "phase_degrees": 31.8237
+    },
+    {
+      "frequency_hz": 649.309021,
+      "spl_db": 57.324,
+      "phase_degrees": 32.1779
+    },
+    {
+      "frequency_hz": 654.01416,
+      "spl_db": 57.372,
+      "phase_degrees": 32.524
+    },
+    {
+      "frequency_hz": 658.753418,
+      "spl_db": 57.421,
+      "phase_degrees": 32.8484
+    },
+    {
+      "frequency_hz": 663.527039,
+      "spl_db": 57.472,
+      "phase_degrees": 33.1447
+    },
+    {
+      "frequency_hz": 668.335205,
+      "spl_db": 57.524,
+      "phase_degrees": 33.4175
+    },
+    {
+      "frequency_hz": 673.178284,
+      "spl_db": 57.577,
+      "phase_degrees": 33.6735
+    },
+    {
+      "frequency_hz": 678.056396,
+      "spl_db": 57.628,
+      "phase_degrees": 33.9171
+    },
+    {
+      "frequency_hz": 682.969849,
+      "spl_db": 57.679,
+      "phase_degrees": 34.1481
+    },
+    {
+      "frequency_hz": 687.918945,
+      "spl_db": 57.729,
+      "phase_degrees": 34.3662
+    },
+    {
+      "frequency_hz": 692.90387,
+      "spl_db": 57.778,
+      "phase_degrees": 34.5718
+    },
+    {
+      "frequency_hz": 697.924927,
+      "spl_db": 57.826,
+      "phase_degrees": 34.7678
+    },
+    {
+      "frequency_hz": 702.982422,
+      "spl_db": 57.873,
+      "phase_degrees": 34.9612
+    },
+    {
+      "frequency_hz": 708.076477,
+      "spl_db": 57.918,
+      "phase_degrees": 35.1586
+    },
+    {
+      "frequency_hz": 713.20752,
+      "spl_db": 57.961,
+      "phase_degrees": 35.3609
+    },
+    {
+      "frequency_hz": 718.375732,
+      "spl_db": 58.004,
+      "phase_degrees": 35.5672
+    },
+    {
+      "frequency_hz": 723.58136,
+      "spl_db": 58.046,
+      "phase_degrees": 35.7782
+    },
+    {
+      "frequency_hz": 728.824707,
+      "spl_db": 58.089,
+      "phase_degrees": 35.9939
+    },
+    {
+      "frequency_hz": 734.106079,
+      "spl_db": 58.132,
+      "phase_degrees": 36.2158
+    },
+    {
+      "frequency_hz": 739.42572,
+      "spl_db": 58.175,
+      "phase_degrees": 36.4444
+    },
+    {
+      "frequency_hz": 744.783936,
+      "spl_db": 58.219,
+      "phase_degrees": 36.6765
+    },
+    {
+      "frequency_hz": 750.180908,
+      "spl_db": 58.263,
+      "phase_degrees": 36.9033
+    },
+    {
+      "frequency_hz": 755.617065,
+      "spl_db": 58.31,
+      "phase_degrees": 37.1177
+    },
+    {
+      "frequency_hz": 761.092529,
+      "spl_db": 58.357,
+      "phase_degrees": 37.323
+    },
+    {
+      "frequency_hz": 766.607727,
+      "spl_db": 58.406,
+      "phase_degrees": 37.5246
+    },
+    {
+      "frequency_hz": 772.162903,
+      "spl_db": 58.455,
+      "phase_degrees": 37.7232
+    },
+    {
+      "frequency_hz": 777.758301,
+      "spl_db": 58.506,
+      "phase_degrees": 37.916
+    },
+    {
+      "frequency_hz": 783.394287,
+      "spl_db": 58.556,
+      "phase_degrees": 38.1014
+    },
+    {
+      "frequency_hz": 789.071045,
+      "spl_db": 58.607,
+      "phase_degrees": 38.2783
+    },
+    {
+      "frequency_hz": 794.789001,
+      "spl_db": 58.658,
+      "phase_degrees": 38.4464
+    },
+    {
+      "frequency_hz": 800.54834,
+      "spl_db": 58.708,
+      "phase_degrees": 38.6065
+    },
+    {
+      "frequency_hz": 806.349487,
+      "spl_db": 58.756,
+      "phase_degrees": 38.7576
+    },
+    {
+      "frequency_hz": 812.192627,
+      "spl_db": 58.804,
+      "phase_degrees": 38.8987
+    },
+    {
+      "frequency_hz": 818.078125,
+      "spl_db": 58.852,
+      "phase_degrees": 39.0346
+    },
+    {
+      "frequency_hz": 824.006226,
+      "spl_db": 58.898,
+      "phase_degrees": 39.1711
+    },
+    {
+      "frequency_hz": 829.977295,
+      "spl_db": 58.943,
+      "phase_degrees": 39.3085
+    },
+    {
+      "frequency_hz": 835.991699,
+      "spl_db": 58.988,
+      "phase_degrees": 39.4443
+    },
+    {
+      "frequency_hz": 842.049622,
+      "spl_db": 59.032,
+      "phase_degrees": 39.5776
+    },
+    {
+      "frequency_hz": 848.151428,
+      "spl_db": 59.074,
+      "phase_degrees": 39.7101
+    },
+    {
+      "frequency_hz": 854.297485,
+      "spl_db": 59.115,
+      "phase_degrees": 39.8453
+    },
+    {
+      "frequency_hz": 860.488098,
+      "spl_db": 59.155,
+      "phase_degrees": 39.9837
+    },
+    {
+      "frequency_hz": 866.723572,
+      "spl_db": 59.195,
+      "phase_degrees": 40.1252
+    },
+    {
+      "frequency_hz": 873.004211,
+      "spl_db": 59.235,
+      "phase_degrees": 40.2711
+    },
+    {
+      "frequency_hz": 879.330322,
+      "spl_db": 59.274,
+      "phase_degrees": 40.4236
+    },
+    {
+      "frequency_hz": 885.702332,
+      "spl_db": 59.314,
+      "phase_degrees": 40.5832
+    },
+    {
+      "frequency_hz": 892.120483,
+      "spl_db": 59.354,
+      "phase_degrees": 40.7491
+    },
+    {
+      "frequency_hz": 898.585144,
+      "spl_db": 59.395,
+      "phase_degrees": 40.919
+    },
+    {
+      "frequency_hz": 905.09668,
+      "spl_db": 59.436,
+      "phase_degrees": 41.0937
+    },
+    {
+      "frequency_hz": 911.655396,
+      "spl_db": 59.477,
+      "phase_degrees": 41.2722
+    },
+    {
+      "frequency_hz": 918.261597,
+      "spl_db": 59.519,
+      "phase_degrees": 41.4521
+    },
+    {
+      "frequency_hz": 924.91571,
+      "spl_db": 59.561,
+      "phase_degrees": 41.6328
+    },
+    {
+      "frequency_hz": 931.618042,
+      "spl_db": 59.603,
+      "phase_degrees": 41.8144
+    },
+    {
+      "frequency_hz": 938.368896,
+      "spl_db": 59.646,
+      "phase_degrees": 41.9988
+    },
+    {
+      "frequency_hz": 945.168762,
+      "spl_db": 59.69,
+      "phase_degrees": 42.1887
+    },
+    {
+      "frequency_hz": 952.017822,
+      "spl_db": 59.735,
+      "phase_degrees": 42.3795
+    },
+    {
+      "frequency_hz": 958.916504,
+      "spl_db": 59.781,
+      "phase_degrees": 42.5667
+    },
+    {
+      "frequency_hz": 965.865234,
+      "spl_db": 59.827,
+      "phase_degrees": 42.7511
+    },
+    {
+      "frequency_hz": 972.864319,
+      "spl_db": 59.874,
+      "phase_degrees": 42.9355
+    },
+    {
+      "frequency_hz": 979.914062,
+      "spl_db": 59.92,
+      "phase_degrees": 43.1218
+    },
+    {
+      "frequency_hz": 987.014954,
+      "spl_db": 59.968,
+      "phase_degrees": 43.3114
+    },
+    {
+      "frequency_hz": 994.167236,
+      "spl_db": 60.017,
+      "phase_degrees": 43.5039
+    },
+    {
+      "frequency_hz": 1001.371399,
+      "spl_db": 60.067,
+      "phase_degrees": 43.6939
+    },
+    {
+      "frequency_hz": 1008.627747,
+      "spl_db": 60.117,
+      "phase_degrees": 43.8773
+    },
+    {
+      "frequency_hz": 1015.936646,
+      "spl_db": 60.167,
+      "phase_degrees": 44.0546
+    },
+    {
+      "frequency_hz": 1023.298584,
+      "spl_db": 60.217,
+      "phase_degrees": 44.2292
+    },
+    {
+      "frequency_hz": 1030.713867,
+      "spl_db": 60.268,
+      "phase_degrees": 44.4046
+    },
+    {
+      "frequency_hz": 1038.182739,
+      "spl_db": 60.32,
+      "phase_degrees": 44.5833
+    },
+    {
+      "frequency_hz": 1045.705933,
+      "spl_db": 60.374,
+      "phase_degrees": 44.763
+    },
+    {
+      "frequency_hz": 1053.283447,
+      "spl_db": 60.429,
+      "phase_degrees": 44.9406
+    },
+    {
+      "frequency_hz": 1060.916016,
+      "spl_db": 60.484,
+      "phase_degrees": 45.1145
+    },
+    {
+      "frequency_hz": 1068.603882,
+      "spl_db": 60.539,
+      "phase_degrees": 45.2847
+    },
+    {
+      "frequency_hz": 1076.347412,
+      "spl_db": 60.593,
+      "phase_degrees": 45.4489
+    },
+    {
+      "frequency_hz": 1084.147095,
+      "spl_db": 60.648,
+      "phase_degrees": 45.6047
+    },
+    {
+      "frequency_hz": 1092.003296,
+      "spl_db": 60.704,
+      "phase_degrees": 45.755
+    },
+    {
+      "frequency_hz": 1099.916382,
+      "spl_db": 60.761,
+      "phase_degrees": 45.9058
+    },
+    {
+      "frequency_hz": 1107.886841,
+      "spl_db": 60.817,
+      "phase_degrees": 46.0593
+    },
+    {
+      "frequency_hz": 1115.915039,
+      "spl_db": 60.875,
+      "phase_degrees": 46.2146
+    },
+    {
+      "frequency_hz": 1124.001343,
+      "spl_db": 60.932,
+      "phase_degrees": 46.368
+    },
+    {
+      "frequency_hz": 1132.146362,
+      "spl_db": 60.989,
+      "phase_degrees": 46.5135
+    },
+    {
+      "frequency_hz": 1140.350342,
+      "spl_db": 61.047,
+      "phase_degrees": 46.6505
+    },
+    {
+      "frequency_hz": 1148.61377,
+      "spl_db": 61.105,
+      "phase_degrees": 46.7837
+    },
+    {
+      "frequency_hz": 1156.937134,
+      "spl_db": 61.164,
+      "phase_degrees": 46.9164
+    },
+    {
+      "frequency_hz": 1165.320801,
+      "spl_db": 61.223,
+      "phase_degrees": 47.0491
+    },
+    {
+      "frequency_hz": 1173.765137,
+      "spl_db": 61.282,
+      "phase_degrees": 47.1831
+    },
+    {
+      "frequency_hz": 1182.270752,
+      "spl_db": 61.341,
+      "phase_degrees": 47.3196
+    },
+    {
+      "frequency_hz": 1190.838013,
+      "spl_db": 61.401,
+      "phase_degrees": 47.4559
+    },
+    {
+      "frequency_hz": 1199.467285,
+      "spl_db": 61.461,
+      "phase_degrees": 47.5881
+    },
+    {
+      "frequency_hz": 1208.15918,
+      "spl_db": 61.522,
+      "phase_degrees": 47.7154
+    },
+    {
+      "frequency_hz": 1216.91394,
+      "spl_db": 61.584,
+      "phase_degrees": 47.8404
+    },
+    {
+      "frequency_hz": 1225.732178,
+      "spl_db": 61.647,
+      "phase_degrees": 47.9673
+    },
+    {
+      "frequency_hz": 1234.61438,
+      "spl_db": 61.711,
+      "phase_degrees": 48.0928
+    },
+    {
+      "frequency_hz": 1243.560913,
+      "spl_db": 61.774,
+      "phase_degrees": 48.2112
+    },
+    {
+      "frequency_hz": 1252.572266,
+      "spl_db": 61.839,
+      "phase_degrees": 48.3237
+    },
+    {
+      "frequency_hz": 1261.648926,
+      "spl_db": 61.904,
+      "phase_degrees": 48.434
+    },
+    {
+      "frequency_hz": 1270.791382,
+      "spl_db": 61.969,
+      "phase_degrees": 48.5423
+    },
+    {
+      "frequency_hz": 1280.0,
+      "spl_db": 62.035,
+      "phase_degrees": 48.6461
+    },
+    {
+      "frequency_hz": 1289.275391,
+      "spl_db": 62.101,
+      "phase_degrees": 48.7442
+    },
+    {
+      "frequency_hz": 1298.618042,
+      "spl_db": 62.167,
+      "phase_degrees": 48.8358
+    },
+    {
+      "frequency_hz": 1308.02832,
+      "spl_db": 62.234,
+      "phase_degrees": 48.9222
+    },
+    {
+      "frequency_hz": 1317.506836,
+      "spl_db": 62.301,
+      "phase_degrees": 49.0046
+    },
+    {
+      "frequency_hz": 1327.054077,
+      "spl_db": 62.37,
+      "phase_degrees": 49.0818
+    },
+    {
+      "frequency_hz": 1336.67041,
+      "spl_db": 62.438,
+      "phase_degrees": 49.1547
+    },
+    {
+      "frequency_hz": 1346.356567,
+      "spl_db": 62.506,
+      "phase_degrees": 49.225
+    },
+    {
+      "frequency_hz": 1356.112793,
+      "spl_db": 62.574,
+      "phase_degrees": 49.2922
+    },
+    {
+      "frequency_hz": 1365.939697,
+      "spl_db": 62.644,
+      "phase_degrees": 49.3549
+    },
+    {
+      "frequency_hz": 1375.837891,
+      "spl_db": 62.714,
+      "phase_degrees": 49.4125
+    },
+    {
+      "frequency_hz": 1385.807739,
+      "spl_db": 62.784,
+      "phase_degrees": 49.4669
+    },
+    {
+      "frequency_hz": 1395.849854,
+      "spl_db": 62.853,
+      "phase_degrees": 49.5175
+    },
+    {
+      "frequency_hz": 1405.964844,
+      "spl_db": 62.923,
+      "phase_degrees": 49.5609
+    },
+    {
+      "frequency_hz": 1416.152954,
+      "spl_db": 62.994,
+      "phase_degrees": 49.5954
+    },
+    {
+      "frequency_hz": 1426.415039,
+      "spl_db": 63.065,
+      "phase_degrees": 49.6235
+    },
+    {
+      "frequency_hz": 1436.751465,
+      "spl_db": 63.136,
+      "phase_degrees": 49.6485
+    },
+    {
+      "frequency_hz": 1447.16272,
+      "spl_db": 63.206,
+      "phase_degrees": 49.6708
+    },
+    {
+      "frequency_hz": 1457.649414,
+      "spl_db": 63.277,
+      "phase_degrees": 49.6894
+    },
+    {
+      "frequency_hz": 1468.212158,
+      "spl_db": 63.348,
+      "phase_degrees": 49.7046
+    },
+    {
+      "frequency_hz": 1478.85144,
+      "spl_db": 63.42,
+      "phase_degrees": 49.7173
+    },
+    {
+      "frequency_hz": 1489.567871,
+      "spl_db": 63.491,
+      "phase_degrees": 49.7284
+    },
+    {
+      "frequency_hz": 1500.361816,
+      "spl_db": 63.563,
+      "phase_degrees": 49.7373
+    },
+    {
+      "frequency_hz": 1511.234131,
+      "spl_db": 63.634,
+      "phase_degrees": 49.7413
+    },
+    {
+      "frequency_hz": 1522.185059,
+      "spl_db": 63.705,
+      "phase_degrees": 49.7401
+    },
+    {
+      "frequency_hz": 1533.215454,
+      "spl_db": 63.776,
+      "phase_degrees": 49.7357
+    },
+    {
+      "frequency_hz": 1544.325806,
+      "spl_db": 63.848,
+      "phase_degrees": 49.7292
+    },
+    {
+      "frequency_hz": 1555.516602,
+      "spl_db": 63.921,
+      "phase_degrees": 49.7196
+    },
+    {
+      "frequency_hz": 1566.788574,
+      "spl_db": 63.994,
+      "phase_degrees": 49.707
+    },
+    {
+      "frequency_hz": 1578.14209,
+      "spl_db": 64.068,
+      "phase_degrees": 49.6915
+    },
+    {
+      "frequency_hz": 1589.578003,
+      "spl_db": 64.143,
+      "phase_degrees": 49.6723
+    },
+    {
+      "frequency_hz": 1601.09668,
+      "spl_db": 64.217,
+      "phase_degrees": 49.6512
+    },
+    {
+      "frequency_hz": 1612.698975,
+      "spl_db": 64.292,
+      "phase_degrees": 49.6293
+    },
+    {
+      "frequency_hz": 1624.385254,
+      "spl_db": 64.367,
+      "phase_degrees": 49.6052
+    },
+    {
+      "frequency_hz": 1636.15625,
+      "spl_db": 64.443,
+      "phase_degrees": 49.5769
+    },
+    {
+      "frequency_hz": 1648.012451,
+      "spl_db": 64.519,
+      "phase_degrees": 49.5423
+    },
+    {
+      "frequency_hz": 1659.95459,
+      "spl_db": 64.596,
+      "phase_degrees": 49.5015
+    },
+    {
+      "frequency_hz": 1671.983398,
+      "spl_db": 64.674,
+      "phase_degrees": 49.455
+    },
+    {
+      "frequency_hz": 1684.099243,
+      "spl_db": 64.752,
+      "phase_degrees": 49.4017
+    },
+    {
+      "frequency_hz": 1696.302856,
+      "spl_db": 64.831,
+      "phase_degrees": 49.3406
+    },
+    {
+      "frequency_hz": 1708.594971,
+      "spl_db": 64.91,
+      "phase_degrees": 49.2705
+    },
+    {
+      "frequency_hz": 1720.976196,
+      "spl_db": 64.99,
+      "phase_degrees": 49.1913
+    },
+    {
+      "frequency_hz": 1733.447144,
+      "spl_db": 65.069,
+      "phase_degrees": 49.1064
+    },
+    {
+      "frequency_hz": 1746.008423,
+      "spl_db": 65.149,
+      "phase_degrees": 49.0177
+    },
+    {
+      "frequency_hz": 1758.660645,
+      "spl_db": 65.23,
+      "phase_degrees": 48.9229
+    },
+    {
+      "frequency_hz": 1771.404663,
+      "spl_db": 65.311,
+      "phase_degrees": 48.8205
+    },
+    {
+      "frequency_hz": 1784.240967,
+      "spl_db": 65.392,
+      "phase_degrees": 48.7126
+    },
+    {
+      "frequency_hz": 1797.170288,
+      "spl_db": 65.472,
+      "phase_degrees": 48.6005
+    },
+    {
+      "frequency_hz": 1810.193359,
+      "spl_db": 65.553,
+      "phase_degrees": 48.4828
+    },
+    {
+      "frequency_hz": 1823.310791,
+      "spl_db": 65.635,
+      "phase_degrees": 48.3568
+    },
+    {
+      "frequency_hz": 1836.523193,
+      "spl_db": 65.717,
+      "phase_degrees": 48.2208
+    },
+    {
+      "frequency_hz": 1849.831421,
+      "spl_db": 65.8,
+      "phase_degrees": 48.0744
+    },
+    {
+      "frequency_hz": 1863.236084,
+      "spl_db": 65.883,
+      "phase_degrees": 47.921
+    },
+    {
+      "frequency_hz": 1876.737793,
+      "spl_db": 65.966,
+      "phase_degrees": 47.7641
+    },
+    {
+      "frequency_hz": 1890.337524,
+      "spl_db": 66.05,
+      "phase_degrees": 47.6021
+    },
+    {
+      "frequency_hz": 1904.035645,
+      "spl_db": 66.135,
+      "phase_degrees": 47.4303
+    },
+    {
+      "frequency_hz": 1917.833008,
+      "spl_db": 66.22,
+      "phase_degrees": 47.2474
+    },
+    {
+      "frequency_hz": 1931.730469,
+      "spl_db": 66.304,
+      "phase_degrees": 47.0553
+    },
+    {
+      "frequency_hz": 1945.728638,
+      "spl_db": 66.389,
+      "phase_degrees": 46.856
+    },
+    {
+      "frequency_hz": 1959.828125,
+      "spl_db": 66.473,
+      "phase_degrees": 46.6498
+    },
+    {
+      "frequency_hz": 1974.029907,
+      "spl_db": 66.559,
+      "phase_degrees": 46.4349
+    },
+    {
+      "frequency_hz": 1988.334473,
+      "spl_db": 66.644,
+      "phase_degrees": 46.2095
+    },
+    {
+      "frequency_hz": 2002.742798,
+      "spl_db": 66.73,
+      "phase_degrees": 45.9733
+    },
+    {
+      "frequency_hz": 2017.255493,
+      "spl_db": 66.815,
+      "phase_degrees": 45.7264
+    },
+    {
+      "frequency_hz": 2031.873291,
+      "spl_db": 66.901,
+      "phase_degrees": 45.4687
+    },
+    {
+      "frequency_hz": 2046.597168,
+      "spl_db": 66.988,
+      "phase_degrees": 45.2003
+    },
+    {
+      "frequency_hz": 2061.427734,
+      "spl_db": 67.074,
+      "phase_degrees": 44.9217
+    },
+    {
+      "frequency_hz": 2076.365479,
+      "spl_db": 67.16,
+      "phase_degrees": 44.6298
+    },
+    {
+      "frequency_hz": 2091.411865,
+      "spl_db": 67.245,
+      "phase_degrees": 44.3236
+    },
+    {
+      "frequency_hz": 2106.566895,
+      "spl_db": 67.331,
+      "phase_degrees": 44.0051
+    },
+    {
+      "frequency_hz": 2121.832031,
+      "spl_db": 67.418,
+      "phase_degrees": 43.6764
+    },
+    {
+      "frequency_hz": 2137.207764,
+      "spl_db": 67.504,
+      "phase_degrees": 43.3373
+    },
+    {
+      "frequency_hz": 2152.694824,
+      "spl_db": 67.589,
+      "phase_degrees": 42.9876
+    },
+    {
+      "frequency_hz": 2168.294189,
+      "spl_db": 67.674,
+      "phase_degrees": 42.6257
+    },
+    {
+      "frequency_hz": 2184.006592,
+      "spl_db": 67.759,
+      "phase_degrees": 42.2498
+    },
+    {
+      "frequency_hz": 2199.832764,
+      "spl_db": 67.845,
+      "phase_degrees": 41.8604
+    },
+    {
+      "frequency_hz": 2215.773682,
+      "spl_db": 67.929,
+      "phase_degrees": 41.4569
+    },
+    {
+      "frequency_hz": 2231.830078,
+      "spl_db": 68.013,
+      "phase_degrees": 41.0386
+    },
+    {
+      "frequency_hz": 2248.002686,
+      "spl_db": 68.097,
+      "phase_degrees": 40.6054
+    },
+    {
+      "frequency_hz": 2264.292725,
+      "spl_db": 68.179,
+      "phase_degrees": 40.158
+    },
+    {
+      "frequency_hz": 2280.700684,
+      "spl_db": 68.261,
+      "phase_degrees": 39.6974
+    },
+    {
+      "frequency_hz": 2297.227539,
+      "spl_db": 68.343,
+      "phase_degrees": 39.223
+    },
+    {
+      "frequency_hz": 2313.874268,
+      "spl_db": 68.423,
+      "phase_degrees": 38.7347
+    },
+    {
+      "frequency_hz": 2330.641602,
+      "spl_db": 68.502,
+      "phase_degrees": 38.2325
+    },
+    {
+      "frequency_hz": 2347.530273,
+      "spl_db": 68.58,
+      "phase_degrees": 37.7137
+    },
+    {
+      "frequency_hz": 2364.541504,
+      "spl_db": 68.656,
+      "phase_degrees": 37.1774
+    },
+    {
+      "frequency_hz": 2381.676025,
+      "spl_db": 68.731,
+      "phase_degrees": 36.6259
+    },
+    {
+      "frequency_hz": 2398.93457,
+      "spl_db": 68.805,
+      "phase_degrees": 36.063
+    },
+    {
+      "frequency_hz": 2416.318359,
+      "spl_db": 68.878,
+      "phase_degrees": 35.4887
+    },
+    {
+      "frequency_hz": 2433.827881,
+      "spl_db": 68.949,
+      "phase_degrees": 34.9008
+    },
+    {
+      "frequency_hz": 2451.464355,
+      "spl_db": 69.019,
+      "phase_degrees": 34.2972
+    },
+    {
+      "frequency_hz": 2469.22876,
+      "spl_db": 69.086,
+      "phase_degrees": 33.6779
+    },
+    {
+      "frequency_hz": 2487.121826,
+      "spl_db": 69.151,
+      "phase_degrees": 33.0456
+    },
+    {
+      "frequency_hz": 2505.144531,
+      "spl_db": 69.214,
+      "phase_degrees": 32.4029
+    },
+    {
+      "frequency_hz": 2523.297852,
+      "spl_db": 69.275,
+      "phase_degrees": 31.751
+    },
+    {
+      "frequency_hz": 2541.582764,
+      "spl_db": 69.334,
+      "phase_degrees": 31.0903
+    },
+    {
+      "frequency_hz": 2560.0,
+      "spl_db": 69.39,
+      "phase_degrees": 30.4211
+    },
+    {
+      "frequency_hz": 2578.550781,
+      "spl_db": 69.443,
+      "phase_degrees": 29.7433
+    },
+    {
+      "frequency_hz": 2597.236084,
+      "spl_db": 69.494,
+      "phase_degrees": 29.0564
+    },
+    {
+      "frequency_hz": 2616.056641,
+      "spl_db": 69.542,
+      "phase_degrees": 28.3595
+    },
+    {
+      "frequency_hz": 2635.013672,
+      "spl_db": 69.588,
+      "phase_degrees": 27.6512
+    },
+    {
+      "frequency_hz": 2654.108154,
+      "spl_db": 69.632,
+      "phase_degrees": 26.9332
+    },
+    {
+      "frequency_hz": 2673.34082,
+      "spl_db": 69.674,
+      "phase_degrees": 26.2096
+    },
+    {
+      "frequency_hz": 2692.713135,
+      "spl_db": 69.714,
+      "phase_degrees": 25.481
+    },
+    {
+      "frequency_hz": 2712.225586,
+      "spl_db": 69.75,
+      "phase_degrees": 24.7458
+    },
+    {
+      "frequency_hz": 2731.879395,
+      "spl_db": 69.784,
+      "phase_degrees": 24.0045
+    },
+    {
+      "frequency_hz": 2751.675781,
+      "spl_db": 69.816,
+      "phase_degrees": 23.2595
+    },
+    {
+      "frequency_hz": 2771.615479,
+      "spl_db": 69.845,
+      "phase_degrees": 22.5135
+    },
+    {
+      "frequency_hz": 2791.699707,
+      "spl_db": 69.871,
+      "phase_degrees": 21.7644
+    },
+    {
+      "frequency_hz": 2811.929688,
+      "spl_db": 69.895,
+      "phase_degrees": 21.0093
+    },
+    {
+      "frequency_hz": 2832.305908,
+      "spl_db": 69.915,
+      "phase_degrees": 20.2496
+    },
+    {
+      "frequency_hz": 2852.830078,
+      "spl_db": 69.933,
+      "phase_degrees": 19.49
+    },
+    {
+      "frequency_hz": 2873.50293,
+      "spl_db": 69.949,
+      "phase_degrees": 18.7325
+    },
+    {
+      "frequency_hz": 2894.325439,
+      "spl_db": 69.962,
+      "phase_degrees": 17.9745
+    },
+    {
+      "frequency_hz": 2915.298828,
+      "spl_db": 69.974,
+      "phase_degrees": 17.2134
+    },
+    {
+      "frequency_hz": 2936.424316,
+      "spl_db": 69.982,
+      "phase_degrees": 16.45
+    },
+    {
+      "frequency_hz": 2957.702881,
+      "spl_db": 69.988,
+      "phase_degrees": 15.6877
+    },
+    {
+      "frequency_hz": 2979.135742,
+      "spl_db": 69.991,
+      "phase_degrees": 14.9293
+    },
+    {
+      "frequency_hz": 3000.723633,
+      "spl_db": 69.991,
+      "phase_degrees": 14.174
+    },
+    {
+      "frequency_hz": 3022.468262,
+      "spl_db": 69.988,
+      "phase_degrees": 13.4238
+    },
+    {
+      "frequency_hz": 3044.370117,
+      "spl_db": 69.982,
+      "phase_degrees": 12.6818
+    },
+    {
+      "frequency_hz": 3066.430908,
+      "spl_db": 69.973,
+      "phase_degrees": 11.9476
+    },
+    {
+      "frequency_hz": 3088.651611,
+      "spl_db": 69.962,
+      "phase_degrees": 11.2179
+    },
+    {
+      "frequency_hz": 3111.033203,
+      "spl_db": 69.949,
+      "phase_degrees": 10.4899
+    },
+    {
+      "frequency_hz": 3133.577148,
+      "spl_db": 69.934,
+      "phase_degrees": 9.7645
+    },
+    {
+      "frequency_hz": 3156.28418,
+      "spl_db": 69.917,
+      "phase_degrees": 9.047
+    },
+    {
+      "frequency_hz": 3179.156006,
+      "spl_db": 69.899,
+      "phase_degrees": 8.3406
+    },
+    {
+      "frequency_hz": 3202.193359,
+      "spl_db": 69.879,
+      "phase_degrees": 7.6426
+    },
+    {
+      "frequency_hz": 3225.397949,
+      "spl_db": 69.859,
+      "phase_degrees": 6.9486
+    },
+    {
+      "frequency_hz": 3248.770508,
+      "spl_db": 69.838,
+      "phase_degrees": 6.2577
+    },
+    {
+      "frequency_hz": 3272.3125,
+      "spl_db": 69.815,
+      "phase_degrees": 5.5674
+    },
+    {
+      "frequency_hz": 3296.024902,
+      "spl_db": 69.789,
+      "phase_degrees": 4.8745
+    },
+    {
+      "frequency_hz": 3319.90918,
+      "spl_db": 69.762,
+      "phase_degrees": 4.1782
+    },
+    {
+      "frequency_hz": 3343.966797,
+      "spl_db": 69.732,
+      "phase_degrees": 3.4819
+    },
+    {
+      "frequency_hz": 3368.198486,
+      "spl_db": 69.7,
+      "phase_degrees": 2.7903
+    },
+    {
+      "frequency_hz": 3392.605713,
+      "spl_db": 69.666,
+      "phase_degrees": 2.1057
+    },
+    {
+      "frequency_hz": 3417.189941,
+      "spl_db": 69.628,
+      "phase_degrees": 1.4302
+    },
+    {
+      "frequency_hz": 3441.952393,
+      "spl_db": 69.588,
+      "phase_degrees": 0.7673
+    },
+    {
+      "frequency_hz": 3466.894287,
+      "spl_db": 69.546,
+      "phase_degrees": 0.1157
+    },
+    {
+      "frequency_hz": 3492.016846,
+      "spl_db": 69.503,
+      "phase_degrees": -0.5298
+    },
+    {
+      "frequency_hz": 3517.321289,
+      "spl_db": 69.458,
+      "phase_degrees": -1.1689
+    },
+    {
+      "frequency_hz": 3542.809326,
+      "spl_db": 69.412,
+      "phase_degrees": -1.7988
+    },
+    {
+      "frequency_hz": 3568.481934,
+      "spl_db": 69.364,
+      "phase_degrees": -2.4202
+    },
+    {
+      "frequency_hz": 3594.340576,
+      "spl_db": 69.316,
+      "phase_degrees": -3.0376
+    },
+    {
+      "frequency_hz": 3620.386719,
+      "spl_db": 69.267,
+      "phase_degrees": -3.6513
+    },
+    {
+      "frequency_hz": 3646.621582,
+      "spl_db": 69.216,
+      "phase_degrees": -4.2585
+    },
+    {
+      "frequency_hz": 3673.046387,
+      "spl_db": 69.163,
+      "phase_degrees": -4.8594
+    },
+    {
+      "frequency_hz": 3699.662842,
+      "spl_db": 69.109,
+      "phase_degrees": -5.4557
+    },
+    {
+      "frequency_hz": 3726.472168,
+      "spl_db": 69.053,
+      "phase_degrees": -6.0497
+    },
+    {
+      "frequency_hz": 3753.475586,
+      "spl_db": 68.995,
+      "phase_degrees": -6.6429
+    },
+    {
+      "frequency_hz": 3780.675049,
+      "spl_db": 68.934,
+      "phase_degrees": -7.2332
+    },
+    {
+      "frequency_hz": 3808.071289,
+      "spl_db": 68.87,
+      "phase_degrees": -7.8184
+    },
+    {
+      "frequency_hz": 3835.666016,
+      "spl_db": 68.805,
+      "phase_degrees": -8.4005
+    },
+    {
+      "frequency_hz": 3863.460938,
+      "spl_db": 68.738,
+      "phase_degrees": -8.9801
+    },
+    {
+      "frequency_hz": 3891.457275,
+      "spl_db": 68.669,
+      "phase_degrees": -9.5513
+    },
+    {
+      "frequency_hz": 3919.65625,
+      "spl_db": 68.597,
+      "phase_degrees": -10.1083
+    },
+    {
+      "frequency_hz": 3948.059814,
+      "spl_db": 68.523,
+      "phase_degrees": -10.6536
+    },
+    {
+      "frequency_hz": 3976.668945,
+      "spl_db": 68.447,
+      "phase_degrees": -11.1926
+    },
+    {
+      "frequency_hz": 4005.485596,
+      "spl_db": 68.368,
+      "phase_degrees": -11.7245
+    },
+    {
+      "frequency_hz": 4034.510986,
+      "spl_db": 68.285,
+      "phase_degrees": -12.2433
+    },
+    {
+      "frequency_hz": 4063.746582,
+      "spl_db": 68.201,
+      "phase_degrees": -12.745
+    },
+    {
+      "frequency_hz": 4093.194336,
+      "spl_db": 68.116,
+      "phase_degrees": -13.2318
+    },
+    {
+      "frequency_hz": 4122.855469,
+      "spl_db": 68.03,
+      "phase_degrees": -13.7087
+    },
+    {
+      "frequency_hz": 4152.730957,
+      "spl_db": 67.942,
+      "phase_degrees": -14.1781
+    },
+    {
+      "frequency_hz": 4182.82373,
+      "spl_db": 67.851,
+      "phase_degrees": -14.6406
+    },
+    {
+      "frequency_hz": 4213.133789,
+      "spl_db": 67.757,
+      "phase_degrees": -15.0952
+    },
+    {
+      "frequency_hz": 4243.664062,
+      "spl_db": 67.66,
+      "phase_degrees": -15.5381
+    },
+    {
+      "frequency_hz": 4274.415527,
+      "spl_db": 67.56,
+      "phase_degrees": -15.9664
+    },
+    {
+      "frequency_hz": 4305.389648,
+      "spl_db": 67.458,
+      "phase_degrees": -16.3774
+    },
+    {
+      "frequency_hz": 4336.588379,
+      "spl_db": 67.352,
+      "phase_degrees": -16.7699
+    },
+    {
+      "frequency_hz": 4368.013184,
+      "spl_db": 67.244,
+      "phase_degrees": -17.1417
+    },
+    {
+      "frequency_hz": 4399.665527,
+      "spl_db": 67.134,
+      "phase_degrees": -17.4867
+    },
+    {
+      "frequency_hz": 4431.547363,
+      "spl_db": 67.021,
+      "phase_degrees": -17.8029
+    },
+    {
+      "frequency_hz": 4463.660156,
+      "spl_db": 66.908,
+      "phase_degrees": -18.0966
+    },
+    {
+      "frequency_hz": 4496.005371,
+      "spl_db": 66.793,
+      "phase_degrees": -18.3693
+    },
+    {
+      "frequency_hz": 4528.585449,
+      "spl_db": 66.676,
+      "phase_degrees": -18.6121
+    },
+    {
+      "frequency_hz": 4561.401367,
+      "spl_db": 66.558,
+      "phase_degrees": -18.825
+    },
+    {
+      "frequency_hz": 4594.455078,
+      "spl_db": 66.44,
+      "phase_degrees": -19.017
+    },
+    {
+      "frequency_hz": 4627.748535,
+      "spl_db": 66.32,
+      "phase_degrees": -19.1864
+    },
+    {
+      "frequency_hz": 4661.283203,
+      "spl_db": 66.199,
+      "phase_degrees": -19.3279
+    },
+    {
+      "frequency_hz": 4695.060547,
+      "spl_db": 66.078,
+      "phase_degrees": -19.4424
+    },
+    {
+      "frequency_hz": 4729.083008,
+      "spl_db": 65.958,
+      "phase_degrees": -19.5331
+    },
+    {
+      "frequency_hz": 4763.352051,
+      "spl_db": 65.839,
+      "phase_degrees": -19.5981
+    },
+    {
+      "frequency_hz": 4797.869141,
+      "spl_db": 65.72,
+      "phase_degrees": -19.6347
+    },
+    {
+      "frequency_hz": 4832.636719,
+      "spl_db": 65.601,
+      "phase_degrees": -19.6456
+    },
+    {
+      "frequency_hz": 4867.655762,
+      "spl_db": 65.483,
+      "phase_degrees": -19.6362
+    },
+    {
+      "frequency_hz": 4902.928711,
+      "spl_db": 65.365,
+      "phase_degrees": -19.6106
+    },
+    {
+      "frequency_hz": 4938.45752,
+      "spl_db": 65.249,
+      "phase_degrees": -19.5733
+    },
+    {
+      "frequency_hz": 4974.243652,
+      "spl_db": 65.135,
+      "phase_degrees": -19.526
+    },
+    {
+      "frequency_hz": 5010.289062,
+      "spl_db": 65.022,
+      "phase_degrees": -19.4686
+    },
+    {
+      "frequency_hz": 5046.595703,
+      "spl_db": 64.909,
+      "phase_degrees": -19.4021
+    },
+    {
+      "frequency_hz": 5083.165527,
+      "spl_db": 64.794,
+      "phase_degrees": -19.3268
+    },
+    {
+      "frequency_hz": 5120.0,
+      "spl_db": 64.679,
+      "phase_degrees": -19.2352
+    },
+    {
+      "frequency_hz": 5157.101562,
+      "spl_db": 64.563,
+      "phase_degrees": -19.1216
+    },
+    {
+      "frequency_hz": 5194.472168,
+      "spl_db": 64.445,
+      "phase_degrees": -18.988
+    },
+    {
+      "frequency_hz": 5232.113281,
+      "spl_db": 64.327,
+      "phase_degrees": -18.8337
+    },
+    {
+      "frequency_hz": 5270.027344,
+      "spl_db": 64.208,
+      "phase_degrees": -18.6548
+    },
+    {
+      "frequency_hz": 5308.216309,
+      "spl_db": 64.089,
+      "phase_degrees": -18.4536
+    },
+    {
+      "frequency_hz": 5346.681641,
+      "spl_db": 63.971,
+      "phase_degrees": -18.2346
+    },
+    {
+      "frequency_hz": 5385.42627,
+      "spl_db": 63.853,
+      "phase_degrees": -17.9964
+    },
+    {
+      "frequency_hz": 5424.451172,
+      "spl_db": 63.736,
+      "phase_degrees": -17.7341
+    },
+    {
+      "frequency_hz": 5463.758789,
+      "spl_db": 63.618,
+      "phase_degrees": -17.4438
+    },
+    {
+      "frequency_hz": 5503.351562,
+      "spl_db": 63.501,
+      "phase_degrees": -17.1255
+    },
+    {
+      "frequency_hz": 5543.230957,
+      "spl_db": 63.384,
+      "phase_degrees": -16.7794
+    },
+    {
+      "frequency_hz": 5583.399414,
+      "spl_db": 63.269,
+      "phase_degrees": -16.4032
+    },
+    {
+      "frequency_hz": 5623.859375,
+      "spl_db": 63.155,
+      "phase_degrees": -15.9963
+    },
+    {
+      "frequency_hz": 5664.611816,
+      "spl_db": 63.043,
+      "phase_degrees": -15.5593
+    },
+    {
+      "frequency_hz": 5705.660156,
+      "spl_db": 62.933,
+      "phase_degrees": -15.0916
+    },
+    {
+      "frequency_hz": 5747.005859,
+      "spl_db": 62.826,
+      "phase_degrees": -14.5956
+    },
+    {
+      "frequency_hz": 5788.650879,
+      "spl_db": 62.721,
+      "phase_degrees": -14.0765
+    },
+    {
+      "frequency_hz": 5830.597656,
+      "spl_db": 62.619,
+      "phase_degrees": -13.534
+    },
+    {
+      "frequency_hz": 5872.848633,
+      "spl_db": 62.521,
+      "phase_degrees": -12.9648
+    },
+    {
+      "frequency_hz": 5915.405762,
+      "spl_db": 62.427,
+      "phase_degrees": -12.3737
+    },
+    {
+      "frequency_hz": 5958.271484,
+      "spl_db": 62.338,
+      "phase_degrees": -11.7699
+    },
+    {
+      "frequency_hz": 6001.447266,
+      "spl_db": 62.252,
+      "phase_degrees": -11.1545
+    },
+    {
+      "frequency_hz": 6044.936523,
+      "spl_db": 62.17,
+      "phase_degrees": -10.5245
+    },
+    {
+      "frequency_hz": 6088.740234,
+      "spl_db": 62.092,
+      "phase_degrees": -9.8763
+    },
+    {
+      "frequency_hz": 6132.861816,
+      "spl_db": 62.018,
+      "phase_degrees": -9.2072
+    },
+    {
+      "frequency_hz": 6177.303223,
+      "spl_db": 61.947,
+      "phase_degrees": -8.5204
+    },
+    {
+      "frequency_hz": 6222.066406,
+      "spl_db": 61.881,
+      "phase_degrees": -7.825
+    },
+    {
+      "frequency_hz": 6267.154297,
+      "spl_db": 61.821,
+      "phase_degrees": -7.1268
+    },
+    {
+      "frequency_hz": 6312.568359,
+      "spl_db": 61.765,
+      "phase_degrees": -6.4235
+    },
+    {
+      "frequency_hz": 6358.312012,
+      "spl_db": 61.715,
+      "phase_degrees": -5.7103
+    },
+    {
+      "frequency_hz": 6404.386719,
+      "spl_db": 61.668,
+      "phase_degrees": -4.9868
+    },
+    {
+      "frequency_hz": 6450.795898,
+      "spl_db": 61.627,
+      "phase_degrees": -4.2571
+    },
+    {
+      "frequency_hz": 6497.541016,
+      "spl_db": 61.59,
+      "phase_degrees": -3.5259
+    },
+    {
+      "frequency_hz": 6544.625,
+      "spl_db": 61.559,
+      "phase_degrees": -2.795
+    },
+    {
+      "frequency_hz": 6592.049805,
+      "spl_db": 61.535,
+      "phase_degrees": -2.0662
+    },
+    {
+      "frequency_hz": 6639.818359,
+      "spl_db": 61.518,
+      "phase_degrees": -1.3426
+    },
+    {
+      "frequency_hz": 6687.933594,
+      "spl_db": 61.508,
+      "phase_degrees": -0.6288
+    },
+    {
+      "frequency_hz": 6736.396973,
+      "spl_db": 61.502,
+      "phase_degrees": 0.0715
+    },
+    {
+      "frequency_hz": 6785.211426,
+      "spl_db": 61.502,
+      "phase_degrees": 0.759
+    },
+    {
+      "frequency_hz": 6834.379883,
+      "spl_db": 61.508,
+      "phase_degrees": 1.4373
+    },
+    {
+      "frequency_hz": 6883.904785,
+      "spl_db": 61.519,
+      "phase_degrees": 2.1072
+    },
+    {
+      "frequency_hz": 6933.788574,
+      "spl_db": 61.537,
+      "phase_degrees": 2.7629
+    },
+    {
+      "frequency_hz": 6984.033691,
+      "spl_db": 61.562,
+      "phase_degrees": 3.3956
+    },
+    {
+      "frequency_hz": 7034.642578,
+      "spl_db": 61.594,
+      "phase_degrees": 3.9985
+    },
+    {
+      "frequency_hz": 7085.618652,
+      "spl_db": 61.632,
+      "phase_degrees": 4.5701
+    },
+    {
+      "frequency_hz": 7136.963867,
+      "spl_db": 61.678,
+      "phase_degrees": 5.1102
+    },
+    {
+      "frequency_hz": 7188.681152,
+      "spl_db": 61.733,
+      "phase_degrees": 5.6171
+    },
+    {
+      "frequency_hz": 7240.773438,
+      "spl_db": 61.796,
+      "phase_degrees": 6.0856
+    },
+    {
+      "frequency_hz": 7293.243164,
+      "spl_db": 61.867,
+      "phase_degrees": 6.5045
+    },
+    {
+      "frequency_hz": 7346.092773,
+      "spl_db": 61.946,
+      "phase_degrees": 6.8656
+    },
+    {
+      "frequency_hz": 7399.325684,
+      "spl_db": 62.034,
+      "phase_degrees": 7.1633
+    },
+    {
+      "frequency_hz": 7452.944336,
+      "spl_db": 62.13,
+      "phase_degrees": 7.3867
+    },
+    {
+      "frequency_hz": 7506.951172,
+      "spl_db": 62.235,
+      "phase_degrees": 7.5198
+    },
+    {
+      "frequency_hz": 7561.350098,
+      "spl_db": 62.348,
+      "phase_degrees": 7.5419
+    },
+    {
+      "frequency_hz": 7616.142578,
+      "spl_db": 62.467,
+      "phase_degrees": 7.4361
+    },
+    {
+      "frequency_hz": 7671.332031,
+      "spl_db": 62.59,
+      "phase_degrees": 7.1896
+    },
+    {
+      "frequency_hz": 7726.921875,
+      "spl_db": 62.713,
+      "phase_degrees": 6.7903
+    },
+    {
+      "frequency_hz": 7782.914551,
+      "spl_db": 62.834,
+      "phase_degrees": 6.2216
+    },
+    {
+      "frequency_hz": 7839.3125,
+      "spl_db": 62.948,
+      "phase_degrees": 5.4635
+    },
+    {
+      "frequency_hz": 7896.119629,
+      "spl_db": 63.048,
+      "phase_degrees": 4.5148
+    },
+    {
+      "frequency_hz": 7953.337891,
+      "spl_db": 63.128,
+      "phase_degrees": 3.399
+    },
+    {
+      "frequency_hz": 8010.971191,
+      "spl_db": 63.182,
+      "phase_degrees": 2.1477
+    },
+    {
+      "frequency_hz": 8069.021973,
+      "spl_db": 63.207,
+      "phase_degrees": 0.7924
+    },
+    {
+      "frequency_hz": 8127.493164,
+      "spl_db": 63.198,
+      "phase_degrees": -0.634
+    },
+    {
+      "frequency_hz": 8186.388672,
+      "spl_db": 63.155,
+      "phase_degrees": -2.0933
+    },
+    {
+      "frequency_hz": 8245.710938,
+      "spl_db": 63.079,
+      "phase_degrees": -3.5383
+    },
+    {
+      "frequency_hz": 8305.461914,
+      "spl_db": 62.971,
+      "phase_degrees": -4.9236
+    },
+    {
+      "frequency_hz": 8365.647461,
+      "spl_db": 62.834,
+      "phase_degrees": -6.2173
+    },
+    {
+      "frequency_hz": 8426.267578,
+      "spl_db": 62.673,
+      "phase_degrees": -7.397
+    },
+    {
+      "frequency_hz": 8487.328125,
+      "spl_db": 62.493,
+      "phase_degrees": -8.4467
+    },
+    {
+      "frequency_hz": 8548.831055,
+      "spl_db": 62.296,
+      "phase_degrees": -9.356
+    },
+    {
+      "frequency_hz": 8610.779297,
+      "spl_db": 62.086,
+      "phase_degrees": -10.1216
+    },
+    {
+      "frequency_hz": 8673.176758,
+      "spl_db": 61.867,
+      "phase_degrees": -10.7406
+    },
+    {
+      "frequency_hz": 8736.026367,
+      "spl_db": 61.641,
+      "phase_degrees": -11.2076
+    },
+    {
+      "frequency_hz": 8799.331055,
+      "spl_db": 61.41,
+      "phase_degrees": -11.5208
+    },
+    {
+      "frequency_hz": 8863.094727,
+      "spl_db": 61.176,
+      "phase_degrees": -11.6808
+    },
+    {
+      "frequency_hz": 8927.320312,
+      "spl_db": 60.943,
+      "phase_degrees": -11.692
+    },
+    {
+      "frequency_hz": 8992.010742,
+      "spl_db": 60.715,
+      "phase_degrees": -11.562
+    },
+    {
+      "frequency_hz": 9057.170898,
+      "spl_db": 60.493,
+      "phase_degrees": -11.2977
+    },
+    {
+      "frequency_hz": 9122.802734,
+      "spl_db": 60.278,
+      "phase_degrees": -10.9053
+    },
+    {
+      "frequency_hz": 9188.910156,
+      "spl_db": 60.071,
+      "phase_degrees": -10.3909
+    },
+    {
+      "frequency_hz": 9255.49707,
+      "spl_db": 59.875,
+      "phase_degrees": -9.7613
+    },
+    {
+      "frequency_hz": 9322.566406,
+      "spl_db": 59.692,
+      "phase_degrees": -9.0247
+    },
+    {
+      "frequency_hz": 9390.121094,
+      "spl_db": 59.524,
+      "phase_degrees": -8.1927
+    },
+    {
+      "frequency_hz": 9458.166016,
+      "spl_db": 59.37,
+      "phase_degrees": -7.2831
+    },
+    {
+      "frequency_hz": 9526.704102,
+      "spl_db": 59.233,
+      "phase_degrees": -6.3077
+    },
+    {
+      "frequency_hz": 9595.738281,
+      "spl_db": 59.113,
+      "phase_degrees": -5.2701
+    },
+    {
+      "frequency_hz": 9665.273438,
+      "spl_db": 59.009,
+      "phase_degrees": -4.1735
+    },
+    {
+      "frequency_hz": 9735.311523,
+      "spl_db": 58.923,
+      "phase_degrees": -3.0269
+    },
+    {
+      "frequency_hz": 9805.857422,
+      "spl_db": 58.854,
+      "phase_degrees": -1.8425
+    },
+    {
+      "frequency_hz": 9876.915039,
+      "spl_db": 58.804,
+      "phase_degrees": -0.632
+    },
+    {
+      "frequency_hz": 9948.487305,
+      "spl_db": 58.774,
+      "phase_degrees": 0.5958
+    },
+    {
+      "frequency_hz": 10020.578125,
+      "spl_db": 58.765,
+      "phase_degrees": 1.8275
+    },
+    {
+      "frequency_hz": 10093.191406,
+      "spl_db": 58.776,
+      "phase_degrees": 3.049
+    },
+    {
+      "frequency_hz": 10166.331055,
+      "spl_db": 58.806,
+      "phase_degrees": 4.2496
+    },
+    {
+      "frequency_hz": 10240.0,
+      "spl_db": 58.857,
+      "phase_degrees": 5.4169
+    },
+    {
+      "frequency_hz": 10314.203125,
+      "spl_db": 58.93,
+      "phase_degrees": 6.5355
+    },
+    {
+      "frequency_hz": 10388.944336,
+      "spl_db": 59.025,
+      "phase_degrees": 7.5898
+    },
+    {
+      "frequency_hz": 10464.226562,
+      "spl_db": 59.144,
+      "phase_degrees": 8.5591
+    },
+    {
+      "frequency_hz": 10540.054688,
+      "spl_db": 59.285,
+      "phase_degrees": 9.4178
+    },
+    {
+      "frequency_hz": 10616.432617,
+      "spl_db": 59.449,
+      "phase_degrees": 10.137
+    },
+    {
+      "frequency_hz": 10693.363281,
+      "spl_db": 59.637,
+      "phase_degrees": 10.6771
+    },
+    {
+      "frequency_hz": 10770.852539,
+      "spl_db": 59.843,
+      "phase_degrees": 10.99
+    },
+    {
+      "frequency_hz": 10848.902344,
+      "spl_db": 60.064,
+      "phase_degrees": 11.0348
+    },
+    {
+      "frequency_hz": 10927.517578,
+      "spl_db": 60.293,
+      "phase_degrees": 10.775
+    },
+    {
+      "frequency_hz": 11006.703125,
+      "spl_db": 60.522,
+      "phase_degrees": 10.1833
+    },
+    {
+      "frequency_hz": 11086.461914,
+      "spl_db": 60.744,
+      "phase_degrees": 9.2362
+    },
+    {
+      "frequency_hz": 11166.798828,
+      "spl_db": 60.949,
+      "phase_degrees": 7.9152
+    },
+    {
+      "frequency_hz": 11247.71875,
+      "spl_db": 61.122,
+      "phase_degrees": 6.2136
+    },
+    {
+      "frequency_hz": 11329.223633,
+      "spl_db": 61.252,
+      "phase_degrees": 4.1401
+    },
+    {
+      "frequency_hz": 11411.320312,
+      "spl_db": 61.321,
+      "phase_degrees": 1.7315
+    },
+    {
+      "frequency_hz": 11494.011719,
+      "spl_db": 61.318,
+      "phase_degrees": -0.9419
+    },
+    {
+      "frequency_hz": 11577.301758,
+      "spl_db": 61.233,
+      "phase_degrees": -3.7809
+    },
+    {
+      "frequency_hz": 11661.195312,
+      "spl_db": 61.06,
+      "phase_degrees": -6.6629
+    },
+    {
+      "frequency_hz": 11745.697266,
+      "spl_db": 60.796,
+      "phase_degrees": -9.4548
+    },
+    {
+      "frequency_hz": 11830.811523,
+      "spl_db": 60.446,
+      "phase_degrees": -12.0336
+    },
+    {
+      "frequency_hz": 11916.542969,
+      "spl_db": 60.02,
+      "phase_degrees": -14.2949
+    },
+    {
+      "frequency_hz": 12002.894531,
+      "spl_db": 59.53,
+      "phase_degrees": -16.1616
+    },
+    {
+      "frequency_hz": 12089.873047,
+      "spl_db": 58.992,
+      "phase_degrees": -17.5876
+    },
+    {
+      "frequency_hz": 12177.480469,
+      "spl_db": 58.422,
+      "phase_degrees": -18.5616
+    },
+    {
+      "frequency_hz": 12265.723633,
+      "spl_db": 57.829,
+      "phase_degrees": -19.0981
+    },
+    {
+      "frequency_hz": 12354.606445,
+      "spl_db": 57.226,
+      "phase_degrees": -19.2188
+    },
+    {
+      "frequency_hz": 12444.132812,
+      "spl_db": 56.619,
+      "phase_degrees": -18.9435
+    },
+    {
+      "frequency_hz": 12534.308594,
+      "spl_db": 56.015,
+      "phase_degrees": -18.2853
+    },
+    {
+      "frequency_hz": 12625.136719,
+      "spl_db": 55.421,
+      "phase_degrees": -17.2578
+    },
+    {
+      "frequency_hz": 12716.624023,
+      "spl_db": 54.844,
+      "phase_degrees": -15.8845
+    },
+    {
+      "frequency_hz": 12808.773438,
+      "spl_db": 54.289,
+      "phase_degrees": -14.196
+    },
+    {
+      "frequency_hz": 12901.591797,
+      "spl_db": 53.763,
+      "phase_degrees": -12.2334
+    },
+    {
+      "frequency_hz": 12995.082031,
+      "spl_db": 53.27,
+      "phase_degrees": -10.0358
+    },
+    {
+      "frequency_hz": 13089.25,
+      "spl_db": 52.813,
+      "phase_degrees": -7.634
+    },
+    {
+      "frequency_hz": 13184.099609,
+      "spl_db": 52.396,
+      "phase_degrees": -5.0618
+    },
+    {
+      "frequency_hz": 13279.636719,
+      "spl_db": 52.022,
+      "phase_degrees": -2.3597
+    },
+    {
+      "frequency_hz": 13375.867188,
+      "spl_db": 51.695,
+      "phase_degrees": 0.4287
+    },
+    {
+      "frequency_hz": 13472.793945,
+      "spl_db": 51.416,
+      "phase_degrees": 3.2568
+    },
+    {
+      "frequency_hz": 13570.422852,
+      "spl_db": 51.186,
+      "phase_degrees": 6.0837
+    },
+    {
+      "frequency_hz": 13668.759766,
+      "spl_db": 51.004,
+      "phase_degrees": 8.8818
+    },
+    {
+      "frequency_hz": 13767.80957,
+      "spl_db": 50.873,
+      "phase_degrees": 11.6274
+    },
+    {
+      "frequency_hz": 13867.577148,
+      "spl_db": 50.796,
+      "phase_degrees": 14.2941
+    },
+    {
+      "frequency_hz": 13968.067383,
+      "spl_db": 50.775,
+      "phase_degrees": 16.8562
+    },
+    {
+      "frequency_hz": 14069.285156,
+      "spl_db": 50.811,
+      "phase_degrees": 19.278
+    },
+    {
+      "frequency_hz": 14171.237305,
+      "spl_db": 50.906,
+      "phase_degrees": 21.5074
+    },
+    {
+      "frequency_hz": 14273.927734,
+      "spl_db": 51.062,
+      "phase_degrees": 23.4841
+    },
+    {
+      "frequency_hz": 14377.362305,
+      "spl_db": 51.284,
+      "phase_degrees": 25.1564
+    },
+    {
+      "frequency_hz": 14481.546875,
+      "spl_db": 51.578,
+      "phase_degrees": 26.4841
+    },
+    {
+      "frequency_hz": 14586.486328,
+      "spl_db": 51.946,
+      "phase_degrees": 27.4036
+    },
+    {
+      "frequency_hz": 14692.185547,
+      "spl_db": 52.388,
+      "phase_degrees": 27.8009
+    },
+    {
+      "frequency_hz": 14798.651367,
+      "spl_db": 52.9,
+      "phase_degrees": 27.5211
+    },
+    {
+      "frequency_hz": 14905.888672,
+      "spl_db": 53.471,
+      "phase_degrees": 26.4003
+    },
+    {
+      "frequency_hz": 15013.902344,
+      "spl_db": 54.079,
+      "phase_degrees": 24.2891
+    },
+    {
+      "frequency_hz": 15122.700195,
+      "spl_db": 54.688,
+      "phase_degrees": 21.0535
+    },
+    {
+      "frequency_hz": 15232.285156,
+      "spl_db": 55.243,
+      "phase_degrees": 16.6234
+    },
+    {
+      "frequency_hz": 15342.664062,
+      "spl_db": 55.684,
+      "phase_degrees": 11.0528
+    },
+    {
+      "frequency_hz": 15453.84375,
+      "spl_db": 55.95,
+      "phase_degrees": 4.5565
+    },
+    {
+      "frequency_hz": 15565.829102,
+      "spl_db": 55.994,
+      "phase_degrees": -2.478
+    },
+    {
+      "frequency_hz": 15678.625,
+      "spl_db": 55.793,
+      "phase_degrees": -9.5433
+    },
+    {
+      "frequency_hz": 15792.239258,
+      "spl_db": 55.354,
+      "phase_degrees": -16.1188
+    },
+    {
+      "frequency_hz": 15906.675781,
+      "spl_db": 54.713,
+      "phase_degrees": -21.768
+    },
+    {
+      "frequency_hz": 16021.942383,
+      "spl_db": 53.924,
+      "phase_degrees": -26.1876
+    },
+    {
+      "frequency_hz": 16138.043945,
+      "spl_db": 53.047,
+      "phase_degrees": -29.2305
+    },
+    {
+      "frequency_hz": 16254.986328,
+      "spl_db": 52.141,
+      "phase_degrees": -30.8845
+    },
+    {
+      "frequency_hz": 16372.777344,
+      "spl_db": 51.256,
+      "phase_degrees": -31.2437
+    },
+    {
+      "frequency_hz": 16491.421875,
+      "spl_db": 50.438,
+      "phase_degrees": -30.5366
+    },
+    {
+      "frequency_hz": 16610.923828,
+      "spl_db": 49.704,
+      "phase_degrees": -29.1093
+    },
+    {
+      "frequency_hz": 16731.294922,
+      "spl_db": 49.045,
+      "phase_degrees": -27.2074
+    },
+    {
+      "frequency_hz": 16852.535156,
+      "spl_db": 48.443,
+      "phase_degrees": -24.8873
+    },
+    {
+      "frequency_hz": 16974.65625,
+      "spl_db": 47.892,
+      "phase_degrees": -22.1376
+    },
+    {
+      "frequency_hz": 17097.662109,
+      "spl_db": 47.392,
+      "phase_degrees": -18.9763
+    },
+    {
+      "frequency_hz": 17221.558594,
+      "spl_db": 46.94,
+      "phase_degrees": -15.4661
+    },
+    {
+      "frequency_hz": 17346.353516,
+      "spl_db": 46.534,
+      "phase_degrees": -11.6747
+    },
+    {
+      "frequency_hz": 17472.052734,
+      "spl_db": 46.173,
+      "phase_degrees": -7.6526
+    },
+    {
+      "frequency_hz": 17598.662109,
+      "spl_db": 45.86,
+      "phase_degrees": -3.4578
+    },
+    {
+      "frequency_hz": 17726.189453,
+      "spl_db": 45.592,
+      "phase_degrees": 0.8505
+    },
+    {
+      "frequency_hz": 17854.640625,
+      "spl_db": 45.366,
+      "phase_degrees": 5.2208
+    },
+    {
+      "frequency_hz": 17984.021484,
+      "spl_db": 45.178,
+      "phase_degrees": 9.576
+    },
+    {
+      "frequency_hz": 18114.341797,
+      "spl_db": 45.025,
+      "phase_degrees": 13.8242
+    },
+    {
+      "frequency_hz": 18245.605469,
+      "spl_db": 44.898,
+      "phase_degrees": 17.8981
+    },
+    {
+      "frequency_hz": 18377.820312,
+      "spl_db": 44.785,
+      "phase_degrees": 21.7656
+    },
+    {
+      "frequency_hz": 18510.994141,
+      "spl_db": 44.676,
+      "phase_degrees": 25.407
+    },
+    {
+      "frequency_hz": 18645.132812,
+      "spl_db": 44.561,
+      "phase_degrees": 28.8054
+    },
+    {
+      "frequency_hz": 18780.242188,
+      "spl_db": 44.424,
+      "phase_degrees": 31.9586
+    },
+    {
+      "frequency_hz": 18916.332031,
+      "spl_db": 44.257,
+      "phase_degrees": 34.8576
+    },
+    {
+      "frequency_hz": 19053.408203,
+      "spl_db": 44.05,
+      "phase_degrees": 37.4861
+    },
+    {
+      "frequency_hz": 19191.476562,
+      "spl_db": 43.8,
+      "phase_degrees": 39.8168
+    },
+    {
+      "frequency_hz": 19330.546875,
+      "spl_db": 43.503,
+      "phase_degrees": 41.816
+    },
+    {
+      "frequency_hz": 19470.623047,
+      "spl_db": 43.157,
+      "phase_degrees": 43.4577
+    },
+    {
+      "frequency_hz": 19611.714844,
+      "spl_db": 42.765,
+      "phase_degrees": 44.6841
+    },
+    {
+      "frequency_hz": 19753.830078,
+      "spl_db": 42.355,
+      "phase_degrees": 45.3948
+    },
+    {
+      "frequency_hz": 19896.974609,
+      "spl_db": 42.0,
+      "phase_degrees": 45.5628
+    }
+  ]
+}
