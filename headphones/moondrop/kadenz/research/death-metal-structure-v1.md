@@ -49,7 +49,7 @@
 - 设备接受了 56 条操作，包括保存命令。首次写后读取遇到 `kIOReturnNotReady`，保留了不完整读取记录，随后仅重读，没有重复写入。
 - 重读确认模式、9 段参数标签、9 段当前运行系数均与计划一致，匹配 **48 kHz** 系数。物理拔插持久化和实际听感未在本次验证。
 
-计算细节见[设计验证 JSON](../../../../profiles/compiled/kadenz-death-metal-structure-v1/design-validation.json)。完整写入前备份、计划快照、56 条 ACK、写后读回及验收见[本次运行目录](../../../../runs/20261029T155405.399289Z-kadenz-death-metal-structure-v1/verification.json)。原先闷声测试 EQ 已被本配置替换。
+计算细节见[设计验证 JSON](../../../../runs/20261029T155405.399289Z-kadenz-death-metal-structure-v1/design-validation.json)。完整写入前备份、计划快照、56 条 ACK、写后读回及验收见[本次运行目录](../../../../runs/20261029T155405.399289Z-kadenz-death-metal-structure-v1/verification.json)。原先闷声测试 EQ 已被本配置替换。
 
 ## 第一轮试听重点
 

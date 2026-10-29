@@ -9,7 +9,7 @@
 | 路径 | 内容 | 操作约定 |
 | --- | --- | --- |
 | `presets/*.json` | 可编辑的音色配置原件 | 平时创建、选择和修改这些文件 |
-| `profiles/compiled/<预设名>/` | 编译后的参数、系数和写入计划 | `build` 会覆盖同名生成产物，不能当作版本备份 |
+| `profiles/compiled/<预设名>/` | 编译后的参数、系数和写入计划 | Git 忽略；`build` 可重建并覆盖同名产物，不能当作版本备份 |
 | `runs/<UTC时间>-<预设名>/` | 每次写入的配置快照、前后读取、ACK 和验收 | 独立保存历史；不要拿后来编辑的预设冒充当时写入版本 |
 | `backups/` | 原始备份与单独的只读采集 | 保留初始文件，区分标签、当前系数和完整闪存的范围 |
 | `headphones/<品牌>/<型号>/` | 各耳机的原始测量、研究、分析及试听 | 结构见[耳机资料库](../headphones/README.md) |
@@ -66,8 +66,9 @@ python3 tools/preset.py build presets/global-minus-2db.json
 | `list` | 否 | 否 | 预设列表，不是设备当前状态 |
 | `build` | 否 | 否 | `profiles/compiled/<名称>/` |
 | `apply` | 是 | 是，包含保存操作 | 新的 `runs/<时间>-<名称>/` |
+| `verify` | 是 | 否，仅对照历史计划读回 | 指定运行目录内新的 `checks/<时间>/` |
 
-不要用底层 `bin/echo_apply_plan` 代替常规 `apply`：直接调用底层程序会跳过 Python 管理层的写前采集和写后验收。
+不要用底层 `bin/echo_apply_plan` 代替常规 `apply`：直接调用底层程序会跳过 Python 管理层的写前采集和写后验收。`apply` 与 `verify` 通过 `.echo-b.lock` 协作锁排斥并行设备操作；不要在运行期间删除锁文件。它不会阻止外部 App 或手工调用底层程序。
 
 ## 4. 新建与维护配置
 
@@ -132,13 +133,30 @@ python3 tools/preset.py build presets/global-minus-2db.json
 4. 读取 `after-metadata.jsonl` 与 `after-coefficients.jsonl`，校验模式、标签和当前运行系数。
 5. 写出 `verification.json`；校验不一致则报错。
 
+每阶段都在终端打印阶段名，在 `status.json` 原子更新状态，并在 `events.jsonl` 追加过程记录。读取每次尝试保留 `*-attemptN.jsonl` 与 `*-attemptN.stderr.txt`；只有读取和格式校验成功才生成对应的标准 `before-*` / `after-*` 文件。写入程序的诊断另存 `write-stderr.txt`。
+
 “已写入并读回验证”应同时有：
 
 - `write-log.jsonl` 包含编号 0–55 的 56 条成功 ACK，最后一条对应保存操作。
 - `verification.json` 中 `metadata_matches`、`mode_matches` 为 `true`。
 - `current_coefficients_match_rates` 非空，表示当前读到的系数与计划中的某套匹配。平直 EQ 在多个采样率上系数相同，因此该列表不能总是唯一确定实际采样率。
 
-程序输出 `Saved and read back successfully` 才表示整条流程完成。退出报错可能发生在写入前，也可能发生在保存成功后的读取阶段；**不能仅凭退出码推断设备没有改变**。目录存在、生成了 `plan.bin`、收到保存 ACK，分别只能证明对应阶段。
+程序输出 `[complete] 已写入并保存，读回验证通过`，且 `status.json` 的 `status` 为 `saved_verified`，才表示整条流程完成。
+
+| 状态 | 退出码 | 含义与下一步 |
+| --- | ---: | --- |
+| `saved_verified` | 0 | 保存 ACK 完整且读回匹配 |
+| `not_written` | 2 | 写前读取失败，尚未发送 EQ 写入；先修复连接/权限 |
+| `write_uncertain` | 3 | 已启动写入，可能部分生效或保存结果未知；检查日志后决定下一步，不自动重写 |
+| `saved_unverified` | 4 | 56 条操作及保存已确认，但写后读取/比对未通过；运行 `verify`，不要直接重跑 `apply` |
+| `readback_verified` | 0 | 独立 `verify` 的只读复核通过；本次没有保存操作 |
+| `readback_failed` | 5 | 独立 `verify` 失败；查看检查目录，设备未被本命令改写 |
+
+参数、编译、历史计划校验、锁冲突等准备阶段错误可能没有完整运行状态记录；用法错误也可能返回 2，所以不能脱离操作类型和状态文件只看数字。进程被强制终止时可能留下 `status: running`，这也不是成功；以最后阶段及日志进一步确认。
+
+**不再用通用退出码推断“没有开始写入”。** `echo_probe` 同时用于写前和写后读取；相同的读取错误必须结合 `stage`、`write_attempted`、`save_command_acknowledged` 和 ACK 日志判断。旧运行目录没有 `status.json` 时，同样要检查写入日志和 `before-*` / `after-*`。
+
+只读重试是有限的：原生探测对 `kIOReturnNotReady` 最多做 20 次 GET_REPORT，间隔 50 ms；耗尽后返回探测器专用退出码 4，管理层才会为该数据类别最多启动 3 次只读采集（退避 0.25 / 0.5 秒，每进程超时 20 秒）。权限不足、断连、坏回包、比对失败不会按暂未就绪重试。原生写入器仅对同一条操作的 ACK 最多轮询 100 次、间隔 10 ms，**不重发写入命令**；管理层也不自动重跑整个写入器，写入进程超时为 120 秒。探测器退出码 4 与顶层 `apply` 退出码 4 含义不同，顶层以状态表为准。
 
 本目录中的 `before-*` 是当前运行状态采集，不是完整闪存备份；不能假定它含有所有内部预设及各采样率原始状态，也不能将其直接传给 `apply`。
 
@@ -160,32 +178,16 @@ python3 tools/backup_metadata.py
 
 该脚本在 `backups/` 新建时间戳目录，**只备份标签，不包含原始滤波系数**。
 
-若保存 ACK 已成功但写后读取失败，或想在手动拔插之后复核，应仅重新读取，不重复 `apply`。下面这段命令会在指定历史运行目录下创建新的检查目录，保留已有记录，使用**该次写入的计划快照**核对设备。将 `EQ_RUN` 改为真实运行目录：
+若保存 ACK 已成功但写后读取失败，或想在手动拔插之后复核，应仅重新读取，不重复 `apply`。现在直接使用 `verify`，不需要手写 Python：
 
 ```sh
 EQ_RUN="runs/这里替换为实际的时间戳和预设名"
-python3 - "$EQ_RUN" <<'PY'
-import json
-import sys
-from datetime import datetime, timezone
-from pathlib import Path
-
-sys.path.insert(0, 'tools')
-from preset import capture, verify
-
-run = Path(sys.argv[1]).resolve()
-plan = json.loads((run / 'plan.json').read_text())
-stamp = datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%S.%fZ')
-check = run / 'checks' / stamp
-check.mkdir(parents=True, exist_ok=False)
-print(check, flush=True)
-capture(check, 'after')
-verify(check, plan)
-print((check / 'verification.json').read_text())
-PY
+python3 tools/preset.py verify "$EQ_RUN"
 ```
 
-这段代码使用现有 Python 函数，只读设备、不发送 EQ 保存序列。运行前需已有 `make build` 的二进制；如果读取失败，保留该检查目录，排查后另建一次读取，不覆盖失败记录。
+参数必须是**历史运行目录**，不是预设名或 JSON 文件。程序自动编译工具，校验该目录 `plan.bin` 的 manifest 哈希，并确认 `plan.json` 与二进制一致，然后按原有系数比较，不使用可能已经编辑过的源预设重新计算。
+
+每次复核建立新的 `checks/<UTC时间>/`，其中有独立 `status.json`、事件、读取尝试与 `verification.json`；不会覆盖原始失败记录，也不会将旧运行的失败状态改成“当时成功”。`readback_verified` 只确认本次读到的运行状态与计划一致，不等于本次执行了保存，也不能证明完整闪存内容。
 
 验证插拔持久化时，先成功写入并记下运行目录，手动拔下耳放、等几秒、接回，再执行上面的只读复核。将实际拔插过程、时间及复核目录记入该运行目录的 `persistence-note.md`。校验函数不知道用户是否拔过线，生成的 `physical_unplug_tested` 默认仍为 `false`；不要将单次读回当成自动完成了断电测试。接到另一设备时还需试听或再测相应链路，不能把 Mac 当前采样率验证外推到所有条件。
 
@@ -216,7 +218,7 @@ python3 tools/preset.py apply "$EQ_RUN/preset.json"
 | `clang` / `make` 不可用 | 检查 macOS 开发工具，先解决编译；不需要为本仓库安装 Python 第三方包 |
 | `Expected one ECHO-B` | 检查连接、数据线与实际型号；确保恰好连接一台支持设备，不能靠改 PID 跳过适配 |
 | `Open: 0xe00002e2` 或沙箱拒绝 | 本项目曾因沙箱设备访问限制出现；在允许访问 USB 的终端/执行环境运行，不能直接断定设备不兼容 |
-| `GetReport: 0xe00002d8` | macOS 定义为设备尚未就绪；先检查写入日志确定已完成阶段，再做有界的只读重试。若仍失败，检查连接/其他控制程序 |
+| `GetReport ... 0xe00002d8` | 设备尚未就绪；工具已做有限读取重试。耗尽后看状态：`saved_unverified` 用 `verify`，`not_written` 才是写前失败 |
 | `No valid acknowledgement` / `SetReport` 失败 | 可能已部分写入，程序会停止；保留日志、确认设备状态，再决定重新应用已知配置，不能称已自动回滚 |
 | `Readback differs from preset` | 查看保存 ACK 和读回文件，排除其他程序改写、状态变化或读取异常；不能忽略错误宣称成功 |
 | App 显示的增益与全局衰减不一致 | App 标签不表达第 9 段的全局系数，核对原始系数；App 再保存可能覆盖本工具写入的全局衰减 |
@@ -233,13 +235,13 @@ python3 tools/preset.py apply "$EQ_RUN/preset.json"
 维护代码后可运行离线回归检查：
 
 ```sh
-python3 tools/test_presets.py
+make test
 make build
 git diff --check
 ```
 
-这些操作不验证真实 USB 写入。测试依赖仓库已有的基准配置与早期测试计划，保留相应文件。涉及 DSP 算法的改动还应比较旧预设生成结果、各采样率误差和峰值，真实设备验证另记到运行记录。
+`make test` 运行 Python 流程回归与原生 C 的故障注入，设备 I/O 均被替换，不访问真实 USB。覆盖暂未就绪恢复/耗尽、权限错误、部分写入、保存后验证失败、只读复核、坏回包和并行操作。测试中出现的模拟错误输出是预期情况。这些测试不证明真实 USB 写入已经通过；基准测试依赖仓库已有配置与早期计划，保留相应文件。涉及 DSP 算法的改动还应比较旧预设生成结果、各采样率误差和峰值，真实设备验证另记到运行记录。
 
-清理或提交时保留 `presets/`、原始测量、来源证据、初始备份和有意义的 `runs/` 记录。`bin/`、Python 缓存和下载 APK 等是否忽略以 [`.gitignore`](../.gitignore) 为准；写入记录包含实际参数和本机路径，分享前检查内容。不要为了清理生成文件删除无法重建的原始采集。
+清理或提交时保留 `presets/`、原始测量、来源证据、初始备份和有意义的 `runs/` 记录。`bin/`、`profiles/compiled/`、Python 缓存、下载 APK、本地锁和原子写入的 `*.json.tmp` 由 [`.gitignore`](../.gitignore) 忽略；编译缓存用 `build` 重建，永久设计验证应引用 `runs/` 中的快照。写入记录包含实际参数和本机路径，分享前检查内容。诊断日志和原始二进制没有被统一按扩展名忽略；不要为了清理生成文件删除无法重建的原始采集。
 
 设备协议及历史调查见 [ECHO-B 技术记录](devices/echo-b-investigation.md)，各预设索引见[预设库](../presets/README.md)。

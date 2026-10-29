@@ -2,9 +2,9 @@
   "preset": {
     "version": 1,
     "device": "MOONDROP ECHO-B",
-    "name": "全局降低 2 dB",
-    "description": "以平直频响为基准，全频段统一衰减 2 dB，不叠加之前的闷声测试 EQ。",
-    "preamp_db": -2,
+    "name": "原始默认（未调音）",
+    "description": "依据 2026-10-29 首次连接时的原始备份：模式 0，9 段直通，全局增益 0 dB。恢复本次调音前的 EQ 状态；不是整机恢复出厂或完整闪存镜像。",
+    "preamp_db": 0,
     "filters": []
   },
   "bands": [
@@ -131,7 +131,7 @@
         0
       ],
       [
-        3331654,
+        4194304,
         0,
         0,
         0,
@@ -196,7 +196,7 @@
         0
       ],
       [
-        3331654,
+        4194304,
         0,
         0,
         0,
@@ -261,7 +261,7 @@
         0
       ],
       [
-        3331654,
+        4194304,
         0,
         0,
         0,
@@ -326,7 +326,7 @@
         0
       ],
       [
-        3331654,
+        4194304,
         0,
         0,
         0,
@@ -391,7 +391,7 @@
         0
       ],
       [
-        3331654,
+        4194304,
         0,
         0,
         0,
@@ -401,24 +401,24 @@
   },
   "response_check": {
     "44100": {
-      "min_gain_db": -2.0000002404171053,
-      "max_gain_db": -2.0000002404171053
+      "min_gain_db": 0.0,
+      "max_gain_db": 0.0
     },
     "48000": {
-      "min_gain_db": -2.0000002404171053,
-      "max_gain_db": -2.0000002404171053
+      "min_gain_db": 0.0,
+      "max_gain_db": 0.0
     },
     "96000": {
-      "min_gain_db": -2.0000002404171053,
-      "max_gain_db": -2.0000002404171053
+      "min_gain_db": 0.0,
+      "max_gain_db": 0.0
     },
     "192000": {
-      "min_gain_db": -2.0000002404171053,
-      "max_gain_db": -2.0000002404171053
+      "min_gain_db": 0.0,
+      "max_gain_db": 0.0
     },
     "384000": {
-      "min_gain_db": -2.0000002404171053,
-      "max_gain_db": -2.0000002404171053
+      "min_gain_db": 0.0,
+      "max_gain_db": 0.0
     }
   },
   "note": "Band 9 implements global attenuation directly; Android metadata labels do not encode it."

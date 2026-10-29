@@ -2,8 +2,10 @@
 .DS_Store
 ._*
 
-# Compiled local tools
+# Rebuildable executables and preset compilation cache.
+# Historical plans in runs/ and test fixtures in profiles/ remain tracked.
 /bin/
+/profiles/compiled/
 
 # Python caches and local environments
 __pycache__/
@@ -15,9 +17,12 @@ venv/
 /evidence/*.apk
 /evidence/android-arm64/
 
-# Local analysis state and transient logs
+# Local analysis sessions and atomic JSON-write temporary files.
+# Do not ignore all *.log: diagnostic logs can be important evidence.
 /evidence/*.snapshot.json
-*.log
-*.tmp
+*.json.tmp
+# Advisory lock for cooperating apply/verify processes; not a device state file.
+/.echo-b.lock
 
-# Keep backups tracked, including original binary HID replies.
+# Keep presets/, backups/, runs/, and headphone measurements tracked,
+# including binary replies, saved write plans, and failure diagnostics.

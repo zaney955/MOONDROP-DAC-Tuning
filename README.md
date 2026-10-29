@@ -25,9 +25,12 @@ python3 tools/preset.py apply global-minus-2db
 
 # 恢复本仓库首次备份对应的直通 EQ（不是整机恢复出厂）
 python3 tools/preset.py apply original-default
+
+# 已保存但验证失败时：只读复核指定运行记录，不重复写入
+python3 tools/preset.py verify "runs/这里替换为实际运行目录"
 ```
 
-将示例名称换成所需预设。每次 `apply` 都先采集当前参数与系数，再写入，并在 `runs/` 新建独立记录。保存 ACK、当前系数读回、物理拔插保持是不同验证阶段；失败时先查看记录，不盲目重复写入。具体步骤见[操作指南](docs/operations.md)。
+将示例名称换成所需预设。每次 `apply` 都先采集当前参数与系数，再写入，并在 `runs/` 新建独立记录。保存 ACK、当前系数读回、物理拔插保持是不同验证阶段；失败时先查看记录，不盲目重复写入。工具会记录明确的阶段和结果，并对“设备尚未就绪”做有限的读取重试；若状态为 `saved_unverified`，使用 `verify` 完成复核。具体步骤见[操作指南](docs/operations.md)。
 
 ## 文件布局
 

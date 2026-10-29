@@ -7,6 +7,22 @@
 #include <unistd.h>
 
 static uint32_t word(const uint8_t*b,int n){uint32_t v;memcpy(&v,b+10+4*n,4);return v;}
+/* Poll only the acknowledgement; never resend a possibly effective write. */
+static int read_ack(IOHIDDeviceRef d,const uint8_t*request,uint8_t*b){
+    for(int attempt=0;attempt<100;attempt++){
+        usleep(10000);memset(b,0,62);b[0]=1;CFIndex len=62;
+        IOReturn r=IOHIDDeviceGetReport(d,kIOHIDReportTypeInput,1,b,&len);
+        if(r==kIOReturnNotReady)continue;
+        if(r){fprintf(stderr,"GetReport ACK 0x%08x; STOP\n",r);return 0;}
+        if(len==62&&b[0]==1&&b[4]==request[4]&&b[5]==0x80&&!memcmp(b+6,request+6,4)){
+            int16_t count;memcpy(&count,b+2,2);
+            if(attempt>0&&count>=0&&count<=13)fprintf(stderr,"ACK recovered after %d reads; write was not resent\n",attempt+1);
+            return count>=0&&count<=13;
+        }
+    }
+    fprintf(stderr,"ACK read retry limit reached; write will NOT be resent\n");
+    return 0;
+}
 int main(int argc,char**argv){
     if(argc!=2){fprintf(stderr,"Usage: echo_apply_plan PLAN.bin\n");return 2;}
     uint8_t frames[56][62];FILE*f=fopen(argv[1],"rb");
@@ -32,15 +48,7 @@ int main(int argc,char**argv){
     for(int i=0;i<56;i++){
         r=IOHIDDeviceSetReport(d,kIOHIDReportTypeOutput,1,frames[i],62);
         if(r){fprintf(stderr,"SetReport %d 0x%08x; STOP\n",i,r);result=4;break;}
-        int ok=0;uint8_t b[62];
-        for(int attempt=0;attempt<100;attempt++){
-            usleep(10000);memset(b,0,62);b[0]=1;CFIndex len=62;
-            r=IOHIDDeviceGetReport(d,kIOHIDReportTypeInput,1,b,&len);
-            if(r){fprintf(stderr,"GetReport %d 0x%08x; STOP\n",i,r);break;}
-            if(len==62&&b[0]==1&&b[4]==frames[i][4]&&b[5]==0x80&&!memcmp(b+6,frames[i]+6,4)){
-                int16_t count;memcpy(&count,b+2,2);ok=count>=0&&count<=13;break;
-            }
-        }
+        uint8_t b[62];int ok=read_ack(d,frames[i],b);
         printf("{\"operation\":%d,\"ack\":%s,\"reply\":\"",i,ok?"true":"false");
         for(int j=0;j<62;j++)printf("%02x",b[j]);puts("\"}");fflush(stdout);
         if(!ok){fprintf(stderr,"No valid acknowledgement; STOP before any next operation\n");result=5;break;}

@@ -14,9 +14,24 @@ static int query(IOHIDDeviceRef d, uint8_t cmd, int arg) {
     IOReturn s=IOHIDDeviceSetReport(d,kIOHIDReportTypeOutput,1,out,sizeof out);
     if(s) { fprintf(stderr,"SetReport: 0x%08x\n",s); return 1; }
     usleep(20000);
-    uint8_t in[62]={1}; CFIndex len=sizeof in;
-    IOReturn r=IOHIDDeviceGetReport(d,kIOHIDReportTypeInput,1,in,&len);
-    if(r) { fprintf(stderr,"GetReport: 0x%08x\n",r); return 1; }
+    uint8_t in[62]; CFIndex len=sizeof in;
+    IOReturn r=kIOReturnNotReady;
+    int reads=0;
+    /* Retry GET_REPORT only. Do not resend the request or mask other errors.
+     * 20 attempts, 50 ms apart; exit 4 lets the caller distinguish exhaustion. */
+    for(int attempt=0;attempt<20;attempt++) {
+        memset(in,0,sizeof in);in[0]=1;len=sizeof in;
+        reads++;
+        r=IOHIDDeviceGetReport(d,kIOHIDReportTypeInput,1,in,&len);
+        if(r!=kIOReturnNotReady) break;
+        if(attempt<19) usleep(50000);
+    }
+    if(r) {
+        fprintf(stderr,"GetReport cmd=0x%02x arg=%d: 0x%08x%s\n",cmd,arg,r,
+                r==kIOReturnNotReady?" (NotReady retry limit reached)":"");
+        return r==kIOReturnNotReady?4:1;
+    }
+    if(reads>1)fprintf(stderr,"GetReport cmd=0x%02x arg=%d recovered after %d reads\n",cmd,arg,reads);
     int16_t words=(int16_t)((unsigned)in[2]|((unsigned)in[3]<<8));
     if(len!=62 || words<0 || words>13 || in[0]!=1 || in[4]!=cmd || in[5]!=0x81 ||
        memcmp(in+7,out+7,3)!=0 ||

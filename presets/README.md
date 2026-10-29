@@ -30,16 +30,19 @@ python3 tools/preset.py apply global-minus-2db
 
 # 恢复原始未调音 EQ，并保存到耳放
 python3 tools/preset.py apply original-default
+
+# 保存后验证失败时，只重新读取指定历史运行记录
+python3 tools/preset.py verify "runs/这里替换为实际运行目录"
 ```
 
-也可以传入 JSON 文件路径。`apply` 自动编译本机 USB 工具、先记录当前参数和当前运行系数，再写入五种采样率的数据及保存命令，最后读回当前运行状态。写入失败会停止并报错；不会宣称成功或自动恢复。沙箱中若无法打开 USB 设备，需由执行环境允许设备访问，普通 macOS 终端可直接运行。不要同时运行两个写入命令。
+也可以传入 JSON 文件路径。`apply` 自动编译本机 USB 工具、先记录当前参数和当前运行系数，再写入五种采样率的数据及保存命令，最后读回当前运行状态。失败时根据 `status.json` 区分写前失败、写入结果未知、已保存但未通过验证。工具对暂未就绪做有限的只读重试，不自动重发写入或自动恢复；`saved_unverified` 使用 `verify` 复核。沙箱中若无法打开 USB 设备，需由执行环境允许设备访问，普通 macOS 终端可直接运行。不要同时运行两个写入命令。
 
 ## 文件组织
 
 | 目录 | 用途 |
 | --- | --- |
 | `presets/*.json` | 手动编辑、长期保存的预设原件 |
-| `profiles/compiled/<预设名>/` | `build` 生成的计划、二进制和响应检查；可重新生成 |
+| `profiles/compiled/<预设名>/` | `build` 生成的本地缓存；Git 忽略，可重新生成 |
 | `runs/<UTC时间>-<预设名>/` | 每次 `apply` 的独立快照、写入前后读取、ACK 和验收；不覆盖历史 |
 | `backups/` | 原始备份，保留原状 |
 | `profiles/muffled-persistence-test/` | 早期闷声测试及原始直通恢复计划 |
