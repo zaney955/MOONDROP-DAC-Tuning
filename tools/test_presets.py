@@ -10,7 +10,9 @@ from preset import ROOT, SCALE, compile_preset, read_coefficients
 
 class PresetTests(unittest.TestCase):
     def setUp(self):
-        self.doc = json.loads((ROOT/'presets/global-minus-2db.json').read_text())
+        self.doc = json.loads((ROOT/'presets/original-default.json').read_text())
+        self.doc['preamp_db'] = -2  # Synthetic attenuation fixture, not a user preset.
+        self.doc['output_trim_db'] = 0  # Isolate original DSP regression from listening level.
 
     def test_global_attenuation_is_flat_at_all_rates_and_encoded(self):
         plan, binary = compile_preset(self.doc)

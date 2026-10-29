@@ -18,25 +18,25 @@
 python3 tools/preset.py list
 
 # 离线检查与生成，不修改耳放
-python3 tools/preset.py build global-minus-2db
+python3 tools/preset.py build original-minus-16db
 
 # 将选定配置完整写入、保存并读回验证（会修改设备）
-python3 tools/preset.py apply global-minus-2db
+python3 tools/preset.py apply original-minus-16db
 
-# 恢复本仓库首次备份对应的直通 EQ（不是整机恢复出厂）
+# 恢复原始直通音色及 0 dB 输出（请先降低播放音量）
 python3 tools/preset.py apply original-default
 
 # 已保存但验证失败时：只读复核指定运行记录，不重复写入
 python3 tools/preset.py verify "runs/这里替换为实际运行目录"
 ```
 
-将示例名称换成所需预设。每次 `apply` 都先采集当前参数与系数，再写入，并在 `runs/` 新建独立记录。保存 ACK、当前系数读回、物理拔插保持是不同验证阶段；失败时先查看记录，不盲目重复写入。工具会记录明确的阶段和结果，并对“设备尚未就绪”做有限的读取重试；若状态为 `saved_unverified`，使用 `verify` 完成复核。具体步骤见[操作指南](docs/operations.md)。
+将示例名称换成所需预设。每份文件包含 `preamp_db`、`output_trim_db` 和 `filters`；`original-default` 为 0 dB 输出衰减，`original-minus-16db` 为 −16 dB，死亡金属预设为 −18 dB。修改响度直接编辑该预设，再执行 `apply`。每次 `apply` 都先采集当前参数与系数，再写入，并在 `runs/` 新建独立记录。保存 ACK、当前系数读回、物理拔插保持是不同验证阶段；失败时先查看记录，不盲目重复写入。工具会记录明确的阶段和结果，并对“设备尚未就绪”做有限的读取重试；若状态为 `saved_unverified`，使用 `verify` 完成复核。具体步骤见[操作指南](docs/operations.md)。
 
 ## 文件布局
 
 | 目录 | 用途 |
 | --- | --- |
-| `presets/` | 可编辑的配置原件 |
+| `presets/` | 完整听音配置：音色和输出衰减都在同一个 JSON |
 | `profiles/compiled/` | 可以重新生成的写入计划 |
 | `runs/` | 每次写入的快照、前后采集、ACK 与验收 |
 | `backups/` | 初始备份及独立只读采集 |

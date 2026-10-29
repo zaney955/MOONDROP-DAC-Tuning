@@ -87,7 +87,7 @@ def main():
              ('sibilance', 'peak', 7500, -2, 2), ('air', 'high_shelf', 10000, 1, 1)]
     checks = []
     for name, kind, frequency, gain, q in cases:
-        preset = dict(version=1, device='MOONDROP ECHO-B', name=name, preamp_db=-3,
+        preset = dict(version=1, device='MOONDROP ECHO-B', name=name, preamp_db=-3, output_trim_db=0,
                       filters=[dict(type=kind, frequency_hz=frequency, gain_db=gain, q=q)])
         plan, binary = compile_preset(preset)
         assert len(binary) == 56*62

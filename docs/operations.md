@@ -8,7 +8,7 @@
 
 | 路径 | 内容 | 操作约定 |
 | --- | --- | --- |
-| `presets/*.json` | 可编辑的音色配置原件 | 平时创建、选择和修改这些文件 |
+| `presets/*.json` | 完整听音配置，包含音色与输出衰减 | 平时只需创建、选择和修改这些文件 |
 | `profiles/compiled/<预设名>/` | 编译后的参数、系数和写入计划 | Git 忽略；`build` 可重建并覆盖同名产物，不能当作版本备份 |
 | `runs/<UTC时间>-<预设名>/` | 每次写入的配置快照、前后读取、ACK 和验收 | 独立保存历史；不要拿后来编辑的预设冒充当时写入版本 |
 | `backups/` | 原始备份与单独的只读采集 | 保留初始文件，区分标签、当前系数和完整闪存的范围 |
@@ -40,23 +40,23 @@ python3 tools/preset.py list
 
 ## 3. 日常切换：列出、检查、写入
 
-以仓库现有的全局 −2 dB 配置为示例，它不依赖某个耳机的频响特征：
+以 `original-minus-16db` 为例：其预设增益为 0 dB，加上文件内的 −16 dB 输出衰减，总增益为 −16 dB，不改变频响形状：
 
 ```sh
 # 1. 列出预设名称
 python3 tools/preset.py list
 
 # 2. 离线生成和检查，不连接耳放
-python3 tools/preset.py build global-minus-2db
+python3 tools/preset.py build original-minus-16db
 
 # 3. 真正写入耳放、执行保存，并读回验证
-python3 tools/preset.py apply global-minus-2db
+python3 tools/preset.py apply original-minus-16db
 ```
 
-将 `global-minus-2db` 换成目标文件名（不含 `.json`）即可。也可传完整 JSON 路径：
+将 `original-minus-16db` 换成目标文件名（不含 `.json`）即可。也可传完整 JSON 路径：
 
 ```sh
-python3 tools/preset.py build presets/global-minus-2db.json
+python3 tools/preset.py build presets/original-minus-16db.json
 ```
 
 **每个预设都是完整替换配置，不是在耳放当前 EQ 上继续叠加。** `apply` 自己也会重新编译配置，因此前一次 `build` 后若修改了 JSON，应再次检查。`list` 目前只枚举 `presets/` 第一层 JSON，日常配置不要随意放进子目录。
@@ -69,6 +69,12 @@ python3 tools/preset.py build presets/global-minus-2db.json
 | `verify` | 是 | 否，仅对照历史计划读回 | 指定运行目录内新的 `checks/<时间>/` |
 
 不要用底层 `bin/echo_apply_plan` 代替常规 `apply`：直接调用底层程序会跳过 Python 管理层的写前采集和写后验收。`apply` 与 `verify` 通过 `.echo-b.lock` 协作锁排斥并行设备操作；不要在运行期间删除锁文件。它不会阻止外部 App 或手工调用底层程序。
+
+### 输出范围与手机音量
+
+每份预设直接包含 `output_trim_db`：`original-default` 为 0 dB，`original-minus-16db` 为 −16 dB，死亡金属预设为 −18 dB。想调整就编辑这一份 JSON，再执行 `build` / `apply`。切换预设时，音色与输出衰减一起切换；没有额外的全局设置或命令行覆盖值。修改文件本身不会改变设备。
+
+`preamp_db` 与 `output_trim_db` 相加，例如 −2 + −18 = −20 dB；不会改变前 8 段音色滤波。固定衰减降低输出，但不重映射手机音量键，也不保证每档步进变细；它不是实际耳内声压上限或动态压限器。要取消某份配置的额外衰减，将其中 `output_trim_db` 改为 `0` 再写入。
 
 ## 4. 新建与维护配置
 
@@ -83,6 +89,7 @@ python3 tools/preset.py build presets/global-minus-2db.json
   "name": "示例：轻收中低频 V1",
   "description": "填写耳机型号、佩戴条件、目标和本版变化；听感待验证。",
   "preamp_db": -2,
+  "output_trim_db": -18,
   "filters": [
     {"type": "peak", "frequency_hz": 180, "q": 0.9, "gain_db": -1}
   ]
@@ -97,7 +104,8 @@ python3 tools/preset.py build presets/global-minus-2db.json
 | `device` | 必须是 `MOONDROP ECHO-B` |
 | `name` | 非空名称，可用中文 |
 | `description` | 用途、条件与说明 |
-| `preamp_db` | −60 至 0 dB，可用小数 |
+| `preamp_db` | −60 至 0 dB，可用小数，作为 EQ 设计增益 |
+| `output_trim_db` | 必填，−40 至 0 dB，可用小数；与 `preamp_db` 相加不得低于 −60 dB |
 | `filters` | 最多 8 段，空数组表示直通音色 |
 | `type` | `peak`、`low_shelf`、`high_shelf` |
 | `frequency_hz` | 20–20000 的整数 Hz |
@@ -113,7 +121,7 @@ python3 tools/preset.py build presets/global-minus-2db.json
 `build` 生成：
 
 - `preset.json`：配置快照。
-- `plan.json`：9 段标签、五采样率系数与响应检查。
+- `plan.json`：9 段标签、五采样率系数与响应检查；`gain_staging` 明确记录预设增益、额外输出衰减及合并值。
 - `plan.bin`：56 条固定结构的保存序列。
 - `manifest.json`：源文件路径及写入计划 SHA-256。
 
@@ -193,22 +201,28 @@ python3 tools/preset.py verify "$EQ_RUN"
 
 ## 8. 恢复与回退
 
-恢复本仓库最初备份的直通 EQ：
+恢复首次备份的原始直通 EQ 与 0 dB 数字增益（先降低播放音量）：
 
 ```sh
 python3 tools/preset.py apply original-default
 ```
 
+若要采用 −16 dB 输出衰减，使用 `python3 tools/preset.py apply original-minus-16db`。初始备份仍完整保留在 `backups/`。
+
+命名迁移后，`original-default.json` 专指无 EQ、无输出衰减；原始音色衰减版现已调整为 −16 dB，并改名为 `original-minus-16db.json`。历史 `runs/` 保留原目录名与快照，不因更名而修改；确认历史输出应看当次 `plan.json`，不能只看目录名。
+
 `original-default` 依据本次 ECHO-B 的初始记录，不是每台设备的通用出厂镜像，不恢复固件或其他设备设置。使用另一台耳放时先建立它自己的初始记录，不能默认本文件就是它的原样。
 
-切回某个曾经使用的预设，可以直接 `apply` 该名称。若预设原件后来被编辑了，要精确重放历史版本，应使用运行目录里保存的 `preset.json`：
+切回某个曾经使用的预设，可以直接 `apply` 该名称。若预设原件后来被编辑了，要重用历史音色参数，应使用运行目录里保存的 `preset.json`：
 
 ```sh
 EQ_RUN="runs/这里替换为要恢复的历史运行目录"
 python3 tools/preset.py apply "$EQ_RUN/preset.json"
 ```
 
-这会重新编译并创建一次新运行记录；新目录名称可能以 `preset` 结尾，实际内容看快照和 manifest。若编译器后来改变了算法，要先比较新生成系数与旧 `plan.json`；同一份参数在不同编译器版本下不一定生成字节相同的计划。原始 `before-*.jsonl` 不是可直接重放的预设。
+对于包含 `output_trim_db` 的完整配置，这会同时恢复快照中的音色与衰减。早期快照缺少这个字段时，程序会在设备操作前停止：复制到 `presets/` 后明确补充；若要复现当时输出，取旧 `plan.json` 的 `gain_staging.output_trim_db`，没有该记录的早期计划则为 0 dB。不要编辑历史运行文件。迁移前的独立 `settings/output-level.json`、`output-level` 命令及 `--output-trim-db` 参数已移除。
+
+`verify` 始终直接核对历史计划，不重新编译，因此旧记录仍可只读验证。重新 `apply` 会创建新运行目录；若编译器算法有变化，应先比较生成系数与旧计划。原始 `before-*.jsonl` 不是可直接重放的预设。
 
 ## 9. 常见故障
 

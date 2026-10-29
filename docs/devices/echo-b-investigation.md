@@ -14,13 +14,13 @@
 
 ## 可切换的配置文件
 
-预设原件统一放在 [`presets/`](../../presets/README.md)，使用方法与字段说明见该目录 README。首份配置是 [`global-minus-2db.json`](../../presets/global-minus-2db.json)：保持平直频响，全频段降低 2 dB。已生成五种采样率的写入计划并做离线校验，**尚未将这份配置写入耳放**。
+预设原件统一放在 [`presets/`](../../presets/README.md)，使用方法与字段说明见该目录 README。早期的 `global-minus-2db.json` 仅做过离线校验，现已删除。当前提供真正无 EQ、无输出衰减的 [`original-default.json`](../../presets/original-default.json)，以及保留原始音色、降低输出 16 dB 的 [`original-minus-16db.json`](../../presets/original-minus-16db.json)。以下以 −16 dB 版本为例：
 
 ```sh
 python3 tools/preset.py list
-python3 tools/preset.py build global-minus-2db
+python3 tools/preset.py build original-minus-16db
 # 需要切换并永久保存到耳放时才执行：
-python3 tools/preset.py apply global-minus-2db
+python3 tools/preset.py apply original-minus-16db
 ```
 
 每次 `apply` 都在 `runs/` 新建独立目录，保存预设快照、写入前后读取、ACK 和验证结果。初始备份继续保留在 `backups/`。

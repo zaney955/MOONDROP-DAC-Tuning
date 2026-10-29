@@ -1,4 +1,4 @@
-"""ECHO-B presets: list/build offline, apply writes, verify only reads."""
+"""ECHO-B complete listening presets: list/build offline, apply writes, verify only reads."""
 import argparse
 import cmath
 from contextlib import contextmanager
@@ -102,12 +102,16 @@ def frame(cmd, values):
 
 
 def compile_preset(doc):
-    allowed = {'version', 'device', 'name', 'description', 'preamp_db', 'filters'}
-    if set(doc) - allowed or doc.get('version') != 1 or doc.get('device') != 'MOONDROP ECHO-B':
+    allowed = {'version', 'device', 'name', 'description', 'preamp_db', 'output_trim_db', 'filters'}
+    if not isinstance(doc, dict) or set(doc) - allowed or doc.get('version') != 1 or doc.get('device') != 'MOONDROP ECHO-B':
         raise ValueError('Unknown fields, version or device')
     if not isinstance(doc.get('name'), str) or not doc['name'].strip():
         raise ValueError('name is required')
-    preamp = number(doc['preamp_db'], -60, 0)
+    preset_preamp = number(doc['preamp_db'], -60, 0)
+    if 'output_trim_db' not in doc:
+        raise ValueError('预设缺少 output_trim_db；请在配置副本中明确填写输出衰减（-40 至 0 dB），不会自动按 0 dB 写入')
+    output_trim_db = number(doc['output_trim_db'], -40, 0)
+    preamp = number(preset_preamp + output_trim_db, -60, 0)
     filters = doc['filters']
     if not isinstance(filters, list) or len(filters) > 8:
         raise ValueError('At most 8 filters; band 9 is reserved for global attenuation')
@@ -151,6 +155,8 @@ def compile_preset(doc):
         coeffs[str(fs)] = rows
     plan = dict(preset=doc, bands=bands, coefficients_q22=coeffs, response_check=response,
                 note='Band 9 implements global attenuation directly; Android metadata labels do not encode it.')
+    plan['gain_staging'] = dict(preset_preamp_db=preset_preamp,
+                               output_trim_db=output_trim_db, effective_preamp_db=preamp)
     return plan, encode_plan(plan)
 
 
@@ -324,12 +330,13 @@ def verify_run(directory):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('action', choices=['list', 'build', 'apply', 'verify'])
-    parser.add_argument('preset', nargs='?', help='preset name/JSON path; for verify, a historical run directory')
+    parser.add_argument('preset', nargs='?', help='preset name/JSON path; verify: historical run directory')
     args = parser.parse_args()
     if args.action == 'list':
         for path in sorted((ROOT/'presets').glob('*.json')):
             doc = json.loads(path.read_text())
-            print(f"{path.stem}: {doc['name']} (preamp {doc['preamp_db']} dB)")
+            trim = doc.get('output_trim_db', '缺失，需补充')
+            print(f"{path.stem}: {doc['name']} (preamp {doc['preamp_db']} dB, output_trim {trim} dB)")
         return
     if not args.preset:
         parser.error('build/apply requires a preset; verify requires a historical run directory')
@@ -343,6 +350,7 @@ def main():
     source = resolve_preset(args.preset)
     doc = json.loads(source.read_text())
     plan, binary = compile_preset(doc)
+    trim = doc['output_trim_db']
     if args.action == 'build':
         directory = ROOT/'profiles'/'compiled'/source.stem
         directory.mkdir(parents=True, exist_ok=True)
@@ -356,6 +364,7 @@ def main():
     (directory/'plan.bin').write_bytes(binary)
     save_json(directory/'manifest.json', dict(plan_sha256=hashlib.sha256(binary).hexdigest(), source=str(source)))
     print(directory, flush=True)
+    print(f'音色预设增益 {doc["preamp_db"]:g} dB + 输出衰减 {trim:g} dB = {plan["gain_staging"]["effective_preamp_db"]:g} dB', flush=True)
     maximum = max(r['max_gain_db'] for r in plan['response_check'].values())
     print(f'20 Hz–20 kHz sampled peak: {maximum:.6f} dB', flush=True)
     if args.action == 'apply':
