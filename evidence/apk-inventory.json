@@ -1,0 +1,7366 @@
+{
+  "source_url": "https://download.moondroplab.com/moondroplink/android-release.apk",
+  "sha256": "04756b49acfea523758d86101c96c1824b7b209ae3a8836c07837088e795d2d5",
+  "members": [
+    {
+      "path": "META-INF/com/android/build/gradle/app-metadata.properties",
+      "size": 56,
+      "crc": "5d006175"
+    },
+    {
+      "path": "META-INF/version-control-info.textproto",
+      "size": 46,
+      "crc": "b8ff6554"
+    },
+    {
+      "path": "assets/dexopt/baseline.prof",
+      "size": 3184,
+      "crc": "cdc83ea9"
+    },
+    {
+      "path": "assets/dexopt/baseline.profm",
+      "size": 504,
+      "crc": "dce06236"
+    },
+    {
+      "path": "classes.dex",
+      "size": 10719312,
+      "crc": "fd979f9a"
+    },
+    {
+      "path": "classes2.dex",
+      "size": 279748,
+      "crc": "bb463d36"
+    },
+    {
+      "path": "lib/arm64-v8a/libCxAudioHidLib.so",
+      "size": 231256,
+      "crc": "18a6037a"
+    },
+    {
+      "path": "lib/arm64-v8a/libCxAudioHidLib_EMBCB_jni.so",
+      "size": 14496,
+      "crc": "ce90fbe7"
+    },
+    {
+      "path": "lib/arm64-v8a/libapp.so",
+      "size": 12649432,
+      "crc": "ebf9e038"
+    },
+    {
+      "path": "lib/arm64-v8a/libautoeq-lib.so",
+      "size": 806800,
+      "crc": "e606944b"
+    },
+    {
+      "path": "lib/arm64-v8a/libavcodec.so",
+      "size": 18848192,
+      "crc": "54e40936"
+    },
+    {
+      "path": "lib/arm64-v8a/libavdevice.so",
+      "size": 760392,
+      "crc": "f9c9d454"
+    },
+    {
+      "path": "lib/arm64-v8a/libavfilter.so",
+      "size": 8526672,
+      "crc": "e0fa41db"
+    },
+    {
+      "path": "lib/arm64-v8a/libavformat.so",
+      "size": 3430072,
+      "crc": "a861d866"
+    },
+    {
+      "path": "lib/arm64-v8a/libavutil.so",
+      "size": 489296,
+      "crc": "46d651dd"
+    },
+    {
+      "path": "lib/arm64-v8a/libbarhopper_v3.so",
+      "size": 4946720,
+      "crc": "13efb47c"
+    },
+    {
+      "path": "lib/arm64-v8a/libc++_shared.so",
+      "size": 1027408,
+      "crc": "0f2cf322"
+    },
+    {
+      "path": "lib/arm64-v8a/libcronet.151.0.7922.47.so",
+      "size": 7147648,
+      "crc": "870fcff8"
+    },
+    {
+      "path": "lib/arm64-v8a/libcrypto-lib.so",
+      "size": 753976,
+      "crc": "8ad2163e"
+    },
+    {
+      "path": "lib/arm64-v8a/libcxaudiodsplib_embca_jni.so",
+      "size": 31240,
+      "crc": "1928707c"
+    },
+    {
+      "path": "lib/arm64-v8a/libdartjni.so",
+      "size": 131400,
+      "crc": "59f0878e"
+    },
+    {
+      "path": "lib/arm64-v8a/libdatastore_shared_counter.so",
+      "size": 7112,
+      "crc": "4f56ac38"
+    },
+    {
+      "path": "lib/arm64-v8a/libffmpegkit.so",
+      "size": 464696,
+      "crc": "4a37b450"
+    },
+    {
+      "path": "lib/arm64-v8a/libffmpegkit_abidetect.so",
+      "size": 30784,
+      "crc": "4caf8365"
+    },
+    {
+      "path": "lib/arm64-v8a/libflutter.so",
+      "size": 11781152,
+      "crc": "b143be6c"
+    },
+    {
+      "path": "lib/arm64-v8a/libflutter_zxing.so",
+      "size": 1900720,
+      "crc": "41772560"
+    },
+    {
+      "path": "lib/arm64-v8a/libimage_processing_util_jni.so",
+      "size": 32528,
+      "crc": "d0c539eb"
+    },
+    {
+      "path": "lib/arm64-v8a/libjl_ota_auth.so",
+      "size": 14968,
+      "crc": "09238baf"
+    },
+    {
+      "path": "lib/arm64-v8a/libmoondrop_rust_test.so",
+      "size": 309416,
+      "crc": "1ebc18ea"
+    },
+    {
+      "path": "lib/arm64-v8a/libnative-anc-1568.so",
+      "size": 624784,
+      "crc": "091e34ee"
+    },
+    {
+      "path": "lib/arm64-v8a/libnative-anc-158x.so",
+      "size": 469752,
+      "crc": "4218a5e0"
+    },
+    {
+      "path": "lib/arm64-v8a/libnative-anc.so",
+      "size": 34168,
+      "crc": "423c975a"
+    },
+    {
+      "path": "lib/arm64-v8a/libnative-ha.so",
+      "size": 381776,
+      "crc": "ff28bf6f"
+    },
+    {
+      "path": "lib/arm64-v8a/libnative-peq.so",
+      "size": 293912,
+      "crc": "eb801244"
+    },
+    {
+      "path": "lib/arm64-v8a/libpcmmixer-lib.so",
+      "size": 92128,
+      "crc": "1679993c"
+    },
+    {
+      "path": "lib/arm64-v8a/libpdfium.cr.so",
+      "size": 4721224,
+      "crc": "57ad785a"
+    },
+    {
+      "path": "lib/arm64-v8a/libpdfiumandroid.so",
+      "size": 369384,
+      "crc": "073b92cf"
+    },
+    {
+      "path": "lib/arm64-v8a/libsurface_util_jni.so",
+      "size": 4896,
+      "crc": "ded2c2ba"
+    },
+    {
+      "path": "lib/arm64-v8a/libswresample.so",
+      "size": 204432,
+      "crc": "bdb5644c"
+    },
+    {
+      "path": "lib/arm64-v8a/libswscale.so",
+      "size": 303736,
+      "crc": "191f7ea8"
+    },
+    {
+      "path": "lib/arm64-v8a/libusb1.0.so",
+      "size": 75528,
+      "crc": "adc20e8c"
+    },
+    {
+      "path": "lib/arm64-v8a/libutils-lib.so",
+      "size": 868400,
+      "crc": "c492d554"
+    },
+    {
+      "path": "assets/ct4.js",
+      "size": 14783,
+      "crc": "2613a0c7"
+    },
+    {
+      "path": "assets/flutter_assets/AssetManifest.bin",
+      "size": 14425,
+      "crc": "9a33290a"
+    },
+    {
+      "path": "assets/flutter_assets/FontManifest.json",
+      "size": 150,
+      "crc": "e22276f3"
+    },
+    {
+      "path": "assets/flutter_assets/NOTICES.Z",
+      "size": 129645,
+      "crc": "9b4f8929"
+    },
+    {
+      "path": "assets/flutter_assets/NativeAssetsManifest.json",
+      "size": 45,
+      "crc": "eb8653b5"
+    },
+    {
+      "path": "assets/flutter_assets/assets/default_curve.txt",
+      "size": 35161,
+      "crc": "58c1fd00"
+    },
+    {
+      "path": "assets/flutter_assets/assets/default_target_curve.txt",
+      "size": 17388,
+      "crc": "4b7f24eb"
+    },
+    {
+      "path": "assets/flutter_assets/fonts/MaterialIcons-Regular.otf",
+      "size": 7980,
+      "crc": "34a65f39"
+    },
+    {
+      "path": "assets/flutter_assets/fonts/iconfont.ttf",
+      "size": 24292,
+      "crc": "c97c656b"
+    },
+    {
+      "path": "assets/flutter_assets/images/3.0x/ic_add_white_noise.png",
+      "size": 1700,
+      "crc": "d741889f"
+    },
+    {
+      "path": "assets/flutter_assets/images/3.0x/ic_ascending.png",
+      "size": 867,
+      "crc": "a391eece"
+    },
+    {
+      "path": "assets/flutter_assets/images/3.0x/ic_ascending_dark.png",
+      "size": 875,
+      "crc": "8389fdfb"
+    },
+    {
+      "path": "assets/flutter_assets/images/3.0x/ic_audio_bg.png",
+      "size": 669961,
+      "crc": "f736f0a5"
+    },
+    {
+      "path": "assets/flutter_assets/images/3.0x/ic_bilibili.png",
+      "size": 5763,
+      "crc": "a90ed6f2"
+    },
+    {
+      "path": "assets/flutter_assets/images/3.0x/ic_checkbox_select.png",
+      "size": 2284,
+      "crc": "908e8892"
+    },
+    {
+      "path": "assets/flutter_assets/images/3.0x/ic_checkbox_unselect.png",
+      "size": 2167,
+      "crc": "8adc97d2"
+    },
+    {
+      "path": "assets/flutter_assets/images/3.0x/ic_custom_white_noise_top_bg.png",
+      "size": 359234,
+      "crc": "4e666da2"
+    },
+    {
+      "path": "assets/flutter_assets/images/3.0x/ic_default_avatar.png",
+      "size": 4120,
+      "crc": "a8b4d3c4"
+    },
+    {
+      "path": "assets/flutter_assets/images/3.0x/ic_descending.png",
+      "size": 874,
+      "crc": "07433f32"
+    },
+    {
+      "path": "assets/flutter_assets/images/3.0x/ic_descending_dark.png",
+      "size": 887,
+      "crc": "0f6a8863"
+    },
+    {
+      "path": "assets/flutter_assets/images/3.0x/ic_device_anc_tips_b_en-US.png",
+      "size": 49620,
+      "crc": "0d14ee9d"
+    },
+    {
+      "path": "assets/flutter_assets/images/3.0x/ic_device_anc_tips_b_ja-JP.png",
+      "size": 52549,
+      "crc": "7ac12c4a"
+    },
+    {
+      "path": "assets/flutter_assets/images/3.0x/ic_device_anc_tips_b_ko-KR.png",
+      "size": 45404,
+      "crc": "bb03f820"
+    },
+    {
+      "path": "assets/flutter_assets/images/3.0x/ic_device_anc_tips_b_zh-CN.png",
+      "size": 47280,
+      "crc": "8bbd6c80"
+    },
+    {
+      "path": "assets/flutter_assets/images/3.0x/ic_device_anc_tips_b_zh-TW.png",
+      "size": 47797,
+      "crc": "6c246eb2"
+    },
+    {
+      "path": "assets/flutter_assets/images/3.0x/ic_device_anc_tips_w_en-US.png",
+      "size": 51163,
+      "crc": "f9ab660f"
+    },
+    {
+      "path": "assets/flutter_assets/images/3.0x/ic_device_anc_tips_w_ja-JP.png",
+      "size": 54086,
+      "crc": "b95d05d6"
+    },
+    {
+      "path": "assets/flutter_assets/images/3.0x/ic_device_anc_tips_w_ko-KR.png",
+      "size": 46770,
+      "crc": "8e77e8ee"
+    },
+    {
+      "path": "assets/flutter_assets/images/3.0x/ic_device_anc_tips_w_zh-CN.png",
+      "size": 48651,
+      "crc": "70139856"
+    },
+    {
+      "path": "assets/flutter_assets/images/3.0x/ic_device_anc_tips_w_zh-TW.png",
+      "size": 49356,
+      "crc": "f8a96009"
+    },
+    {
+      "path": "assets/flutter_assets/images/3.0x/ic_device_eq_tips_b_en-US.png",
+      "size": 32818,
+      "crc": "4544bd5b"
+    },
+    {
+      "path": "assets/flutter_assets/images/3.0x/ic_device_eq_tips_b_ja-JP.png",
+      "size": 33999,
+      "crc": "36a46065"
+    },
+    {
+      "path": "assets/flutter_assets/images/3.0x/ic_device_eq_tips_b_ko-KR.png",
+      "size": 32582,
+      "crc": "310f1ccc"
+    },
+    {
+      "path": "assets/flutter_assets/images/3.0x/ic_device_eq_tips_b_zh-CN.png",
+      "size": 33832,
+      "crc": "1aa831ea"
+    },
+    {
+      "path": "assets/flutter_assets/images/3.0x/ic_device_eq_tips_b_zh-TW.png",
+      "size": 32966,
+      "crc": "a3e41179"
+    },
+    {
+      "path": "assets/flutter_assets/images/3.0x/ic_device_eq_tips_w_en-US.png",
+      "size": 35795,
+      "crc": "531490bc"
+    },
+    {
+      "path": "assets/flutter_assets/images/3.0x/ic_device_eq_tips_w_ja-JP.png",
+      "size": 36949,
+      "crc": "5ceb4a72"
+    },
+    {
+      "path": "assets/flutter_assets/images/3.0x/ic_device_eq_tips_w_ko-KR.png",
+      "size": 35532,
+      "crc": "39c93222"
+    },
+    {
+      "path": "assets/flutter_assets/images/3.0x/ic_device_eq_tips_w_zh-CN.png",
+      "size": 36766,
+      "crc": "723e1e82"
+    },
+    {
+      "path": "assets/flutter_assets/images/3.0x/ic_device_eq_tips_w_zh-TW.png",
+      "size": 35921,
+      "crc": "dc130ff8"
+    },
+    {
+      "path": "assets/flutter_assets/images/3.0x/ic_device_headset_tips_b_en-US.png",
+      "size": 49666,
+      "crc": "4d22f74c"
+    },
+    {
+      "path": "assets/flutter_assets/images/3.0x/ic_device_headset_tips_b_ja-JP.png",
+      "size": 47074,
+      "crc": "bea8980b"
+    },
+    {
+      "path": "assets/flutter_assets/images/3.0x/ic_device_headset_tips_b_ko-KR.png",
+      "size": 45381,
+      "crc": "a1ca5ffb"
+    },
+    {
+      "path": "assets/flutter_assets/images/3.0x/ic_device_headset_tips_b_zh-CN.png",
+      "size": 46835,
+      "crc": "792cd65e"
+    },
+    {
+      "path": "assets/flutter_assets/images/3.0x/ic_device_headset_tips_b_zh-TW.png",
+      "size": 46848,
+      "crc": "fc5b795d"
+    },
+    {
+      "path": "assets/flutter_assets/images/3.0x/ic_device_headset_tips_w_en-US.png",
+      "size": 51155,
+      "crc": "fcb31778"
+    },
+    {
+      "path": "assets/flutter_assets/images/3.0x/ic_device_headset_tips_w_ja-JP.png",
+      "size": 48576,
+      "crc": "0680de01"
+    },
+    {
+      "path": "assets/flutter_assets/images/3.0x/ic_device_headset_tips_w_ko-KR.png",
+      "size": 46865,
+      "crc": "5bf25436"
+    },
+    {
+      "path": "assets/flutter_assets/images/3.0x/ic_device_headset_tips_w_zh-CN.png",
+      "size": 48261,
+      "crc": "abe65e36"
+    },
+    {
+      "path": "assets/flutter_assets/images/3.0x/ic_device_headset_tips_w_zh-TW.png",
+      "size": 48291,
+      "crc": "79220cbc"
+    },
+    {
+      "path": "assets/flutter_assets/images/3.0x/ic_device_peq_tips_b_en-US.png",
+      "size": 35808,
+      "crc": "eb1f8065"
+    },
+    {
+      "path": "assets/flutter_assets/images/3.0x/ic_device_peq_tips_b_ja-JP.png",
+      "size": 35565,
+      "crc": "e6f3ea49"
+    },
+    {
+      "path": "assets/flutter_assets/images/3.0x/ic_device_peq_tips_b_ko-KR.png",
+      "size": 35245,
+      "crc": "22e65434"
+    },
+    {
+      "path": "assets/flutter_assets/images/3.0x/ic_device_peq_tips_b_zh-CN.png",
+      "size": 35003,
+      "crc": "ba75ceb2"
+    },
+    {
+      "path": "assets/flutter_assets/images/3.0x/ic_device_peq_tips_b_zh-TW.png",
+      "size": 34789,
+      "crc": "954e3bd6"
+    },
+    {
+      "path": "assets/flutter_assets/images/3.0x/ic_device_peq_tips_w_en-US.png",
+      "size": 38995,
+      "crc": "6d69dc6c"
+    },
+    {
+      "path": "assets/flutter_assets/images/3.0x/ic_device_peq_tips_w_ja-JP.png",
+      "size": 38757,
+      "crc": "3f080f35"
+    },
+    {
+      "path": "assets/flutter_assets/images/3.0x/ic_device_peq_tips_w_ko-KR.png",
+      "size": 38352,
+      "crc": "e2b66d46"
+    },
+    {
+      "path": "assets/flutter_assets/images/3.0x/ic_device_peq_tips_w_zh-CN.png",
+      "size": 38153,
+      "crc": "c315b04a"
+    },
+    {
+      "path": "assets/flutter_assets/images/3.0x/ic_device_peq_tips_w_zh-TW.png",
+      "size": 38011,
+      "crc": "bc3f482c"
+    },
+    {
+      "path": "assets/flutter_assets/images/3.0x/ic_device_spatial_audio_tips_b_en-US.png",
+      "size": 51915,
+      "crc": "e0373ec1"
+    },
+    {
+      "path": "assets/flutter_assets/images/3.0x/ic_device_spatial_audio_tips_b_ja-JP.png",
+      "size": 50304,
+      "crc": "c89384a5"
+    },
+    {
+      "path": "assets/flutter_assets/images/3.0x/ic_device_spatial_audio_tips_b_ko-KR.png",
+      "size": 47982,
+      "crc": "121b3a71"
+    },
+    {
+      "path": "assets/flutter_assets/images/3.0x/ic_device_spatial_audio_tips_b_zh-CN.png",
+      "size": 50194,
+      "crc": "6310a941"
+    },
+    {
+      "path": "assets/flutter_assets/images/3.0x/ic_device_spatial_audio_tips_b_zh-TW.png",
+      "size": 49941,
+      "crc": "db9bad1b"
+    },
+    {
+      "path": "assets/flutter_assets/images/3.0x/ic_device_spatial_audio_tips_w_en-US.png",
+      "size": 54508,
+      "crc": "cf4bfec8"
+    },
+    {
+      "path": "assets/flutter_assets/images/3.0x/ic_device_spatial_audio_tips_w_ja-JP.png",
+      "size": 52941,
+      "crc": "e81b27ea"
+    },
+    {
+      "path": "assets/flutter_assets/images/3.0x/ic_device_spatial_audio_tips_w_ko-KR.png",
+      "size": 50687,
+      "crc": "2ad346ef"
+    },
+    {
+      "path": "assets/flutter_assets/images/3.0x/ic_device_spatial_audio_tips_w_zh-CN.png",
+      "size": 52829,
+      "crc": "f005f760"
+    },
+    {
+      "path": "assets/flutter_assets/images/3.0x/ic_device_spatial_audio_tips_w_zh-TW.png",
+      "size": 52543,
+      "crc": "ba8843ae"
+    },
+    {
+      "path": "assets/flutter_assets/images/3.0x/ic_device_sti_tips_b_en-US.png",
+      "size": 48760,
+      "crc": "f0cd4229"
+    },
+    {
+      "path": "assets/flutter_assets/images/3.0x/ic_device_sti_tips_b_ja-JP.png",
+      "size": 48435,
+      "crc": "39c0b68b"
+    },
+    {
+      "path": "assets/flutter_assets/images/3.0x/ic_device_sti_tips_b_ko-KR.png",
+      "size": 44916,
+      "crc": "359ed9b2"
+    },
+    {
+      "path": "assets/flutter_assets/images/3.0x/ic_device_sti_tips_b_zh-CN.png",
+      "size": 44075,
+      "crc": "a5deca40"
+    },
+    {
+      "path": "assets/flutter_assets/images/3.0x/ic_device_sti_tips_b_zh-TW.png",
+      "size": 44959,
+      "crc": "811bb20c"
+    },
+    {
+      "path": "assets/flutter_assets/images/3.0x/ic_device_sti_tips_w_en-US.png",
+      "size": 50063,
+      "crc": "54cfa477"
+    },
+    {
+      "path": "assets/flutter_assets/images/3.0x/ic_device_sti_tips_w_ja-JP.png",
+      "size": 49403,
+      "crc": "fa4ec0cf"
+    },
+    {
+      "path": "assets/flutter_assets/images/3.0x/ic_device_sti_tips_w_ko-KR.png",
+      "size": 46185,
+      "crc": "345b6f98"
+    },
+    {
+      "path": "assets/flutter_assets/images/3.0x/ic_device_sti_tips_w_zh-CN.png",
+      "size": 45608,
+      "crc": "41a02d8b"
+    },
+    {
+      "path": "assets/flutter_assets/images/3.0x/ic_device_sti_tips_w_zh-TW.png",
+      "size": 46415,
+      "crc": "3c278b12"
+    },
+    {
+      "path": "assets/flutter_assets/images/3.0x/ic_device_touch_tips_b_en-US.png",
+      "size": 237219,
+      "crc": "2d3ab0df"
+    },
+    {
+      "path": "assets/flutter_assets/images/3.0x/ic_device_touch_tips_b_ja-JP.png",
+      "size": 237219,
+      "crc": "2d3ab0df"
+    },
+    {
+      "path": "assets/flutter_assets/images/3.0x/ic_device_touch_tips_b_ko-KR.png",
+      "size": 237219,
+      "crc": "2d3ab0df"
+    },
+    {
+      "path": "assets/flutter_assets/images/3.0x/ic_device_touch_tips_b_zh-CN.png",
+      "size": 237219,
+      "crc": "2d3ab0df"
+    },
+    {
+      "path": "assets/flutter_assets/images/3.0x/ic_device_touch_tips_b_zh-TW.png",
+      "size": 237219,
+      "crc": "2d3ab0df"
+    },
+    {
+      "path": "assets/flutter_assets/images/3.0x/ic_device_touch_tips_w_en-US.png",
+      "size": 361459,
+      "crc": "6dc813f6"
+    },
+    {
+      "path": "assets/flutter_assets/images/3.0x/ic_device_touch_tips_w_ja-JP.png",
+      "size": 361459,
+      "crc": "6dc813f6"
+    },
+    {
+      "path": "assets/flutter_assets/images/3.0x/ic_device_touch_tips_w_ko-KR.png",
+      "size": 361459,
+      "crc": "6dc813f6"
+    },
+    {
+      "path": "assets/flutter_assets/images/3.0x/ic_device_touch_tips_w_zh-CN.png",
+      "size": 361459,
+      "crc": "6dc813f6"
+    },
+    {
+      "path": "assets/flutter_assets/images/3.0x/ic_device_touch_tips_w_zh-TW.png",
+      "size": 361459,
+      "crc": "6dc813f6"
+    },
+    {
+      "path": "assets/flutter_assets/images/3.0x/ic_dialog_ts.png",
+      "size": 126027,
+      "crc": "ee9d6eb6"
+    },
+    {
+      "path": "assets/flutter_assets/images/3.0x/ic_disable_func_tips.png",
+      "size": 1142,
+      "crc": "441be6ec"
+    },
+    {
+      "path": "assets/flutter_assets/images/3.0x/ic_empty.png",
+      "size": 5584,
+      "crc": "b1a3e496"
+    },
+    {
+      "path": "assets/flutter_assets/images/3.0x/ic_empty_device.png",
+      "size": 241364,
+      "crc": "a3e1a809"
+    },
+    {
+      "path": "assets/flutter_assets/images/3.0x/ic_empty_loading_b.png",
+      "size": 192324,
+      "crc": "2bce4bc5"
+    },
+    {
+      "path": "assets/flutter_assets/images/3.0x/ic_empty_loading_pd_b.png",
+      "size": 123201,
+      "crc": "bf9bd580"
+    },
+    {
+      "path": "assets/flutter_assets/images/3.0x/ic_empty_loading_pd_w.png",
+      "size": 142328,
+      "crc": "2af79e44"
+    },
+    {
+      "path": "assets/flutter_assets/images/3.0x/ic_empty_loading_w.png",
+      "size": 229878,
+      "crc": "786d2a6a"
+    },
+    {
+      "path": "assets/flutter_assets/images/3.0x/ic_empty_w.png",
+      "size": 5330,
+      "crc": "d661451a"
+    },
+    {
+      "path": "assets/flutter_assets/images/3.0x/ic_enter_eq.png",
+      "size": 705,
+      "crc": "86dc1e09"
+    },
+    {
+      "path": "assets/flutter_assets/images/3.0x/ic_eq_bg.png",
+      "size": 8777,
+      "crc": "1617c620"
+    },
+    {
+      "path": "assets/flutter_assets/images/3.0x/ic_logo.png",
+      "size": 9609,
+      "crc": "1119970a"
+    },
+    {
+      "path": "assets/flutter_assets/images/3.0x/ic_next_step.png",
+      "size": 6910,
+      "crc": "d427e30d"
+    },
+    {
+      "path": "assets/flutter_assets/images/3.0x/ic_noise_list.png",
+      "size": 6949,
+      "crc": "4789df13"
+    },
+    {
+      "path": "assets/flutter_assets/images/3.0x/ic_outage_dark.png",
+      "size": 105516,
+      "crc": "a8c60c15"
+    },
+    {
+      "path": "assets/flutter_assets/images/3.0x/ic_outage_light.png",
+      "size": 94852,
+      "crc": "7cd6ea9d"
+    },
+    {
+      "path": "assets/flutter_assets/images/3.0x/ic_pause.png",
+      "size": 18170,
+      "crc": "8ea435ea"
+    },
+    {
+      "path": "assets/flutter_assets/images/3.0x/ic_peq_search.png",
+      "size": 797,
+      "crc": "df130e39"
+    },
+    {
+      "path": "assets/flutter_assets/images/3.0x/ic_peq_search_dark.png",
+      "size": 1020,
+      "crc": "38119a8b"
+    },
+    {
+      "path": "assets/flutter_assets/images/3.0x/ic_placeholder_b.png",
+      "size": 32063,
+      "crc": "db5d34bc"
+    },
+    {
+      "path": "assets/flutter_assets/images/3.0x/ic_placeholder_c_t_b.png",
+      "size": 21366,
+      "crc": "d826285a"
+    },
+    {
+      "path": "assets/flutter_assets/images/3.0x/ic_placeholder_c_t_w.png",
+      "size": 20767,
+      "crc": "3a951490"
+    },
+    {
+      "path": "assets/flutter_assets/images/3.0x/ic_placeholder_material_b.png",
+      "size": 2903,
+      "crc": "33fe70f1"
+    },
+    {
+      "path": "assets/flutter_assets/images/3.0x/ic_placeholder_material_w.png",
+      "size": 5186,
+      "crc": "df924143"
+    },
+    {
+      "path": "assets/flutter_assets/images/3.0x/ic_placeholder_w.png",
+      "size": 31969,
+      "crc": "ae7c1aad"
+    },
+    {
+      "path": "assets/flutter_assets/images/3.0x/ic_placeholder_wn_b.png",
+      "size": 4124,
+      "crc": "36fef99b"
+    },
+    {
+      "path": "assets/flutter_assets/images/3.0x/ic_placeholder_wn_w.png",
+      "size": 5761,
+      "crc": "3117845c"
+    },
+    {
+      "path": "assets/flutter_assets/images/3.0x/ic_play.png",
+      "size": 18426,
+      "crc": "8334fc85"
+    },
+    {
+      "path": "assets/flutter_assets/images/3.0x/ic_playing_b.gif",
+      "size": 37153,
+      "crc": "e0dd370a"
+    },
+    {
+      "path": "assets/flutter_assets/images/3.0x/ic_playing_w.gif",
+      "size": 35819,
+      "crc": "96a38d44"
+    },
+    {
+      "path": "assets/flutter_assets/images/3.0x/ic_previous_step.png",
+      "size": 6746,
+      "crc": "2a96c835"
+    },
+    {
+      "path": "assets/flutter_assets/images/3.0x/ic_qa_collapse.png",
+      "size": 471,
+      "crc": "8d454f47"
+    },
+    {
+      "path": "assets/flutter_assets/images/3.0x/ic_qa_expanded.png",
+      "size": 486,
+      "crc": "2f50b3c3"
+    },
+    {
+      "path": "assets/flutter_assets/images/3.0x/ic_simple_mode_1.png",
+      "size": 2326,
+      "crc": "a085cb52"
+    },
+    {
+      "path": "assets/flutter_assets/images/3.0x/ic_simple_mode_2.png",
+      "size": 5976,
+      "crc": "0938e7ff"
+    },
+    {
+      "path": "assets/flutter_assets/images/3.0x/ic_sleep_mode_top_card_bg.png",
+      "size": 1044362,
+      "crc": "5598af4d"
+    },
+    {
+      "path": "assets/flutter_assets/images/3.0x/ic_sleep_top_bg_b.png",
+      "size": 999604,
+      "crc": "65e495f9"
+    },
+    {
+      "path": "assets/flutter_assets/images/3.0x/ic_sleep_top_bg_w.png",
+      "size": 993756,
+      "crc": "7a43bf8c"
+    },
+    {
+      "path": "assets/flutter_assets/images/3.0x/ic_sound_test_complete.png",
+      "size": 41624,
+      "crc": "d2728603"
+    },
+    {
+      "path": "assets/flutter_assets/images/3.0x/ic_sound_test_dark.png",
+      "size": 66928,
+      "crc": "efbdbfa2"
+    },
+    {
+      "path": "assets/flutter_assets/images/3.0x/ic_sound_test_light.png",
+      "size": 61085,
+      "crc": "edc58b5e"
+    },
+    {
+      "path": "assets/flutter_assets/images/3.0x/ic_split_wn.png",
+      "size": 362,
+      "crc": "9b1cca15"
+    },
+    {
+      "path": "assets/flutter_assets/images/3.0x/ic_timer.png",
+      "size": 7483,
+      "crc": "9c2b013b"
+    },
+    {
+      "path": "assets/flutter_assets/images/3.0x/ic_tuning_1.png",
+      "size": 3347,
+      "crc": "325b4df5"
+    },
+    {
+      "path": "assets/flutter_assets/images/3.0x/ic_tuning_2.png",
+      "size": 3377,
+      "crc": "0876f62b"
+    },
+    {
+      "path": "assets/flutter_assets/images/3.0x/ic_tuning_3.png",
+      "size": 3464,
+      "crc": "35dc1caa"
+    },
+    {
+      "path": "assets/flutter_assets/images/3.0x/ic_tuning_4.png",
+      "size": 3348,
+      "crc": "01d50511"
+    },
+    {
+      "path": "assets/flutter_assets/images/3.0x/ic_user_mix_audio_cover.png",
+      "size": 822205,
+      "crc": "93db6e6d"
+    },
+    {
+      "path": "assets/flutter_assets/images/3.0x/ic_wechat.png",
+      "size": 3917,
+      "crc": "1e498e14"
+    },
+    {
+      "path": "assets/flutter_assets/images/3.0x/ic_weibo.png",
+      "size": 7770,
+      "crc": "f46512a9"
+    },
+    {
+      "path": "assets/flutter_assets/images/3.0x/ic_wn_dialog_pic.png",
+      "size": 42831,
+      "crc": "7a92477a"
+    },
+    {
+      "path": "assets/flutter_assets/images/ic_bilibili.png",
+      "size": 5763,
+      "crc": "a90ed6f2"
+    },
+    {
+      "path": "assets/flutter_assets/packages/flutter_inappwebview/assets/t_rex_runner/t-rex.css",
+      "size": 1688,
+      "crc": "92fc91c4"
+    },
+    {
+      "path": "assets/flutter_assets/packages/flutter_inappwebview/assets/t_rex_runner/t-rex.html",
+      "size": 82244,
+      "crc": "b3eeb278"
+    },
+    {
+      "path": "assets/flutter_assets/packages/flutter_inappwebview_web/assets/web/web_support.js",
+      "size": 89344,
+      "crc": "6d989ac3"
+    },
+    {
+      "path": "assets/flutter_assets/packages/fluttertoast/assets/toastify.css",
+      "size": 1350,
+      "crc": "bc918a41"
+    },
+    {
+      "path": "assets/flutter_assets/packages/fluttertoast/assets/toastify.js",
+      "size": 5299,
+      "crc": "608cc14b"
+    },
+    {
+      "path": "assets/flutter_assets/shaders/ink_sparkle.frag",
+      "size": 21784,
+      "crc": "942b02a7"
+    },
+    {
+      "path": "assets/flutter_assets/shaders/stretch_effect.frag",
+      "size": 17616,
+      "crc": "39fecab4"
+    },
+    {
+      "path": "assets/gt4-index-alicom.html",
+      "size": 13219,
+      "crc": "6fe73f9f"
+    },
+    {
+      "path": "assets/gt4-loading.gif",
+      "size": 31183,
+      "crc": "678a1cbc"
+    },
+    {
+      "path": "assets/mlkit_barcode_models/barcode_ssd_mobilenet_v1_dmp25_quant.tflite",
+      "size": 390456,
+      "crc": "317efcad"
+    },
+    {
+      "path": "assets/mlkit_barcode_models/oned_auto_regressor_mobile.tflite",
+      "size": 213880,
+      "crc": "1010bfa9"
+    },
+    {
+      "path": "assets/mlkit_barcode_models/oned_feature_extractor_mobile.tflite",
+      "size": 276552,
+      "crc": "74dac6b0"
+    },
+    {
+      "path": "DebugProbesKt.bin",
+      "size": 1728,
+      "crc": "ca0d86c5"
+    },
+    {
+      "path": "META-INF/NOTICE.md",
+      "size": 1074,
+      "crc": "7c6fb9f1"
+    },
+    {
+      "path": "META-INF/androidx.activity_activity-ktx.version",
+      "size": 7,
+      "crc": "dd4167a0"
+    },
+    {
+      "path": "META-INF/androidx.activity_activity.version",
+      "size": 7,
+      "crc": "dd4167a0"
+    },
+    {
+      "path": "META-INF/androidx.annotation_annotation-experimental.version",
+      "size": 6,
+      "crc": "d3bb691b"
+    },
+    {
+      "path": "META-INF/androidx.appcompat_appcompat-resources.version",
+      "size": 6,
+      "crc": "79b2a190"
+    },
+    {
+      "path": "META-INF/androidx.appcompat_appcompat.version",
+      "size": 6,
+      "crc": "79b2a190"
+    },
+    {
+      "path": "META-INF/androidx.arch.core_core-runtime.version",
+      "size": 67,
+      "crc": "4de833ac"
+    },
+    {
+      "path": "META-INF/androidx.browser_browser.version",
+      "size": 6,
+      "crc": "8076e7e2"
+    },
+    {
+      "path": "META-INF/androidx.camera.featurecombinationquery_featurecombinationquery.version",
+      "size": 6,
+      "crc": "c10ec6f5"
+    },
+    {
+      "path": "META-INF/androidx.camera_camera-camera2-pipe.version",
+      "size": 6,
+      "crc": "c10ec6f5"
+    },
+    {
+      "path": "META-INF/androidx.camera_camera-camera2.version",
+      "size": 6,
+      "crc": "c10ec6f5"
+    },
+    {
+      "path": "META-INF/androidx.camera_camera-core.version",
+      "size": 6,
+      "crc": "c10ec6f5"
+    },
+    {
+      "path": "META-INF/androidx.camera_camera-lifecycle.version",
+      "size": 6,
+      "crc": "c10ec6f5"
+    },
+    {
+      "path": "META-INF/androidx.camera_camera-video.version",
+      "size": 6,
+      "crc": "c10ec6f5"
+    },
+    {
+      "path": "META-INF/androidx.cardview_cardview.version",
+      "size": 6,
+      "crc": "fd7ea868"
+    },
+    {
+      "path": "META-INF/androidx.compose.runtime_runtime-annotation.version",
+      "size": 6,
+      "crc": "8076e7e2"
+    },
+    {
+      "path": "META-INF/androidx.constraintlayout_constraintlayout.version",
+      "size": 6,
+      "crc": "e3d570cf"
+    },
+    {
+      "path": "META-INF/androidx.coordinatorlayout_coordinatorlayout.version",
+      "size": 6,
+      "crc": "45c2cf0d"
+    },
+    {
+      "path": "META-INF/androidx.core_core-backported-fixes.version",
+      "size": 6,
+      "crc": "fd7ea868"
+    },
+    {
+      "path": "META-INF/androidx.core_core-ktx.version",
+      "size": 7,
+      "crc": "b2fc87c4"
+    },
+    {
+      "path": "META-INF/androidx.core_core-viewtree.version",
+      "size": 6,
+      "crc": "fd7ea868"
+    },
+    {
+      "path": "META-INF/androidx.core_core.version",
+      "size": 7,
+      "crc": "b2fc87c4"
+    },
+    {
+      "path": "META-INF/androidx.cursoradapter_cursoradapter.version",
+      "size": 6,
+      "crc": "fd7ea868"
+    },
+    {
+      "path": "META-INF/androidx.customview_customview-poolingcontainer.version",
+      "size": 6,
+      "crc": "fd7ea868"
+    },
+    {
+      "path": "META-INF/androidx.customview_customview.version",
+      "size": 6,
+      "crc": "577760e3"
+    },
+    {
+      "path": "META-INF/androidx.datastore_datastore-core.version",
+      "size": 6,
+      "crc": "0a8359ca"
+    },
+    {
+      "path": "META-INF/androidx.datastore_datastore-preferences-core.version",
+      "size": 6,
+      "crc": "0a8359ca"
+    },
+    {
+      "path": "META-INF/androidx.datastore_datastore-preferences.version",
+      "size": 6,
+      "crc": "0a8359ca"
+    },
+    {
+      "path": "META-INF/androidx.datastore_datastore.version",
+      "size": 6,
+      "crc": "0a8359ca"
+    },
+    {
+      "path": "META-INF/androidx.drawerlayout_drawerlayout.version",
+      "size": 6,
+      "crc": "5cd9fe4c"
+    },
+    {
+      "path": "META-INF/androidx.dynamicanimation_dynamicanimation.version",
+      "size": 6,
+      "crc": "45c2cf0d"
+    },
+    {
+      "path": "META-INF/androidx.emoji2_emoji2-views-helper.version",
+      "size": 6,
+      "crc": "efcb0786"
+    },
+    {
+      "path": "META-INF/androidx.emoji2_emoji2.version",
+      "size": 6,
+      "crc": "efcb0786"
+    },
+    {
+      "path": "META-INF/androidx.exifinterface_exifinterface.version",
+      "size": 6,
+      "crc": "402a5dbd"
+    },
+    {
+      "path": "META-INF/androidx.fragment_fragment-ktx.version",
+      "size": 6,
+      "crc": "e9083bce"
+    },
+    {
+      "path": "META-INF/androidx.fragment_fragment.version",
+      "size": 6,
+      "crc": "e9083bce"
+    },
+    {
+      "path": "META-INF/androidx.graphics_graphics-shapes.version",
+      "size": 6,
+      "crc": "e4659929"
+    },
+    {
+      "path": "META-INF/androidx.interpolator_interpolator.version",
+      "size": 6,
+      "crc": "fd7ea868"
+    },
+    {
+      "path": "META-INF/androidx.lifecycle_lifecycle-extensions.version",
+      "size": 6,
+      "crc": "d1e3124d"
+    },
+    {
+      "path": "META-INF/androidx.lifecycle_lifecycle-livedata-core-ktx.version",
+      "size": 7,
+      "crc": "46a0b5b6"
+    },
+    {
+      "path": "META-INF/androidx.lifecycle_lifecycle-livedata-core.version",
+      "size": 7,
+      "crc": "46a0b5b6"
+    },
+    {
+      "path": "META-INF/androidx.lifecycle_lifecycle-livedata.version",
+      "size": 7,
+      "crc": "46a0b5b6"
+    },
+    {
+      "path": "META-INF/androidx.lifecycle_lifecycle-process.version",
+      "size": 7,
+      "crc": "46a0b5b6"
+    },
+    {
+      "path": "META-INF/androidx.lifecycle_lifecycle-runtime-ktx.version",
+      "size": 7,
+      "crc": "46a0b5b6"
+    },
+    {
+      "path": "META-INF/androidx.lifecycle_lifecycle-runtime.version",
+      "size": 7,
+      "crc": "46a0b5b6"
+    },
+    {
+      "path": "META-INF/androidx.lifecycle_lifecycle-service.version",
+      "size": 7,
+      "crc": "46a0b5b6"
+    },
+    {
+      "path": "META-INF/androidx.lifecycle_lifecycle-viewmodel-ktx.version",
+      "size": 7,
+      "crc": "46a0b5b6"
+    },
+    {
+      "path": "META-INF/androidx.lifecycle_lifecycle-viewmodel-savedstate.version",
+      "size": 7,
+      "crc": "46a0b5b6"
+    },
+    {
+      "path": "META-INF/androidx.lifecycle_lifecycle-viewmodel.version",
+      "size": 7,
+      "crc": "46a0b5b6"
+    },
+    {
+      "path": "META-INF/androidx.loader_loader.version",
+      "size": 6,
+      "crc": "fd7ea868"
+    },
+    {
+      "path": "META-INF/androidx.media_media.version",
+      "size": 6,
+      "crc": "60a990d1"
+    },
+    {
+      "path": "META-INF/androidx.navigation_navigation-common.version",
+      "size": 6,
+      "crc": "ce3b1f44"
+    },
+    {
+      "path": "META-INF/androidx.navigation_navigation-fragment-ktx.version",
+      "size": 6,
+      "crc": "ce3b1f44"
+    },
+    {
+      "path": "META-INF/androidx.navigation_navigation-fragment.version",
+      "size": 6,
+      "crc": "ce3b1f44"
+    },
+    {
+      "path": "META-INF/androidx.navigation_navigation-runtime.version",
+      "size": 6,
+      "crc": "ce3b1f44"
+    },
+    {
+      "path": "META-INF/androidx.navigation_navigation-ui-ktx.version",
+      "size": 6,
+      "crc": "ce3b1f44"
+    },
+    {
+      "path": "META-INF/androidx.navigation_navigation-ui.version",
+      "size": 6,
+      "crc": "ce3b1f44"
+    },
+    {
+      "path": "META-INF/androidx.navigationevent_navigationevent.version",
+      "size": 6,
+      "crc": "fd7ea868"
+    },
+    {
+      "path": "META-INF/androidx.preference_preference-ktx.version",
+      "size": 6,
+      "crc": "4e6c51a2"
+    },
+    {
+      "path": "META-INF/androidx.preference_preference.version",
+      "size": 6,
+      "crc": "4e6c51a2"
+    },
+    {
+      "path": "META-INF/androidx.profileinstaller_profileinstaller.version",
+      "size": 6,
+      "crc": "721c3f3f"
+    },
+    {
+      "path": "META-INF/androidx.recyclerview_recyclerview.version",
+      "size": 6,
+      "crc": "721c3f3f"
+    },
+    {
+      "path": "META-INF/androidx.savedstate_savedstate-ktx.version",
+      "size": 6,
+      "crc": "721c3f3f"
+    },
+    {
+      "path": "META-INF/androidx.savedstate_savedstate.version",
+      "size": 6,
+      "crc": "721c3f3f"
+    },
+    {
+      "path": "META-INF/androidx.slidingpanelayout_slidingpanelayout.version",
+      "size": 6,
+      "crc": "577760e3"
+    },
+    {
+      "path": "META-INF/androidx.startup_startup-runtime.version",
+      "size": 6,
+      "crc": "5cd9fe4c"
+    },
+    {
+      "path": "META-INF/androidx.swiperefreshlayout_swiperefreshlayout.version",
+      "size": 6,
+      "crc": "577760e3"
+    },
+    {
+      "path": "META-INF/androidx.tracing_tracing-ktx.version",
+      "size": 6,
+      "crc": "efcb0786"
+    },
+    {
+      "path": "META-INF/androidx.tracing_tracing.version",
+      "size": 6,
+      "crc": "efcb0786"
+    },
+    {
+      "path": "META-INF/androidx.transition_transition.version",
+      "size": 6,
+      "crc": "caa0585a"
+    },
+    {
+      "path": "META-INF/androidx.vectordrawable_vectordrawable-animated.version",
+      "size": 6,
+      "crc": "45c2cf0d"
+    },
+    {
+      "path": "META-INF/androidx.vectordrawable_vectordrawable.version",
+      "size": 6,
+      "crc": "45c2cf0d"
+    },
+    {
+      "path": "META-INF/androidx.versionedparcelable_versionedparcelable.version",
+      "size": 6,
+      "crc": "5cd9fe4c"
+    },
+    {
+      "path": "META-INF/androidx.viewpager2_viewpager2.version",
+      "size": 13,
+      "crc": "32bf2797"
+    },
+    {
+      "path": "META-INF/androidx.viewpager_viewpager.version",
+      "size": 6,
+      "crc": "fd7ea868"
+    },
+    {
+      "path": "META-INF/androidx.webkit_webkit.version",
+      "size": 7,
+      "crc": "40965f19"
+    },
+    {
+      "path": "META-INF/androidx.window.extensions.core_core.version",
+      "size": 6,
+      "crc": "fd7ea868"
+    },
+    {
+      "path": "META-INF/androidx.window_window-java.version",
+      "size": 6,
+      "crc": "577760e3"
+    },
+    {
+      "path": "META-INF/androidx.window_window.version",
+      "size": 6,
+      "crc": "577760e3"
+    },
+    {
+      "path": "META-INF/androidx/annotation/annotation/LICENSE.txt",
+      "size": 10175,
+      "crc": "f9a816a8"
+    },
+    {
+      "path": "META-INF/androidx/collection/collection-ktx/LICENSE.txt",
+      "size": 10175,
+      "crc": "f9a816a8"
+    },
+    {
+      "path": "META-INF/androidx/collection/collection/LICENSE.txt",
+      "size": 10175,
+      "crc": "f9a816a8"
+    },
+    {
+      "path": "META-INF/androidx/constraintlayout/constraintlayout-core/LICENSE.txt",
+      "size": 10175,
+      "crc": "f9a816a8"
+    },
+    {
+      "path": "META-INF/androidx/lifecycle/lifecycle-common-java8/LICENSE.txt",
+      "size": 10175,
+      "crc": "f9a816a8"
+    },
+    {
+      "path": "META-INF/androidx/lifecycle/lifecycle-common/LICENSE.txt",
+      "size": 10175,
+      "crc": "f9a816a8"
+    },
+    {
+      "path": "META-INF/com.google.android.material_material.version",
+      "size": 7,
+      "crc": "40965f19"
+    },
+    {
+      "path": "META-INF/com.google.dagger_dagger.version",
+      "size": 5,
+      "crc": "91df8729"
+    },
+    {
+      "path": "META-INF/kotlinx_coroutines_android.version",
+      "size": 6,
+      "crc": "40f5cd2d"
+    },
+    {
+      "path": "META-INF/kotlinx_coroutines_core.version",
+      "size": 6,
+      "crc": "40f5cd2d"
+    },
+    {
+      "path": "META-INF/kotlinx_coroutines_play_services.version",
+      "size": 6,
+      "crc": "40f5cd2d"
+    },
+    {
+      "path": "META-INF/services/fd",
+      "size": 3,
+      "crc": "525f293d"
+    },
+    {
+      "path": "META-INF/services/gd",
+      "size": 3,
+      "crc": "539d430a"
+    },
+    {
+      "path": "barcode-scanning-common.properties",
+      "size": 84,
+      "crc": "3c704ce1"
+    },
+    {
+      "path": "barcode-scanning.properties",
+      "size": 70,
+      "crc": "2c72b025"
+    },
+    {
+      "path": "client_analytics.proto",
+      "size": 2982,
+      "crc": "c4566455"
+    },
+    {
+      "path": "common.properties",
+      "size": 52,
+      "crc": "f8d059e2"
+    },
+    {
+      "path": "cronet-api.properties",
+      "size": 60,
+      "crc": "663d59fd"
+    },
+    {
+      "path": "cronet-bundled.properties",
+      "size": 68,
+      "crc": "a4d84cdc"
+    },
+    {
+      "path": "cronet-common.properties",
+      "size": 66,
+      "crc": "92bf8ae0"
+    },
+    {
+      "path": "cronet-embedded.properties",
+      "size": 70,
+      "crc": "17321d60"
+    },
+    {
+      "path": "cronet-fallback.properties",
+      "size": 70,
+      "crc": "57209657"
+    },
+    {
+      "path": "cronet-shared.properties",
+      "size": 66,
+      "crc": "fa5dd617"
+    },
+    {
+      "path": "cronet.properties",
+      "size": 52,
+      "crc": "49c03726"
+    },
+    {
+      "path": "firebase-annotations.properties",
+      "size": 78,
+      "crc": "c1d3dcf2"
+    },
+    {
+      "path": "firebase-encoders-proto.properties",
+      "size": 84,
+      "crc": "a1d9b8c9"
+    },
+    {
+      "path": "firebase-encoders.properties",
+      "size": 72,
+      "crc": "7df25dbd"
+    },
+    {
+      "path": "firebase-measurement-connector.properties",
+      "size": 98,
+      "crc": "f6a91592"
+    },
+    {
+      "path": "firebase/perf/v1/perf_metric.proto",
+      "size": 16609,
+      "crc": "6483cdea"
+    },
+    {
+      "path": "google/api/annotations.proto",
+      "size": 1051,
+      "crc": "e8e27c24"
+    },
+    {
+      "path": "google/api/auth.proto",
+      "size": 8795,
+      "crc": "ede6380b"
+    },
+    {
+      "path": "google/api/backend.proto",
+      "size": 6961,
+      "crc": "6b2dd57a"
+    },
+    {
+      "path": "google/api/billing.proto",
+      "size": 2501,
+      "crc": "d863cb8c"
+    },
+    {
+      "path": "google/api/client.proto",
+      "size": 3396,
+      "crc": "d71639a5"
+    },
+    {
+      "path": "google/api/config_change.proto",
+      "size": 3170,
+      "crc": "bb3f6fee"
+    },
+    {
+      "path": "google/api/consumer.proto",
+      "size": 2718,
+      "crc": "9780e3cd"
+    },
+    {
+      "path": "google/api/context.proto",
+      "size": 3066,
+      "crc": "1d53effa"
+    },
+    {
+      "path": "google/api/control.proto",
+      "size": 1227,
+      "crc": "2338f231"
+    },
+    {
+      "path": "google/api/distribution.proto",
+      "size": 8650,
+      "crc": "1b2016ff"
+    },
+    {
+      "path": "google/api/documentation.proto",
+      "size": 6180,
+      "crc": "7d0cc49c"
+    },
+    {
+      "path": "google/api/endpoint.proto",
+      "size": 2811,
+      "crc": "341a1a55"
+    },
+    {
+      "path": "google/api/field_behavior.proto",
+      "size": 3023,
+      "crc": "d07881ed"
+    },
+    {
+      "path": "google/api/http.proto",
+      "size": 15144,
+      "crc": "e9bddb69"
+    },
+    {
+      "path": "google/api/httpbody.proto",
+      "size": 2675,
+      "crc": "6ef6f8cf"
+    },
+    {
+      "path": "google/api/label.proto",
+      "size": 1393,
+      "crc": "fa208dad"
+    },
+    {
+      "path": "google/api/launch_stage.proto",
+      "size": 2910,
+      "crc": "f17be655"
+    },
+    {
+      "path": "google/api/log.proto",
+      "size": 2047,
+      "crc": "7050c10d"
+    },
+    {
+      "path": "google/api/logging.proto",
+      "size": 3171,
+      "crc": "1614ce10"
+    },
+    {
+      "path": "google/api/metric.proto",
+      "size": 10025,
+      "crc": "d01cf720"
+    },
+    {
+      "path": "google/api/monitored_resource.proto",
+      "size": 5530,
+      "crc": "a44a7561"
+    },
+    {
+      "path": "google/api/monitoring.proto",
+      "size": 3832,
+      "crc": "668ecf97"
+    },
+    {
+      "path": "google/api/quota.proto",
+      "size": 7357,
+      "crc": "fa9c9345"
+    },
+    {
+      "path": "google/api/resource.proto",
+      "size": 10024,
+      "crc": "b6defa14"
+    },
+    {
+      "path": "google/api/service.proto",
+      "size": 6309,
+      "crc": "06fe76c0"
+    },
+    {
+      "path": "google/api/source_info.proto",
+      "size": 1095,
+      "crc": "1c691a4b"
+    },
+    {
+      "path": "google/api/system_parameter.proto",
+      "size": 3474,
+      "crc": "07abd8b2"
+    },
+    {
+      "path": "google/api/usage.proto",
+      "size": 3475,
+      "crc": "d059e45d"
+    },
+    {
+      "path": "google/cloud/audit/audit_log.proto",
+      "size": 4623,
+      "crc": "a03d7b70"
+    },
+    {
+      "path": "google/geo/type/viewport.proto",
+      "size": 2416,
+      "crc": "952baa5e"
+    },
+    {
+      "path": "google/logging/type/http_request.proto",
+      "size": 3397,
+      "crc": "f0070b50"
+    },
+    {
+      "path": "google/logging/type/log_severity.proto",
+      "size": 2506,
+      "crc": "09f218bc"
+    },
+    {
+      "path": "google/longrunning/operations.proto",
+      "size": 10515,
+      "crc": "75cbbbfc"
+    },
+    {
+      "path": "google/protobuf/any.proto",
+      "size": 6154,
+      "crc": "6b989f3d"
+    },
+    {
+      "path": "google/protobuf/api.proto",
+      "size": 7728,
+      "crc": "13a84c7a"
+    },
+    {
+      "path": "google/protobuf/descriptor.proto",
+      "size": 38092,
+      "crc": "4243ff7c"
+    },
+    {
+      "path": "google/protobuf/duration.proto",
+      "size": 4892,
+      "crc": "9b07dda3"
+    },
+    {
+      "path": "google/protobuf/empty.proto",
+      "size": 2363,
+      "crc": "219bbbf3"
+    },
+    {
+      "path": "google/protobuf/field_mask.proto",
+      "size": 8185,
+      "crc": "55287755"
+    },
+    {
+      "path": "google/protobuf/source_context.proto",
+      "size": 2341,
+      "crc": "3f44a029"
+    },
+    {
+      "path": "google/protobuf/struct.proto",
+      "size": 3778,
+      "crc": "e3408016"
+    },
+    {
+      "path": "google/protobuf/timestamp.proto",
+      "size": 6449,
+      "crc": "4bb1d7eb"
+    },
+    {
+      "path": "google/protobuf/type.proto",
+      "size": 6367,
+      "crc": "263ede1f"
+    },
+    {
+      "path": "google/protobuf/wrappers.proto",
+      "size": 4044,
+      "crc": "0ab28aa0"
+    },
+    {
+      "path": "google/rpc/code.proto",
+      "size": 7125,
+      "crc": "a8a3afb6"
+    },
+    {
+      "path": "google/rpc/context/attribute_context.proto",
+      "size": 12015,
+      "crc": "0d0f0a83"
+    },
+    {
+      "path": "google/rpc/error_details.proto",
+      "size": 9500,
+      "crc": "4fc83904"
+    },
+    {
+      "path": "google/rpc/status.proto",
+      "size": 1924,
+      "crc": "9226d5ec"
+    },
+    {
+      "path": "google/type/calendar_period.proto",
+      "size": 1766,
+      "crc": "591df309"
+    },
+    {
+      "path": "google/type/color.proto",
+      "size": 6193,
+      "crc": "82db6fe7"
+    },
+    {
+      "path": "google/type/date.proto",
+      "size": 1933,
+      "crc": "6f201f9c"
+    },
+    {
+      "path": "google/type/datetime.proto",
+      "size": 3508,
+      "crc": "c95f62ff"
+    },
+    {
+      "path": "google/type/dayofweek.proto",
+      "size": 1337,
+      "crc": "83329820"
+    },
+    {
+      "path": "google/type/expr.proto",
+      "size": 1834,
+      "crc": "0157dd6f"
+    },
+    {
+      "path": "google/type/fraction.proto",
+      "size": 1176,
+      "crc": "0d306df3"
+    },
+    {
+      "path": "google/type/latlng.proto",
+      "size": 1444,
+      "crc": "76bdfb5e"
+    },
+    {
+      "path": "google/type/money.proto",
+      "size": 1603,
+      "crc": "359b470f"
+    },
+    {
+      "path": "google/type/postal_address.proto",
+      "size": 6239,
+      "crc": "1571ac39"
+    },
+    {
+      "path": "google/type/quaternion.proto",
+      "size": 3795,
+      "crc": "6124c2f3"
+    },
+    {
+      "path": "google/type/timeofday.proto",
+      "size": 1668,
+      "crc": "e18a09d6"
+    },
+    {
+      "path": "httpengine-native-provider.properties",
+      "size": 92,
+      "crc": "8b86324a"
+    },
+    {
+      "path": "image.properties",
+      "size": 58,
+      "crc": "315eb7ab"
+    },
+    {
+      "path": "kotlin-tooling-metadata.json",
+      "size": 626,
+      "crc": "c948fb53"
+    },
+    {
+      "path": "kotlin/annotation/annotation.kotlin_builtins",
+      "size": 1022,
+      "crc": "9ba69669"
+    },
+    {
+      "path": "kotlin/collections/collections.kotlin_builtins",
+      "size": 8625,
+      "crc": "db78dd29"
+    },
+    {
+      "path": "kotlin/concurrent/atomics/atomics.kotlin_builtins",
+      "size": 2882,
+      "crc": "3ca2aa63"
+    },
+    {
+      "path": "kotlin/coroutines/coroutines.kotlin_builtins",
+      "size": 139,
+      "crc": "13fe752e"
+    },
+    {
+      "path": "kotlin/internal/internal.kotlin_builtins",
+      "size": 596,
+      "crc": "66c650ba"
+    },
+    {
+      "path": "kotlin/kotlin.kotlin_builtins",
+      "size": 30920,
+      "crc": "df618e5c"
+    },
+    {
+      "path": "kotlin/ranges/ranges.kotlin_builtins",
+      "size": 4353,
+      "crc": "217cddfb"
+    },
+    {
+      "path": "kotlin/reflect/reflect.kotlin_builtins",
+      "size": 4859,
+      "crc": "1792992d"
+    },
+    {
+      "path": "okhttp3/internal/publicsuffix/publicsuffixes.gz",
+      "size": 34000,
+      "crc": "5fccc77e"
+    },
+    {
+      "path": "play-services-base.properties",
+      "size": 74,
+      "crc": "b7109ceb"
+    },
+    {
+      "path": "play-services-basement.properties",
+      "size": 82,
+      "crc": "c13de065"
+    },
+    {
+      "path": "play-services-location.properties",
+      "size": 82,
+      "crc": "9220988b"
+    },
+    {
+      "path": "play-services-mlkit-barcode-scanning.properties",
+      "size": 110,
+      "crc": "67ae53c1"
+    },
+    {
+      "path": "play-services-tasks.properties",
+      "size": 76,
+      "crc": "5cf3438e"
+    },
+    {
+      "path": "vision-common.properties",
+      "size": 64,
+      "crc": "af3e0115"
+    },
+    {
+      "path": "vision-interfaces.properties",
+      "size": 72,
+      "crc": "7413473b"
+    },
+    {
+      "path": "AndroidManifest.xml",
+      "size": 30380,
+      "crc": "be37afd2"
+    },
+    {
+      "path": "res/-1.xml",
+      "size": 744,
+      "crc": "2455d851"
+    },
+    {
+      "path": "res/-5.xml",
+      "size": 352,
+      "crc": "b55c26c6"
+    },
+    {
+      "path": "res/-7.xml",
+      "size": 668,
+      "crc": "b0c96f36"
+    },
+    {
+      "path": "res/-8.xml",
+      "size": 1152,
+      "crc": "a287306d"
+    },
+    {
+      "path": "res/-B.png",
+      "size": 281,
+      "crc": "ead36c57"
+    },
+    {
+      "path": "res/-B.xml",
+      "size": 564,
+      "crc": "5dcbf80d"
+    },
+    {
+      "path": "res/-N.png",
+      "size": 318,
+      "crc": "5390d72d"
+    },
+    {
+      "path": "res/-R.xml",
+      "size": 640,
+      "crc": "f0149b6e"
+    },
+    {
+      "path": "res/-p.png",
+      "size": 982,
+      "crc": "bc0a585a"
+    },
+    {
+      "path": "res/-q.xml",
+      "size": 568,
+      "crc": "792a7a21"
+    },
+    {
+      "path": "res/-x.xml",
+      "size": 400,
+      "crc": "b01eb52e"
+    },
+    {
+      "path": "res/09.xml",
+      "size": 420,
+      "crc": "90b8f959"
+    },
+    {
+      "path": "res/0C.xml",
+      "size": 696,
+      "crc": "701cb167"
+    },
+    {
+      "path": "res/0E.xml",
+      "size": 1088,
+      "crc": "e8ac430d"
+    },
+    {
+      "path": "res/0M.xml",
+      "size": 1064,
+      "crc": "1cd23ab5"
+    },
+    {
+      "path": "res/0S.xml",
+      "size": 2544,
+      "crc": "46ed8730"
+    },
+    {
+      "path": "res/0c.9.png",
+      "size": 267,
+      "crc": "95bbccff"
+    },
+    {
+      "path": "res/0q.txt",
+      "size": 930,
+      "crc": "38f4193e"
+    },
+    {
+      "path": "res/0v.xml",
+      "size": 1588,
+      "crc": "d0e53b81"
+    },
+    {
+      "path": "res/0w.xml",
+      "size": 568,
+      "crc": "cf3cafd7"
+    },
+    {
+      "path": "res/0x.9.png",
+      "size": 209,
+      "crc": "54cd03ea"
+    },
+    {
+      "path": "res/11.txt",
+      "size": 26432,
+      "crc": "f8fb7783"
+    },
+    {
+      "path": "res/17.txt",
+      "size": 700,
+      "crc": "4f7b1e94"
+    },
+    {
+      "path": "res/1C.9.png",
+      "size": 615,
+      "crc": "4199e4d9"
+    },
+    {
+      "path": "res/1I.9.png",
+      "size": 2305,
+      "crc": "03217b6e"
+    },
+    {
+      "path": "res/1J.9.png",
+      "size": 1731,
+      "crc": "307aa23f"
+    },
+    {
+      "path": "res/1N.xml",
+      "size": 400,
+      "crc": "679c5072"
+    },
+    {
+      "path": "res/1N1.xml",
+      "size": 1512,
+      "crc": "cdbad36c"
+    },
+    {
+      "path": "res/1R.xml",
+      "size": 476,
+      "crc": "c122c8f9"
+    },
+    {
+      "path": "res/1e.9.png",
+      "size": 171,
+      "crc": "19b7f846"
+    },
+    {
+      "path": "res/1e.xml",
+      "size": 2816,
+      "crc": "e13f3db5"
+    },
+    {
+      "path": "res/1n.xml",
+      "size": 616,
+      "crc": "108e00db"
+    },
+    {
+      "path": "res/1v.xml",
+      "size": 1116,
+      "crc": "d505ddd7"
+    },
+    {
+      "path": "res/1x.xml",
+      "size": 472,
+      "crc": "55894cd2"
+    },
+    {
+      "path": "res/21.xml",
+      "size": 592,
+      "crc": "073e6132"
+    },
+    {
+      "path": "res/27.xml",
+      "size": 564,
+      "crc": "8b557bb5"
+    },
+    {
+      "path": "res/271.xml",
+      "size": 336,
+      "crc": "a5e03008"
+    },
+    {
+      "path": "res/2F.xml",
+      "size": 724,
+      "crc": "92abca9b"
+    },
+    {
+      "path": "res/2K.9.png",
+      "size": 225,
+      "crc": "5059e725"
+    },
+    {
+      "path": "res/2M.txt",
+      "size": 5345,
+      "crc": "ef026c69"
+    },
+    {
+      "path": "res/2P.png",
+      "size": 262,
+      "crc": "df25bc6b"
+    },
+    {
+      "path": "res/2R.xml",
+      "size": 1796,
+      "crc": "1b125232"
+    },
+    {
+      "path": "res/2d.png",
+      "size": 145,
+      "crc": "2df95774"
+    },
+    {
+      "path": "res/2f.xml",
+      "size": 1916,
+      "crc": "d4b6c58c"
+    },
+    {
+      "path": "res/2j.xml",
+      "size": 2072,
+      "crc": "f1ef9b07"
+    },
+    {
+      "path": "res/2n.xml",
+      "size": 1260,
+      "crc": "9ea150ff"
+    },
+    {
+      "path": "res/2w.xml",
+      "size": 1136,
+      "crc": "bb8cdcaa"
+    },
+    {
+      "path": "res/2x.xml",
+      "size": 652,
+      "crc": "46705b6f"
+    },
+    {
+      "path": "res/33.9.png",
+      "size": 541,
+      "crc": "c5fedfaf"
+    },
+    {
+      "path": "res/35.xml",
+      "size": 588,
+      "crc": "718de035"
+    },
+    {
+      "path": "res/3A.xml",
+      "size": 1056,
+      "crc": "3532d43c"
+    },
+    {
+      "path": "res/3B.txt",
+      "size": 214,
+      "crc": "495badac"
+    },
+    {
+      "path": "res/3K.txt",
+      "size": 1773,
+      "crc": "29109605"
+    },
+    {
+      "path": "res/3O.xml",
+      "size": 444,
+      "crc": "0a34469a"
+    },
+    {
+      "path": "res/3R.xml",
+      "size": 528,
+      "crc": "6c579a18"
+    },
+    {
+      "path": "res/3W.xml",
+      "size": 516,
+      "crc": "830da9c7"
+    },
+    {
+      "path": "res/3h.xml",
+      "size": 816,
+      "crc": "057055c1"
+    },
+    {
+      "path": "res/3u.9.png",
+      "size": 258,
+      "crc": "cff461f2"
+    },
+    {
+      "path": "res/3z.xml",
+      "size": 2724,
+      "crc": "7ff0f6d2"
+    },
+    {
+      "path": "res/42.9.png",
+      "size": 214,
+      "crc": "84a788a6"
+    },
+    {
+      "path": "res/46.xml",
+      "size": 780,
+      "crc": "f0e43dd3"
+    },
+    {
+      "path": "res/47.xml",
+      "size": 892,
+      "crc": "23d423a7"
+    },
+    {
+      "path": "res/49.png",
+      "size": 595,
+      "crc": "01847edd"
+    },
+    {
+      "path": "res/4B.xml",
+      "size": 452,
+      "crc": "d7c267d7"
+    },
+    {
+      "path": "res/4F.xml",
+      "size": 1732,
+      "crc": "573381d8"
+    },
+    {
+      "path": "res/4H.xml",
+      "size": 592,
+      "crc": "3733a183"
+    },
+    {
+      "path": "res/4I.xml",
+      "size": 652,
+      "crc": "8b44c8fa"
+    },
+    {
+      "path": "res/4P.xml",
+      "size": 632,
+      "crc": "629bc729"
+    },
+    {
+      "path": "res/4Q.xml",
+      "size": 400,
+      "crc": "37c2a945"
+    },
+    {
+      "path": "res/4S.xml",
+      "size": 1116,
+      "crc": "8e8747e5"
+    },
+    {
+      "path": "res/4Y.png",
+      "size": 55603,
+      "crc": "e20483f6"
+    },
+    {
+      "path": "res/4_.xml",
+      "size": 692,
+      "crc": "f70abf82"
+    },
+    {
+      "path": "res/4k.png",
+      "size": 201,
+      "crc": "86ce55b9"
+    },
+    {
+      "path": "res/4o.xml",
+      "size": 868,
+      "crc": "c62a33be"
+    },
+    {
+      "path": "res/4u.xml",
+      "size": 756,
+      "crc": "00b38a8c"
+    },
+    {
+      "path": "res/4w.xml",
+      "size": 664,
+      "crc": "306a7392"
+    },
+    {
+      "path": "res/4x.xml",
+      "size": 1180,
+      "crc": "664e2148"
+    },
+    {
+      "path": "res/4y.png",
+      "size": 27659,
+      "crc": "6aac49d7"
+    },
+    {
+      "path": "res/4y.xml",
+      "size": 452,
+      "crc": "3c905cad"
+    },
+    {
+      "path": "res/4z.xml",
+      "size": 876,
+      "crc": "93728061"
+    },
+    {
+      "path": "res/51.xml",
+      "size": 812,
+      "crc": "eb59c3c9"
+    },
+    {
+      "path": "res/59.xml",
+      "size": 592,
+      "crc": "3ef0f6ad"
+    },
+    {
+      "path": "res/5D.9.png",
+      "size": 272,
+      "crc": "e0e00b8a"
+    },
+    {
+      "path": "res/5J.9.png",
+      "size": 1032,
+      "crc": "f4f0cee1"
+    },
+    {
+      "path": "res/5T.xml",
+      "size": 852,
+      "crc": "7694b074"
+    },
+    {
+      "path": "res/5U.png",
+      "size": 396,
+      "crc": "be21c0b7"
+    },
+    {
+      "path": "res/5Y.xml",
+      "size": 608,
+      "crc": "fa58b1ce"
+    },
+    {
+      "path": "res/5c.png",
+      "size": 138,
+      "crc": "04576501"
+    },
+    {
+      "path": "res/5l.xml",
+      "size": 656,
+      "crc": "76ceedbd"
+    },
+    {
+      "path": "res/5z.xml",
+      "size": 1128,
+      "crc": "0553f94a"
+    },
+    {
+      "path": "res/61.xml",
+      "size": 796,
+      "crc": "3be8dc74"
+    },
+    {
+      "path": "res/62.9.png",
+      "size": 210,
+      "crc": "5418f824"
+    },
+    {
+      "path": "res/65.9.png",
+      "size": 235,
+      "crc": "30459f98"
+    },
+    {
+      "path": "res/66.xml",
+      "size": 956,
+      "crc": "af84901a"
+    },
+    {
+      "path": "res/68.xml",
+      "size": 592,
+      "crc": "208a96ac"
+    },
+    {
+      "path": "res/6Q.xml",
+      "size": 688,
+      "crc": "e722d4c9"
+    },
+    {
+      "path": "res/6f.xml",
+      "size": 2456,
+      "crc": "d7fc5f0a"
+    },
+    {
+      "path": "res/6t.png",
+      "size": 227,
+      "crc": "55e57039"
+    },
+    {
+      "path": "res/6u.xml",
+      "size": 849,
+      "crc": "cbc30488"
+    },
+    {
+      "path": "res/6x.xml",
+      "size": 436,
+      "crc": "533fb00a"
+    },
+    {
+      "path": "res/79.9.png",
+      "size": 694,
+      "crc": "9a55c238"
+    },
+    {
+      "path": "res/7C.9.png",
+      "size": 430,
+      "crc": "c7c65396"
+    },
+    {
+      "path": "res/7E.xml",
+      "size": 1144,
+      "crc": "a90c0979"
+    },
+    {
+      "path": "res/7G.xml",
+      "size": 1116,
+      "crc": "27883fa8"
+    },
+    {
+      "path": "res/7H.xml",
+      "size": 464,
+      "crc": "eecedcbe"
+    },
+    {
+      "path": "res/7I.9.png",
+      "size": 345,
+      "crc": "8dece53e"
+    },
+    {
+      "path": "res/7N.xml",
+      "size": 372,
+      "crc": "e87e5f7a"
+    },
+    {
+      "path": "res/7R.png",
+      "size": 516,
+      "crc": "edf1a67b"
+    },
+    {
+      "path": "res/7_.9.png",
+      "size": 813,
+      "crc": "df201e21"
+    },
+    {
+      "path": "res/7i.png",
+      "size": 464,
+      "crc": "d265c1df"
+    },
+    {
+      "path": "res/7o.9.png",
+      "size": 525,
+      "crc": "c8e02261"
+    },
+    {
+      "path": "res/7s.xml",
+      "size": 724,
+      "crc": "d8d67337"
+    },
+    {
+      "path": "res/7s1.xml",
+      "size": 556,
+      "crc": "c34d09d9"
+    },
+    {
+      "path": "res/80.xml",
+      "size": 2688,
+      "crc": "c8a001bd"
+    },
+    {
+      "path": "res/8G.xml",
+      "size": 744,
+      "crc": "25471b30"
+    },
+    {
+      "path": "res/8K.xml",
+      "size": 812,
+      "crc": "868f002d"
+    },
+    {
+      "path": "res/8a.xml",
+      "size": 464,
+      "crc": "596d8511"
+    },
+    {
+      "path": "res/8h.9.png",
+      "size": 207,
+      "crc": "7219c8a8"
+    },
+    {
+      "path": "res/8h.png",
+      "size": 946,
+      "crc": "600e5975"
+    },
+    {
+      "path": "res/8o.txt",
+      "size": 35147,
+      "crc": "6677f57c"
+    },
+    {
+      "path": "res/8p.txt",
+      "size": 1317,
+      "crc": "73ece887"
+    },
+    {
+      "path": "res/8s.xml",
+      "size": 648,
+      "crc": "50679e50"
+    },
+    {
+      "path": "res/8y.xml",
+      "size": 940,
+      "crc": "4a88e7f4"
+    },
+    {
+      "path": "res/90.xml",
+      "size": 992,
+      "crc": "a6b1f7b9"
+    },
+    {
+      "path": "res/96.xml",
+      "size": 736,
+      "crc": "621b65cf"
+    },
+    {
+      "path": "res/961.xml",
+      "size": 488,
+      "crc": "3e2a49cc"
+    },
+    {
+      "path": "res/9N.9.png",
+      "size": 187,
+      "crc": "52c5a6c3"
+    },
+    {
+      "path": "res/9O.xml",
+      "size": 1172,
+      "crc": "0ff48dd7"
+    },
+    {
+      "path": "res/9P.xml",
+      "size": 600,
+      "crc": "abde3c58"
+    },
+    {
+      "path": "res/9T.xml",
+      "size": 932,
+      "crc": "fee0b6ea"
+    },
+    {
+      "path": "res/9T1.xml",
+      "size": 1656,
+      "crc": "104a3fd9"
+    },
+    {
+      "path": "res/9T2.xml",
+      "size": 1028,
+      "crc": "c05fcbd9"
+    },
+    {
+      "path": "res/9V.xml",
+      "size": 1560,
+      "crc": "4f05b059"
+    },
+    {
+      "path": "res/9X.9.png",
+      "size": 192,
+      "crc": "296f3744"
+    },
+    {
+      "path": "res/9m.xml",
+      "size": 304,
+      "crc": "7653b5a0"
+    },
+    {
+      "path": "res/9n.9.png",
+      "size": 178,
+      "crc": "aad3c65d"
+    },
+    {
+      "path": "res/9p.xml",
+      "size": 508,
+      "crc": "a25af601"
+    },
+    {
+      "path": "res/9z.png",
+      "size": 593,
+      "crc": "c02d00e1"
+    },
+    {
+      "path": "res/9z.xml",
+      "size": 388,
+      "crc": "c5ac8232"
+    },
+    {
+      "path": "res/A0.xml",
+      "size": 1644,
+      "crc": "b4524669"
+    },
+    {
+      "path": "res/A1.xml",
+      "size": 872,
+      "crc": "17ebbe4d"
+    },
+    {
+      "path": "res/A4.xml",
+      "size": 680,
+      "crc": "589ead39"
+    },
+    {
+      "path": "res/A5.xml",
+      "size": 2724,
+      "crc": "b71cfbbd"
+    },
+    {
+      "path": "res/AB.xml",
+      "size": 1444,
+      "crc": "350f90aa"
+    },
+    {
+      "path": "res/AE.xml",
+      "size": 2756,
+      "crc": "17d4a5dc"
+    },
+    {
+      "path": "res/AK.xml",
+      "size": 3096,
+      "crc": "66f5a540"
+    },
+    {
+      "path": "res/Aa.xml",
+      "size": 796,
+      "crc": "bbc16fb9"
+    },
+    {
+      "path": "res/Af.9.png",
+      "size": 683,
+      "crc": "58fb3053"
+    },
+    {
+      "path": "res/Ay.txt",
+      "size": 1470,
+      "crc": "4f9424ef"
+    },
+    {
+      "path": "res/B2.xml",
+      "size": 4324,
+      "crc": "770f0fad"
+    },
+    {
+      "path": "res/B6.xml",
+      "size": 592,
+      "crc": "7310e4f6"
+    },
+    {
+      "path": "res/BF.xml",
+      "size": 460,
+      "crc": "1e42659e"
+    },
+    {
+      "path": "res/BG.9.png",
+      "size": 190,
+      "crc": "5bdf785c"
+    },
+    {
+      "path": "res/BJ.xml",
+      "size": 640,
+      "crc": "e60797a1"
+    },
+    {
+      "path": "res/BJ1.xml",
+      "size": 1128,
+      "crc": "37357ed9"
+    },
+    {
+      "path": "res/BL.9.png",
+      "size": 229,
+      "crc": "63663bff"
+    },
+    {
+      "path": "res/BM.png",
+      "size": 159,
+      "crc": "52c2e8e3"
+    },
+    {
+      "path": "res/BQ.9.png",
+      "size": 897,
+      "crc": "85696478"
+    },
+    {
+      "path": "res/BR.png",
+      "size": 29862,
+      "crc": "28a3ea0c"
+    },
+    {
+      "path": "res/BT.xml",
+      "size": 592,
+      "crc": "ed25c11b"
+    },
+    {
+      "path": "res/BT1.xml",
+      "size": 616,
+      "crc": "db10d620"
+    },
+    {
+      "path": "res/Bd.xml",
+      "size": 388,
+      "crc": "748bb31c"
+    },
+    {
+      "path": "res/Be.xml",
+      "size": 2648,
+      "crc": "e3f5c3bf"
+    },
+    {
+      "path": "res/Be1.xml",
+      "size": 1300,
+      "crc": "b8bc7d04"
+    },
+    {
+      "path": "res/Bl.xml",
+      "size": 588,
+      "crc": "7a61498f"
+    },
+    {
+      "path": "res/Bn.xml",
+      "size": 828,
+      "crc": "0161ec4d"
+    },
+    {
+      "path": "res/By.xml",
+      "size": 608,
+      "crc": "7e02c0da"
+    },
+    {
+      "path": "res/By1.xml",
+      "size": 524,
+      "crc": "5211f1e9"
+    },
+    {
+      "path": "res/Bz.xml",
+      "size": 892,
+      "crc": "44aacaa0"
+    },
+    {
+      "path": "res/CK.9.png",
+      "size": 244,
+      "crc": "bde23956"
+    },
+    {
+      "path": "res/CQ.txt",
+      "size": 1466,
+      "crc": "656da9a3"
+    },
+    {
+      "path": "res/C_.9.png",
+      "size": 215,
+      "crc": "c135d194"
+    },
+    {
+      "path": "res/Ce.xml",
+      "size": 1320,
+      "crc": "841b4300"
+    },
+    {
+      "path": "res/Cg.xml",
+      "size": 424,
+      "crc": "d11c6081"
+    },
+    {
+      "path": "res/Ci.xml",
+      "size": 2052,
+      "crc": "00187770"
+    },
+    {
+      "path": "res/D-.xml",
+      "size": 1720,
+      "crc": "4806a0f2"
+    },
+    {
+      "path": "res/D4.xml",
+      "size": 644,
+      "crc": "7377a9ac"
+    },
+    {
+      "path": "res/D5.xml",
+      "size": 812,
+      "crc": "b0fb4b1c"
+    },
+    {
+      "path": "res/D6.xml",
+      "size": 592,
+      "crc": "3ef0f6ad"
+    },
+    {
+      "path": "res/DG.xml",
+      "size": 784,
+      "crc": "7fecce8f"
+    },
+    {
+      "path": "res/DL.9.png",
+      "size": 178,
+      "crc": "bb045ad2"
+    },
+    {
+      "path": "res/DS.xml",
+      "size": 448,
+      "crc": "ea64131d"
+    },
+    {
+      "path": "res/DS1.xml",
+      "size": 400,
+      "crc": "3ea34237"
+    },
+    {
+      "path": "res/DV.xml",
+      "size": 792,
+      "crc": "db7b1e4e"
+    },
+    {
+      "path": "res/DZ.xml",
+      "size": 320,
+      "crc": "b0798f16"
+    },
+    {
+      "path": "res/D_.9.png",
+      "size": 178,
+      "crc": "c56f26da"
+    },
+    {
+      "path": "res/Dd.png",
+      "size": 281,
+      "crc": "fa60669e"
+    },
+    {
+      "path": "res/E4.xml",
+      "size": 548,
+      "crc": "2bf60cfa"
+    },
+    {
+      "path": "res/E5.xml",
+      "size": 872,
+      "crc": "9a901c69"
+    },
+    {
+      "path": "res/E9.xml",
+      "size": 748,
+      "crc": "b82e23a5"
+    },
+    {
+      "path": "res/EA.9.png",
+      "size": 200,
+      "crc": "3023e3da"
+    },
+    {
+      "path": "res/EP.png",
+      "size": 310,
+      "crc": "40bc4240"
+    },
+    {
+      "path": "res/EQ.xml",
+      "size": 588,
+      "crc": "4cb94bb5"
+    },
+    {
+      "path": "res/EZ.xml",
+      "size": 396,
+      "crc": "f068f605"
+    },
+    {
+      "path": "res/Eg.xml",
+      "size": 1716,
+      "crc": "23136bc0"
+    },
+    {
+      "path": "res/Eh.png",
+      "size": 410,
+      "crc": "0cb58331"
+    },
+    {
+      "path": "res/F4.png",
+      "size": 6782,
+      "crc": "204d116f"
+    },
+    {
+      "path": "res/F8.xml",
+      "size": 1684,
+      "crc": "7eef3e7b"
+    },
+    {
+      "path": "res/F81.xml",
+      "size": 796,
+      "crc": "e8196231"
+    },
+    {
+      "path": "res/FS.xml",
+      "size": 660,
+      "crc": "67a9541f"
+    },
+    {
+      "path": "res/FT.xml",
+      "size": 1304,
+      "crc": "337de33e"
+    },
+    {
+      "path": "res/FW.png",
+      "size": 307,
+      "crc": "33d55ad0"
+    },
+    {
+      "path": "res/Fq.xml",
+      "size": 312,
+      "crc": "0e9a37c2"
+    },
+    {
+      "path": "res/Fu.xml",
+      "size": 1352,
+      "crc": "2fcd13b3"
+    },
+    {
+      "path": "res/G-.txt",
+      "size": 10271,
+      "crc": "172650b2"
+    },
+    {
+      "path": "res/G2.9.png",
+      "size": 1243,
+      "crc": "ee5987fb"
+    },
+    {
+      "path": "res/G2.xml",
+      "size": 1572,
+      "crc": "2b4b4d39"
+    },
+    {
+      "path": "res/GC.xml",
+      "size": 828,
+      "crc": "05ba99ba"
+    },
+    {
+      "path": "res/GD.xml",
+      "size": 1096,
+      "crc": "1b63de59"
+    },
+    {
+      "path": "res/GE.xml",
+      "size": 968,
+      "crc": "1a673b1a"
+    },
+    {
+      "path": "res/GF.xml",
+      "size": 440,
+      "crc": "2ddc3c6f"
+    },
+    {
+      "path": "res/GK.xml",
+      "size": 1172,
+      "crc": "68302aa4"
+    },
+    {
+      "path": "res/GQ.xml",
+      "size": 740,
+      "crc": "caa1911f"
+    },
+    {
+      "path": "res/GR.xml",
+      "size": 1208,
+      "crc": "de307f40"
+    },
+    {
+      "path": "res/GU.txt",
+      "size": 11358,
+      "crc": "86e2b4b4"
+    },
+    {
+      "path": "res/Gf.png",
+      "size": 984,
+      "crc": "f7245981"
+    },
+    {
+      "path": "res/Gt.9.png",
+      "size": 202,
+      "crc": "a404393e"
+    },
+    {
+      "path": "res/Gt.xml",
+      "size": 1012,
+      "crc": "eb2edf49"
+    },
+    {
+      "path": "res/H-.png",
+      "size": 203,
+      "crc": "214dfcbe"
+    },
+    {
+      "path": "res/H4.xml",
+      "size": 616,
+      "crc": "e273010a"
+    },
+    {
+      "path": "res/HC.xml",
+      "size": 592,
+      "crc": "8f2075b0"
+    },
+    {
+      "path": "res/HQ.xml",
+      "size": 752,
+      "crc": "c00afc66"
+    },
+    {
+      "path": "res/Ha.xml",
+      "size": 592,
+      "crc": "9b1dc7c8"
+    },
+    {
+      "path": "res/Hd.xml",
+      "size": 464,
+      "crc": "ab0abae2"
+    },
+    {
+      "path": "res/Hs.png",
+      "size": 64313,
+      "crc": "ac6744a8"
+    },
+    {
+      "path": "res/I3.9.png",
+      "size": 1255,
+      "crc": "3dae25e9"
+    },
+    {
+      "path": "res/I3.xml",
+      "size": 524,
+      "crc": "fcce5ad9"
+    },
+    {
+      "path": "res/IE.png",
+      "size": 6782,
+      "crc": "204d116f"
+    },
+    {
+      "path": "res/IH.txt",
+      "size": 7639,
+      "crc": "75312e7a"
+    },
+    {
+      "path": "res/II.txt",
+      "size": 1801,
+      "crc": "bebcc49a"
+    },
+    {
+      "path": "res/IR.xml",
+      "size": 704,
+      "crc": "60c5edc3"
+    },
+    {
+      "path": "res/IX.9.png",
+      "size": 1544,
+      "crc": "3d40754b"
+    },
+    {
+      "path": "res/Ib.xml",
+      "size": 820,
+      "crc": "c56c9b74"
+    },
+    {
+      "path": "res/Id.xml",
+      "size": 524,
+      "crc": "462fd604"
+    },
+    {
+      "path": "res/In.xml",
+      "size": 468,
+      "crc": "c3c3baa7"
+    },
+    {
+      "path": "res/Iy.xml",
+      "size": 2352,
+      "crc": "d837659b"
+    },
+    {
+      "path": "res/J7.xml",
+      "size": 1124,
+      "crc": "7e90842d"
+    },
+    {
+      "path": "res/JA.xml",
+      "size": 700,
+      "crc": "e3df978d"
+    },
+    {
+      "path": "res/JC.xml",
+      "size": 1216,
+      "crc": "38340dbc"
+    },
+    {
+      "path": "res/JD.xml",
+      "size": 1584,
+      "crc": "6ff1ef98"
+    },
+    {
+      "path": "res/JD1.xml",
+      "size": 716,
+      "crc": "8d6f4f5a"
+    },
+    {
+      "path": "res/JF.xml",
+      "size": 304,
+      "crc": "8f2ff7b6"
+    },
+    {
+      "path": "res/JJ.9.png",
+      "size": 280,
+      "crc": "a6e7b9d8"
+    },
+    {
+      "path": "res/JJ.xml",
+      "size": 448,
+      "crc": "4047bc1a"
+    },
+    {
+      "path": "res/JP.xml",
+      "size": 712,
+      "crc": "6c1f7ff9"
+    },
+    {
+      "path": "res/JQ.xml",
+      "size": 904,
+      "crc": "9047b732"
+    },
+    {
+      "path": "res/JS.xml",
+      "size": 744,
+      "crc": "cfb0adc2"
+    },
+    {
+      "path": "res/JT.xml",
+      "size": 592,
+      "crc": "9d5a5a9f"
+    },
+    {
+      "path": "res/JT1.xml",
+      "size": 1072,
+      "crc": "c4c9f545"
+    },
+    {
+      "path": "res/Jl.xml",
+      "size": 464,
+      "crc": "4718ea30"
+    },
+    {
+      "path": "res/Jw.xml",
+      "size": 2476,
+      "crc": "6265a359"
+    },
+    {
+      "path": "res/K-.xml",
+      "size": 420,
+      "crc": "23c5a64b"
+    },
+    {
+      "path": "res/K-1.xml",
+      "size": 588,
+      "crc": "4584e34e"
+    },
+    {
+      "path": "res/K2.xml",
+      "size": 352,
+      "crc": "7a1cdd80"
+    },
+    {
+      "path": "res/K5.xml",
+      "size": 1676,
+      "crc": "2ebefedb"
+    },
+    {
+      "path": "res/K51.xml",
+      "size": 1656,
+      "crc": "938acbd1"
+    },
+    {
+      "path": "res/KG.xml",
+      "size": 1720,
+      "crc": "6225f746"
+    },
+    {
+      "path": "res/KH.9.png",
+      "size": 618,
+      "crc": "ed2cba2f"
+    },
+    {
+      "path": "res/KI.xml",
+      "size": 784,
+      "crc": "6e19513c"
+    },
+    {
+      "path": "res/KK.xml",
+      "size": 640,
+      "crc": "65d7ef6a"
+    },
+    {
+      "path": "res/KM.png",
+      "size": 415,
+      "crc": "ec058f9b"
+    },
+    {
+      "path": "res/KT.xml",
+      "size": 592,
+      "crc": "da3a2271"
+    },
+    {
+      "path": "res/K_.9.png",
+      "size": 216,
+      "crc": "4f558efa"
+    },
+    {
+      "path": "res/Ke.xml",
+      "size": 2360,
+      "crc": "0882fa05"
+    },
+    {
+      "path": "res/Ki.xml",
+      "size": 840,
+      "crc": "eb6c7652"
+    },
+    {
+      "path": "res/Kr.xml",
+      "size": 264,
+      "crc": "a9f5a432"
+    },
+    {
+      "path": "res/L-.xml",
+      "size": 2812,
+      "crc": "16feb6ae"
+    },
+    {
+      "path": "res/L2.png",
+      "size": 6782,
+      "crc": "204d116f"
+    },
+    {
+      "path": "res/LI.xml",
+      "size": 2724,
+      "crc": "fa89e92d"
+    },
+    {
+      "path": "res/LJ.xml",
+      "size": 492,
+      "crc": "8ec03bec"
+    },
+    {
+      "path": "res/LT.xml",
+      "size": 592,
+      "crc": "208a96ac"
+    },
+    {
+      "path": "res/L_.xml",
+      "size": 1064,
+      "crc": "29ef9a68"
+    },
+    {
+      "path": "res/Lc.png",
+      "size": 12566,
+      "crc": "71e7de41"
+    },
+    {
+      "path": "res/Lf.xml",
+      "size": 1656,
+      "crc": "7a03a080"
+    },
+    {
+      "path": "res/Li.9.png",
+      "size": 1779,
+      "crc": "e97125d2"
+    },
+    {
+      "path": "res/Lr.xml",
+      "size": 584,
+      "crc": "9e30dff1"
+    },
+    {
+      "path": "res/Lt.xml",
+      "size": 592,
+      "crc": "9d5a5a9f"
+    },
+    {
+      "path": "res/Lv.xml",
+      "size": 132,
+      "crc": "214428f8"
+    },
+    {
+      "path": "res/Lw.txt",
+      "size": 1521,
+      "crc": "7eb8ca1b"
+    },
+    {
+      "path": "res/M1.xml",
+      "size": 484,
+      "crc": "327e8af4"
+    },
+    {
+      "path": "res/M2.xml",
+      "size": 612,
+      "crc": "bef141e8"
+    },
+    {
+      "path": "res/M4.xml",
+      "size": 712,
+      "crc": "53486160"
+    },
+    {
+      "path": "res/M5.xml",
+      "size": 684,
+      "crc": "4282e1da"
+    },
+    {
+      "path": "res/M7.xml",
+      "size": 1196,
+      "crc": "91c0d808"
+    },
+    {
+      "path": "res/M9.xml",
+      "size": 384,
+      "crc": "46f4a49f"
+    },
+    {
+      "path": "res/MF.9.png",
+      "size": 2816,
+      "crc": "018a1de4"
+    },
+    {
+      "path": "res/MI.xml",
+      "size": 460,
+      "crc": "89ca9839"
+    },
+    {
+      "path": "res/MO.xml",
+      "size": 424,
+      "crc": "cc41aec5"
+    },
+    {
+      "path": "res/MQ.png",
+      "size": 513,
+      "crc": "6eddf9de"
+    },
+    {
+      "path": "res/MS.xml",
+      "size": 792,
+      "crc": "5c97719f"
+    },
+    {
+      "path": "res/MU.xml",
+      "size": 528,
+      "crc": "881b7591"
+    },
+    {
+      "path": "res/MZ.xml",
+      "size": 592,
+      "crc": "8f2075b0"
+    },
+    {
+      "path": "res/Ma.9.png",
+      "size": 247,
+      "crc": "c29ac558"
+    },
+    {
+      "path": "res/Mi.xml",
+      "size": 1512,
+      "crc": "75ccb41e"
+    },
+    {
+      "path": "res/Mj.xml",
+      "size": 984,
+      "crc": "a2c1ef11"
+    },
+    {
+      "path": "res/Mp.xml",
+      "size": 792,
+      "crc": "65a796ab"
+    },
+    {
+      "path": "res/Mt.xml",
+      "size": 1436,
+      "crc": "925d0a5d"
+    },
+    {
+      "path": "res/N0.xml",
+      "size": 612,
+      "crc": "60472326"
+    },
+    {
+      "path": "res/N3.xml",
+      "size": 736,
+      "crc": "4484223e"
+    },
+    {
+      "path": "res/N4.xml",
+      "size": 2552,
+      "crc": "f6318752"
+    },
+    {
+      "path": "res/NA.9.png",
+      "size": 2505,
+      "crc": "7c75d46d"
+    },
+    {
+      "path": "res/NF.xml",
+      "size": 328,
+      "crc": "ecacd32e"
+    },
+    {
+      "path": "res/NG.png",
+      "size": 322,
+      "crc": "6761bc02"
+    },
+    {
+      "path": "res/NM.xml",
+      "size": 716,
+      "crc": "9c431c69"
+    },
+    {
+      "path": "res/NM1.xml",
+      "size": 484,
+      "crc": "04124f7c"
+    },
+    {
+      "path": "res/NN.xml",
+      "size": 956,
+      "crc": "b2a01803"
+    },
+    {
+      "path": "res/NZ.9.png",
+      "size": 182,
+      "crc": "2d0b1d64"
+    },
+    {
+      "path": "res/Nd.xml",
+      "size": 1216,
+      "crc": "df4e9937"
+    },
+    {
+      "path": "res/Nk.9.png",
+      "size": 776,
+      "crc": "d0abe4f8"
+    },
+    {
+      "path": "res/Nm.txt",
+      "size": 35147,
+      "crc": "6677f57c"
+    },
+    {
+      "path": "res/No.9.png",
+      "size": 199,
+      "crc": "308df7a1"
+    },
+    {
+      "path": "res/Np.xml",
+      "size": 640,
+      "crc": "df01bbc4"
+    },
+    {
+      "path": "res/Nu.xml",
+      "size": 1728,
+      "crc": "495aed87"
+    },
+    {
+      "path": "res/Ny.xml",
+      "size": 556,
+      "crc": "b554350d"
+    },
+    {
+      "path": "res/O6.xml",
+      "size": 1044,
+      "crc": "4ce2d876"
+    },
+    {
+      "path": "res/O9.xml",
+      "size": 716,
+      "crc": "2d87d02d"
+    },
+    {
+      "path": "res/OI.png",
+      "size": 6782,
+      "crc": "204d116f"
+    },
+    {
+      "path": "res/OX.xml",
+      "size": 592,
+      "crc": "3ef0f6ad"
+    },
+    {
+      "path": "res/OZ.xml",
+      "size": 1768,
+      "crc": "9c25b7aa"
+    },
+    {
+      "path": "res/Oe.png",
+      "size": 6782,
+      "crc": "204d116f"
+    },
+    {
+      "path": "res/Oi.xml",
+      "size": 2896,
+      "crc": "20ce6f24"
+    },
+    {
+      "path": "res/Oi1.xml",
+      "size": 1056,
+      "crc": "f15df3ef"
+    },
+    {
+      "path": "res/Ol.xml",
+      "size": 1656,
+      "crc": "958fd62f"
+    },
+    {
+      "path": "res/Ox.xml",
+      "size": 628,
+      "crc": "a59f298d"
+    },
+    {
+      "path": "res/P9.txt",
+      "size": 1470,
+      "crc": "dcb23b47"
+    },
+    {
+      "path": "res/PQ.xml",
+      "size": 592,
+      "crc": "552b28e5"
+    },
+    {
+      "path": "res/PS.xml",
+      "size": 304,
+      "crc": "073b2d5c"
+    },
+    {
+      "path": "res/PV.xml",
+      "size": 908,
+      "crc": "c0979479"
+    },
+    {
+      "path": "res/PX.xml",
+      "size": 724,
+      "crc": "9ad32a8c"
+    },
+    {
+      "path": "res/Pa.9.png",
+      "size": 738,
+      "crc": "325c2847"
+    },
+    {
+      "path": "res/Pb.png",
+      "size": 631,
+      "crc": "83a904b8"
+    },
+    {
+      "path": "res/Pb.xml",
+      "size": 584,
+      "crc": "8516fe8b"
+    },
+    {
+      "path": "res/Pg.9.png",
+      "size": 207,
+      "crc": "0ec632f8"
+    },
+    {
+      "path": "res/Pj.txt",
+      "size": 1088,
+      "crc": "de95ab56"
+    },
+    {
+      "path": "res/Pl.xml",
+      "size": 304,
+      "crc": "4201c965"
+    },
+    {
+      "path": "res/QB.txt",
+      "size": 755,
+      "crc": "03cc21f1"
+    },
+    {
+      "path": "res/QD.xml",
+      "size": 740,
+      "crc": "333f45ef"
+    },
+    {
+      "path": "res/QH.xml",
+      "size": 548,
+      "crc": "808a5b2b"
+    },
+    {
+      "path": "res/QJ.9.png",
+      "size": 189,
+      "crc": "3408a58b"
+    },
+    {
+      "path": "res/QJ.txt",
+      "size": 1144,
+      "crc": "6c23b6c2"
+    },
+    {
+      "path": "res/QN.xml",
+      "size": 588,
+      "crc": "827f4b8e"
+    },
+    {
+      "path": "res/QN1.xml",
+      "size": 724,
+      "crc": "82bbb777"
+    },
+    {
+      "path": "res/QP.xml",
+      "size": 616,
+      "crc": "726b9371"
+    },
+    {
+      "path": "res/QZ.png",
+      "size": 10346,
+      "crc": "746a1eff"
+    },
+    {
+      "path": "res/QZ.xml",
+      "size": 744,
+      "crc": "baf593f6"
+    },
+    {
+      "path": "res/QZ1.xml",
+      "size": 124,
+      "crc": "5c4c55b0"
+    },
+    {
+      "path": "res/Qa.xml",
+      "size": 668,
+      "crc": "fcbb2f4c"
+    },
+    {
+      "path": "res/Qd.9.png",
+      "size": 776,
+      "crc": "c1b93349"
+    },
+    {
+      "path": "res/Qd.xml",
+      "size": 796,
+      "crc": "5b72ebd5"
+    },
+    {
+      "path": "res/Qp.xml",
+      "size": 592,
+      "crc": "2ffa9824"
+    },
+    {
+      "path": "res/Qr.xml",
+      "size": 10192,
+      "crc": "cdfa618f"
+    },
+    {
+      "path": "res/Qt.xml",
+      "size": 980,
+      "crc": "20a74973"
+    },
+    {
+      "path": "res/Qu.xml",
+      "size": 940,
+      "crc": "b5794bdf"
+    },
+    {
+      "path": "res/Qy.xml",
+      "size": 400,
+      "crc": "b4392667"
+    },
+    {
+      "path": "res/R2.xml",
+      "size": 596,
+      "crc": "d9c76409"
+    },
+    {
+      "path": "res/RD.xml",
+      "size": 396,
+      "crc": "eeb0006b"
+    },
+    {
+      "path": "res/RH.xml",
+      "size": 832,
+      "crc": "8f072359"
+    },
+    {
+      "path": "res/RI.xml",
+      "size": 408,
+      "crc": "2accfb12"
+    },
+    {
+      "path": "res/RL.xml",
+      "size": 400,
+      "crc": "c2edc1d5"
+    },
+    {
+      "path": "res/RM.xml",
+      "size": 744,
+      "crc": "295bc464"
+    },
+    {
+      "path": "res/RT.xml",
+      "size": 396,
+      "crc": "e3be70e2"
+    },
+    {
+      "path": "res/RV.png",
+      "size": 563,
+      "crc": "9b1429bf"
+    },
+    {
+      "path": "res/Ro.xml",
+      "size": 1796,
+      "crc": "f451a371"
+    },
+    {
+      "path": "res/Rt.xml",
+      "size": 892,
+      "crc": "a42f83d5"
+    },
+    {
+      "path": "res/S-.png",
+      "size": 6782,
+      "crc": "204d116f"
+    },
+    {
+      "path": "res/S5.png",
+      "size": 1179,
+      "crc": "1f57b1a0"
+    },
+    {
+      "path": "res/S6.xml",
+      "size": 592,
+      "crc": "9f3334be"
+    },
+    {
+      "path": "res/SG.xml",
+      "size": 380,
+      "crc": "454bb7b7"
+    },
+    {
+      "path": "res/SN.xml",
+      "size": 3044,
+      "crc": "98811f62"
+    },
+    {
+      "path": "res/SN1.xml",
+      "size": 1052,
+      "crc": "da4d39d5"
+    },
+    {
+      "path": "res/SV.9.png",
+      "size": 211,
+      "crc": "78c37895"
+    },
+    {
+      "path": "res/Sc.xml",
+      "size": 1128,
+      "crc": "f6e01428"
+    },
+    {
+      "path": "res/Sh.xml",
+      "size": 1696,
+      "crc": "f44b23ed"
+    },
+    {
+      "path": "res/Sr.xml",
+      "size": 1632,
+      "crc": "3621ca74"
+    },
+    {
+      "path": "res/Sr1.xml",
+      "size": 1228,
+      "crc": "4205cb0b"
+    },
+    {
+      "path": "res/St.xml",
+      "size": 768,
+      "crc": "031182e8"
+    },
+    {
+      "path": "res/Su.9.png",
+      "size": 178,
+      "crc": "6899209c"
+    },
+    {
+      "path": "res/T4.xml",
+      "size": 1888,
+      "crc": "4ad63023"
+    },
+    {
+      "path": "res/T5.xml",
+      "size": 1132,
+      "crc": "22888d29"
+    },
+    {
+      "path": "res/TH.xml",
+      "size": 444,
+      "crc": "bf75f272"
+    },
+    {
+      "path": "res/TJ.xml",
+      "size": 1012,
+      "crc": "ca42c37a"
+    },
+    {
+      "path": "res/TK.xml",
+      "size": 892,
+      "crc": "8db33042"
+    },
+    {
+      "path": "res/TR.xml",
+      "size": 304,
+      "crc": "f11bfae2"
+    },
+    {
+      "path": "res/TX.txt",
+      "size": 26518,
+      "crc": "4685a5d2"
+    },
+    {
+      "path": "res/TY.xml",
+      "size": 752,
+      "crc": "a80f23ae"
+    },
+    {
+      "path": "res/Ta.xml",
+      "size": 388,
+      "crc": "bf0cb96c"
+    },
+    {
+      "path": "res/Tf.xml",
+      "size": 660,
+      "crc": "d5cd9bb2"
+    },
+    {
+      "path": "res/Th.png",
+      "size": 785,
+      "crc": "b236fd62"
+    },
+    {
+      "path": "res/Tj.9.png",
+      "size": 327,
+      "crc": "a072df4e"
+    },
+    {
+      "path": "res/Tn.xml",
+      "size": 768,
+      "crc": "ac0e9bc3"
+    },
+    {
+      "path": "res/Tw.png",
+      "size": 6782,
+      "crc": "204d116f"
+    },
+    {
+      "path": "res/U-.9.png",
+      "size": 223,
+      "crc": "b80ede38"
+    },
+    {
+      "path": "res/U0.xml",
+      "size": 120,
+      "crc": "7215eba8"
+    },
+    {
+      "path": "res/U7.xml",
+      "size": 2432,
+      "crc": "0c7dd26c"
+    },
+    {
+      "path": "res/U8.xml",
+      "size": 2660,
+      "crc": "5fb7aa8d"
+    },
+    {
+      "path": "res/UE.9.png",
+      "size": 222,
+      "crc": "b1ab9d03"
+    },
+    {
+      "path": "res/UE.xml",
+      "size": 796,
+      "crc": "73271267"
+    },
+    {
+      "path": "res/UP.xml",
+      "size": 956,
+      "crc": "5f8136ec"
+    },
+    {
+      "path": "res/UR.png",
+      "size": 422,
+      "crc": "394ef93c"
+    },
+    {
+      "path": "res/UR.xml",
+      "size": 884,
+      "crc": "98f38a82"
+    },
+    {
+      "path": "res/UX.xml",
+      "size": 508,
+      "crc": "53704157"
+    },
+    {
+      "path": "res/Uf.xml",
+      "size": 2664,
+      "crc": "975fda09"
+    },
+    {
+      "path": "res/Uk.png",
+      "size": 6782,
+      "crc": "204d116f"
+    },
+    {
+      "path": "res/V1.xml",
+      "size": 864,
+      "crc": "89cc4a75"
+    },
+    {
+      "path": "res/V3.xml",
+      "size": 784,
+      "crc": "00ad5368"
+    },
+    {
+      "path": "res/V7.xml",
+      "size": 304,
+      "crc": "f11bfae2"
+    },
+    {
+      "path": "res/VM.xml",
+      "size": 328,
+      "crc": "ecacd32e"
+    },
+    {
+      "path": "res/VN.xml",
+      "size": 684,
+      "crc": "83bdb4f3"
+    },
+    {
+      "path": "res/VT.xml",
+      "size": 640,
+      "crc": "2b3f5b08"
+    },
+    {
+      "path": "res/Vs.xml",
+      "size": 1216,
+      "crc": "a9f7c76e"
+    },
+    {
+      "path": "res/Vy.xml",
+      "size": 10192,
+      "crc": "6f52f799"
+    },
+    {
+      "path": "res/W3.xml",
+      "size": 1180,
+      "crc": "8f442c18"
+    },
+    {
+      "path": "res/W4.9.png",
+      "size": 217,
+      "crc": "ecd8775b"
+    },
+    {
+      "path": "res/WC.xml",
+      "size": 400,
+      "crc": "510320a3"
+    },
+    {
+      "path": "res/WK.xml",
+      "size": 712,
+      "crc": "e321b65c"
+    },
+    {
+      "path": "res/WP.xml",
+      "size": 400,
+      "crc": "9214a2bc"
+    },
+    {
+      "path": "res/WU.xml",
+      "size": 772,
+      "crc": "ea3d6fda"
+    },
+    {
+      "path": "res/Wf.txt",
+      "size": 12876,
+      "crc": "91d14548"
+    },
+    {
+      "path": "res/Wh.png",
+      "size": 171,
+      "crc": "ce3e1667"
+    },
+    {
+      "path": "res/Wr.png",
+      "size": 335,
+      "crc": "6d48e543"
+    },
+    {
+      "path": "res/Wz.png",
+      "size": 196,
+      "crc": "21171d42"
+    },
+    {
+      "path": "res/X3.9.png",
+      "size": 221,
+      "crc": "236b6e98"
+    },
+    {
+      "path": "res/X4.9.png",
+      "size": 187,
+      "crc": "4164b6d3"
+    },
+    {
+      "path": "res/X6.xml",
+      "size": 1312,
+      "crc": "f8d36839"
+    },
+    {
+      "path": "res/XD.xml",
+      "size": 444,
+      "crc": "2898eb0b"
+    },
+    {
+      "path": "res/XK.xml",
+      "size": 516,
+      "crc": "02cbd439"
+    },
+    {
+      "path": "res/XW.xml",
+      "size": 124,
+      "crc": "5c4c55b0"
+    },
+    {
+      "path": "res/XW1.xml",
+      "size": 452,
+      "crc": "cf7d74ae"
+    },
+    {
+      "path": "res/XY.xml",
+      "size": 264,
+      "crc": "3544f8f1"
+    },
+    {
+      "path": "res/Xe.xml",
+      "size": 720,
+      "crc": "d1459400"
+    },
+    {
+      "path": "res/Xf.xml",
+      "size": 648,
+      "crc": "4f152090"
+    },
+    {
+      "path": "res/Xh.xml",
+      "size": 1144,
+      "crc": "ef29280c"
+    },
+    {
+      "path": "res/Xk.xml",
+      "size": 1492,
+      "crc": "dc9946b2"
+    },
+    {
+      "path": "res/Xl.xml",
+      "size": 400,
+      "crc": "cadacc49"
+    },
+    {
+      "path": "res/Xo.txt",
+      "size": 1549,
+      "crc": "47bcb5e8"
+    },
+    {
+      "path": "res/Xo.xml",
+      "size": 364,
+      "crc": "5c5390aa"
+    },
+    {
+      "path": "res/Xp.xml",
+      "size": 1484,
+      "crc": "f94d5760"
+    },
+    {
+      "path": "res/Xp1.xml",
+      "size": 604,
+      "crc": "145874c7"
+    },
+    {
+      "path": "res/Xx.xml",
+      "size": 516,
+      "crc": "6a2f8811"
+    },
+    {
+      "path": "res/Xz.xml",
+      "size": 628,
+      "crc": "b931b7e3"
+    },
+    {
+      "path": "res/Y7.9.png",
+      "size": 212,
+      "crc": "71be1c35"
+    },
+    {
+      "path": "res/YG.9.png",
+      "size": 203,
+      "crc": "d8f23e2a"
+    },
+    {
+      "path": "res/YG.xml",
+      "size": 812,
+      "crc": "cc18f236"
+    },
+    {
+      "path": "res/YN.xml",
+      "size": 592,
+      "crc": "e51515a5"
+    },
+    {
+      "path": "res/YO.xml",
+      "size": 3976,
+      "crc": "e1066095"
+    },
+    {
+      "path": "res/YW.xml",
+      "size": 372,
+      "crc": "d6ab29f3"
+    },
+    {
+      "path": "res/YW1.xml",
+      "size": 592,
+      "crc": "83203a9e"
+    },
+    {
+      "path": "res/Yt.9.png",
+      "size": 209,
+      "crc": "4644c6e1"
+    },
+    {
+      "path": "res/Yw.9.png",
+      "size": 186,
+      "crc": "747c103f"
+    },
+    {
+      "path": "res/Z5.xml",
+      "size": 1476,
+      "crc": "2ed93bd8"
+    },
+    {
+      "path": "res/Z8.png",
+      "size": 420,
+      "crc": "ab2a1853"
+    },
+    {
+      "path": "res/ZC.xml",
+      "size": 592,
+      "crc": "a82f890d"
+    },
+    {
+      "path": "res/ZI.png",
+      "size": 681,
+      "crc": "3ae6b82e"
+    },
+    {
+      "path": "res/ZL.9.png",
+      "size": 1086,
+      "crc": "fecc21a4"
+    },
+    {
+      "path": "res/ZL.xml",
+      "size": 756,
+      "crc": "086c7021"
+    },
+    {
+      "path": "res/ZM.xml",
+      "size": 1176,
+      "crc": "5abd772a"
+    },
+    {
+      "path": "res/ZN.9.png",
+      "size": 229,
+      "crc": "d18b0a1b"
+    },
+    {
+      "path": "res/ZN.xml",
+      "size": 1000,
+      "crc": "b8376358"
+    },
+    {
+      "path": "res/ZP.xml",
+      "size": 1824,
+      "crc": "d52794fe"
+    },
+    {
+      "path": "res/ZW.xml",
+      "size": 2760,
+      "crc": "886cd84e"
+    },
+    {
+      "path": "res/Zd.xml",
+      "size": 592,
+      "crc": "9d5a5a9f"
+    },
+    {
+      "path": "res/Zg.xml",
+      "size": 1028,
+      "crc": "28f74e9d"
+    },
+    {
+      "path": "res/Zn.xml",
+      "size": 548,
+      "crc": "5d506c3b"
+    },
+    {
+      "path": "res/_G.xml",
+      "size": 484,
+      "crc": "194f8138"
+    },
+    {
+      "path": "res/_I.xml",
+      "size": 844,
+      "crc": "60dc2dc7"
+    },
+    {
+      "path": "res/_M.xml",
+      "size": 1072,
+      "crc": "698f71c7"
+    },
+    {
+      "path": "res/_Z.xml",
+      "size": 3128,
+      "crc": "a0d516a0"
+    },
+    {
+      "path": "res/_m.xml",
+      "size": 3200,
+      "crc": "56087c05"
+    },
+    {
+      "path": "res/_o.xml",
+      "size": 316,
+      "crc": "45cb4331"
+    },
+    {
+      "path": "res/_p.png",
+      "size": 1441,
+      "crc": "e1b2a1fb"
+    },
+    {
+      "path": "res/_q.png",
+      "size": 173,
+      "crc": "0b399ef9"
+    },
+    {
+      "path": "res/_y.xml",
+      "size": 612,
+      "crc": "df3e8f72"
+    },
+    {
+      "path": "res/a1.xml",
+      "size": 2756,
+      "crc": "0a9d8e97"
+    },
+    {
+      "path": "res/a5.xml",
+      "size": 592,
+      "crc": "83203a9e"
+    },
+    {
+      "path": "res/a7.xml",
+      "size": 1888,
+      "crc": "e6046057"
+    },
+    {
+      "path": "res/aG.xml",
+      "size": 532,
+      "crc": "cffa4ef7"
+    },
+    {
+      "path": "res/aJ.xml",
+      "size": 400,
+      "crc": "bdfa2ba0"
+    },
+    {
+      "path": "res/aL.xml",
+      "size": 948,
+      "crc": "715b1ccd"
+    },
+    {
+      "path": "res/aM.xml",
+      "size": 852,
+      "crc": "9a93c4ea"
+    },
+    {
+      "path": "res/aT.xml",
+      "size": 984,
+      "crc": "df68aa41"
+    },
+    {
+      "path": "res/aU.9.png",
+      "size": 448,
+      "crc": "da0d8e3e"
+    },
+    {
+      "path": "res/aW.xml",
+      "size": 124,
+      "crc": "5c4c55b0"
+    },
+    {
+      "path": "res/aY.xml",
+      "size": 464,
+      "crc": "12d86536"
+    },
+    {
+      "path": "res/aa.xml",
+      "size": 1048,
+      "crc": "91deb7c6"
+    },
+    {
+      "path": "res/ai.xml",
+      "size": 280,
+      "crc": "59eaf33c"
+    },
+    {
+      "path": "res/am.png",
+      "size": 6782,
+      "crc": "204d116f"
+    },
+    {
+      "path": "res/ar.png",
+      "size": 391,
+      "crc": "4fcf3d5b"
+    },
+    {
+      "path": "res/ar.xml",
+      "size": 480,
+      "crc": "ac07f5da"
+    },
+    {
+      "path": "res/as.txt",
+      "size": 8616,
+      "crc": "e8daa484"
+    },
+    {
+      "path": "res/au.xml",
+      "size": 1108,
+      "crc": "bce8b820"
+    },
+    {
+      "path": "res/ay.xml",
+      "size": 472,
+      "crc": "188081c6"
+    },
+    {
+      "path": "res/b8.txt",
+      "size": 1971,
+      "crc": "d8909c0b"
+    },
+    {
+      "path": "res/bH.txt",
+      "size": 1537,
+      "crc": "554884d2"
+    },
+    {
+      "path": "res/bL.xml",
+      "size": 1408,
+      "crc": "5331a5aa"
+    },
+    {
+      "path": "res/bP.xml",
+      "size": 644,
+      "crc": "1fbd3310"
+    },
+    {
+      "path": "res/bQ.xml",
+      "size": 1828,
+      "crc": "3cc6f343"
+    },
+    {
+      "path": "res/bT.xml",
+      "size": 880,
+      "crc": "6968913e"
+    },
+    {
+      "path": "res/bX.9.png",
+      "size": 244,
+      "crc": "8e4da209"
+    },
+    {
+      "path": "res/bX.xml",
+      "size": 1356,
+      "crc": "5df18b22"
+    },
+    {
+      "path": "res/bb.xml",
+      "size": 1136,
+      "crc": "fca55b46"
+    },
+    {
+      "path": "res/bb1.xml",
+      "size": 516,
+      "crc": "830da9c7"
+    },
+    {
+      "path": "res/bh.xml",
+      "size": 1068,
+      "crc": "88a3cc7d"
+    },
+    {
+      "path": "res/bm.xml",
+      "size": 740,
+      "crc": "19ea1b9a"
+    },
+    {
+      "path": "res/bt.xml",
+      "size": 840,
+      "crc": "9aeff680"
+    },
+    {
+      "path": "res/bt1.xml",
+      "size": 1340,
+      "crc": "24ab013c"
+    },
+    {
+      "path": "res/c0.xml",
+      "size": 400,
+      "crc": "632ebb70"
+    },
+    {
+      "path": "res/c2.xml",
+      "size": 796,
+      "crc": "1a4bcf80"
+    },
+    {
+      "path": "res/c5.xml",
+      "size": 316,
+      "crc": "45cb4331"
+    },
+    {
+      "path": "res/c6.xml",
+      "size": 372,
+      "crc": "37ac1321"
+    },
+    {
+      "path": "res/cA.xml",
+      "size": 572,
+      "crc": "0c66f65b"
+    },
+    {
+      "path": "res/cA1.xml",
+      "size": 2004,
+      "crc": "6ff34c29"
+    },
+    {
+      "path": "res/cL.xml",
+      "size": 640,
+      "crc": "41bec4b4"
+    },
+    {
+      "path": "res/cV.xml",
+      "size": 440,
+      "crc": "2bc6a04e"
+    },
+    {
+      "path": "res/c_.txt",
+      "size": 26428,
+      "crc": "cd280982"
+    },
+    {
+      "path": "res/cc.xml",
+      "size": 744,
+      "crc": "57bb6a77"
+    },
+    {
+      "path": "res/ce.xml",
+      "size": 1660,
+      "crc": "f6497d55"
+    },
+    {
+      "path": "res/cm.xml",
+      "size": 920,
+      "crc": "72fae916"
+    },
+    {
+      "path": "res/color-night-v8/material_timepicker_button_stroke.xml",
+      "size": 376,
+      "crc": "15f0942e"
+    },
+    {
+      "path": "res/color-night-v8/material_timepicker_clockface.xml",
+      "size": 376,
+      "crc": "e2e6cd06"
+    },
+    {
+      "path": "res/color-night-v8/material_timepicker_modebutton_tint.xml",
+      "size": 340,
+      "crc": "74d84d18"
+    },
+    {
+      "path": "res/color-v23/abc_btn_colored_borderless_text_material.xml",
+      "size": 500,
+      "crc": "7abbb9aa"
+    },
+    {
+      "path": "res/color-v23/abc_btn_colored_text_material.xml",
+      "size": 500,
+      "crc": "7853d352"
+    },
+    {
+      "path": "res/color-v23/abc_color_highlight_material.xml",
+      "size": 544,
+      "crc": "35c2f94b"
+    },
+    {
+      "path": "res/color-v23/abc_tint_btn_checkable.xml",
+      "size": 624,
+      "crc": "a30723b0"
+    },
+    {
+      "path": "res/color-v23/abc_tint_default.xml",
+      "size": 1120,
+      "crc": "1b88a09b"
+    },
+    {
+      "path": "res/color-v23/abc_tint_edittext.xml",
+      "size": 668,
+      "crc": "cc5b35e6"
+    },
+    {
+      "path": "res/color-v23/abc_tint_seek_thumb.xml",
+      "size": 500,
+      "crc": "e75e8f37"
+    },
+    {
+      "path": "res/color-v23/abc_tint_spinner.xml",
+      "size": 668,
+      "crc": "cc5b35e6"
+    },
+    {
+      "path": "res/color-v23/abc_tint_switch_track.xml",
+      "size": 664,
+      "crc": "14a9d051"
+    },
+    {
+      "path": "res/color-v31/m3_dynamic_dark_default_color_primary_text.xml",
+      "size": 500,
+      "crc": "e1a7bc05"
+    },
+    {
+      "path": "res/color-v31/m3_dynamic_dark_default_color_secondary_text.xml",
+      "size": 500,
+      "crc": "6fe50d3b"
+    },
+    {
+      "path": "res/color-v31/m3_dynamic_dark_highlighted_text.xml",
+      "size": 376,
+      "crc": "2c1ce847"
+    },
+    {
+      "path": "res/color-v31/m3_dynamic_dark_hint_foreground.xml",
+      "size": 564,
+      "crc": "769c807c"
+    },
+    {
+      "path": "res/color-v31/m3_dynamic_dark_primary_text_disable_only.xml",
+      "size": 500,
+      "crc": "a7d069ab"
+    },
+    {
+      "path": "res/color-v31/m3_dynamic_default_color_primary_text.xml",
+      "size": 500,
+      "crc": "1891dc1f"
+    },
+    {
+      "path": "res/color-v31/m3_dynamic_default_color_secondary_text.xml",
+      "size": 500,
+      "crc": "96d36d21"
+    },
+    {
+      "path": "res/color-v31/m3_dynamic_highlighted_text.xml",
+      "size": 376,
+      "crc": "a8143697"
+    },
+    {
+      "path": "res/color-v31/m3_dynamic_hint_foreground.xml",
+      "size": 564,
+      "crc": "08eddddd"
+    },
+    {
+      "path": "res/color-v31/m3_dynamic_primary_text_disable_only.xml",
+      "size": 500,
+      "crc": "761c210b"
+    },
+    {
+      "path": "res/color-v31/m3_ref_palette_dynamic_neutral12.xml",
+      "size": 376,
+      "crc": "f048635b"
+    },
+    {
+      "path": "res/color-v31/m3_ref_palette_dynamic_neutral17.xml",
+      "size": 376,
+      "crc": "0c5ecaa3"
+    },
+    {
+      "path": "res/color-v31/m3_ref_palette_dynamic_neutral22.xml",
+      "size": 376,
+      "crc": "710eb7f6"
+    },
+    {
+      "path": "res/color-v31/m3_ref_palette_dynamic_neutral24.xml",
+      "size": 376,
+      "crc": "8bae4d5c"
+    },
+    {
+      "path": "res/color-v31/m3_ref_palette_dynamic_neutral4.xml",
+      "size": 376,
+      "crc": "ac298571"
+    },
+    {
+      "path": "res/color-v31/m3_ref_palette_dynamic_neutral6.xml",
+      "size": 376,
+      "crc": "7c621152"
+    },
+    {
+      "path": "res/color-v31/m3_ref_palette_dynamic_neutral87.xml",
+      "size": 376,
+      "crc": "74d52cd8"
+    },
+    {
+      "path": "res/color-v31/m3_ref_palette_dynamic_neutral92.xml",
+      "size": 376,
+      "crc": "e5904679"
+    },
+    {
+      "path": "res/color-v31/m3_ref_palette_dynamic_neutral94.xml",
+      "size": 376,
+      "crc": "ce4dcf97"
+    },
+    {
+      "path": "res/color-v31/m3_ref_palette_dynamic_neutral96.xml",
+      "size": 376,
+      "crc": "488baf0f"
+    },
+    {
+      "path": "res/color-v31/m3_ref_palette_dynamic_neutral98.xml",
+      "size": 376,
+      "crc": "635626e1"
+    },
+    {
+      "path": "res/color-v31/m3_ref_palette_dynamic_neutral_variant12.xml",
+      "size": 376,
+      "crc": "fdb05ae4"
+    },
+    {
+      "path": "res/color-v31/m3_ref_palette_dynamic_neutral_variant17.xml",
+      "size": 376,
+      "crc": "01a6f31c"
+    },
+    {
+      "path": "res/color-v31/m3_ref_palette_dynamic_neutral_variant22.xml",
+      "size": 376,
+      "crc": "7cf68e49"
+    },
+    {
+      "path": "res/color-v31/m3_ref_palette_dynamic_neutral_variant24.xml",
+      "size": 376,
+      "crc": "865674e3"
+    },
+    {
+      "path": "res/color-v31/m3_ref_palette_dynamic_neutral_variant4.xml",
+      "size": 376,
+      "crc": "a1d1bcce"
+    },
+    {
+      "path": "res/color-v31/m3_ref_palette_dynamic_neutral_variant6.xml",
+      "size": 376,
+      "crc": "719a28ed"
+    },
+    {
+      "path": "res/color-v31/m3_ref_palette_dynamic_neutral_variant87.xml",
+      "size": 376,
+      "crc": "792d1567"
+    },
+    {
+      "path": "res/color-v31/m3_ref_palette_dynamic_neutral_variant92.xml",
+      "size": 376,
+      "crc": "e8687fc6"
+    },
+    {
+      "path": "res/color-v31/m3_ref_palette_dynamic_neutral_variant94.xml",
+      "size": 376,
+      "crc": "c3b5f628"
+    },
+    {
+      "path": "res/color-v31/m3_ref_palette_dynamic_neutral_variant96.xml",
+      "size": 376,
+      "crc": "457396b0"
+    },
+    {
+      "path": "res/color-v31/m3_ref_palette_dynamic_neutral_variant98.xml",
+      "size": 376,
+      "crc": "8ed66fc6"
+    },
+    {
+      "path": "res/color-v31/m3_ref_palette_dynamic_primary98.xml",
+      "size": 376,
+      "crc": "d5a9a8db"
+    },
+    {
+      "path": "res/color-v31/m3_ref_palette_dynamic_secondary98.xml",
+      "size": 376,
+      "crc": "0a3d9908"
+    },
+    {
+      "path": "res/color-v31/m3_ref_palette_dynamic_tertiary98.xml",
+      "size": 376,
+      "crc": "82c1cdea"
+    },
+    {
+      "path": "res/color/abc_background_cache_hint_selector_material_dark.xml",
+      "size": 468,
+      "crc": "99d70c23"
+    },
+    {
+      "path": "res/color/abc_background_cache_hint_selector_material_light.xml",
+      "size": 468,
+      "crc": "40efafa2"
+    },
+    {
+      "path": "res/color/abc_hint_foreground_material_dark.xml",
+      "size": 564,
+      "crc": "1dbce190"
+    },
+    {
+      "path": "res/color/abc_hint_foreground_material_light.xml",
+      "size": 564,
+      "crc": "dbb9f6b7"
+    },
+    {
+      "path": "res/color/abc_primary_text_disable_only_material_dark.xml",
+      "size": 464,
+      "crc": "0a012f2a"
+    },
+    {
+      "path": "res/color/abc_primary_text_disable_only_material_light.xml",
+      "size": 464,
+      "crc": "6451a8e5"
+    },
+    {
+      "path": "res/color/abc_primary_text_material_dark.xml",
+      "size": 464,
+      "crc": "5d18262c"
+    },
+    {
+      "path": "res/color/abc_primary_text_material_light.xml",
+      "size": 464,
+      "crc": "cee2f3ae"
+    },
+    {
+      "path": "res/color/abc_search_url_text.xml",
+      "size": 588,
+      "crc": "db149042"
+    },
+    {
+      "path": "res/color/abc_secondary_text_material_dark.xml",
+      "size": 464,
+      "crc": "83775501"
+    },
+    {
+      "path": "res/color/abc_secondary_text_material_light.xml",
+      "size": 464,
+      "crc": "10682a7b"
+    },
+    {
+      "path": "res/color/common_google_signin_btn_text_dark.xml",
+      "size": 712,
+      "crc": "72c3082b"
+    },
+    {
+      "path": "res/color/common_google_signin_btn_text_light.xml",
+      "size": 712,
+      "crc": "e9a72051"
+    },
+    {
+      "path": "res/color/common_google_signin_btn_tint.xml",
+      "size": 464,
+      "crc": "44356c3d"
+    },
+    {
+      "path": "res/color/design_box_stroke_color.xml",
+      "size": 712,
+      "crc": "f2208165"
+    },
+    {
+      "path": "res/color/design_error.xml",
+      "size": 464,
+      "crc": "20ee6522"
+    },
+    {
+      "path": "res/color/design_icon_tint.xml",
+      "size": 376,
+      "crc": "d1bf0c0e"
+    },
+    {
+      "path": "res/color/m3_appbar_overlay_color.xml",
+      "size": 376,
+      "crc": "eda0e2c6"
+    },
+    {
+      "path": "res/color/m3_assist_chip_icon_tint_color.xml",
+      "size": 500,
+      "crc": "c4daf590"
+    },
+    {
+      "path": "res/color/m3_assist_chip_stroke_color.xml",
+      "size": 872,
+      "crc": "518cf988"
+    },
+    {
+      "path": "res/color/m3_bottom_sheet_drag_handle_color.xml",
+      "size": 340,
+      "crc": "4e867b68"
+    },
+    {
+      "path": "res/color/m3_button_background_color_selector.xml",
+      "size": 768,
+      "crc": "5d7ac415"
+    },
+    {
+      "path": "res/color/m3_button_foreground_color_selector.xml",
+      "size": 768,
+      "crc": "ba95e884"
+    },
+    {
+      "path": "res/color/m3_button_outline_color_selector.xml",
+      "size": 500,
+      "crc": "f8fb913c"
+    },
+    {
+      "path": "res/color/m3_button_ripple_color.xml",
+      "size": 808,
+      "crc": "547e4901"
+    },
+    {
+      "path": "res/color/m3_button_ripple_color_selector.xml",
+      "size": 1936,
+      "crc": "9f0c2b6a"
+    },
+    {
+      "path": "res/color/m3_calendar_item_disabled_text.xml",
+      "size": 376,
+      "crc": "d4e04009"
+    },
+    {
+      "path": "res/color/m3_calendar_item_stroke_color.xml",
+      "size": 712,
+      "crc": "59f801e1"
+    },
+    {
+      "path": "res/color/m3_card_foreground_color.xml",
+      "size": 768,
+      "crc": "06f26f26"
+    },
+    {
+      "path": "res/color/m3_card_ripple_color.xml",
+      "size": 1556,
+      "crc": "f37dcc98"
+    },
+    {
+      "path": "res/color/m3_card_stroke_color.xml",
+      "size": 1224,
+      "crc": "24a73902"
+    },
+    {
+      "path": "res/color/m3_checkbox_button_icon_tint.xml",
+      "size": 964,
+      "crc": "8e04e50c"
+    },
+    {
+      "path": "res/color/m3_checkbox_button_tint.xml",
+      "size": 1000,
+      "crc": "051757c4"
+    },
+    {
+      "path": "res/color/m3_chip_assist_text_color.xml",
+      "size": 500,
+      "crc": "31a569b4"
+    },
+    {
+      "path": "res/color/m3_chip_background_color.xml",
+      "size": 712,
+      "crc": "eb5be412"
+    },
+    {
+      "path": "res/color/m3_chip_ripple_color.xml",
+      "size": 1556,
+      "crc": "d975077b"
+    },
+    {
+      "path": "res/color/m3_chip_stroke_color.xml",
+      "size": 872,
+      "crc": "f4ae2e30"
+    },
+    {
+      "path": "res/color/m3_chip_text_color.xml",
+      "size": 624,
+      "crc": "685696af"
+    },
+    {
+      "path": "res/color/m3_control_highlight.xml",
+      "size": 544,
+      "crc": "98571408"
+    },
+    {
+      "path": "res/color/m3_control_ripple_color_selector.xml",
+      "size": 808,
+      "crc": "543bd96d"
+    },
+    {
+      "path": "res/color/m3_dark_default_color_primary_text.xml",
+      "size": 500,
+      "crc": "60784b1e"
+    },
+    {
+      "path": "res/color/m3_dark_default_color_secondary_text.xml",
+      "size": 500,
+      "crc": "ee3afa20"
+    },
+    {
+      "path": "res/color/m3_dark_highlighted_text.xml",
+      "size": 376,
+      "crc": "7b748d76"
+    },
+    {
+      "path": "res/color/m3_dark_hint_foreground.xml",
+      "size": 564,
+      "crc": "fdd92c36"
+    },
+    {
+      "path": "res/color/m3_dark_primary_text_disable_only.xml",
+      "size": 500,
+      "crc": "260f9eb0"
+    },
+    {
+      "path": "res/color/m3_default_color_primary_text.xml",
+      "size": 500,
+      "crc": "f61575c6"
+    },
+    {
+      "path": "res/color/m3_default_color_secondary_text.xml",
+      "size": 500,
+      "crc": "7857c4f8"
+    },
+    {
+      "path": "res/color/m3_efab_ripple_color_selector.xml",
+      "size": 808,
+      "crc": "cd5cae06"
+    },
+    {
+      "path": "res/color/m3_elevated_chip_background_color.xml",
+      "size": 748,
+      "crc": "98e5b5ae"
+    },
+    {
+      "path": "res/color/m3_fab_efab_background_color_selector.xml",
+      "size": 500,
+      "crc": "c05da178"
+    },
+    {
+      "path": "res/color/m3_fab_efab_foreground_color_selector.xml",
+      "size": 500,
+      "crc": "21adbb85"
+    },
+    {
+      "path": "res/color/m3_fab_ripple_color_selector.xml",
+      "size": 808,
+      "crc": "bb7534da"
+    },
+    {
+      "path": "res/color/m3_filled_icon_button_container_color_selector.xml",
+      "size": 668,
+      "crc": "aa0e7e99"
+    },
+    {
+      "path": "res/color/m3_floating_toolbar_vibrant_icon_button_container_color_selector.xml",
+      "size": 668,
+      "crc": "b9e17841"
+    },
+    {
+      "path": "res/color/m3_floating_toolbar_vibrant_icon_button_text_color_selector.xml",
+      "size": 668,
+      "crc": "08887740"
+    },
+    {
+      "path": "res/color/m3_highlighted_text.xml",
+      "size": 376,
+      "crc": "a9edb9e6"
+    },
+    {
+      "path": "res/color/m3_hint_foreground.xml",
+      "size": 564,
+      "crc": "5508a7d7"
+    },
+    {
+      "path": "res/color/m3_icon_button_icon_color_selector.xml",
+      "size": 668,
+      "crc": "5cb092a2"
+    },
+    {
+      "path": "res/color/m3_list_highlight.xml",
+      "size": 500,
+      "crc": "48db22e6"
+    },
+    {
+      "path": "res/color/m3_list_item_background_color_selector.xml",
+      "size": 736,
+      "crc": "076000b9"
+    },
+    {
+      "path": "res/color/m3_list_item_checkbox_button_tint_selector.xml",
+      "size": 1000,
+      "crc": "b43c3f9c"
+    },
+    {
+      "path": "res/color/m3_list_item_label_text_color_selector.xml",
+      "size": 1496,
+      "crc": "9bb59696"
+    },
+    {
+      "path": "res/color/m3_list_item_leading_icon_color_selector.xml",
+      "size": 1496,
+      "crc": "ce1aa9f2"
+    },
+    {
+      "path": "res/color/m3_list_item_overline_color_selector.xml",
+      "size": 780,
+      "crc": "085b6b75"
+    },
+    {
+      "path": "res/color/m3_list_item_radio_button_tint_selector.xml",
+      "size": 644,
+      "crc": "78e8bdb3"
+    },
+    {
+      "path": "res/color/m3_list_item_ripple_color_selector.xml",
+      "size": 1536,
+      "crc": "2b36d13e"
+    },
+    {
+      "path": "res/color/m3_list_item_supporting_text_color_selector.xml",
+      "size": 764,
+      "crc": "f353ec48"
+    },
+    {
+      "path": "res/color/m3_list_item_switch_track_tint_selector.xml",
+      "size": 804,
+      "crc": "9f9b28f6"
+    },
+    {
+      "path": "res/color/m3_list_item_trailing_icon_color_selector.xml",
+      "size": 1520,
+      "crc": "66829c68"
+    },
+    {
+      "path": "res/color/m3_list_item_trailing_supporting_text_color_selector.xml",
+      "size": 764,
+      "crc": "28615de0"
+    },
+    {
+      "path": "res/color/m3_navigation_bar_item_with_indicator_icon_tint.xml",
+      "size": 1196,
+      "crc": "7ba50b22"
+    },
+    {
+      "path": "res/color/m3_navigation_bar_item_with_indicator_label_tint.xml",
+      "size": 1196,
+      "crc": "be9e43a2"
+    },
+    {
+      "path": "res/color/m3_navigation_bar_ripple_color_selector.xml",
+      "size": 1232,
+      "crc": "e92f0380"
+    },
+    {
+      "path": "res/color/m3_navigation_item_background_color.xml",
+      "size": 588,
+      "crc": "dce92a71"
+    },
+    {
+      "path": "res/color/m3_navigation_item_icon_tint.xml",
+      "size": 1356,
+      "crc": "b56be000"
+    },
+    {
+      "path": "res/color/m3_navigation_item_ripple_color.xml",
+      "size": 1372,
+      "crc": "52129759"
+    },
+    {
+      "path": "res/color/m3_navigation_item_text_color.xml",
+      "size": 1356,
+      "crc": "1fe4e941"
+    },
+    {
+      "path": "res/color/m3_navigation_rail_item_with_indicator_icon_tint.xml",
+      "size": 464,
+      "crc": "049c6b19"
+    },
+    {
+      "path": "res/color/m3_navigation_rail_item_with_indicator_label_tint.xml",
+      "size": 464,
+      "crc": "6cb69c4d"
+    },
+    {
+      "path": "res/color/m3_navigation_rail_ripple_color_selector.xml",
+      "size": 1232,
+      "crc": "36fee080"
+    },
+    {
+      "path": "res/color/m3_popupmenu_overlay_color.xml",
+      "size": 376,
+      "crc": "ce5d1fad"
+    },
+    {
+      "path": "res/color/m3_primary_text_disable_only.xml",
+      "size": 500,
+      "crc": "b062a068"
+    },
+    {
+      "path": "res/color/m3_radiobutton_button_tint.xml",
+      "size": 1576,
+      "crc": "297497a3"
+    },
+    {
+      "path": "res/color/m3_radiobutton_ripple_tint.xml",
+      "size": 1372,
+      "crc": "5711f86c"
+    },
+    {
+      "path": "res/color/m3_segmented_list_item_background_color_selector.xml",
+      "size": 736,
+      "crc": "809bc40c"
+    },
+    {
+      "path": "res/color/m3_selection_control_ripple_color_selector.xml",
+      "size": 1372,
+      "crc": "68635ced"
+    },
+    {
+      "path": "res/color/m3_simple_item_ripple_color.xml",
+      "size": 748,
+      "crc": "b69aadb5"
+    },
+    {
+      "path": "res/color/m3_slider_active_tick_marks_color.xml",
+      "size": 500,
+      "crc": "c1b91bff"
+    },
+    {
+      "path": "res/color/m3_slider_active_track_color.xml",
+      "size": 500,
+      "crc": "caeadb5d"
+    },
+    {
+      "path": "res/color/m3_slider_active_track_color_legacy.xml",
+      "size": 500,
+      "crc": "11ea9208"
+    },
+    {
+      "path": "res/color/m3_slider_halo_color_legacy.xml",
+      "size": 500,
+      "crc": "e60459e1"
+    },
+    {
+      "path": "res/color/m3_slider_inactive_tick_marks_color.xml",
+      "size": 500,
+      "crc": "b9af800d"
+    },
+    {
+      "path": "res/color/m3_slider_inactive_track_color.xml",
+      "size": 500,
+      "crc": "ff43c0c3"
+    },
+    {
+      "path": "res/color/m3_slider_inactive_track_color_legacy.xml",
+      "size": 500,
+      "crc": "650ad492"
+    },
+    {
+      "path": "res/color/m3_slider_thumb_color.xml",
+      "size": 500,
+      "crc": "e922669c"
+    },
+    {
+      "path": "res/color/m3_slider_thumb_color_legacy.xml",
+      "size": 500,
+      "crc": "9b5d9336"
+    },
+    {
+      "path": "res/color/m3_standard_toolbar_button_text_color_selector.xml",
+      "size": 1460,
+      "crc": "f8550eb8"
+    },
+    {
+      "path": "res/color/m3_standard_toolbar_icon_button_container_color_selector.xml",
+      "size": 632,
+      "crc": "ae0725fd"
+    },
+    {
+      "path": "res/color/m3_standard_toolbar_icon_button_icon_color_selector.xml",
+      "size": 1460,
+      "crc": "994af448"
+    },
+    {
+      "path": "res/color/m3_standard_toolbar_icon_button_ripple_color_selector.xml",
+      "size": 1336,
+      "crc": "12f460dd"
+    },
+    {
+      "path": "res/color/m3_switch_thumb_tint.xml",
+      "size": 588,
+      "crc": "812f9d0b"
+    },
+    {
+      "path": "res/color/m3_switch_track_tint.xml",
+      "size": 624,
+      "crc": "1192d1f9"
+    },
+    {
+      "path": "res/color/m3_tabs_icon_color.xml",
+      "size": 624,
+      "crc": "54bc169e"
+    },
+    {
+      "path": "res/color/m3_tabs_icon_color_secondary.xml",
+      "size": 624,
+      "crc": "a30faafa"
+    },
+    {
+      "path": "res/color/m3_tabs_ripple_color.xml",
+      "size": 1372,
+      "crc": "26ab71cc"
+    },
+    {
+      "path": "res/color/m3_tabs_ripple_color_secondary.xml",
+      "size": 1372,
+      "crc": "1a79c24a"
+    },
+    {
+      "path": "res/color/m3_tabs_text_color.xml",
+      "size": 624,
+      "crc": "54bc169e"
+    },
+    {
+      "path": "res/color/m3_tabs_text_color_secondary.xml",
+      "size": 624,
+      "crc": "a30faafa"
+    },
+    {
+      "path": "res/color/m3_text_button_background_color_selector.xml",
+      "size": 508,
+      "crc": "c8c0cd6f"
+    },
+    {
+      "path": "res/color/m3_text_button_foreground_color_selector.xml",
+      "size": 748,
+      "crc": "98116dfc"
+    },
+    {
+      "path": "res/color/m3_text_button_ripple_color_selector.xml",
+      "size": 1936,
+      "crc": "6e35246f"
+    },
+    {
+      "path": "res/color/m3_textfield_filled_background_color.xml",
+      "size": 500,
+      "crc": "375861f1"
+    },
+    {
+      "path": "res/color/m3_textfield_indicator_text_color.xml",
+      "size": 872,
+      "crc": "599a695d"
+    },
+    {
+      "path": "res/color/m3_textfield_input_text_color.xml",
+      "size": 748,
+      "crc": "c350c666"
+    },
+    {
+      "path": "res/color/m3_textfield_label_color.xml",
+      "size": 624,
+      "crc": "195705ca"
+    },
+    {
+      "path": "res/color/m3_textfield_stroke_color.xml",
+      "size": 748,
+      "crc": "7b4fdaec"
+    },
+    {
+      "path": "res/color/m3_timepicker_button_background_color.xml",
+      "size": 528,
+      "crc": "453ee036"
+    },
+    {
+      "path": "res/color/m3_timepicker_button_ripple_color.xml",
+      "size": 1536,
+      "crc": "6f8cb85b"
+    },
+    {
+      "path": "res/color/m3_timepicker_button_text_color.xml",
+      "size": 768,
+      "crc": "1b04c164"
+    },
+    {
+      "path": "res/color/m3_timepicker_clock_text_color.xml",
+      "size": 464,
+      "crc": "937d3429"
+    },
+    {
+      "path": "res/color/m3_timepicker_display_background_color.xml",
+      "size": 464,
+      "crc": "d450411e"
+    },
+    {
+      "path": "res/color/m3_timepicker_display_ripple_color.xml",
+      "size": 1372,
+      "crc": "19f6cddf"
+    },
+    {
+      "path": "res/color/m3_timepicker_display_text_color.xml",
+      "size": 624,
+      "crc": "9c9e8725"
+    },
+    {
+      "path": "res/color/m3_timepicker_secondary_text_button_ripple_color.xml",
+      "size": 808,
+      "crc": "7eca355a"
+    },
+    {
+      "path": "res/color/m3_timepicker_secondary_text_button_text_color.xml",
+      "size": 500,
+      "crc": "cbfa74b7"
+    },
+    {
+      "path": "res/color/m3_timepicker_time_input_stroke_color.xml",
+      "size": 464,
+      "crc": "5e34a213"
+    },
+    {
+      "path": "res/color/m3_tonal_button_ripple_color_selector.xml",
+      "size": 808,
+      "crc": "14ad369c"
+    },
+    {
+      "path": "res/color/m3_vibrant_toolbar_button_text_color_selector.xml",
+      "size": 1460,
+      "crc": "05101274"
+    },
+    {
+      "path": "res/color/m3_vibrant_toolbar_icon_button_container_color_selector.xml",
+      "size": 632,
+      "crc": "45573208"
+    },
+    {
+      "path": "res/color/m3_vibrant_toolbar_icon_button_icon_color_selector.xml",
+      "size": 1460,
+      "crc": "e7dab1c4"
+    },
+    {
+      "path": "res/color/m3_vibrant_toolbar_icon_button_ripple_color_selector.xml",
+      "size": 1336,
+      "crc": "a643a9c8"
+    },
+    {
+      "path": "res/color/m3expressive_bottom_nav_item_icon_tint.xml",
+      "size": 464,
+      "crc": "32cfb3d0"
+    },
+    {
+      "path": "res/color/m3expressive_bottom_nav_item_label_tint.xml",
+      "size": 464,
+      "crc": "f16a713d"
+    },
+    {
+      "path": "res/color/m3expressive_bottom_nav_item_ripple_tint.xml",
+      "size": 1232,
+      "crc": "30a4253d"
+    },
+    {
+      "path": "res/color/m3expressive_button_outline_color_selector.xml",
+      "size": 464,
+      "crc": "c5658bca"
+    },
+    {
+      "path": "res/color/m3expressive_button_outlined_background_color_selector.xml",
+      "size": 788,
+      "crc": "577cd607"
+    },
+    {
+      "path": "res/color/m3expressive_nav_rail_item_icon_tint.xml",
+      "size": 464,
+      "crc": "32cfb3d0"
+    },
+    {
+      "path": "res/color/m3expressive_nav_rail_item_label_tint.xml",
+      "size": 464,
+      "crc": "f16a713d"
+    },
+    {
+      "path": "res/color/m3expressive_nav_rail_item_ripple_tint.xml",
+      "size": 1232,
+      "crc": "30a4253d"
+    },
+    {
+      "path": "res/color/material_cursor_color.xml",
+      "size": 340,
+      "crc": "5b957482"
+    },
+    {
+      "path": "res/color/material_divider_color.xml",
+      "size": 376,
+      "crc": "e2e6cd06"
+    },
+    {
+      "path": "res/color/material_on_background_disabled.xml",
+      "size": 376,
+      "crc": "a9ab7292"
+    },
+    {
+      "path": "res/color/material_on_background_emphasis_high_type.xml",
+      "size": 376,
+      "crc": "3ac6d894"
+    },
+    {
+      "path": "res/color/material_on_background_emphasis_medium.xml",
+      "size": 376,
+      "crc": "73700d97"
+    },
+    {
+      "path": "res/color/material_on_primary_disabled.xml",
+      "size": 376,
+      "crc": "82561e02"
+    },
+    {
+      "path": "res/color/material_on_primary_emphasis_high_type.xml",
+      "size": 376,
+      "crc": "113bb404"
+    },
+    {
+      "path": "res/color/material_on_primary_emphasis_medium.xml",
+      "size": 376,
+      "crc": "588d6107"
+    },
+    {
+      "path": "res/color/material_on_surface_disabled.xml",
+      "size": 376,
+      "crc": "0adbdeef"
+    },
+    {
+      "path": "res/color/material_on_surface_emphasis_high_type.xml",
+      "size": 376,
+      "crc": "99b674e9"
+    },
+    {
+      "path": "res/color/material_on_surface_emphasis_medium.xml",
+      "size": 376,
+      "crc": "d000a1ea"
+    },
+    {
+      "path": "res/color/material_on_surface_stroke.xml",
+      "size": 376,
+      "crc": "a9fc85e0"
+    },
+    {
+      "path": "res/color/material_personalized__highlighted_text.xml",
+      "size": 376,
+      "crc": "be8508b9"
+    },
+    {
+      "path": "res/color/material_personalized__highlighted_text_inverse.xml",
+      "size": 376,
+      "crc": "23f67e1c"
+    },
+    {
+      "path": "res/color/material_personalized_color_primary_text.xml",
+      "size": 500,
+      "crc": "bf291855"
+    },
+    {
+      "path": "res/color/material_personalized_color_primary_text_inverse.xml",
+      "size": 500,
+      "crc": "c97f5511"
+    },
+    {
+      "path": "res/color/material_personalized_color_secondary_text.xml",
+      "size": 500,
+      "crc": "78dd7c68"
+    },
+    {
+      "path": "res/color/material_personalized_color_secondary_text_inverse.xml",
+      "size": 500,
+      "crc": "5ac1ce6f"
+    },
+    {
+      "path": "res/color/material_personalized_hint_foreground.xml",
+      "size": 564,
+      "crc": "7edd771c"
+    },
+    {
+      "path": "res/color/material_personalized_hint_foreground_inverse.xml",
+      "size": 564,
+      "crc": "e1e677a5"
+    },
+    {
+      "path": "res/color/material_personalized_primary_inverse_text_disable_only.xml",
+      "size": 500,
+      "crc": "e8b69065"
+    },
+    {
+      "path": "res/color/material_personalized_primary_text_disable_only.xml",
+      "size": 500,
+      "crc": "f95ecdfb"
+    },
+    {
+      "path": "res/color/material_slider_active_tick_marks_color.xml",
+      "size": 520,
+      "crc": "0e8e3d25"
+    },
+    {
+      "path": "res/color/material_slider_active_track_color.xml",
+      "size": 500,
+      "crc": "7d9d402f"
+    },
+    {
+      "path": "res/color/material_slider_halo_color.xml",
+      "size": 500,
+      "crc": "275b71ad"
+    },
+    {
+      "path": "res/color/material_slider_inactive_tick_marks_color.xml",
+      "size": 520,
+      "crc": "c8c93b0a"
+    },
+    {
+      "path": "res/color/material_slider_inactive_track_color.xml",
+      "size": 520,
+      "crc": "05640652"
+    },
+    {
+      "path": "res/color/material_slider_thumb_color.xml",
+      "size": 500,
+      "crc": "74244a29"
+    },
+    {
+      "path": "res/color/material_timepicker_button_background.xml",
+      "size": 500,
+      "crc": "fa51b448"
+    },
+    {
+      "path": "res/color/material_timepicker_button_stroke.xml",
+      "size": 376,
+      "crc": "36e98181"
+    },
+    {
+      "path": "res/color/material_timepicker_clock_text_color.xml",
+      "size": 464,
+      "crc": "402f04a3"
+    },
+    {
+      "path": "res/color/material_timepicker_clockface.xml",
+      "size": 376,
+      "crc": "1da17b23"
+    },
+    {
+      "path": "res/color/material_timepicker_modebutton_tint.xml",
+      "size": 376,
+      "crc": "ab8c0f47"
+    },
+    {
+      "path": "res/color/mtrl_btn_bg_color_selector.xml",
+      "size": 500,
+      "crc": "c8285be7"
+    },
+    {
+      "path": "res/color/mtrl_btn_ripple_color.xml",
+      "size": 948,
+      "crc": "a69e96c7"
+    },
+    {
+      "path": "res/color/mtrl_btn_stroke_color_selector.xml",
+      "size": 520,
+      "crc": "460590f6"
+    },
+    {
+      "path": "res/color/mtrl_btn_text_btn_bg_color_selector.xml",
+      "size": 520,
+      "crc": "9b950fc4"
+    },
+    {
+      "path": "res/color/mtrl_btn_text_btn_ripple_color.xml",
+      "size": 948,
+      "crc": "9ea48f91"
+    },
+    {
+      "path": "res/color/mtrl_btn_text_color_selector.xml",
+      "size": 500,
+      "crc": "f95616eb"
+    },
+    {
+      "path": "res/color/mtrl_calendar_item_stroke_color.xml",
+      "size": 808,
+      "crc": "923693f0"
+    },
+    {
+      "path": "res/color/mtrl_calendar_selected_range.xml",
+      "size": 376,
+      "crc": "73613191"
+    },
+    {
+      "path": "res/color/mtrl_card_view_foreground.xml",
+      "size": 788,
+      "crc": "3c97ca52"
+    },
+    {
+      "path": "res/color/mtrl_card_view_ripple.xml",
+      "size": 768,
+      "crc": "1d5f1c70"
+    },
+    {
+      "path": "res/color/mtrl_chip_background_color.xml",
+      "size": 848,
+      "crc": "e2ee4f8f"
+    },
+    {
+      "path": "res/color/mtrl_chip_close_icon_tint.xml",
+      "size": 1092,
+      "crc": "35ea9e18"
+    },
+    {
+      "path": "res/color/mtrl_chip_surface_color.xml",
+      "size": 340,
+      "crc": "47e8726c"
+    },
+    {
+      "path": "res/color/mtrl_chip_text_color.xml",
+      "size": 520,
+      "crc": "775d600d"
+    },
+    {
+      "path": "res/color/mtrl_choice_chip_background_color.xml",
+      "size": 848,
+      "crc": "66cbbdd1"
+    },
+    {
+      "path": "res/color/mtrl_choice_chip_ripple_color.xml",
+      "size": 948,
+      "crc": "8a46c376"
+    },
+    {
+      "path": "res/color/mtrl_choice_chip_text_color.xml",
+      "size": 808,
+      "crc": "6f65fe7d"
+    },
+    {
+      "path": "res/color/mtrl_error.xml",
+      "size": 464,
+      "crc": "91bd721d"
+    },
+    {
+      "path": "res/color/mtrl_fab_bg_color_selector.xml",
+      "size": 500,
+      "crc": "34f75a22"
+    },
+    {
+      "path": "res/color/mtrl_fab_icon_text_color_selector.xml",
+      "size": 500,
+      "crc": "206eb56a"
+    },
+    {
+      "path": "res/color/mtrl_fab_ripple_color.xml",
+      "size": 948,
+      "crc": "c4d37b1e"
+    },
+    {
+      "path": "res/color/mtrl_filled_background_color.xml",
+      "size": 808,
+      "crc": "4a722a41"
+    },
+    {
+      "path": "res/color/mtrl_filled_icon_tint.xml",
+      "size": 644,
+      "crc": "a2b1c217"
+    },
+    {
+      "path": "res/color/mtrl_filled_stroke_color.xml",
+      "size": 788,
+      "crc": "4a0a342e"
+    },
+    {
+      "path": "res/color/mtrl_indicator_text_color.xml",
+      "size": 520,
+      "crc": "82e15188"
+    },
+    {
+      "path": "res/color/mtrl_navigation_bar_colored_item_tint.xml",
+      "size": 520,
+      "crc": "bdb71de0"
+    },
+    {
+      "path": "res/color/mtrl_navigation_bar_colored_ripple_color.xml",
+      "size": 948,
+      "crc": "a283d9af"
+    },
+    {
+      "path": "res/color/mtrl_navigation_bar_item_tint.xml",
+      "size": 520,
+      "crc": "7bf01bcf"
+    },
+    {
+      "path": "res/color/mtrl_navigation_bar_ripple_color.xml",
+      "size": 1672,
+      "crc": "d9a4f70a"
+    },
+    {
+      "path": "res/color/mtrl_navigation_item_background_color.xml",
+      "size": 644,
+      "crc": "b94bd129"
+    },
+    {
+      "path": "res/color/mtrl_navigation_item_icon_tint.xml",
+      "size": 624,
+      "crc": "c3016c54"
+    },
+    {
+      "path": "res/color/mtrl_navigation_item_text_color.xml",
+      "size": 624,
+      "crc": "c3016c54"
+    },
+    {
+      "path": "res/color/mtrl_on_primary_text_btn_text_color_selector.xml",
+      "size": 500,
+      "crc": "e9a88b85"
+    },
+    {
+      "path": "res/color/mtrl_on_surface_ripple_color.xml",
+      "size": 808,
+      "crc": "9864d369"
+    },
+    {
+      "path": "res/color/mtrl_outlined_icon_tint.xml",
+      "size": 644,
+      "crc": "843f1efc"
+    },
+    {
+      "path": "res/color/mtrl_outlined_stroke_color.xml",
+      "size": 788,
+      "crc": "e6117f25"
+    },
+    {
+      "path": "res/color/mtrl_popupmenu_overlay_color.xml",
+      "size": 376,
+      "crc": "15bb6c45"
+    },
+    {
+      "path": "res/color/mtrl_switch_thumb_icon_tint.xml",
+      "size": 1236,
+      "crc": "ad30e109"
+    },
+    {
+      "path": "res/color/mtrl_switch_thumb_tint.xml",
+      "size": 1028,
+      "crc": "45f2b1e7"
+    },
+    {
+      "path": "res/color/mtrl_switch_track_decoration_tint.xml",
+      "size": 624,
+      "crc": "bb278390"
+    },
+    {
+      "path": "res/color/mtrl_switch_track_tint.xml",
+      "size": 1236,
+      "crc": "f150a8c2"
+    },
+    {
+      "path": "res/color/mtrl_tabs_colored_ripple_color.xml",
+      "size": 948,
+      "crc": "a283d9af"
+    },
+    {
+      "path": "res/color/mtrl_tabs_icon_color_selector.xml",
+      "size": 500,
+      "crc": "a91c9a99"
+    },
+    {
+      "path": "res/color/mtrl_tabs_icon_color_selector_colored.xml",
+      "size": 500,
+      "crc": "ace306b6"
+    },
+    {
+      "path": "res/color/mtrl_tabs_legacy_text_color_selector.xml",
+      "size": 464,
+      "crc": "11f3a8f7"
+    },
+    {
+      "path": "res/color/mtrl_tabs_ripple_color.xml",
+      "size": 1672,
+      "crc": "d9a4f70a"
+    },
+    {
+      "path": "res/color/mtrl_text_btn_text_color_selector.xml",
+      "size": 888,
+      "crc": "56f0df8d"
+    },
+    {
+      "path": "res/color/switch_thumb_material_dark.xml",
+      "size": 464,
+      "crc": "99e96b52"
+    },
+    {
+      "path": "res/color/switch_thumb_material_light.xml",
+      "size": 464,
+      "crc": "0af61428"
+    },
+    {
+      "path": "res/cr.xml",
+      "size": 364,
+      "crc": "3f91baac"
+    },
+    {
+      "path": "res/cs.xml",
+      "size": 616,
+      "crc": "247bbdc9"
+    },
+    {
+      "path": "res/cv.xml",
+      "size": 2892,
+      "crc": "acbe5428"
+    },
+    {
+      "path": "res/cy.xml",
+      "size": 624,
+      "crc": "bbf12521"
+    },
+    {
+      "path": "res/d2.xml",
+      "size": 352,
+      "crc": "423c878a"
+    },
+    {
+      "path": "res/d3.png",
+      "size": 432,
+      "crc": "0c6db123"
+    },
+    {
+      "path": "res/d5.9.png",
+      "size": 851,
+      "crc": "a3c882b5"
+    },
+    {
+      "path": "res/dB.9.png",
+      "size": 500,
+      "crc": "c6f5722c"
+    },
+    {
+      "path": "res/dC.xml",
+      "size": 592,
+      "crc": "52480500"
+    },
+    {
+      "path": "res/dO.xml",
+      "size": 3472,
+      "crc": "c8398c47"
+    },
+    {
+      "path": "res/dS.xml",
+      "size": 2724,
+      "crc": "8c38d145"
+    },
+    {
+      "path": "res/dV.txt",
+      "size": 25284,
+      "crc": "83e108ff"
+    },
+    {
+      "path": "res/dW.png",
+      "size": 267,
+      "crc": "6a20e5ff"
+    },
+    {
+      "path": "res/dY.png",
+      "size": 404,
+      "crc": "13296992"
+    },
+    {
+      "path": "res/df.xml",
+      "size": 532,
+      "crc": "6ec21d4c"
+    },
+    {
+      "path": "res/dj.xml",
+      "size": 600,
+      "crc": "61629d90"
+    },
+    {
+      "path": "res/dw.xml",
+      "size": 1144,
+      "crc": "912ea92f"
+    },
+    {
+      "path": "res/e-.xml",
+      "size": 472,
+      "crc": "59e462e3"
+    },
+    {
+      "path": "res/e0.xml",
+      "size": 636,
+      "crc": "3d688a81"
+    },
+    {
+      "path": "res/eA.xml",
+      "size": 1868,
+      "crc": "2b1a4a39"
+    },
+    {
+      "path": "res/eG.txt",
+      "size": 1928,
+      "crc": "4a282d6e"
+    },
+    {
+      "path": "res/eG.xml",
+      "size": 1228,
+      "crc": "c84f0fe8"
+    },
+    {
+      "path": "res/eH.xml",
+      "size": 716,
+      "crc": "240b7d0b"
+    },
+    {
+      "path": "res/eH1.xml",
+      "size": 820,
+      "crc": "9107c237"
+    },
+    {
+      "path": "res/eK.xml",
+      "size": 440,
+      "crc": "4854b14d"
+    },
+    {
+      "path": "res/eK1.xml",
+      "size": 592,
+      "crc": "75e2d505"
+    },
+    {
+      "path": "res/eM.xml",
+      "size": 516,
+      "crc": "3e0b40b2"
+    },
+    {
+      "path": "res/eR.png",
+      "size": 356,
+      "crc": "1cd824d4"
+    },
+    {
+      "path": "res/eT.9.png",
+      "size": 318,
+      "crc": "0ed4949b"
+    },
+    {
+      "path": "res/eZ.xml",
+      "size": 1008,
+      "crc": "6476d968"
+    },
+    {
+      "path": "res/eZ1.xml",
+      "size": 556,
+      "crc": "c61bb901"
+    },
+    {
+      "path": "res/ec.xml",
+      "size": 1140,
+      "crc": "1c91d884"
+    },
+    {
+      "path": "res/eh.png",
+      "size": 11064,
+      "crc": "23cfa22b"
+    },
+    {
+      "path": "res/ej.9.png",
+      "size": 167,
+      "crc": "35642324"
+    },
+    {
+      "path": "res/ej.xml",
+      "size": 524,
+      "crc": "8b6a6616"
+    },
+    {
+      "path": "res/em.txt",
+      "size": 2074,
+      "crc": "ef761206"
+    },
+    {
+      "path": "res/ev.9.png",
+      "size": 228,
+      "crc": "e28c1958"
+    },
+    {
+      "path": "res/f6.xml",
+      "size": 528,
+      "crc": "2c17a629"
+    },
+    {
+      "path": "res/f9.png",
+      "size": 562,
+      "crc": "76065920"
+    },
+    {
+      "path": "res/fM.9.png",
+      "size": 825,
+      "crc": "2c7b277c"
+    },
+    {
+      "path": "res/fS.xml",
+      "size": 544,
+      "crc": "cbef03cf"
+    },
+    {
+      "path": "res/fW.xml",
+      "size": 672,
+      "crc": "c7bdc25b"
+    },
+    {
+      "path": "res/fY.xml",
+      "size": 3216,
+      "crc": "5ee2399a"
+    },
+    {
+      "path": "res/f_.xml",
+      "size": 612,
+      "crc": "6c126078"
+    },
+    {
+      "path": "res/fd.xml",
+      "size": 768,
+      "crc": "eb71da16"
+    },
+    {
+      "path": "res/fg.xml",
+      "size": 816,
+      "crc": "93e179be"
+    },
+    {
+      "path": "res/fh.txt",
+      "size": 5213,
+      "crc": "15c63808"
+    },
+    {
+      "path": "res/fp.xml",
+      "size": 400,
+      "crc": "b796129b"
+    },
+    {
+      "path": "res/fu.xml",
+      "size": 1736,
+      "crc": "d4a5d464"
+    },
+    {
+      "path": "res/g-.png",
+      "size": 585,
+      "crc": "1361e44f"
+    },
+    {
+      "path": "res/g-.xml",
+      "size": 2872,
+      "crc": "f286d0b1"
+    },
+    {
+      "path": "res/g3.xml",
+      "size": 304,
+      "crc": "b0074c89"
+    },
+    {
+      "path": "res/gC.xml",
+      "size": 820,
+      "crc": "088f0e65"
+    },
+    {
+      "path": "res/gD.xml",
+      "size": 428,
+      "crc": "84cad78b"
+    },
+    {
+      "path": "res/gG.xml",
+      "size": 1176,
+      "crc": "9c9427d7"
+    },
+    {
+      "path": "res/gK.9.png",
+      "size": 215,
+      "crc": "d9fa55b7"
+    },
+    {
+      "path": "res/gO.xml",
+      "size": 448,
+      "crc": "351e2023"
+    },
+    {
+      "path": "res/gR.xml",
+      "size": 388,
+      "crc": "375b2468"
+    },
+    {
+      "path": "res/gX.xml",
+      "size": 284,
+      "crc": "e6e1c979"
+    },
+    {
+      "path": "res/gZ.9.png",
+      "size": 524,
+      "crc": "b4b2c492"
+    },
+    {
+      "path": "res/gj.9.png",
+      "size": 237,
+      "crc": "813f61b1"
+    },
+    {
+      "path": "res/gt.9.png",
+      "size": 205,
+      "crc": "ac46dae1"
+    },
+    {
+      "path": "res/h4.xml",
+      "size": 2124,
+      "crc": "4ff4c4c8"
+    },
+    {
+      "path": "res/h7.9.png",
+      "size": 1096,
+      "crc": "452a314b"
+    },
+    {
+      "path": "res/h9.xml",
+      "size": 452,
+      "crc": "3c905cad"
+    },
+    {
+      "path": "res/hJ.xml",
+      "size": 264,
+      "crc": "0e0902ca"
+    },
+    {
+      "path": "res/hP.9.png",
+      "size": 808,
+      "crc": "db1aed88"
+    },
+    {
+      "path": "res/hP.xml",
+      "size": 864,
+      "crc": "3e4da116"
+    },
+    {
+      "path": "res/hP1.xml",
+      "size": 1584,
+      "crc": "558b862e"
+    },
+    {
+      "path": "res/hP2.xml",
+      "size": 388,
+      "crc": "bf0cb96c"
+    },
+    {
+      "path": "res/hZ.9.png",
+      "size": 167,
+      "crc": "35642324"
+    },
+    {
+      "path": "res/ha.xml",
+      "size": 564,
+      "crc": "6acebe99"
+    },
+    {
+      "path": "res/hb.xml",
+      "size": 744,
+      "crc": "328ad55b"
+    },
+    {
+      "path": "res/hc.xml",
+      "size": 588,
+      "crc": "7b62b616"
+    },
+    {
+      "path": "res/hh.9.png",
+      "size": 212,
+      "crc": "81b12fde"
+    },
+    {
+      "path": "res/hi.xml",
+      "size": 264,
+      "crc": "3544f8f1"
+    },
+    {
+      "path": "res/hm.xml",
+      "size": 2056,
+      "crc": "4a9f5f04"
+    },
+    {
+      "path": "res/hq.xml",
+      "size": 612,
+      "crc": "abab819e"
+    },
+    {
+      "path": "res/hu.xml",
+      "size": 728,
+      "crc": "e6b07ee9"
+    },
+    {
+      "path": "res/hv.xml",
+      "size": 900,
+      "crc": "a43c5a45"
+    },
+    {
+      "path": "res/hy.xml",
+      "size": 740,
+      "crc": "6d5d3830"
+    },
+    {
+      "path": "res/i6.9.png",
+      "size": 186,
+      "crc": "a87d0908"
+    },
+    {
+      "path": "res/iI.xml",
+      "size": 372,
+      "crc": "1f26105e"
+    },
+    {
+      "path": "res/iO.png",
+      "size": 228,
+      "crc": "a0cfd3d4"
+    },
+    {
+      "path": "res/iQ.png",
+      "size": 489,
+      "crc": "cc7eabe9"
+    },
+    {
+      "path": "res/iR.9.png",
+      "size": 484,
+      "crc": "f4aa1eaf"
+    },
+    {
+      "path": "res/iW.png",
+      "size": 808,
+      "crc": "7d62f5a4"
+    },
+    {
+      "path": "res/iZ.xml",
+      "size": 3740,
+      "crc": "5421f44a"
+    },
+    {
+      "path": "res/iZ1.xml",
+      "size": 808,
+      "crc": "f6753c32"
+    },
+    {
+      "path": "res/iZ2.xml",
+      "size": 312,
+      "crc": "d7c5c466"
+    },
+    {
+      "path": "res/ii.xml",
+      "size": 452,
+      "crc": "cf7d74ae"
+    },
+    {
+      "path": "res/io.9.png",
+      "size": 1526,
+      "crc": "e329a7f5"
+    },
+    {
+      "path": "res/it.txt",
+      "size": 1316,
+      "crc": "cae81e1a"
+    },
+    {
+      "path": "res/iu.xml",
+      "size": 1204,
+      "crc": "83421a60"
+    },
+    {
+      "path": "res/j3.xml",
+      "size": 1100,
+      "crc": "4cd6c0da"
+    },
+    {
+      "path": "res/j4.png",
+      "size": 785,
+      "crc": "1cea0e0c"
+    },
+    {
+      "path": "res/jS.9.png",
+      "size": 236,
+      "crc": "585bf0cc"
+    },
+    {
+      "path": "res/jS1.9.png",
+      "size": 167,
+      "crc": "35642324"
+    },
+    {
+      "path": "res/jW.png",
+      "size": 753,
+      "crc": "9313e5c2"
+    },
+    {
+      "path": "res/je.9.png",
+      "size": 212,
+      "crc": "378c117e"
+    },
+    {
+      "path": "res/jp.xml",
+      "size": 388,
+      "crc": "273c9f66"
+    },
+    {
+      "path": "res/jq.xml",
+      "size": 460,
+      "crc": "ffda7848"
+    },
+    {
+      "path": "res/k0.xml",
+      "size": 2356,
+      "crc": "319fed4e"
+    },
+    {
+      "path": "res/k3.xml",
+      "size": 5296,
+      "crc": "ab23ffb4"
+    },
+    {
+      "path": "res/k8.xml",
+      "size": 1560,
+      "crc": "cdbe4df3"
+    },
+    {
+      "path": "res/k9.xml",
+      "size": 724,
+      "crc": "ae96a561"
+    },
+    {
+      "path": "res/kJ.9.png",
+      "size": 208,
+      "crc": "a531b28b"
+    },
+    {
+      "path": "res/kN.xml",
+      "size": 484,
+      "crc": "0ab7b41b"
+    },
+    {
+      "path": "res/kT.xml",
+      "size": 956,
+      "crc": "7010397b"
+    },
+    {
+      "path": "res/k_.xml",
+      "size": 508,
+      "crc": "b8ffd7e6"
+    },
+    {
+      "path": "res/kg.xml",
+      "size": 852,
+      "crc": "0a5ab1d9"
+    },
+    {
+      "path": "res/kh.xml",
+      "size": 480,
+      "crc": "57ef3cd3"
+    },
+    {
+      "path": "res/kj.xml",
+      "size": 464,
+      "crc": "7095b177"
+    },
+    {
+      "path": "res/kj1.xml",
+      "size": 2520,
+      "crc": "80335f2f"
+    },
+    {
+      "path": "res/kn.xml",
+      "size": 816,
+      "crc": "685d4da8"
+    },
+    {
+      "path": "res/kp.png",
+      "size": 224,
+      "crc": "5d9d5f1a"
+    },
+    {
+      "path": "res/kt.txt",
+      "size": 10271,
+      "crc": "172650b2"
+    },
+    {
+      "path": "res/lE.xml",
+      "size": 728,
+      "crc": "6ea57170"
+    },
+    {
+      "path": "res/lN.xml",
+      "size": 320,
+      "crc": "b0798f16"
+    },
+    {
+      "path": "res/lP.9.png",
+      "size": 194,
+      "crc": "945f2990"
+    },
+    {
+      "path": "res/lR.xml",
+      "size": 440,
+      "crc": "610ad8ea"
+    },
+    {
+      "path": "res/lk.xml",
+      "size": 708,
+      "crc": "53be0190"
+    },
+    {
+      "path": "res/ls.xml",
+      "size": 1292,
+      "crc": "d8da0afb"
+    },
+    {
+      "path": "res/lv.xml",
+      "size": 800,
+      "crc": "a25b2aec"
+    },
+    {
+      "path": "res/ly.png",
+      "size": 272,
+      "crc": "58089ef9"
+    },
+    {
+      "path": "res/m0.png",
+      "size": 267,
+      "crc": "f1f6a033"
+    },
+    {
+      "path": "res/m3.txt",
+      "size": 1496,
+      "crc": "88152c0f"
+    },
+    {
+      "path": "res/mA.xml",
+      "size": 1208,
+      "crc": "d7feb689"
+    },
+    {
+      "path": "res/mV.xml",
+      "size": 67412,
+      "crc": "a2da2c46"
+    },
+    {
+      "path": "res/mm.9.png",
+      "size": 345,
+      "crc": "bd28c868"
+    },
+    {
+      "path": "res/mu.txt",
+      "size": 1146,
+      "crc": "3c5294db"
+    },
+    {
+      "path": "res/mx.xml",
+      "size": 656,
+      "crc": "d954cbb8"
+    },
+    {
+      "path": "res/n0.xml",
+      "size": 492,
+      "crc": "c25d71c3"
+    },
+    {
+      "path": "res/nC.9.png",
+      "size": 465,
+      "crc": "dd5d7c6f"
+    },
+    {
+      "path": "res/nI.9.png",
+      "size": 207,
+      "crc": "3a5ce84d"
+    },
+    {
+      "path": "res/nI.xml",
+      "size": 752,
+      "crc": "27d74997"
+    },
+    {
+      "path": "res/nL.xml",
+      "size": 436,
+      "crc": "9bffe579"
+    },
+    {
+      "path": "res/nT.xml",
+      "size": 1160,
+      "crc": "e3b406b2"
+    },
+    {
+      "path": "res/nX.xml",
+      "size": 1116,
+      "crc": "77b4ecb1"
+    },
+    {
+      "path": "res/nf.png",
+      "size": 1208,
+      "crc": "b3414d08"
+    },
+    {
+      "path": "res/nl.xml",
+      "size": 1632,
+      "crc": "984ab0e2"
+    },
+    {
+      "path": "res/nm.xml",
+      "size": 592,
+      "crc": "9f3334be"
+    },
+    {
+      "path": "res/no.xml",
+      "size": 632,
+      "crc": "cb714c6c"
+    },
+    {
+      "path": "res/nu.xml",
+      "size": 528,
+      "crc": "c4863fbe"
+    },
+    {
+      "path": "res/nz.xml",
+      "size": 532,
+      "crc": "d5cb81fd"
+    },
+    {
+      "path": "res/o9.9.png",
+      "size": 260,
+      "crc": "1b0c989d"
+    },
+    {
+      "path": "res/oO.9.png",
+      "size": 610,
+      "crc": "88698600"
+    },
+    {
+      "path": "res/oP.xml",
+      "size": 816,
+      "crc": "7e1f420c"
+    },
+    {
+      "path": "res/oT.xml",
+      "size": 684,
+      "crc": "84322dc5"
+    },
+    {
+      "path": "res/oY.xml",
+      "size": 1548,
+      "crc": "bb2186fc"
+    },
+    {
+      "path": "res/o_.9.png",
+      "size": 252,
+      "crc": "c8900a8e"
+    },
+    {
+      "path": "res/o_.png",
+      "size": 651,
+      "crc": "22f95d51"
+    },
+    {
+      "path": "res/oa.xml",
+      "size": 744,
+      "crc": "bc84e74d"
+    },
+    {
+      "path": "res/op.9.png",
+      "size": 286,
+      "crc": "22603145"
+    },
+    {
+      "path": "res/ot.xml",
+      "size": 604,
+      "crc": "dbe289e4"
+    },
+    {
+      "path": "res/p-.xml",
+      "size": 324,
+      "crc": "d423aeac"
+    },
+    {
+      "path": "res/p0.xml",
+      "size": 1804,
+      "crc": "3c2e74ec"
+    },
+    {
+      "path": "res/p7.xml",
+      "size": 548,
+      "crc": "2b061fd8"
+    },
+    {
+      "path": "res/pF.xml",
+      "size": 752,
+      "crc": "7f660c8b"
+    },
+    {
+      "path": "res/pI.xml",
+      "size": 548,
+      "crc": "da73010a"
+    },
+    {
+      "path": "res/pU.xml",
+      "size": 364,
+      "crc": "7615c3c4"
+    },
+    {
+      "path": "res/pV.xml",
+      "size": 504,
+      "crc": "e97fcbb2"
+    },
+    {
+      "path": "res/pY.png",
+      "size": 107,
+      "crc": "6ed8c1f1"
+    },
+    {
+      "path": "res/p_.xml",
+      "size": 1096,
+      "crc": "7ac31fff"
+    },
+    {
+      "path": "res/pk.png",
+      "size": 275,
+      "crc": "96d1317c"
+    },
+    {
+      "path": "res/pn.xml",
+      "size": 592,
+      "crc": "208a96ac"
+    },
+    {
+      "path": "res/ps.9.png",
+      "size": 178,
+      "crc": "af91e7cc"
+    },
+    {
+      "path": "res/pu.png",
+      "size": 909,
+      "crc": "cb550b17"
+    },
+    {
+      "path": "res/pw.xml",
+      "size": 1136,
+      "crc": "bb8cdcaa"
+    },
+    {
+      "path": "res/py.9.png",
+      "size": 217,
+      "crc": "bac90016"
+    },
+    {
+      "path": "res/q5.xml",
+      "size": 420,
+      "crc": "320e0518"
+    },
+    {
+      "path": "res/q6.xml",
+      "size": 1128,
+      "crc": "e4ea8a13"
+    },
+    {
+      "path": "res/qA.xml",
+      "size": 452,
+      "crc": "242f4fd4"
+    },
+    {
+      "path": "res/qD.9.png",
+      "size": 2834,
+      "crc": "da81b970"
+    },
+    {
+      "path": "res/qF.xml",
+      "size": 290,
+      "crc": "51cf4ab5"
+    },
+    {
+      "path": "res/qI.txt",
+      "size": 25767,
+      "crc": "130dcb69"
+    },
+    {
+      "path": "res/qT.xml",
+      "size": 388,
+      "crc": "a9f7d514"
+    },
+    {
+      "path": "res/q_.xml",
+      "size": 464,
+      "crc": "bd07faed"
+    },
+    {
+      "path": "res/qc.xml",
+      "size": 996,
+      "crc": "6b609053"
+    },
+    {
+      "path": "res/qp.png",
+      "size": 197,
+      "crc": "a759a25f"
+    },
+    {
+      "path": "res/qx.xml",
+      "size": 2780,
+      "crc": "d021164c"
+    },
+    {
+      "path": "res/qz.xml",
+      "size": 1656,
+      "crc": "f0623ec6"
+    },
+    {
+      "path": "res/r0.xml",
+      "size": 284,
+      "crc": "67d136e2"
+    },
+    {
+      "path": "res/rI.xml",
+      "size": 1116,
+      "crc": "52b107f7"
+    },
+    {
+      "path": "res/rI1.xml",
+      "size": 616,
+      "crc": "c19b6ad9"
+    },
+    {
+      "path": "res/rJ.xml",
+      "size": 988,
+      "crc": "bbeffa5b"
+    },
+    {
+      "path": "res/rJ1.xml",
+      "size": 648,
+      "crc": "d0832c69"
+    },
+    {
+      "path": "res/rW.xml",
+      "size": 688,
+      "crc": "e1dadf8d"
+    },
+    {
+      "path": "res/rY.xml",
+      "size": 548,
+      "crc": "6950ac13"
+    },
+    {
+      "path": "res/rb.xml",
+      "size": 388,
+      "crc": "a9f7d514"
+    },
+    {
+      "path": "res/rd.xml",
+      "size": 660,
+      "crc": "83512dc0"
+    },
+    {
+      "path": "res/rj.9.png",
+      "size": 1098,
+      "crc": "3d820b33"
+    },
+    {
+      "path": "res/rp.xml",
+      "size": 604,
+      "crc": "cf0b8b31"
+    },
+    {
+      "path": "res/rx.xml",
+      "size": 680,
+      "crc": "f4475e12"
+    },
+    {
+      "path": "res/rz.xml",
+      "size": 396,
+      "crc": "fef136ce"
+    },
+    {
+      "path": "res/s0.png",
+      "size": 403,
+      "crc": "f0997f1b"
+    },
+    {
+      "path": "res/s3.9.png",
+      "size": 245,
+      "crc": "19c09c27"
+    },
+    {
+      "path": "res/s4.png",
+      "size": 98,
+      "crc": "2ea3830b"
+    },
+    {
+      "path": "res/sA.9.png",
+      "size": 212,
+      "crc": "c22cbe9f"
+    },
+    {
+      "path": "res/sA.xml",
+      "size": 464,
+      "crc": "2aa8ee44"
+    },
+    {
+      "path": "res/sC.xml",
+      "size": 1016,
+      "crc": "1cb163a0"
+    },
+    {
+      "path": "res/sO.xml",
+      "size": 700,
+      "crc": "afcb69ed"
+    },
+    {
+      "path": "res/sS.xml",
+      "size": 628,
+      "crc": "b87fb16d"
+    },
+    {
+      "path": "res/sX.xml",
+      "size": 724,
+      "crc": "ce88e563"
+    },
+    {
+      "path": "res/sd.xml",
+      "size": 1236,
+      "crc": "b62c6ed3"
+    },
+    {
+      "path": "res/sg.9.png",
+      "size": 226,
+      "crc": "89186040"
+    },
+    {
+      "path": "res/sl.xml",
+      "size": 1332,
+      "crc": "fb6aaf79"
+    },
+    {
+      "path": "res/sn.xml",
+      "size": 400,
+      "crc": "002d5658"
+    },
+    {
+      "path": "res/sy.png",
+      "size": 6782,
+      "crc": "204d116f"
+    },
+    {
+      "path": "res/t1.xml",
+      "size": 3096,
+      "crc": "4a247281"
+    },
+    {
+      "path": "res/t8.xml",
+      "size": 1012,
+      "crc": "5204e91a"
+    },
+    {
+      "path": "res/tG.png",
+      "size": 476,
+      "crc": "c4de743b"
+    },
+    {
+      "path": "res/tI.xml",
+      "size": 524,
+      "crc": "18c43184"
+    },
+    {
+      "path": "res/tL.xml",
+      "size": 716,
+      "crc": "65bfc50a"
+    },
+    {
+      "path": "res/tS.png",
+      "size": 321,
+      "crc": "18e8038a"
+    },
+    {
+      "path": "res/tS.xml",
+      "size": 660,
+      "crc": "cafef227"
+    },
+    {
+      "path": "res/tU.9.png",
+      "size": 208,
+      "crc": "e01fa47a"
+    },
+    {
+      "path": "res/tZ.9.png",
+      "size": 198,
+      "crc": "18ddec29"
+    },
+    {
+      "path": "res/te.png",
+      "size": 278,
+      "crc": "a0d3c543"
+    },
+    {
+      "path": "res/tk.xml",
+      "size": 384,
+      "crc": "8b888907"
+    },
+    {
+      "path": "res/tp.xml",
+      "size": 524,
+      "crc": "6848aac4"
+    },
+    {
+      "path": "res/tr.9.png",
+      "size": 960,
+      "crc": "d939ee0d"
+    },
+    {
+      "path": "res/ts.xml",
+      "size": 448,
+      "crc": "dc9f15fa"
+    },
+    {
+      "path": "res/u0.xml",
+      "size": 1196,
+      "crc": "da7dbc91"
+    },
+    {
+      "path": "res/u3.png",
+      "size": 513,
+      "crc": "c4f21d8f"
+    },
+    {
+      "path": "res/uC.xml",
+      "size": 680,
+      "crc": "e76b59de"
+    },
+    {
+      "path": "res/uJ.xml",
+      "size": 848,
+      "crc": "fc80d8df"
+    },
+    {
+      "path": "res/uK.xml",
+      "size": 1212,
+      "crc": "317d373b"
+    },
+    {
+      "path": "res/uL.9.png",
+      "size": 966,
+      "crc": "9df27093"
+    },
+    {
+      "path": "res/uR.xml",
+      "size": 1232,
+      "crc": "b27c1d99"
+    },
+    {
+      "path": "res/uR1.xml",
+      "size": 840,
+      "crc": "5d3ce2cd"
+    },
+    {
+      "path": "res/uj.9.png",
+      "size": 196,
+      "crc": "0384badb"
+    },
+    {
+      "path": "res/uj.txt",
+      "size": 484,
+      "crc": "56c013be"
+    },
+    {
+      "path": "res/uo.xml",
+      "size": 384,
+      "crc": "462300ae"
+    },
+    {
+      "path": "res/up.xml",
+      "size": 400,
+      "crc": "020a599b"
+    },
+    {
+      "path": "res/us.9.png",
+      "size": 1638,
+      "crc": "89e3a379"
+    },
+    {
+      "path": "res/ut.9.png",
+      "size": 754,
+      "crc": "8637ab35"
+    },
+    {
+      "path": "res/uu.9.png",
+      "size": 204,
+      "crc": "e3ea6cb6"
+    },
+    {
+      "path": "res/v-.xml",
+      "size": 940,
+      "crc": "46b50edb"
+    },
+    {
+      "path": "res/v4.9.png",
+      "size": 208,
+      "crc": "91d34861"
+    },
+    {
+      "path": "res/v4.txt",
+      "size": 1511,
+      "crc": "a80b2436"
+    },
+    {
+      "path": "res/vG.xml",
+      "size": 1396,
+      "crc": "c8db92fc"
+    },
+    {
+      "path": "res/vH.xml",
+      "size": 556,
+      "crc": "c7b5af63"
+    },
+    {
+      "path": "res/vJ.xml",
+      "size": 528,
+      "crc": "70cfad04"
+    },
+    {
+      "path": "res/vJ1.xml",
+      "size": 388,
+      "crc": "c7b14c48"
+    },
+    {
+      "path": "res/vL.9.png",
+      "size": 223,
+      "crc": "ed1fee6a"
+    },
+    {
+      "path": "res/vR.xml",
+      "size": 372,
+      "crc": "c1979347"
+    },
+    {
+      "path": "res/vT.xml",
+      "size": 320,
+      "crc": "1266950b"
+    },
+    {
+      "path": "res/vZ.xml",
+      "size": 388,
+      "crc": "1058782f"
+    },
+    {
+      "path": "res/vf.xml",
+      "size": 548,
+      "crc": "60d33487"
+    },
+    {
+      "path": "res/vl.xml",
+      "size": 1584,
+      "crc": "f4c30b99"
+    },
+    {
+      "path": "res/vn.xml",
+      "size": 740,
+      "crc": "0f0514f5"
+    },
+    {
+      "path": "res/vo.png",
+      "size": 727,
+      "crc": "2c75d16b"
+    },
+    {
+      "path": "res/vq.xml",
+      "size": 1020,
+      "crc": "b424f5c8"
+    },
+    {
+      "path": "res/vz.9.png",
+      "size": 181,
+      "crc": "77ca704d"
+    },
+    {
+      "path": "res/w2.9.png",
+      "size": 1138,
+      "crc": "aefcba59"
+    },
+    {
+      "path": "res/w9.xml",
+      "size": 464,
+      "crc": "67603de5"
+    },
+    {
+      "path": "res/wL.9.png",
+      "size": 437,
+      "crc": "3b70c5f0"
+    },
+    {
+      "path": "res/wN.9.png",
+      "size": 225,
+      "crc": "a1d68cd0"
+    },
+    {
+      "path": "res/wN.png",
+      "size": 25425,
+      "crc": "8600ea1f"
+    },
+    {
+      "path": "res/wP.xml",
+      "size": 592,
+      "crc": "8f2075b0"
+    },
+    {
+      "path": "res/wX.png",
+      "size": 4843,
+      "crc": "883a8f4a"
+    },
+    {
+      "path": "res/w_.png",
+      "size": 214,
+      "crc": "6a5cd9b8"
+    },
+    {
+      "path": "res/wt.xml",
+      "size": 868,
+      "crc": "f2efa6f4"
+    },
+    {
+      "path": "res/x-.xml",
+      "size": 548,
+      "crc": "246e0442"
+    },
+    {
+      "path": "res/x3.9.png",
+      "size": 212,
+      "crc": "3bde0e3f"
+    },
+    {
+      "path": "res/x4.xml",
+      "size": 1528,
+      "crc": "092196e8"
+    },
+    {
+      "path": "res/xH.png",
+      "size": 186,
+      "crc": "5910e5d8"
+    },
+    {
+      "path": "res/xR.9.png",
+      "size": 194,
+      "crc": "822df711"
+    },
+    {
+      "path": "res/xa.9.png",
+      "size": 221,
+      "crc": "3ad03275"
+    },
+    {
+      "path": "res/xa.xml",
+      "size": 1176,
+      "crc": "9c9427d7"
+    },
+    {
+      "path": "res/xd.xml",
+      "size": 1824,
+      "crc": "8d91d440"
+    },
+    {
+      "path": "res/xj.xml",
+      "size": 588,
+      "crc": "6211d8e8"
+    },
+    {
+      "path": "res/y-.xml",
+      "size": 396,
+      "crc": "cc6ffadf"
+    },
+    {
+      "path": "res/y4.xml",
+      "size": 388,
+      "crc": "6270df64"
+    },
+    {
+      "path": "res/y6.xml",
+      "size": 588,
+      "crc": "e59e407f"
+    },
+    {
+      "path": "res/yH.9.png",
+      "size": 184,
+      "crc": "d42327b8"
+    },
+    {
+      "path": "res/yM.xml",
+      "size": 760,
+      "crc": "ce29e885"
+    },
+    {
+      "path": "res/yS.xml",
+      "size": 400,
+      "crc": "f5023ec8"
+    },
+    {
+      "path": "res/yT.xml",
+      "size": 724,
+      "crc": "a99d4591"
+    },
+    {
+      "path": "res/yV.xml",
+      "size": 576,
+      "crc": "00d71b0e"
+    },
+    {
+      "path": "res/yY.9.png",
+      "size": 186,
+      "crc": "f52e9e15"
+    },
+    {
+      "path": "res/ya.xml",
+      "size": 592,
+      "crc": "83203a9e"
+    },
+    {
+      "path": "res/yg.9.png",
+      "size": 395,
+      "crc": "972e3ff3"
+    },
+    {
+      "path": "res/ym.xml",
+      "size": 480,
+      "crc": "a739020c"
+    },
+    {
+      "path": "res/yp.txt",
+      "size": 1289,
+      "crc": "291ab33c"
+    },
+    {
+      "path": "res/z-.9.png",
+      "size": 221,
+      "crc": "9944f31a"
+    },
+    {
+      "path": "res/z1.png",
+      "size": 22748,
+      "crc": "b4d0768a"
+    },
+    {
+      "path": "res/z7.txt",
+      "size": 1295,
+      "crc": "958b393d"
+    },
+    {
+      "path": "res/z9.9.png",
+      "size": 417,
+      "crc": "3c853cf4"
+    },
+    {
+      "path": "res/zE.png",
+      "size": 324,
+      "crc": "fe749af3"
+    },
+    {
+      "path": "res/zG.xml",
+      "size": 540,
+      "crc": "4ee67b92"
+    },
+    {
+      "path": "res/zR.xml",
+      "size": 1132,
+      "crc": "b3cbafb7"
+    },
+    {
+      "path": "res/zS.txt",
+      "size": 26440,
+      "crc": "571be7ac"
+    },
+    {
+      "path": "res/zV.9.png",
+      "size": 2463,
+      "crc": "abacf2d2"
+    },
+    {
+      "path": "res/zc.xml",
+      "size": 956,
+      "crc": "a6f5fc12"
+    },
+    {
+      "path": "res/zn.xml",
+      "size": 308,
+      "crc": "10ed4d63"
+    },
+    {
+      "path": "res/zp.xml",
+      "size": 448,
+      "crc": "d2cc1d2a"
+    },
+    {
+      "path": "res/zq.xml",
+      "size": 464,
+      "crc": "240d0e1b"
+    },
+    {
+      "path": "res/zw.9.png",
+      "size": 1510,
+      "crc": "30b789c3"
+    },
+    {
+      "path": "res/zz.xml",
+      "size": 400,
+      "crc": "31285fa7"
+    },
+    {
+      "path": "resources.arsc",
+      "size": 1823084,
+      "crc": "e21eb690"
+    }
+  ]
+}

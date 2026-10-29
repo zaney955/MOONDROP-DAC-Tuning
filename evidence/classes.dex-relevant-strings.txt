@@ -1,0 +1,518 @@
+ & pEQCoeff.Gain:
+ mTargetRequestCode=
+ targetRequestCode=
+#version 300 es
+#extension GL_EXT_YUV_target : require
+precision mediump float;
+uniform __samplerExternal2DY2YEXT sTexture;
+uniform float uAlphaScale;
+in vec2 vTextureCoord;
+out vec4 outColor;
+
+vec3 yuvToRgb(vec3 yuv) {
+  const vec3 yuvOffset = vec3(0.0625, 0.5, 0.5);
+  const mat3 yuvToRgbColorMat = mat3(
+    1.1689f, 1.1689f, 1.1689f,
+    0.0000f, -0.1881f, 2.1502f,
+    1.6853f, -0.6530f, 0.0000f
+  );
+  return clamp(yuvToRgbColorMat * (yuv - yuvOffset), 0.0, 1.0);
+}
+
+void main() {
+  vec3 srcYuv = texture(sTexture, vTextureCoord).xyz;
+  vec3 srcRgb = yuvToRgb(srcYuv);
+  outColor = vec4(srcRgb, uAlphaScale);
+}
+A capella
+AdvancedStageGetAdaptiveEqDetectionRuntimeStatus
+AdvancedStageGetAdaptiveEqDetectionStatus
+AdvancedStageGetAdaptiveEqIndex
+AdvancedStageGetAdaptiveEqIndexRelay
+AdvancedStageGetAdaptiveEqOutOfEarDetectionStatus
+AdvancedStageGetAdaptiveEqSuspendUpdateStatus
+Attempting to get target request code from fragment 
+CAPE
+CMD_GET_EQ
+CMD_GET_EQ_COEFFS_LIST
+CMD_GET_EQ_PARAMS_FROM_FLASH
+CMD_GET_EQ_PARAM_LIST
+CMD_GET_FREQUENCY
+Cannot escape a newline character in strict mode
+ConexantServiceHost
+CronetAdaptiveRequestContext#getUriIfAdaptive
+CronetHttpURLConnection.CronetUrlRequestCallback#onReadCompleted
+CronetUrlRequest#getStatus running callback
+CronetUrlRequest#read
+CxAudioConvertCoeffs2EqParams: coeff2ParamConvertRes = 
+CxAudioConvertEqParams2Coeffs
+CxAudioConvertEqParams2Coeffs: convertRes= 
+DEFAULT_ESCAPE_HTML
+DeviceOrientation.landscapeLeft
+DeviceOrientation.landscapeRight
+Eq2Coeff
+Failed to get the required LENS_FACING for 
+Failed to initialize Conexant service client
+GET_ADAPTIVE_EQ_DETECTION_RUNTIME_STATUS
+GET_ADAPTIVE_EQ_DETECTION_STATUS
+GET_ADAPTIVE_EQ_INDEX
+GET_ADAPTIVE_EQ_OUT_OF_EAR_DETECTION_STATUS
+GET_ADAPTIVE_EQ_SUSPEND_UPDATE_STATUS
+GET_ALL_EQ_SETTINGS
+GET_HA_USER_EQ_SETTING
+GET_JIU_EQ_ERROR
+GET_PEQ_CONFIG
+GET_PEQ_POINT
+GET_PRESET_EQ
+GET_RUNNING_EQ_SETTINGS
+GET_SIDETONE_USER_EQ_SETTING
+GaiaClientService.getRequestManager: must call GaiaClientService.prepare() first
+GetANCDataRequest has been deprecated, please use GetANCInfoRequest(ANCInfo) instead.
+GetDeviceVersionRequest has been deprecated, please use GetDeviceInformationRequest(DeviceInfo.APPLICATION_VERSION) instead.
+GetGestureInfoRequest
+GetLogSizesRequest has been deprecated, please use GetLogInfoRequest(LogInfo.PARTITION_SIZE) and GetLogInfoRequest(LogInfo.LOG_FILE) instead.
+GetTouchV3Request
+GetVoiceUIDataRequest has been deprecated, please use GetSelectedAssistantRequest and GetSupportedAssistantsRequest instead.
+ImageReaderPlatformViewRenderTarget requires API version 29+
+Invalid escape sequence
+Invalid escaped character "'" in strict mode
+LANDSCAPE_LEFT
+LANDSCAPE_RIGHT
+Lcom/conexant/cnxtusbcheadset/ANCTuningParam$1;
+Lcom/conexant/cnxtusbcheadset/ANCTuningParam;
+Lcom/conexant/cnxtusbcheadset/AvailableMode$1;
+Lcom/conexant/cnxtusbcheadset/AvailableMode;
+Lcom/conexant/cnxtusbcheadset/AvailableModeList$1;
+Lcom/conexant/cnxtusbcheadset/AvailableModeList;
+Lcom/conexant/cnxtusbcheadset/CX2070xBandEQCoeffs;
+Lcom/conexant/cnxtusbcheadset/CafCmdHelper$1;
+Lcom/conexant/cnxtusbcheadset/CafCmdHelper$onInterfaceStateListener;
+Lcom/conexant/cnxtusbcheadset/CafCmdHelper;
+Lcom/conexant/cnxtusbcheadset/CnxtUsbDeviceBase$1;
+Lcom/conexant/cnxtusbcheadset/CnxtUsbDeviceBase;
+Lcom/conexant/cnxtusbcheadset/CnxtUsbFactory;
+Lcom/conexant/cnxtusbcheadset/EQBandParam;
+Lcom/conexant/cnxtusbcheadset/EQCoeffsList$1;
+Lcom/conexant/cnxtusbcheadset/EQCoeffsList;
+Lcom/conexant/cnxtusbcheadset/EQParamList$1;
+Lcom/conexant/cnxtusbcheadset/EQParamList;
+Lcom/conexant/cnxtusbcheadset/Eq2Coeff;
+Lcom/conexant/cnxtusbcheadset/FeatureConfiguration$1;
+Lcom/conexant/cnxtusbcheadset/FeatureConfiguration;
+Lcom/conexant/cnxtusbcheadset/FreemanCnxtUsbDevice;
+Lcom/conexant/cnxtusbcheadset/GenericReturnValue$1;
+Lcom/conexant/cnxtusbcheadset/GenericReturnValue;
+Lcom/conexant/cnxtusbcheadset/HidInterruptReader$hidReaderMsgListener;
+Lcom/conexant/cnxtusbcheadset/HidInterruptReader;
+Lcom/conexant/cnxtusbcheadset/UsbHelper;
+Lcom/conexant/conexantusbtypec/adapter/DetectUsbDeviceAttachReceiver;
+Lcom/conexant/conexantusbtypec/common/ApplicationData$CommonEQParams;
+Lcom/conexant/conexantusbtypec/common/ApplicationData$freeman3EQParams;
+Lcom/conexant/conexantusbtypec/common/ApplicationData$freemanEQParams;
+Lcom/conexant/conexantusbtypec/common/ApplicationData$wheelerEQParams;
+Lcom/conexant/conexantusbtypec/common/ApplicationData;
+Lcom/conexant/conexantusbtypec/crash/ActivityCollector;
+Lcom/conexant/conexantusbtypec/entity/FirmwareFileBean;
+Lcom/conexant/conexantusbtypec/svcimpl/FreemanController;
+Lcom/conexant/conexantusbtypec/svcimpl/SvcModClient$1;
+Lcom/conexant/conexantusbtypec/svcimpl/SvcModClient$DevicePermissionListener;
+Lcom/conexant/conexantusbtypec/svcimpl/SvcModClient$DevicePlugListener;
+Lcom/conexant/conexantusbtypec/svcimpl/SvcModClient$FirmwareUpdatedListener;
+Lcom/conexant/conexantusbtypec/svcimpl/SvcModClient;
+Lcom/conexant/conexantusbtypec/svcimpl/UsbControllerBase;
+Lcom/conexant/conexantusbtypec/svcimpl/UsbModImpl;
+Lcom/conexant/conexantusbtypec/util/CommonUtil;
+Lcom/conexant/conexantusbtypec/view/CustomTextView;
+Lcom/conexant/debugfeature/IAHBInteraction;
+Lcom/conexant/debugfeature/ICmdSender;
+Lcom/conexant/debugfeature/IFM;
+Lcom/conexant/debugfeature/IHidCmd;
+Lcom/conexant/genericfeature/ANCTuningParam$1;
+Lcom/conexant/genericfeature/ANCTuningParam;
+Lcom/conexant/genericfeature/AvailableMode$1;
+Lcom/conexant/genericfeature/AvailableMode;
+Lcom/conexant/genericfeature/AvailableModeList$1;
+Lcom/conexant/genericfeature/AvailableModeList;
+Lcom/conexant/genericfeature/BandEQCoefficient$1;
+Lcom/conexant/genericfeature/BandEQCoefficient;
+Lcom/conexant/genericfeature/EQParam$1;
+Lcom/conexant/genericfeature/EQParam;
+Lcom/conexant/genericfeature/FeatureConfigFM3$1;
+Lcom/conexant/genericfeature/FeatureConfigFM3;
+Lcom/conexant/genericfeature/IEqualizer;
+Lcom/conexant/genericfeature/IFreeman;
+Lcom/conexant/genericfeature/IUsbKeyEvent;
+Lcom/conexant/genericfeature/IUsbKeyEventListener;
+Lcom/conexant/genericfeature/PersistEQParams$1;
+Lcom/conexant/genericfeature/PersistEQParams;
+Lcom/conexant/libcnxtservice/BooleanMsgArg$1;
+Lcom/conexant/libcnxtservice/BooleanMsgArg;
+Lcom/conexant/libcnxtservice/ByteArrayMsgArg$1;
+Lcom/conexant/libcnxtservice/ByteArrayMsgArg;
+Lcom/conexant/libcnxtservice/Command$1;
+Lcom/conexant/libcnxtservice/Command;
+Lcom/conexant/libcnxtservice/CoreService$1;
+Lcom/conexant/libcnxtservice/CoreService$ServiceBinder;
+Lcom/conexant/libcnxtservice/CoreService;
+Lcom/conexant/libcnxtservice/FloatParcelable$1;
+Lcom/conexant/libcnxtservice/FloatParcelable;
+Lcom/conexant/libcnxtservice/ICoreService;
+Lcom/conexant/libcnxtservice/IServiceModule;
+Lcom/conexant/libcnxtservice/IServiceModuleCmdExecutor;
+Lcom/conexant/libcnxtservice/IServiceModuleFactory;
+Lcom/conexant/libcnxtservice/IServiceModuleManager;
+Lcom/conexant/libcnxtservice/IServiceModuleMsgListener;
+Lcom/conexant/libcnxtservice/LongMsgArg$1;
+Lcom/conexant/libcnxtservice/LongMsgArg;
+Lcom/conexant/libcnxtservice/R$anim;
+Lcom/conexant/libcnxtservice/R$animator;
+Lcom/conexant/libcnxtservice/R$attr;
+Lcom/conexant/libcnxtservice/R$bool;
+Lcom/conexant/libcnxtservice/R$color;
+Lcom/conexant/libcnxtservice/R$dimen;
+Lcom/conexant/libcnxtservice/R$drawable;
+Lcom/conexant/libcnxtservice/R$id;
+Lcom/conexant/libcnxtservice/R$integer;
+Lcom/conexant/libcnxtservice/R$interpolator;
+Lcom/conexant/libcnxtservice/R$layout;
+Lcom/conexant/libcnxtservice/R$string;
+Lcom/conexant/libcnxtservice/R$style;
+Lcom/conexant/libcnxtservice/R$styleable;
+Lcom/conexant/libcnxtservice/R$xml;
+Lcom/conexant/libcnxtservice/R;
+Lcom/conexant/libcnxtservice/ServiceConfigModule$1;
+Lcom/conexant/libcnxtservice/ServiceConfigModule;
+Lcom/conexant/libcnxtservice/ServiceConfigParam$1;
+Lcom/conexant/libcnxtservice/ServiceConfigParam;
+Lcom/conexant/libcnxtservice/ServiceDataProxyFactory;
+Lcom/conexant/libcnxtservice/ServiceModuleArg$1;
+Lcom/conexant/libcnxtservice/ServiceModuleArg;
+Lcom/conexant/libcnxtservice/ServiceModuleBase;
+Lcom/conexant/libcnxtservice/ServiceModuleCommand$1;
+Lcom/conexant/libcnxtservice/ServiceModuleCommand;
+Lcom/conexant/libcnxtservice/ServiceModuleConfig$1;
+Lcom/conexant/libcnxtservice/ServiceModuleConfig;
+Lcom/conexant/libcnxtservice/ServiceModuleDescriptor$1;
+Lcom/conexant/libcnxtservice/ServiceModuleDescriptor;
+Lcom/conexant/libcnxtservice/ServiceModuleManager;
+Lcom/conexant/libcnxtservice/ServiceResultReceiver$1;
+Lcom/conexant/libcnxtservice/ServiceResultReceiver$Receiver;
+Lcom/conexant/libcnxtservice/ServiceResultReceiver;
+Lcom/conexant/libcnxtservice/ServiceUtils$ServiceCallback;
+Lcom/conexant/libcnxtservice/ServiceUtils$ServiceWrapper;
+Lcom/conexant/libcnxtservice/ServiceUtils$SvcToken;
+Lcom/conexant/libcnxtservice/ServiceUtils;
+Lcom/conexant/libcnxtservice/SmartLog;
+Lcom/conexant/libcnxtservice/StringMsgArg$1;
+Lcom/conexant/libcnxtservice/StringMsgArg;
+Lcom/conexant/libcnxtservice/StringParcelable$1;
+Lcom/conexant/libcnxtservice/StringParcelable;
+Lcom/conexant/libcnxtservice/service/FreemanSession;
+Lcom/conexant/libcnxtservice/service/IUSBModule;
+Lcom/conexant/libcnxtservice/service/IUSBSession;
+Lcom/conexant/libcnxtservice/service/ServiceConstants;
+Lcom/conexant/libcnxtservice/service/USBModuleBase$1;
+Lcom/conexant/libcnxtservice/service/USBModuleBase$2;
+Lcom/conexant/libcnxtservice/service/USBModuleBase;
+Lcom/conexant/libcnxtservice/service/USBModuleDescriptor$1;
+Lcom/conexant/libcnxtservice/service/USBModuleDescriptor;
+Lcom/conexant/libcnxtservice/service/USBModuleFactory;
+Lcom/conexant/libcnxtservice/service/USBSessionBase;
+Lcom/conexant/libcnxtservice/service/USBSessionMsgArg$1;
+Lcom/conexant/libcnxtservice/service/USBSessionMsgArg;
+Lcom/conexant/libcnxtservice/service/USBUnKnownSession;
+Lcom/conexant/libcnxtservice/service/UnknownCnxtUsbDevice;
+Lcom/conexant/libcnxtservice/service/UsbSessionDescriptor$1;
+Lcom/conexant/libcnxtservice/service/UsbSessionDescriptor;
+Lcom/conexant/libcnxtservice/service/UsbSessionFactory$DeviceConfig;
+Lcom/conexant/libcnxtservice/service/UsbSessionFactory$DevicesConfig;
+Lcom/conexant/libcnxtservice/service/UsbSessionFactory;
+Lcom/conexant/libcnxtservice/utils/Helper;
+Lcom/conexant/libcnxtservice/utils/PhoneCallHelper;
+Lcom/conexant/libcnxtservice/utils/UsbConstants;
+Lcom/conexant/libcnxtservice/utils/UsbDeviceDetector$1;
+Lcom/conexant/libcnxtservice/utils/UsbDeviceDetector$onUsbDeviceStateChanged;
+Lcom/conexant/libcnxtservice/utils/UsbDeviceDetector;
+Lcom/conexant/libcnxtservice/utils/UsbDevicePermissionDetector$1;
+Lcom/conexant/libcnxtservice/utils/UsbDevicePermissionDetector$onPermissionStateChanged;
+Lcom/conexant/libcnxtservice/utils/UsbDevicePermissionDetector;
+Lcom/conexant/universalfunction/BuildConfig;
+Lcom/conexant/universalfunction/CnxtUsbCommand$1;
+Lcom/conexant/universalfunction/CnxtUsbCommand;
+Lcom/conexant/universalfunction/CnxtUsbConstants$DEFAULT_COEFFICIENT;
+Lcom/conexant/universalfunction/CnxtUsbConstants;
+Lcom/conexant/universalfunction/CommonUtil;
+Lcom/conexant/universalfunction/CommonUtilNative;
+Lcom/conexant/universalfunction/DeviceId;
+Lcom/conexant/universalfunction/HidCmdByteArray$1;
+Lcom/conexant/universalfunction/HidCmdByteArray;
+Lcom/moondroplab/moondrop/moondrop_app/native/ConexantServiceLifecycleHost$Companion;
+Lcom/moondroplab/moondrop/moondrop_app/native/ConexantServiceLifecycleHost;
+Lcom/qualcomm/qti/gaiaclient/core/requests/qtil/GetACInfoRequest;
+Lcom/qualcomm/qti/gaiaclient/core/requests/qtil/GetANCDataRequest;
+Lcom/qualcomm/qti/gaiaclient/core/requests/qtil/GetANCInfoRequest;
+Lcom/qualcomm/qti/gaiaclient/core/requests/qtil/GetAudioResourceRequest;
+Lcom/qualcomm/qti/gaiaclient/core/requests/qtil/GetBatteryLevelsRequest;
+Lcom/qualcomm/qti/gaiaclient/core/requests/qtil/GetBtAddressRequest;
+Lcom/qualcomm/qti/gaiaclient/core/requests/qtil/GetCodecRequest;
+Lcom/qualcomm/qti/gaiaclient/core/requests/qtil/GetConnectedDevicesRequest;
+Lcom/qualcomm/qti/gaiaclient/core/requests/qtil/GetCurrentANCActionRequest;
+Lcom/qualcomm/qti/gaiaclient/core/requests/qtil/GetCurrentButtonActionRequest;
+Lcom/qualcomm/qti/gaiaclient/core/requests/qtil/GetDefaultButtonActionRequest;
+Lcom/qualcomm/qti/gaiaclient/core/requests/qtil/GetDeviceInformationRequest;
+Lcom/qualcomm/qti/gaiaclient/core/requests/qtil/GetDeviceVersionRequest;
+Lcom/qualcomm/qti/gaiaclient/core/requests/qtil/GetDybassRequest;
+Lcom/qualcomm/qti/gaiaclient/core/requests/qtil/GetEarbudInformationRequest;
+Lcom/qualcomm/qti/gaiaclient/core/requests/qtil/GetGainRequest;
+Lcom/qualcomm/qti/gaiaclient/core/requests/qtil/GetGestureInfoRequest;
+Lcom/qualcomm/qti/gaiaclient/core/requests/qtil/GetLedRequest;
+Lcom/qualcomm/qti/gaiaclient/core/requests/qtil/GetLogInfoRequest;
+Lcom/qualcomm/qti/gaiaclient/core/requests/qtil/GetLogSizesRequest;
+Lcom/qualcomm/qti/gaiaclient/core/requests/qtil/GetLrChannelRequest;
+Lcom/qualcomm/qti/gaiaclient/core/requests/qtil/GetMusicProcessingInfoRequest;
+Lcom/qualcomm/qti/gaiaclient/core/requests/qtil/GetOnebringtwoRequest;
+Lcom/qualcomm/qti/gaiaclient/core/requests/qtil/GetPairedDevicesRequest;
+Lcom/qualcomm/qti/gaiaclient/core/requests/qtil/GetPowerTimeoutRequest;
+Lcom/qualcomm/qti/gaiaclient/core/requests/qtil/GetSelectedAssistantRequest;
+Lcom/qualcomm/qti/gaiaclient/core/requests/qtil/GetSensorRequest;
+Lcom/qualcomm/qti/gaiaclient/core/requests/qtil/GetSpatialAudioRequest;
+Lcom/qualcomm/qti/gaiaclient/core/requests/qtil/GetStatisticsRequest;
+Lcom/qualcomm/qti/gaiaclient/core/requests/qtil/GetSupportedAssistantsRequest;
+Lcom/qualcomm/qti/gaiaclient/core/requests/qtil/GetSupportedBatteriesRequest;
+Lcom/qualcomm/qti/gaiaclient/core/requests/qtil/GetSupportedVoiceEnhancementsRequest;
+Lcom/qualcomm/qti/gaiaclient/core/requests/qtil/GetTouchV2Request;
+Lcom/qualcomm/qti/gaiaclient/core/requests/qtil/GetTouchV3Request;
+Lcom/qualcomm/qti/gaiaclient/core/requests/qtil/GetTouchV4Request;
+Lcom/qualcomm/qti/gaiaclient/core/requests/qtil/GetUserSetBandsConfigurationRequest;
+Lcom/qualcomm/qti/gaiaclient/core/requests/qtil/GetV2VoiceConfRequest;
+Lcom/qualcomm/qti/gaiaclient/core/requests/qtil/GetVoiceEnhancementConfigurationRequest;
+Lcom/qualcomm/qti/gaiaclient/core/requests/qtil/GetVoiceInfoRequest;
+Lcom/qualcomm/qti/gaiaclient/core/requests/qtil/GetVoiceUIDataRequest;
+Malformed Unicode escape \u
+NETSCAPE2.0
+OID_SERVER_GATED_NETSCAPE
+Request is already started.
+SplitPairRule_splitMaxAspectRatioInLandscape
+SplitPlaceholderRule_splitMaxAspectRatioInLandscape
+The attribute cannot be read using the Read Blob Request.
+The requested target bitrate 
+There is already a request in-flight.
+This request has already been consumed: either proceed or close has already been called
+Thread check failed: This method must be called from the UseCaseThreads sequential scope. Current thread: 
+UNKNOWN_LANDSCAPE
+Unescaped control characters (\u0000-\u001F) are not allowed in strict mode
+Unterminated escape sequence
+V1_GET_AVAILABLE_EQ_PRE_SETS
+V1_GET_EQ_SET
+V1_GET_EQ_STATE
+[Lcom/conexant/cnxtusbcheadset/ANCTuningParam;
+[Lcom/conexant/cnxtusbcheadset/AvailableMode;
+[Lcom/conexant/cnxtusbcheadset/AvailableModeList;
+[Lcom/conexant/cnxtusbcheadset/EQCoeffsList;
+[Lcom/conexant/cnxtusbcheadset/EQParamList;
+[Lcom/conexant/cnxtusbcheadset/FeatureConfiguration;
+[Lcom/conexant/cnxtusbcheadset/GenericReturnValue;
+[Lcom/conexant/genericfeature/ANCTuningParam;
+[Lcom/conexant/genericfeature/AvailableMode;
+[Lcom/conexant/genericfeature/AvailableModeList;
+[Lcom/conexant/genericfeature/BandEQCoefficient;
+[Lcom/conexant/genericfeature/EQParam;
+[Lcom/conexant/genericfeature/FeatureConfigFM3;
+[Lcom/conexant/genericfeature/PersistEQParams;
+[Lcom/conexant/libcnxtservice/BooleanMsgArg;
+[Lcom/conexant/libcnxtservice/ByteArrayMsgArg;
+[Lcom/conexant/libcnxtservice/Command;
+[Lcom/conexant/libcnxtservice/FloatParcelable;
+[Lcom/conexant/libcnxtservice/LongMsgArg;
+[Lcom/conexant/libcnxtservice/ServiceConfigModule;
+[Lcom/conexant/libcnxtservice/ServiceConfigParam;
+[Lcom/conexant/libcnxtservice/ServiceModuleArg;
+[Lcom/conexant/libcnxtservice/ServiceModuleCommand;
+[Lcom/conexant/libcnxtservice/ServiceModuleConfig;
+[Lcom/conexant/libcnxtservice/ServiceModuleDescriptor;
+[Lcom/conexant/libcnxtservice/ServiceResultReceiver;
+[Lcom/conexant/libcnxtservice/StringMsgArg;
+[Lcom/conexant/libcnxtservice/StringParcelable;
+[Lcom/conexant/libcnxtservice/service/USBModuleDescriptor;
+[Lcom/conexant/libcnxtservice/service/USBSessionMsgArg;
+[Lcom/conexant/libcnxtservice/service/UsbSessionDescriptor;
+[Lcom/conexant/universalfunction/CnxtUsbCommand;
+[Lcom/conexant/universalfunction/HidCmdByteArray;
+access$getActiveRequests$p
+access$getRequestedOwners$cp
+androidEqualizerGetParameters
+bldCmdGetEQ
+bldCmdGetEQCoeffsList
+bldCmdGetEQParamList
+bldCmdGetEQParamsFromFlash
+bldCmdGetFrequency
+bleSourceGetPeqConfig
+bleSourceGetPeqPoint
+bleSourceGetPresetEq
+com.conexant.libsmartaudio.CREATE_MODULE
+com.conexant.libsmartaudio.GET_DESCRIPTOR
+com.conexant.libsmartaudio.SEND_COMMAND
+com.conexant.universalfunction
+com.conexant.usb/usb
+conexantServiceHost
+createUsbDeviceBase: new Freeman3 (CAPE) device
+createUsbDeviceBase: the usbDevice is not from Conexant
+createUsbDeviceBase: unknown CAPE device
+dev.flutter.pigeon.camera_android_camerax.CaptureRequestOptions.getCaptureRequestOption
+doGetAdaptiveEqDetectionRuntimeStatus-begin
+doGetAdaptiveEqDetectionRuntimeStatus-end
+doGetAdaptiveEqDetectionStatus-begin
+doGetAdaptiveEqDetectionStatus-end
+doGetAdaptiveEqInfo-begin
+doGetAdaptiveEqInfo-end
+doGetAdaptiveEqOutOfEarDetectionStatus-begin
+doGetAdaptiveEqOutOfEarDetectionStatus-end
+doGetAdaptiveEqSuspendUpdateStatus-begin
+doGetAdaptiveEqSuspendUpdateStatus-end
+eq2Coeff
+eqCoeff
+eqCoeffs
+escape
+escapeCode
+escapeContentWorldName
+escapeHtmlChars
+generateTargetFrequencies
+getActiveRequestCount
+getAdaptiveEqDetectionRuntimeStatus
+getAdaptiveEqDetectionStatus
+getAdaptiveEqInfo
+getAdaptiveEqOutOfEarDetectionStatus
+getAdaptiveEqSuspendUpdateStatus
+getAirohaPeqMgr
+getAllEQSettings
+getBandFreqRange
+getCenterFreq
+getCharSequence
+getCharSequenceArray
+getCharSequenceArrayList
+getCoarseUserEQ
+getCoefficientUpdateTime
+getEQEnabled
+getEQMode
+getEQMode: execute failure!!
+getEQMode: saved EQ Mode: 
+getEQParam
+getEQParam: INVALID_PARAMETER
+getEQParam: band = 
+getEQParam: eqParam is null
+getEQParamList
+getEQParamList: band = 
+getEQParamList: execute failure, band index is: 
+getEQParamList: not Freeman3 device
+getEQParamsFromFlash
+getEQParamsFromFlash: can't get EQ mode!
+getEQParamsFromFlash: read custom EQ fail
+getEQState
+getEQStateLiveData
+getEnableQrAlignmentGrid
+getEq
+getEqMode
+getEqPayload
+getF3EQCoefficientList
+getF3EQCoefficientList 24bits => EQ Coefficient list: band = 
+getF3EQCoefficientList 32 bits => EQ Coefficient list: band = 
+getF3EQCoefficientList: MAX_BAND_INDEX = 9
+getF3EQCoefficientList: execute failure, band index is: 
+getF3EQCoefficientList: not Freeman3 device
+getF3EQCoefficientList: os supported SampleRate: 
+getF3EQCoefficientList: size = 
+getFallbackRequestState
+getFreeman3EQConfig
+getFreeman3EQConfig: execute failure
+getFreeman3EQConfig: index= 
+getFreeman3EQParam
+getFreeman3EQParam: band = 
+getFreeman3EQParam: eqParam is null
+getFreeman3EQParam: execute failure
+getFreq
+getFrequency
+getFrequencyHz
+getFrequencyResponse
+getHaCoarseUserEQInfo
+getHaUserEQSetting
+getHyphenationFrequency
+getJiuEq
+getLeftFreq
+getMainRequestState
+getMediaPlaybackRequiresUserGesture
+getPEQ
+getPaymentRequestEnabled
+getPeqCommitted
+getPluginScriptsRequiredInAllContentWorlds
+getPresetEqChanged
+getProfileCaptureRequestConstraints
+getRendererRequestedPriority
+getRequest
+getRequestBodySizeInBytes
+getRequestEnd
+getRequestHeaderSizeInBytes
+getRequestHeaders
+getRequestLine
+getRequestManager
+getRequestMethod
+getRequestProperties
+getRequestProperty
+getRequestStart
+getRequestUrl
+getRequestedOrientation
+getRequestedWithHeaderOriginAllowList
+getRequired
+getRightFreq
+getRunningEQSetting
+getSequenceNumber
+getSpvPeq
+getSpvSelectedEq
+getSyncEQState
+getSyncEQState called: sending fetchData() request
+getSyncEQState: fetchData() called, waiting for EQ_STATE response
+getTargetRequestCode
+getUsbEQ
+getUseQrMobilenetV3
+getUserEQ
+handleGetEQState
+handleGetJiuEq
+handleGetJiuEq$lambda$0
+handleGetJiuEq$lambda$0$0
+handleGetJiuEq$lambda$0$1
+handleGetPEQ
+handleGetPeqConfig
+handleGetPeqConfig$lambda$0
+handleGetPeqConfig$lambda$0$0
+handleGetPeqPoint
+handleGetPeqPoint$lambda$0
+handleGetPeqPoint$lambda$0$0
+handleGetPresetEq
+handleGetPresetEq$lambda$0
+handleGetPresetEq$lambda$0$0
+handleGetSpvPeq
+handleGetSpvPeq$lambda$0
+handleGetSpvPeq$lambda$0$0
+handleGetSpvPeq$lambda$0$1
+handleGetSpvSelectedEq
+handleGetSpvSelectedEq$lambda$0
+handleGetSpvSelectedEq$lambda$0$0
+handleGetSpvSelectedEq$lambda$0$1
+handleSyGetEqParamsFromFlash
+item_touch_helper_swipe_escape_max_velocity
+item_touch_helper_swipe_escape_velocity
+lastReaderDequeuedFrom
+mTargetRequestCode
+mtrl_calendar_landscape_header_width
+native_cxaudio_convert_eqparams_2_coeffs
+om.conexant.libsmartaudio.watchdog
+readEscapeCharacter
+requested target size larger or equal to input, returning input
+requested target size matches input, returning input
+requested target size too big for input, fit centering instead
+saveEQParamsToFlash: save coefficient -> convert eq to coefficient: band:
+saveEQParamsToFlash: save coefficient -> eqCoeff == null
+sendGetPEQ
+setFreeman3EQ: eqCoeff == null
+splitMaxAspectRatioInLandscape
+syGetEqParamsFromFlash
+text_eq_coefficient

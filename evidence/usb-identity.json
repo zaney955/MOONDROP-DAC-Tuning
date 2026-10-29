@@ -1,0 +1,12 @@
+{
+  "source": "ioreg -r -n ECHO-B -l -w0, 2026-10-29",
+  "manufacturer": "MOONDROP",
+  "product": "ECHO-B",
+  "vendor_id": 13784,
+  "product_id": 5275,
+  "vid_pid_hex": "35d8:149b",
+  "hid_interface": 3,
+  "report_id": 1,
+  "report_length_with_id": 62,
+  "descriptor_hex": "050c0901a1018501150026ff0009007508953d910209008102c0050c0901a1018502150025017501950209e909ea8102950209cd09cf8102950409008101c0"
+}

@@ -1,0 +1,23 @@
+# macOS metadata
+.DS_Store
+._*
+
+# Compiled local tools
+/bin/
+
+# Python caches and local environments
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Downloaded vendor packages and extracted native libraries
+/evidence/*.apk
+/evidence/android-arm64/
+
+# Local analysis state and transient logs
+/evidence/*.snapshot.json
+*.log
+*.tmp
+
+# Keep backups tracked, including original binary HID replies.

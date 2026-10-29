@@ -1,0 +1,129 @@
+package:moondrop_app/pages/factory_setting/TestPage.dart
+restoreRouteInformation
+init:sqfliteDatabaseFactoryDefault
+Once an account is successfully deactivated, it cannot be restored. Even if you apply to register a new account with the same email address after deactivation, this new account will not inherit any content or information from the previously deactivated account.
+applyPEQ: Restored preGain to 
+directReadPEQProfile: saveSpvDacAdcToFlash error: 
+/factorySppTest
+SqfliteDatabaseFactoryMixin
+JiuPEQPage DirectReadPEQFileEvent error: 
+_NoSplashFactory@780123830
+databaseFactory not initialized
+databaseFactory is only initialized when using sqflite. When using `sqflite_common_ffi`
+You must call `databaseFactory = databaseFactoryFfi;` before using global openDatabase API
+application/vnd.dreamfactory
+package:sqflite_common/src/mixin/factory.dart
+Restore default config
+restoreEntriesForPage
+/factorySetting
+InteractiveInkFeatureFactory
+restoreOffset
+_InkSplashFactory@776036029
+Factory
+directReadPEQProfile: Restored PreGain raw=
+_restore$Method$FfiNative@27065589
+get:factory
+get:splashFactory
+SqfliteDatabaseFactoryImpl
+package:moondrop_app/pages/factory_setting/TestButtonPage.dart
+RegExp_factory
+get:databaseFactory&
+_MixinApplication334&Object&SqfliteDatabaseFactoryMixin@18353248.
+applyPEQ: Failed to read current preGain: 
+directReadPEQProfile
+FactoryMicCommand
+init:_databaseFactorySqflitePlugin@1601225172
+MinePEQDownloadButtonWidget.dw: PEQ already exists in downloaded list. UUID: 
+applyPEQ SPV: Failed to restore preGain: 
+_resetFactorySettings@1480467725
+factory_reset_success
+_InkSparkleFactory@775321118
+_databaseFactorySqflitePlugin@1601225172
+DirectReadPEQFileEvent
+com.moondroplab.moondrop/factory_spp
+directReadPEQProfile: Failed to update all EQ params to reg: 
+factoryDefaultReset
+applyPEQ SPV: Restored preGain to 
+_doRestore@81384654
+package:moondrop_app/pages/factory_setting/FactoryEarbudsInfo.dart
+Reset to Factory Defaults
+restoreState
+_FactorySppTestPageState@1495434565.
+splashFactory
+package:moondrop_app/pages/factory_setting/TestSpatialAudioPage.dart
+_factoryTypesSetEquals@287508051
+_handleDirectReadPEQFileEvent@1455390052
+package:geocoding_android/src/geocoding_android_factory.dart
+Factory reset failed: 
+GeocodingPlatformFactory
+DirectReadPEQFileEvent parse error: 
+FactoryEarbudsInfo
+package:sqflite_platform_interface/src/factory_platform.dart
+Canvas::restore
+directReadPEQProfile: saveSpvPeq error: 
+directReadPEQProfile: Failed to restore preGain: 
+package:sqflite_common/src/factory_mixin.dart
+FactorySettingPage: getOTAVersion error: 
+FactorySppNative
+applyPEQ SPV: Failed to read current preGain: 
+DatabaseFactory
+_FactorySppTestPageState@1495434565
+_factory@1026248
+_buildFactoryResetCard@1480467725
+/factoryEarbudsInfo
+Request already sent
+_FactorySettingPageState@1490383684
+SynopsysPEQPage DirectReadPEQFileEvent error: 
+/factoryRustTest
+package:sqflite_common/src/factory.dart
+CacheStrategyFactory
+GeocodingAndroidFactory
+_MixinApplication334&Object&SqfliteDatabaseFactoryMixin@18353248
+resetSpvFactorySettings
+initWithDatabaseFactoryMethodChannel
+package:moondrop_app/pages/factory_setting/factory_spp_test_page.dart
+ECHO-BP
+_FactorySettingPageState@1490383684.
+_FactoryEarbudsInfoState@1489221263
+package:moondrop_app/pages/factory_setting/ble_source_switch_debug_page.dart
+Factory reset successful
+ReadPEQFileEvent
+setRestoredRoutePath
+package:moondrop_app/pages/factory_setting/rust_test_page.dart
+get:restorePending
+package:geocoding_platform_interface/src/geocoding_platform_factory.dart
+package:moondrop_app/native/factory_spp_native.dart
+SqfliteDatabaseFactoryImpl.
+_restoreAncIndexAfterFailure@1455390052
+sqfliteDatabaseFactoryDefault
+Your device is about to erase all settings and reset to factory defaults. Are you sure you want to do this?
+applyPEQ: Failed to restore preGain: 
+ was blocked by onEnter with no prior route to restore
+package:moondrop_app/pages/factory_setting/FactorySettingPage.dart
+package:sqflite_common/src/sqflite_database_factory.dart
+directReadPEQProfile error: 
+directReadPEQProfile: Selected SPV EQ preset 
+GestureRecognizerFactory
+GeocodingAndroidFactory.
+restoreScrollOffset
+FactorySppTestPage
+GestureRecognizerFactoryWithHandlers
+_restoreInstallStage@1338142189
+SqfliteDatabaseFactory(sqflite)
+Your device has been restored to factory settings
+_restoreDefaultActions@148024354
+SpvPEQPage DirectReadPEQFileEvent error: 
+factory_reset_failed
+_showFactoryResetDialog@155402564
+get:factory_reset_success
+get:factoryDefaultReset
+SqfliteDatabaseFactory
+_AnyTapGestureRecognizerFactory@409005443
+_InkRippleFactory@774110234
+GeocodingPlatformFactory.
+FactorySettingPage convertFreeDspPEQProfile error: 
+restore
+FactorySettingPage
+directReadPEQProfile: Failed to set band 
+FactoryMicCommand.
+RawReceivePort_factory
