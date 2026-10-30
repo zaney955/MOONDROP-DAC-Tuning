@@ -10,7 +10,7 @@
 | 频点及频段统计 | [analysis/summary.md](analysis/summary.md) |
 | 完整计算结果 | [analysis/statistics.json](analysis/statistics.json) |
 | 外部一手资料与限制 | [research/sources.md](research/sources.md) |
-| 死亡金属专属 EQ V1 | [参数、设计依据与试听重点](research/death-metal-structure-v1.md) |
+| 历史研究案例 | [密集金属编曲的设计依据与验收](research/death-metal-structure-v1.md) |
 
 在项目根目录离线复算：
 

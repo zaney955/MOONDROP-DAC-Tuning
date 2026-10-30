@@ -1,48 +1,23 @@
-# 耳机 EQ 配置与设备调音仓库
+# 耳机测量与耳放控制
 
-管理不同耳机的声音资料、可切换 EQ 预设，以及耳放写入和验证记录。**当前硬件后端仅支持 macOS 上的 MOONDROP ECHO-B（USB `35d8:149b`）**；耳机资料与预设可按型号扩展，其他耳放需要单独适配。
+保存耳机声音资料，通过 JSON 管理 EQ，并记录设备写入与读回证据。硬件后端支持 macOS 上的 MOONDROP ECHO-B（USB `35d8:149b`）。
 
-## 从这里开始
+- [操作指南](docs/operations.md)：检查、写入、复核、恢复和排障。
+- [JSON 格式](presets/README.md)：字段及编译限制。
+- [耳机资料库](headphones/README.md)：测量、声音研究与试听方法。
+- [设备协议与证据](docs/devices/echo-b-investigation.md)：通信实现及验证范围。
+- [功能探索](docs/devices/echo-b-possibilities.md)：可扩展方向与未验证能力。
 
-- [仓库操作指南](docs/operations.md)：环境准备、新建配置、检查、写入、只读复核、恢复、拔插测试和排障。
-- [预设库](presets/README.md)：现有配置及字段说明。
-- [耳机资料库](headphones/README.md)：按品牌/型号组织的测量、研究与调音指南。
-- [ECHO-B 协议调查与操作历史](docs/devices/echo-b-investigation.md)：设备证据、原始备份范围和历史验收。
-
-## 常用命令
-
-在仓库根目录运行：
-
-```sh
-# 列出现有预设
-python3 tools/preset.py list
-
-# 离线检查与生成，不修改耳放
-python3 tools/preset.py build original-minus-16db
-
-# 将选定配置完整写入、保存并读回验证（会修改设备）
-python3 tools/preset.py apply original-minus-16db
-
-# 恢复原始直通音色及 0 dB 输出（请先降低播放音量）
-python3 tools/preset.py apply original-default
-
-# 已保存但验证失败时：只读复核指定运行记录，不重复写入
-python3 tools/preset.py verify "runs/这里替换为实际运行目录"
-```
-
-将示例名称换成所需预设。每份文件包含 `preamp_db`、`output_trim_db` 和 `filters`；`original-default` 为 0 dB 输出衰减，`original-minus-16db` 为 −16 dB，死亡金属预设为 −18 dB。修改响度直接编辑该预设，再执行 `apply`。每次 `apply` 都先采集当前参数与系数，再写入，并在 `runs/` 新建独立记录。保存 ACK、当前系数读回、物理拔插保持是不同验证阶段；失败时先查看记录，不盲目重复写入。工具会记录明确的阶段和结果，并对“设备尚未就绪”做有限的读取重试；若状态为 `saved_unverified`，使用 `verify` 完成复核。具体步骤见[操作指南](docs/operations.md)。
-
-## 文件布局
+在仓库根目录运行 `python3 tools/preset.py list` 查看可用文件。名称、参数和用途以 JSON 为准，文档不维护预设清单或设备当前状态；改名或调参无需同步修改文档。
 
 | 目录 | 用途 |
 | --- | --- |
-| `presets/` | 完整听音配置：音色和输出衰减都在同一个 JSON |
-| `profiles/compiled/` | 可以重新生成的写入计划 |
-| `runs/` | 每次写入的快照、前后采集、ACK 与验收 |
-| `backups/` | 初始备份及独立只读采集 |
-| `headphones/<品牌>/<型号>/` | 耳机测量、研究、分析及试听资料 |
-| `tools/` | 配置管理、设备程序及分析脚本 |
-| `evidence/` | 协议研究证据 |
-| `docs/` | 仓库操作与设备技术文档 |
+| `presets/` | 可编辑的完整 JSON，音色与输出衰减在同一文件 |
+| `profiles/compiled/` | 可重建的编译缓存 |
+| `runs/` | 每次操作的快照、ACK、读回及验收 |
+| `backups/` | 初始备份和独立采集 |
+| `headphones/` | 按品牌、型号组织的测量与研究 |
+| `tools/` | 编译、设备通信和分析程序 |
+| `evidence/` | 协议分析证据 |
 
-仓库中的历史记录不代表设备此刻的状态；需要确认时按操作指南进行只读复核。
+JSON 描述要写入的内容，运行记录描述某次操作；两者都不能代替设备实时读回。
