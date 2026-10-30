@@ -1,6 +1,6 @@
 # MOONDROP Kadenz 终章
 
-这是一份型号资料档案：官方频响、来源记录、声音研究与调音依据集中在此。官方测量不是用户这副耳机的耳内实测；导管、耳套与个人偏好的适用范围见各文档。
+这是一份型号资料档案：官方频响、来源记录、声音研究与调音依据集中在此。官方测量不是个人耳内实测；导管、耳套与个人偏好的适用范围见各文档。
 
 | 内容 | 入口 |
 | --- | --- |
@@ -10,7 +10,7 @@
 | 频点及频段统计 | [analysis/summary.md](analysis/summary.md) |
 | 完整计算结果 | [analysis/statistics.json](analysis/statistics.json) |
 | 外部一手资料与限制 | [research/sources.md](research/sources.md) |
-| 密集金属调音 | [设计依据与验收要求](research/death-metal-structure-v1.md) |
+| 密集金属调音示例 | [设计依据与试听方法](research/death-metal-structure-v1.md) |
 | 密集金属预设的五采样率响应 | [离线报告](analysis/death-metal-structure-v1.json) / [曲线数据](analysis/death-metal-structure-v1.csv) |
 
 在项目根目录离线复算：

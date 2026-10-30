@@ -32,4 +32,4 @@
 
 `apply` 与 `verify` 使用协作锁。外部 App、底层程序、断开设备和强制终止不受该锁完全保护，也不能保证自动回滚。
 
-状态码和完整操作步骤见[操作指南](../operations.md)。实现与模拟故障覆盖见[探测器](../../tools/echo_probe.c)、[写入器](../../tools/echo_apply_plan.c)、[流程测试](../../tools/test_workflow.py)和[原生测试](../../tools/test_echo_probe.c)。原始设备操作证据保存在 [`runs/`](../../runs/)。
+状态码和完整操作步骤见[操作指南](../operations.md)。实现与模拟故障覆盖见[探测器](../../tools/echo_probe.c)、[写入器](../../tools/echo_apply_plan.c)、[流程测试](../../tools/test_workflow.py)和[原生测试](../../tools/test_echo_probe.c)。原始设备操作证据由各次操作写入 `runs/`。

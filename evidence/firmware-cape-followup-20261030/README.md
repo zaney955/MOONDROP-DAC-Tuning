@@ -1,6 +1,6 @@
 # CAPE 协议与备份边界继续调查
 
-日期：2026-10-30。结论见[本轮报告](../../docs/devices/echo-b-cape-protocol-and-backup-boundaries.md)。没有设备 I/O，没有执行 APK、native 库、固件或 fwupd。
+日期：2026-10-30。结论见[固件参考](../../docs/devices/echo-b-firmware.md)。没有设备 I/O，没有执行 APK、native 库、固件或 fwupd。
 
 - `fwupd-cape/`：通过 GitHub 连接器读取的固定 commit 原始源码，含来源 URL/Blob ID；不是先前的 `synaptics-cxaudio` 插件。
 - `fwupd-driver-review.json`：报告格式、注册钩子、分区输入假设与不适用边界。

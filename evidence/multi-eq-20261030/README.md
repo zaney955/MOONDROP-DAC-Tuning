@@ -1,6 +1,6 @@
 # 多套 EQ 与 iPhone 切换：离线证据
 
-结论和覆盖边界见[调查报告](../../docs/devices/echo-b-multiple-eq-iphone.md)。本目录不含设备操作；没有写入、保存、切换、重置或 USB 查询。
+结论和覆盖边界见[技术参考](../../docs/devices/echo-b.md)。本目录不含设备操作；没有写入、保存、切换、重置或 USB 查询。
 
 - `identity-and-selection.json`：APK SHA-256、选中方法和代码项偏移。
 - `selected-methods.asm`：Freeman 模式读取/切换/保存、共享模式列表及 PersistEQParams 的 Androguard 静态指令。

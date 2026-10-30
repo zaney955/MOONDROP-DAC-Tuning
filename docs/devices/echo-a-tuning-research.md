@@ -24,4 +24,4 @@ DevicePEQ 提供电脑网页控制路线，须按实际 VID/PID、USB 名称与�
 
 ECHO-A 的已验证版本采用 WalkPlay SchemeNo11、HID 接口 3、Report ID `0x4B`，系数设计率为 93,750 Hz。[协议依据](https://github.com/Chronosauros/contour/blob/main/research/protocol/PROTOCOL.md#moondrop-echo-a-330212c5-supported-in-contour-160)
 
-本仓库硬件后端针对 ECHO-B `35d8:149b`，使用 Report ID 1、62 字节报告和 CTRL 模块。ECHO-B 写入程序及编译结果不能直接用于 ECHO-A；设备识别、WalkPlay 编码和验收路径需要独立适配。[ECHO-B 协议](echo-b-investigation.md)
+本仓库硬件后端针对 ECHO-B `35d8:149b`，使用 Report ID 1、62 字节报告和 CTRL 模块。ECHO-B 写入程序及编译结果不能直接用于 ECHO-A；设备识别、WalkPlay 编码和验收路径需要独立适配。[ECHO-B 协议](echo-b.md)

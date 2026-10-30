@@ -1,6 +1,6 @@
 # ECHO-B 固件适配离线复核（2026-10-30）
 
-结果见[适配调查报告](../../docs/devices/echo-b-firmware-package-compatibility.md)。本目录不包含已验证的 ECHO-B 恢复固件；所有下载文件仅用于离线比较。
+结果见[固件参考](../../docs/devices/echo-b-firmware.md)。本目录不包含已验证的 ECHO-B 恢复固件；所有下载文件仅用于离线比较。
 
 - `analyze_offline.py`：标准库脚本，只检查已保存的文件字节；不联网、不加载目标库、不访问 USB。
 - `candidate-analysis.json`：SPV 段、简单校验、Marigold 描述符载荷范围、ECHO-B/BIANCA 字节相等及 6 个 `.hid` 目标头筛选。
