@@ -1,0 +1,23 @@
+{
+  "recorded_at_utc": "2026-10-30T15:17:46.420982+00:00",
+  "scope": "Existing artifact/capture inspection and public read-only source/metadata retrieval; no live device operations",
+  "device_usb_access": false,
+  "target_code_executed": false,
+  "tools_installed_or_reconfigured": false,
+  "new_matching_35d8_149b_image_found": false,
+  "current_local_apk_manifest": {
+    "versionName": "2.25.0c-260813ai",
+    "versionCode": 102034,
+    "sha256": "04756b49acfea523758d86101c96c1824b7b209ae3a8836c07837088e795d2d5"
+  },
+  "findings": {
+    "protocol_family": "CAPE strongly supported by 20 saved frame matches; physical silicon unconfirmed",
+    "backup_coverage": "HID upgrade payload contains code and model config but full flash/ROM/OTP/per-unit coverage is not established",
+    "fwupd_cape": "Matching public protocol implementation, no ECHO-B quirk or read_firmware hook, no tool executed",
+    "legacy_apk": "Four archive index identities found; actual archive GET 429, original vendor GET 500; no old APK analyzed"
+  },
+  "remote_read_failures": [
+    "Archive replay HTTP 429; not retried",
+    "Known original vendor APK URL GET HTTP 500; not retried"
+  ]
+}

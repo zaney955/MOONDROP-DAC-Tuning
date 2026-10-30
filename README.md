@@ -8,6 +8,7 @@
 - [耳机资料库](headphones/README.md)：测量、声音研究与试听方法。
 - [设备协议与证据](docs/devices/echo-b-investigation.md)：通信实现及验证范围。
 - [功能探索](docs/devices/echo-b-possibilities.md)：可扩展方向与未验证能力。
+- [多套 EQ 与 iPhone 切换调查](docs/devices/echo-b-multiple-eq-iphone.md)：自定义存储、内置模式和手机控制通道的证据边界。
 
 在仓库根目录运行 `python3 tools/preset.py list` 查看可用文件。名称、参数和用途以 JSON 为准，文档不维护预设清单或设备当前状态；改名或调参无需同步修改文档。
 

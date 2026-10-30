@@ -1,0 +1,54 @@
+{
+  "0x58": {
+    "name": "_ZN18CxAudioHidDev2080510EepromReadEjjPhjP15_MEMOP_FEEDBACK",
+    "target": "0x258a8"
+  },
+  "0x68": {
+    "name": "_ZN18CxAudioHidDev2080513EepromGetSizeEv",
+    "target": "0x258c0"
+  },
+  "0x78": {
+    "name": "_ZN16CxAudioHidDevice17EepromReadPointerEjPt",
+    "target": "0x1ae98"
+  },
+  "0x80": {
+    "name": "_ZN16CxAudioHidDevice23EepromReadUnicodeStringEjPcj",
+    "target": "0x1b028"
+  },
+  "0x198": {
+    "name": "_ZN16CxAudioHidDevice11MemoryPatchE20_CXHID_AUDIO_MEMTYPEjPKcPS2_jPv",
+    "target": "0x1d110"
+  },
+  "0x230": {
+    "name": "_ZN18CxAudioHidDev2080524DeviceGetFirmwareVersionEP16_HID_DEV_VERSION",
+    "target": "0x24e7c"
+  },
+  "0x240": {
+    "name": "_ZN18CxAudioHidDev2080520DeviceGetChipVersionEPh",
+    "target": "0x2527c"
+  },
+  "0x248": {
+    "name": "_ZN18CxAudioHidDev2080517DeviceGetChipCodeEPj",
+    "target": "0x2539c"
+  },
+  "0x2c8": {
+    "name": "_ZN18CxAudioHidDev208055WriteEPhj",
+    "target": "0x245a4"
+  },
+  "0x2d0": {
+    "name": "_ZN18CxAudioHidDev208054ReadEPhj",
+    "target": "0x247e4"
+  },
+  "0x300": {
+    "name": "_ZN18CxAudioHidDev2080511SendCommandEP20CAPE_FW_FULL_COMMANDS1_P19ModuleReturnCodeTag",
+    "target": "0x249b4"
+  },
+  "0x318": {
+    "name": "_ZN18CxAudioHidDev2080510SpimemReadEjjPhjP15_MEMOP_FEEDBACK",
+    "target": "0x26c8c"
+  },
+  "0x340": {
+    "name": "_ZN18CxAudioHidDev2080510SpimemSizeEv",
+    "target": "0x270d4"
+  }
+}

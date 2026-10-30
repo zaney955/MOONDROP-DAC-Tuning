@@ -1,0 +1,19 @@
+{
+  "freedsp_studio_commit_count": 49,
+  "first_commit": {
+    "sha": "69ca21144432ef18b5815a44779d54e50b18e835",
+    "date": "2026-08-12T10:05:14Z",
+    "message": "Initial commit: FreeDSP Studio"
+  },
+  "head_commit": {
+    "sha": "1b42f63db24f7dc8e94f6897575c1c403f4d4882",
+    "date": "2026-10-16T09:16:11Z"
+  },
+  "current_tree_items": 73,
+  "tree_truncated": false,
+  "download_page_distinct_captures": 50,
+  "echo_product_distinct_captures": 17,
+  "device_io_performed": false,
+  "large_packages_downloaded_by_this_worker": false,
+  "wayback_further_requests_stopped_after_parent_reported_429": true
+}

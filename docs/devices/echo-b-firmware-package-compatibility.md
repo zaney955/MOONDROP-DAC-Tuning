@@ -2,6 +2,8 @@
 
 日期：2026-10-30；接续[第一轮固件调查](echo-b-firmware-backup-investigation.md)。本轮仅检查电脑上的文件、官方网页源代码及公开 HTTP GET 响应；没有枚举或访问 USB，没有执行 App、目标库或固件，也没有发送升级准备、重置或其他设备命令。
 
+后续[协议与备份边界调查](echo-b-cape-protocol-and-backup-boundaries.md)用既有实机帧及 Synaptics 编写的 CAPE 原始实现强化了协议分类，并进一步核对 `.hid` 内型号配置和历史 App 线索；仍未取得本机恢复镜像。
+
 ## 结论
 
 **官方目录标为 ECHO-B 的文件不能确认为本机 `35d8:149b` 的固件，并且已有实质性的协议/格式冲突证据。真正匹配该 USB ID 的固件仍未找到。**

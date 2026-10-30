@@ -18,4 +18,6 @@
 #chart .shelf-connector{opacity:.5;pointer-events:none}#chart .shelf-connector line{stroke-width:1;vector-effect:non-scaling-stroke}#chart .shelf-connector circle{fill:#fdfefb;stroke-width:1;vector-effect:non-scaling-stroke}#chart .shelf-connector.selected{opacity:.95}
 
 .chart-readout{position:absolute;z-index:5;pointer-events:none;width:150px;padding:9px 11px;border:1px solid #c9d3c2;border-left:3px solid var(--band-color);border-radius:6px;background:#fdfefbf5;box-shadow:0 3px 12px #263b2512;color:#35442f;font-size:11px;line-height:1.65;font-variant-numeric:tabular-nums;white-space:nowrap}.chart-readout strong,.chart-readout span{display:block}.chart-readout strong{font-size:11px;margin-bottom:3px;color:var(--band-color)}
+.inspector-head{flex-wrap:wrap}.filter-actions{flex-wrap:wrap}.reset-actions{display:flex;align-items:center;flex-wrap:wrap;gap:8px;margin-top:14px}.reset-actions button{font-size:.73rem;min-height:36px;padding:7px 11px}.reset-actions span{font-size:.64rem;color:var(--muted);line-height:1.6}
+@media(pointer:coarse){.reset-actions button{min-height:48px}.filter-actions button{min-height:48px}}
 @media(max-width:480px){.chart-readout{width:136px;padding:7px 9px;font-size:10px}.chart-readout strong{font-size:10px}}

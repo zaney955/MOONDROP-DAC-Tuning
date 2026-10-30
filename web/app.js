@@ -9,6 +9,7 @@ let lastError = '', showErrors = false;
 let chartGeometry, chartRange = null, chartDrag = null, dragPreviewTimer, dragPreviewInFlight = false;
 let qWheelInput = null;
 let selectedBand = null;
+let resetUndo = null;
 let previewFilterRefs = [];
 const CHART_HEIGHT = 360, PLOT_TOP = 18, PLOT_BOTTOM = 316, PLOT_HEIGHT = PLOT_BOTTOM - PLOT_TOP;
 const formatDb = (v) => `${v > 0 ? '+' : ''}${v.toFixed(2)} dB`;
@@ -129,6 +130,8 @@ function setDocument(value, presetId = null) {
 }
 
 function changed() {
+  resetUndo = null;
+  updateResetControls();
   lastEditAt = performance.now();
   revision++;
   validatedRevision = -1;
@@ -385,6 +388,31 @@ function addFilter(frequency, gain = 0) {
   if (!sortFilters()) renderBands();
   changed();
   drawChart();
+}
+
+function updateResetControls() {
+  const selected = doc?.filters[selectedBand];
+  $('#reset-band').disabled = busy || reloadWaiting || !selected || selected.gain_db === 0;
+  $('#reset-eq').disabled = busy || reloadWaiting || !doc?.filters.some((filter) => filter.gain_db !== 0);
+  $('#undo-reset').hidden = !resetUndo;
+  $('#undo-reset').disabled = busy || reloadWaiting || !resetUndo;
+}
+
+function resetGains(all = false) {
+  if (busy || reloadWaiting || !doc || (!all && selectedBand === null)) return;
+  finishChartDrag(true);
+  const targets = (all ? doc.filters : [doc.filters[selectedBand]]).filter((filter) => filter.gain_db !== 0);
+  if (!targets.length) return;
+  const previous = targets.map((filter) => ({filter, gain: filter.gain_db}));
+  targets.forEach((filter) => { filter.gain_db = 0; });
+  renderBands();
+  changed();
+  resetUndo = previous;
+  updateResetControls();
+  drawChart();
+  $('#undo-reset').focus({preventScroll: true});
+  notify(all ? '已将全部 EQ 增益归零，整体输出保持不变。可撤销重置；尚未写入耳放。'
+    : `已将第 ${selectedBand + 1} 段增益归零。可撤销重置；尚未写入耳放。`);
 }
 
 function chartHandleAt(event) {
@@ -778,6 +806,7 @@ function setBusy(value) {
   });
   $('#add').disabled = value || !doc || doc.filters.length >= 8;
   $('#delete').disabled = value || selectedBand === null;
+  updateResetControls();
   $('#import').disabled = value;
   $('#new').disabled = value;
   document.querySelectorAll('.preset').forEach((button) => { button.disabled = value; });
@@ -878,6 +907,17 @@ $('#delete').addEventListener('click', () => {
   changed();
   drawChart();
   $('#add').focus();
+});
+$('#reset-band').addEventListener('click', () => resetGains());
+$('#reset-eq').addEventListener('click', () => resetGains(true));
+$('#undo-reset').addEventListener('click', () => {
+  if (busy || reloadWaiting || !resetUndo) return;
+  resetUndo.forEach(({filter, gain}) => { filter.gain_db = gain; });
+  renderBands();
+  changed();
+  drawChart();
+  $('#reset-eq').focus({preventScroll: true});
+  notify('已撤销重置，恢复之前的增益；尚未写入耳放。');
 });
 $('#new').addEventListener('click', () => {
   if (!discardAllowed()) return;

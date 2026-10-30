@@ -1,0 +1,932 @@
+{
+  "source": "CAPE HID header follows fwupd commit 2796458862b73aa541ee1786bf73c9cb7d147103; inner-body words unnamed observations only.",
+  "baseline": "FreeDSP-1.1-reference.hid",
+  "files": [
+    {
+      "file": "/Users/zane/Projects/reverse/ECHO-B-DAC-Amp-Tuning/evidence/firmware-compatibility-20261030/FreeDSP-1.1-reference.hid",
+      "size": 114720,
+      "sha256": "ca0a21cdd1b6ed63255252759595e34a58b472b8d402c37a736527475d8b7859",
+      "outer_header": {
+        "vid": "0x35d8",
+        "pid": "0x1496",
+        "update_type": 2,
+        "signature": "EFSC",
+        "declared_crc": "0xa783b220",
+        "crc_verified": false,
+        "version_z_y_x_w": "9.7.12.6",
+        "reserved": "0x0"
+      },
+      "body_file_range": [
+        32,
+        114720
+      ],
+      "body_size": 114688,
+      "body_sha256": "63fb588d83ed7f961c9fa6570aa692cf8877d2b798ddc082999af3fbaba21f27",
+      "body_4KiB_aligned": true,
+      "body_offset_0_words_observed_unassigned_names": [
+        "0x43534645",
+        "0x12bbe48f",
+        "0x100",
+        "0x1bf00",
+        "0x0",
+        "0x43e4",
+        "0x43e4",
+        "0xd8d0",
+        "0xffffffff",
+        "0xffffffff",
+        "0x1e0011",
+        "0x1e0011",
+        "0xffff001b",
+        "0x1f001f",
+        "0xffffffff",
+        "0x4d97d2ee"
+      ],
+      "body_word8_plus_word12_equals_body_size": true,
+      "trailing_ff_bytes": 13612,
+      "last_non_ff_offset": "0x18af3",
+      "usb_descriptor_candidates": [
+        {
+          "offset": "0x114f0",
+          "bytes_hex": "12010002ef020140cb069415040001020301",
+          "vid": "0x6cb",
+          "pid": "0x1594",
+          "bcd_device": "0x4",
+          "indexes": [
+            1,
+            2,
+            3
+          ],
+          "runtime_selection_proven": false
+        },
+        {
+          "offset": "0x1151c",
+          "bytes_hex": "12010002ef020140cb069415040001020301",
+          "vid": "0x6cb",
+          "pid": "0x1594",
+          "bcd_device": "0x4",
+          "indexes": [
+            1,
+            2,
+            3
+          ],
+          "runtime_selection_proven": false
+        },
+        {
+          "offset": "0x14160",
+          "bytes_hex": "12010002ef020140d8359614060001020301",
+          "vid": "0x35d8",
+          "pid": "0x1496",
+          "bcd_device": "0x6",
+          "indexes": [
+            1,
+            2,
+            3
+          ],
+          "runtime_selection_proven": false
+        }
+      ],
+      "usb_string_descriptor_candidates": [
+        {
+          "descriptor_offset": "0x1153e",
+          "text": "Synaptics"
+        },
+        {
+          "descriptor_offset": "0x11560",
+          "text": "Hi Res USB-C AUDIO"
+        },
+        {
+          "descriptor_offset": "0x11586",
+          "text": "000000000000"
+        },
+        {
+          "descriptor_offset": "0x115a0",
+          "text": "ADC2.0 Audio Device"
+        },
+        {
+          "descriptor_offset": "0x11910",
+          "text": "Mic Volume"
+        },
+        {
+          "descriptor_offset": "0x11926",
+          "text": "Speaker Volume"
+        },
+        {
+          "descriptor_offset": "0x119a4",
+          "text": "CAPE"
+        },
+        {
+          "descriptor_offset": "0x140e4",
+          "text": "Headset"
+        },
+        {
+          "descriptor_offset": "0x14104",
+          "text": "Headset"
+        },
+        {
+          "descriptor_offset": "0x14124",
+          "text": "MOONDROP"
+        },
+        {
+          "descriptor_offset": "0x14148",
+          "text": "FreeDSP"
+        }
+      ],
+      "different_byte_count_vs_baseline": 0,
+      "same_range_0x120_to_0x14000_as_baseline": true,
+      "diff_counts_by_4KiB": {},
+      "generic_fwupd_equal_halves_input_mismatch": {
+        "half_size": 57360,
+        "selected_second_half_signature_at_half_plus_12_hex": "a8699b00",
+        "selected_first_half_body_size": 57328,
+        "original_body_size": 114688,
+        "interpretation": "Generic prepare_firmware expects a pair of complete per-partition HID images, not this one complete HID package."
+      },
+      "limitations": "Outer metadata + bytes only. Internal EFSC format, physical flash map, region coverage, runtime override and per-unit data preservation not established."
+    },
+    {
+      "file": "/Users/zane/Projects/reverse/ECHO-B-DAC-Amp-Tuning/evidence/firmware-compatibility-20261030/catalog-0539314b-eb40-458f-b757-9585e8e24c81.hid",
+      "size": 114720,
+      "sha256": "2f5bb9ad814637d58d3fcf7bb1c99c79c27688d739da725edf19479f89296151",
+      "outer_header": {
+        "vid": "0x35d8",
+        "pid": "0x1499",
+        "update_type": 2,
+        "signature": "EFSC",
+        "declared_crc": "0xd0874f09",
+        "crc_verified": false,
+        "version_z_y_x_w": "9.7.13.1",
+        "reserved": "0x0"
+      },
+      "body_file_range": [
+        32,
+        114720
+      ],
+      "body_size": 114688,
+      "body_sha256": "a33085f5730e1b9910d12f13cd951266613921fa801a8ae2b52355c886b51e56",
+      "body_4KiB_aligned": true,
+      "body_offset_0_words_observed_unassigned_names": [
+        "0x43534645",
+        "0x7f46f7b8",
+        "0x100",
+        "0x1bf00",
+        "0x0",
+        "0x43e4",
+        "0x43e4",
+        "0xd8d0",
+        "0xffffffff",
+        "0xffffffff",
+        "0x1e0011",
+        "0x1e0011",
+        "0xffff001b",
+        "0x1f001f",
+        "0xffffffff",
+        "0xbdcbf13c"
+      ],
+      "body_word8_plus_word12_equals_body_size": true,
+      "trailing_ff_bytes": 13612,
+      "last_non_ff_offset": "0x18af3",
+      "usb_descriptor_candidates": [
+        {
+          "offset": "0x114f0",
+          "bytes_hex": "12010002ef020140cb069415040001020301",
+          "vid": "0x6cb",
+          "pid": "0x1594",
+          "bcd_device": "0x4",
+          "indexes": [
+            1,
+            2,
+            3
+          ],
+          "runtime_selection_proven": false
+        },
+        {
+          "offset": "0x1151c",
+          "bytes_hex": "12010002ef020140cb069415040001020301",
+          "vid": "0x6cb",
+          "pid": "0x1594",
+          "bcd_device": "0x4",
+          "indexes": [
+            1,
+            2,
+            3
+          ],
+          "runtime_selection_proven": false
+        },
+        {
+          "offset": "0x14160",
+          "bytes_hex": "12010002ef020140d8359914010001020301",
+          "vid": "0x35d8",
+          "pid": "0x1499",
+          "bcd_device": "0x1",
+          "indexes": [
+            1,
+            2,
+            3
+          ],
+          "runtime_selection_proven": false
+        }
+      ],
+      "usb_string_descriptor_candidates": [
+        {
+          "descriptor_offset": "0x1153e",
+          "text": "Synaptics"
+        },
+        {
+          "descriptor_offset": "0x11560",
+          "text": "Hi Res USB-C AUDIO"
+        },
+        {
+          "descriptor_offset": "0x11586",
+          "text": "000000000000"
+        },
+        {
+          "descriptor_offset": "0x115a0",
+          "text": "ADC2.0 Audio Device"
+        },
+        {
+          "descriptor_offset": "0x11910",
+          "text": "Mic Volume"
+        },
+        {
+          "descriptor_offset": "0x11926",
+          "text": "Speaker Volume"
+        },
+        {
+          "descriptor_offset": "0x119a4",
+          "text": "CAPE"
+        },
+        {
+          "descriptor_offset": "0x140e4",
+          "text": "Headset"
+        },
+        {
+          "descriptor_offset": "0x14104",
+          "text": "Headset"
+        },
+        {
+          "descriptor_offset": "0x14124",
+          "text": "MOONDROP"
+        },
+        {
+          "descriptor_offset": "0x14148",
+          "text": "DUSK-SP"
+        }
+      ],
+      "different_byte_count_vs_baseline": 30831,
+      "same_range_0x120_to_0x14000_as_baseline": false,
+      "diff_counts_by_4KiB": {
+        "0x0": 44,
+        "0x1000": 25,
+        "0x2000": 1,
+        "0x3000": 3,
+        "0x4000": 8,
+        "0x5000": 4,
+        "0x6000": 2,
+        "0x7000": 3042,
+        "0x8000": 3736,
+        "0x9000": 3917,
+        "0xa000": 3922,
+        "0xb000": 3959,
+        "0xc000": 3949,
+        "0xd000": 3870,
+        "0xe000": 1857,
+        "0x11000": 54,
+        "0x14000": 161,
+        "0x15000": 646,
+        "0x16000": 528,
+        "0x17000": 740,
+        "0x18000": 363
+      },
+      "generic_fwupd_equal_halves_input_mismatch": {
+        "half_size": 57360,
+        "selected_second_half_signature_at_half_plus_12_hex": "2a69eb68",
+        "selected_first_half_body_size": 57328,
+        "original_body_size": 114688,
+        "interpretation": "Generic prepare_firmware expects a pair of complete per-partition HID images, not this one complete HID package."
+      },
+      "limitations": "Outer metadata + bytes only. Internal EFSC format, physical flash map, region coverage, runtime override and per-unit data preservation not established."
+    },
+    {
+      "file": "/Users/zane/Projects/reverse/ECHO-B-DAC-Amp-Tuning/evidence/firmware-compatibility-20261030/catalog-50e01dd5-8e50-408d-aa6b-48042965d776.hid",
+      "size": 114720,
+      "sha256": "a9ec1db095573ad2ec0288fe1cc833758cf247085f58260de5b89ee892b332c0",
+      "outer_header": {
+        "vid": "0x35d8",
+        "pid": "0x1499",
+        "update_type": 2,
+        "signature": "EFSC",
+        "declared_crc": "0xbb3512cb",
+        "crc_verified": false,
+        "version_z_y_x_w": "9.7.12.1",
+        "reserved": "0x0"
+      },
+      "body_file_range": [
+        32,
+        114720
+      ],
+      "body_size": 114688,
+      "body_sha256": "19b6c7d703c39ef5a21856914aa434cfd4121a94b0f9777b122e51def6388682",
+      "body_4KiB_aligned": true,
+      "body_offset_0_words_observed_unassigned_names": [
+        "0x43534645",
+        "0x76ba92a0",
+        "0x100",
+        "0x1bf00",
+        "0x0",
+        "0x43e4",
+        "0x43e4",
+        "0xd8d0",
+        "0xffffffff",
+        "0xffffffff",
+        "0x1e0011",
+        "0x1e0011",
+        "0xffff001b",
+        "0x1f001f",
+        "0xffffffff",
+        "0x349a7975"
+      ],
+      "body_word8_plus_word12_equals_body_size": true,
+      "trailing_ff_bytes": 13612,
+      "last_non_ff_offset": "0x18af3",
+      "usb_descriptor_candidates": [
+        {
+          "offset": "0x114f0",
+          "bytes_hex": "12010002ef020140cb069415040001020301",
+          "vid": "0x6cb",
+          "pid": "0x1594",
+          "bcd_device": "0x4",
+          "indexes": [
+            1,
+            2,
+            3
+          ],
+          "runtime_selection_proven": false
+        },
+        {
+          "offset": "0x1151c",
+          "bytes_hex": "12010002ef020140cb069415040001020301",
+          "vid": "0x6cb",
+          "pid": "0x1594",
+          "bcd_device": "0x4",
+          "indexes": [
+            1,
+            2,
+            3
+          ],
+          "runtime_selection_proven": false
+        },
+        {
+          "offset": "0x14160",
+          "bytes_hex": "12010002ef020140d8359914010001020301",
+          "vid": "0x35d8",
+          "pid": "0x1499",
+          "bcd_device": "0x1",
+          "indexes": [
+            1,
+            2,
+            3
+          ],
+          "runtime_selection_proven": false
+        }
+      ],
+      "usb_string_descriptor_candidates": [
+        {
+          "descriptor_offset": "0x1153e",
+          "text": "Synaptics"
+        },
+        {
+          "descriptor_offset": "0x11560",
+          "text": "Hi Res USB-C AUDIO"
+        },
+        {
+          "descriptor_offset": "0x11586",
+          "text": "000000000000"
+        },
+        {
+          "descriptor_offset": "0x115a0",
+          "text": "ADC2.0 Audio Device"
+        },
+        {
+          "descriptor_offset": "0x11910",
+          "text": "Mic Volume"
+        },
+        {
+          "descriptor_offset": "0x11926",
+          "text": "Speaker Volume"
+        },
+        {
+          "descriptor_offset": "0x119a4",
+          "text": "CAPE"
+        },
+        {
+          "descriptor_offset": "0x140e4",
+          "text": "Headset"
+        },
+        {
+          "descriptor_offset": "0x14104",
+          "text": "Headset"
+        },
+        {
+          "descriptor_offset": "0x14124",
+          "text": "MOONDROP"
+        },
+        {
+          "descriptor_offset": "0x14148",
+          "text": "DUSK-SP"
+        }
+      ],
+      "different_byte_count_vs_baseline": 2406,
+      "same_range_0x120_to_0x14000_as_baseline": true,
+      "diff_counts_by_4KiB": {
+        "0x0": 14,
+        "0x14000": 153,
+        "0x15000": 636,
+        "0x16000": 522,
+        "0x17000": 732,
+        "0x18000": 349
+      },
+      "generic_fwupd_equal_halves_input_mismatch": {
+        "half_size": 57360,
+        "selected_second_half_signature_at_half_plus_12_hex": "a8699b00",
+        "selected_first_half_body_size": 57328,
+        "original_body_size": 114688,
+        "interpretation": "Generic prepare_firmware expects a pair of complete per-partition HID images, not this one complete HID package."
+      },
+      "limitations": "Outer metadata + bytes only. Internal EFSC format, physical flash map, region coverage, runtime override and per-unit data preservation not established."
+    },
+    {
+      "file": "/Users/zane/Projects/reverse/ECHO-B-DAC-Amp-Tuning/evidence/firmware-compatibility-20261030/catalog-9ea1855b-4b05-472f-9c87-2e2b2d549ca4.hid",
+      "size": 114720,
+      "sha256": "8702ef7c69bec2cfca78f6b840b6fd7d3f0cb260fada2cb5de0250fb1a4b0b8e",
+      "outer_header": {
+        "vid": "0x6cb",
+        "pid": "0x1594",
+        "update_type": 2,
+        "signature": "EFSC",
+        "declared_crc": "0x51e3645b",
+        "crc_verified": false,
+        "version_z_y_x_w": "9.7.12.0",
+        "reserved": "0x0"
+      },
+      "body_file_range": [
+        32,
+        114720
+      ],
+      "body_size": 114688,
+      "body_sha256": "b66f8f441f2ea9b8c052812a66f93a2bbf423c25e543d15f4eef24f867ac753a",
+      "body_4KiB_aligned": true,
+      "body_offset_0_words_observed_unassigned_names": [
+        "0x43534645",
+        "0xe4e9211",
+        "0x100",
+        "0x1bf00",
+        "0x0",
+        "0x43e4",
+        "0x43e4",
+        "0xd8d0",
+        "0xffffffff",
+        "0xffffffff",
+        "0x1e0011",
+        "0x1e0011",
+        "0xffff001b",
+        "0x1f001f",
+        "0xffffffff",
+        "0x3d4da102"
+      ],
+      "body_word8_plus_word12_equals_body_size": true,
+      "trailing_ff_bytes": 13255,
+      "last_non_ff_offset": "0x18c58",
+      "usb_descriptor_candidates": [
+        {
+          "offset": "0x114f0",
+          "bytes_hex": "12010002ef020140cb069415040001020301",
+          "vid": "0x6cb",
+          "pid": "0x1594",
+          "bcd_device": "0x4",
+          "indexes": [
+            1,
+            2,
+            3
+          ],
+          "runtime_selection_proven": false
+        },
+        {
+          "offset": "0x1151c",
+          "bytes_hex": "12010002ef020140cb069415040001020301",
+          "vid": "0x6cb",
+          "pid": "0x1594",
+          "bcd_device": "0x4",
+          "indexes": [
+            1,
+            2,
+            3
+          ],
+          "runtime_selection_proven": false
+        },
+        {
+          "offset": "0x14160",
+          "bytes_hex": "12010002ef020140cb069415040001020301",
+          "vid": "0x6cb",
+          "pid": "0x1594",
+          "bcd_device": "0x4",
+          "indexes": [
+            1,
+            2,
+            3
+          ],
+          "runtime_selection_proven": false
+        }
+      ],
+      "usb_string_descriptor_candidates": [
+        {
+          "descriptor_offset": "0x1153e",
+          "text": "Synaptics"
+        },
+        {
+          "descriptor_offset": "0x11560",
+          "text": "Hi Res USB-C AUDIO"
+        },
+        {
+          "descriptor_offset": "0x11586",
+          "text": "000000000000"
+        },
+        {
+          "descriptor_offset": "0x115a0",
+          "text": "ADC2.0 Audio Device"
+        },
+        {
+          "descriptor_offset": "0x11910",
+          "text": "Mic Volume"
+        },
+        {
+          "descriptor_offset": "0x11926",
+          "text": "Speaker Volume"
+        },
+        {
+          "descriptor_offset": "0x119a4",
+          "text": "CAPE"
+        },
+        {
+          "descriptor_offset": "0x140e4",
+          "text": "Headset"
+        },
+        {
+          "descriptor_offset": "0x14104",
+          "text": "Headset"
+        },
+        {
+          "descriptor_offset": "0x14124",
+          "text": "Synaptics"
+        },
+        {
+          "descriptor_offset": "0x14148",
+          "text": "CX31988"
+        }
+      ],
+      "different_byte_count_vs_baseline": 42638,
+      "same_range_0x120_to_0x14000_as_baseline": false,
+      "diff_counts_by_4KiB": {
+        "0x0": 46,
+        "0x1000": 24,
+        "0x2000": 1,
+        "0x3000": 3,
+        "0x4000": 8,
+        "0x5000": 4,
+        "0x6000": 2,
+        "0x7000": 3042,
+        "0x8000": 3736,
+        "0x9000": 3917,
+        "0xa000": 3922,
+        "0xb000": 3959,
+        "0xc000": 3949,
+        "0xd000": 3870,
+        "0xe000": 1857,
+        "0x11000": 54,
+        "0x14000": 1779,
+        "0x15000": 3175,
+        "0x16000": 3522,
+        "0x17000": 3217,
+        "0x18000": 2551
+      },
+      "generic_fwupd_equal_halves_input_mismatch": {
+        "half_size": 57360,
+        "selected_second_half_signature_at_half_plus_12_hex": "2a69eb68",
+        "selected_first_half_body_size": 57328,
+        "original_body_size": 114688,
+        "interpretation": "Generic prepare_firmware expects a pair of complete per-partition HID images, not this one complete HID package."
+      },
+      "limitations": "Outer metadata + bytes only. Internal EFSC format, physical flash map, region coverage, runtime override and per-unit data preservation not established."
+    },
+    {
+      "file": "/Users/zane/Projects/reverse/ECHO-B-DAC-Amp-Tuning/evidence/firmware-compatibility-20261030/catalog-ccfef235-da10-4370-956d-257a1b2361f2.hid",
+      "size": 114720,
+      "sha256": "264894f72a7f11fd60ed41635db50a0a02d54b9b8f8adb9ca766f8b39fde7714",
+      "outer_header": {
+        "vid": "0x35d8",
+        "pid": "0x1497",
+        "update_type": 2,
+        "signature": "EFSC",
+        "declared_crc": "0xe5e8028f",
+        "crc_verified": false,
+        "version_z_y_x_w": "9.7.12.1",
+        "reserved": "0x0"
+      },
+      "body_file_range": [
+        32,
+        114720
+      ],
+      "body_size": 114688,
+      "body_sha256": "507d04ea8f3ff402ddb3189ab35ceab7ca1e7bacfbebde7ef8ecd5b5ddb78438",
+      "body_4KiB_aligned": true,
+      "body_offset_0_words_observed_unassigned_names": [
+        "0x43534645",
+        "0x2044e66c",
+        "0x100",
+        "0x1bf00",
+        "0x0",
+        "0x43e4",
+        "0x43e4",
+        "0xd8d0",
+        "0xffffffff",
+        "0xffffffff",
+        "0x1e0011",
+        "0x1e0011",
+        "0xffff001b",
+        "0x1f001f",
+        "0xffffffff",
+        "0x15cde44c"
+      ],
+      "body_word8_plus_word12_equals_body_size": true,
+      "trailing_ff_bytes": 13620,
+      "last_non_ff_offset": "0x18aeb",
+      "usb_descriptor_candidates": [
+        {
+          "offset": "0x114f0",
+          "bytes_hex": "12010002ef020140cb069415040001020301",
+          "vid": "0x6cb",
+          "pid": "0x1594",
+          "bcd_device": "0x4",
+          "indexes": [
+            1,
+            2,
+            3
+          ],
+          "runtime_selection_proven": false
+        },
+        {
+          "offset": "0x1151c",
+          "bytes_hex": "12010002ef020140cb069415040001020301",
+          "vid": "0x6cb",
+          "pid": "0x1594",
+          "bcd_device": "0x4",
+          "indexes": [
+            1,
+            2,
+            3
+          ],
+          "runtime_selection_proven": false
+        },
+        {
+          "offset": "0x14158",
+          "bytes_hex": "12010002ef020140d8359714010001020301",
+          "vid": "0x35d8",
+          "pid": "0x1497",
+          "bcd_device": "0x1",
+          "indexes": [
+            1,
+            2,
+            3
+          ],
+          "runtime_selection_proven": false
+        }
+      ],
+      "usb_string_descriptor_candidates": [
+        {
+          "descriptor_offset": "0x1153e",
+          "text": "Synaptics"
+        },
+        {
+          "descriptor_offset": "0x11560",
+          "text": "Hi Res USB-C AUDIO"
+        },
+        {
+          "descriptor_offset": "0x11586",
+          "text": "000000000000"
+        },
+        {
+          "descriptor_offset": "0x115a0",
+          "text": "ADC2.0 Audio Device"
+        },
+        {
+          "descriptor_offset": "0x11910",
+          "text": "Mic Volume"
+        },
+        {
+          "descriptor_offset": "0x11926",
+          "text": "Speaker Volume"
+        },
+        {
+          "descriptor_offset": "0x119a4",
+          "text": "CAPE"
+        },
+        {
+          "descriptor_offset": "0x140e4",
+          "text": "Headset"
+        },
+        {
+          "descriptor_offset": "0x14104",
+          "text": "Headset"
+        },
+        {
+          "descriptor_offset": "0x14124",
+          "text": "MOONDROP"
+        },
+        {
+          "descriptor_offset": "0x14148",
+          "text": "MAY"
+        }
+      ],
+      "different_byte_count_vs_baseline": 13852,
+      "same_range_0x120_to_0x14000_as_baseline": true,
+      "diff_counts_by_4KiB": {
+        "0x0": 14,
+        "0x14000": 2402,
+        "0x15000": 3114,
+        "0x16000": 3139,
+        "0x17000": 3111,
+        "0x18000": 2072
+      },
+      "generic_fwupd_equal_halves_input_mismatch": {
+        "half_size": 57360,
+        "selected_second_half_signature_at_half_plus_12_hex": "a8699b00",
+        "selected_first_half_body_size": 57328,
+        "original_body_size": 114688,
+        "interpretation": "Generic prepare_firmware expects a pair of complete per-partition HID images, not this one complete HID package."
+      },
+      "limitations": "Outer metadata + bytes only. Internal EFSC format, physical flash map, region coverage, runtime override and per-unit data preservation not established."
+    },
+    {
+      "file": "/Users/zane/Projects/reverse/ECHO-B-DAC-Amp-Tuning/evidence/firmware-compatibility-20261030/catalog-d1dd97cc-d14b-462a-8131-25d6dd280523.hid",
+      "size": 114720,
+      "sha256": "1da84aec9a14914eb2bd3621e6273459e30ac2774a2569b4bc6ad1af255f4792",
+      "outer_header": {
+        "vid": "0x35d8",
+        "pid": "0x1499",
+        "update_type": 2,
+        "signature": "EFSC",
+        "declared_crc": "0x92af65d",
+        "crc_verified": false,
+        "version_z_y_x_w": "9.7.13.1",
+        "reserved": "0x0"
+      },
+      "body_file_range": [
+        32,
+        114720
+      ],
+      "body_size": 114688,
+      "body_sha256": "9b2eab9bec849f9beb922d2a8f7e128c7d8ac94d081af02b80d140b64287daa4",
+      "body_4KiB_aligned": true,
+      "body_offset_0_words_observed_unassigned_names": [
+        "0x43534645",
+        "0xeec52f7a",
+        "0x100",
+        "0x1bf00",
+        "0x0",
+        "0x43e4",
+        "0x43e4",
+        "0xd8d0",
+        "0xffffffff",
+        "0xffffffff",
+        "0x1e0011",
+        "0x1e0011",
+        "0xffff001b",
+        "0x1f001f",
+        "0xffffffff",
+        "0x46140841"
+      ],
+      "body_word8_plus_word12_equals_body_size": true,
+      "trailing_ff_bytes": 13608,
+      "last_non_ff_offset": "0x18af7",
+      "usb_descriptor_candidates": [
+        {
+          "offset": "0x114f0",
+          "bytes_hex": "12010002ef020140cb069415040001020301",
+          "vid": "0x6cb",
+          "pid": "0x1594",
+          "bcd_device": "0x4",
+          "indexes": [
+            1,
+            2,
+            3
+          ],
+          "runtime_selection_proven": false
+        },
+        {
+          "offset": "0x1151c",
+          "bytes_hex": "12010002ef020140cb069415040001020301",
+          "vid": "0x6cb",
+          "pid": "0x1594",
+          "bcd_device": "0x4",
+          "indexes": [
+            1,
+            2,
+            3
+          ],
+          "runtime_selection_proven": false
+        },
+        {
+          "offset": "0x14164",
+          "bytes_hex": "12010002ef020140d8359914010001020301",
+          "vid": "0x35d8",
+          "pid": "0x1499",
+          "bcd_device": "0x1",
+          "indexes": [
+            1,
+            2,
+            3
+          ],
+          "runtime_selection_proven": false
+        }
+      ],
+      "usb_string_descriptor_candidates": [
+        {
+          "descriptor_offset": "0x1153e",
+          "text": "Synaptics"
+        },
+        {
+          "descriptor_offset": "0x11560",
+          "text": "Hi Res USB-C AUDIO"
+        },
+        {
+          "descriptor_offset": "0x11586",
+          "text": "000000000000"
+        },
+        {
+          "descriptor_offset": "0x115a0",
+          "text": "ADC2.0 Audio Device"
+        },
+        {
+          "descriptor_offset": "0x11910",
+          "text": "Mic Volume"
+        },
+        {
+          "descriptor_offset": "0x11926",
+          "text": "Speaker Volume"
+        },
+        {
+          "descriptor_offset": "0x119a4",
+          "text": "CAPE"
+        },
+        {
+          "descriptor_offset": "0x140e4",
+          "text": "Headset"
+        },
+        {
+          "descriptor_offset": "0x14104",
+          "text": "Headset"
+        },
+        {
+          "descriptor_offset": "0x14124",
+          "text": "MOONDROP"
+        },
+        {
+          "descriptor_offset": "0x14148",
+          "text": "Starlight"
+        }
+      ],
+      "different_byte_count_vs_baseline": 41952,
+      "same_range_0x120_to_0x14000_as_baseline": false,
+      "diff_counts_by_4KiB": {
+        "0x0": 44,
+        "0x1000": 25,
+        "0x2000": 1,
+        "0x3000": 3,
+        "0x4000": 8,
+        "0x5000": 4,
+        "0x6000": 2,
+        "0x7000": 3042,
+        "0x8000": 3736,
+        "0x9000": 3917,
+        "0xa000": 3922,
+        "0xb000": 3959,
+        "0xc000": 3949,
+        "0xd000": 3870,
+        "0xe000": 1857,
+        "0x11000": 54,
+        "0x14000": 2345,
+        "0x15000": 2996,
+        "0x16000": 3065,
+        "0x17000": 3040,
+        "0x18000": 2113
+      },
+      "generic_fwupd_equal_halves_input_mismatch": {
+        "half_size": 57360,
+        "selected_second_half_signature_at_half_plus_12_hex": "2a69eb68",
+        "selected_first_half_body_size": 57328,
+        "original_body_size": 114688,
+        "interpretation": "Generic prepare_firmware expects a pair of complete per-partition HID images, not this one complete HID package."
+      },
+      "limitations": "Outer metadata + bytes only. Internal EFSC format, physical flash map, region coverage, runtime override and per-unit data preservation not established."
+    }
+  ]
+}

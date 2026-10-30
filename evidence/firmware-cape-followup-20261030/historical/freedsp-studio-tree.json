@@ -1,0 +1,576 @@
+{
+  "sha": "1b42f63db24f7dc8e94f6897575c1c403f4d4882",
+  "url": "https://api.github.com/repos/EffectiveEquivalent/FreeDSP-Studio/git/trees/1b42f63db24f7dc8e94f6897575c1c403f4d4882",
+  "tree": [
+    {
+      "path": ".gitattributes",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "16e7788b1d5112e1be854e3ed63afd2dd26b41d4",
+      "size": 222,
+      "url": "https://api.github.com/repos/EffectiveEquivalent/FreeDSP-Studio/git/blobs/16e7788b1d5112e1be854e3ed63afd2dd26b41d4"
+    },
+    {
+      "path": ".github",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "1780578093965a1dd50f7112107f3b3777218e0f",
+      "url": "https://api.github.com/repos/EffectiveEquivalent/FreeDSP-Studio/git/trees/1780578093965a1dd50f7112107f3b3777218e0f"
+    },
+    {
+      "path": ".github/workflows",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "f0cc8587399b95efca1d921b5378f28d511c90d8",
+      "url": "https://api.github.com/repos/EffectiveEquivalent/FreeDSP-Studio/git/trees/f0cc8587399b95efca1d921b5378f28d511c90d8"
+    },
+    {
+      "path": ".github/workflows/release.yml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "64f8bfc37b7a80d048b24b60644e17a6be33181d",
+      "size": 5832,
+      "url": "https://api.github.com/repos/EffectiveEquivalent/FreeDSP-Studio/git/blobs/64f8bfc37b7a80d048b24b60644e17a6be33181d"
+    },
+    {
+      "path": ".gitignore",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "90ebb01facd4109dad9465bb0d0511c7712f892e",
+      "size": 433,
+      "url": "https://api.github.com/repos/EffectiveEquivalent/FreeDSP-Studio/git/blobs/90ebb01facd4109dad9465bb0d0511c7712f892e"
+    },
+    {
+      "path": "LICENSE",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4fdadc57cc795b7b41e028aa67dfdc76217e7b2b",
+      "size": 1076,
+      "url": "https://api.github.com/repos/EffectiveEquivalent/FreeDSP-Studio/git/blobs/4fdadc57cc795b7b41e028aa67dfdc76217e7b2b"
+    },
+    {
+      "path": "README.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1e21376bf3cd7f2ffad9ddc5c551e4479bcb04b2",
+      "size": 31639,
+      "url": "https://api.github.com/repos/EffectiveEquivalent/FreeDSP-Studio/git/blobs/1e21376bf3cd7f2ffad9ddc5c551e4479bcb04b2"
+    },
+    {
+      "path": "assets",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "034fcb408bfee73ee84d3c7a5f11733156ff19eb",
+      "url": "https://api.github.com/repos/EffectiveEquivalent/FreeDSP-Studio/git/trees/034fcb408bfee73ee84d3c7a5f11733156ff19eb"
+    },
+    {
+      "path": "assets/screenshot.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "893f9151ac0918c199079f20e824bef8b0f6a59d",
+      "size": 134148,
+      "url": "https://api.github.com/repos/EffectiveEquivalent/FreeDSP-Studio/git/blobs/893f9151ac0918c199079f20e824bef8b0f6a59d"
+    },
+    {
+      "path": "tools",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "a857b9dd21f27cd171b8c622db9a8615b2ba4ef7",
+      "url": "https://api.github.com/repos/EffectiveEquivalent/FreeDSP-Studio/git/trees/a857b9dd21f27cd171b8c622db9a8615b2ba4ef7"
+    },
+    {
+      "path": "tools/app",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "fd1d2bcb809ed37cdc14738ee40dca0cb4127073",
+      "url": "https://api.github.com/repos/EffectiveEquivalent/FreeDSP-Studio/git/trees/fd1d2bcb809ed37cdc14738ee40dca0cb4127073"
+    },
+    {
+      "path": "tools/app/Cargo.lock",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "bcece33e7f4de4c81f69daa32f075f67763d4acd",
+      "size": 104297,
+      "url": "https://api.github.com/repos/EffectiveEquivalent/FreeDSP-Studio/git/blobs/bcece33e7f4de4c81f69daa32f075f67763d4acd"
+    },
+    {
+      "path": "tools/app/Cargo.toml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d909e95c090252e5c8733b9d9ad10d40b61d667b",
+      "size": 3026,
+      "url": "https://api.github.com/repos/EffectiveEquivalent/FreeDSP-Studio/git/blobs/d909e95c090252e5c8733b9d9ad10d40b61d667b"
+    },
+    {
+      "path": "tools/app/assets",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "f2d8248d31293798cfbf5f410939112e70bf6209",
+      "url": "https://api.github.com/repos/EffectiveEquivalent/FreeDSP-Studio/git/trees/f2d8248d31293798cfbf5f410939112e70bf6209"
+    },
+    {
+      "path": "tools/app/assets/fonts",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "cd956c409ea5a9d43d7a1415922a166b4b97aabd",
+      "url": "https://api.github.com/repos/EffectiveEquivalent/FreeDSP-Studio/git/trees/cd956c409ea5a9d43d7a1415922a166b4b97aabd"
+    },
+    {
+      "path": "tools/app/assets/fonts/IBMPlexMono-Medium.ttf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0f5d1e6802470fea8fc759fa2d98b75003a7fc48",
+      "size": 41328,
+      "url": "https://api.github.com/repos/EffectiveEquivalent/FreeDSP-Studio/git/blobs/0f5d1e6802470fea8fc759fa2d98b75003a7fc48"
+    },
+    {
+      "path": "tools/app/assets/fonts/IBMPlexMono-Regular.ttf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9bca3fad2656c58f9ef7ee3e915c32b60005e02d",
+      "size": 40928,
+      "url": "https://api.github.com/repos/EffectiveEquivalent/FreeDSP-Studio/git/blobs/9bca3fad2656c58f9ef7ee3e915c32b60005e02d"
+    },
+    {
+      "path": "tools/app/assets/fonts/IBMPlexMono-SemiBold.ttf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "03f9fd5905bb142ea5de08bd9468d9efe62aef3b",
+      "size": 44264,
+      "url": "https://api.github.com/repos/EffectiveEquivalent/FreeDSP-Studio/git/blobs/03f9fd5905bb142ea5de08bd9468d9efe62aef3b"
+    },
+    {
+      "path": "tools/app/assets/fonts/IBMPlexSans-Medium.ttf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a6352053fd8a5555a5d1c010b7efe286e4ce040f",
+      "size": 56788,
+      "url": "https://api.github.com/repos/EffectiveEquivalent/FreeDSP-Studio/git/blobs/a6352053fd8a5555a5d1c010b7efe286e4ce040f"
+    },
+    {
+      "path": "tools/app/assets/fonts/IBMPlexSans-Regular.ttf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "451e83303f5b0e10a93c491061713eb6ed74bcbe",
+      "size": 56724,
+      "url": "https://api.github.com/repos/EffectiveEquivalent/FreeDSP-Studio/git/blobs/451e83303f5b0e10a93c491061713eb6ed74bcbe"
+    },
+    {
+      "path": "tools/app/assets/fonts/IBMPlexSans-SemiBold.ttf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7245769abea71a5f165214cabaaf1e0072594d0f",
+      "size": 56780,
+      "url": "https://api.github.com/repos/EffectiveEquivalent/FreeDSP-Studio/git/blobs/7245769abea71a5f165214cabaaf1e0072594d0f"
+    },
+    {
+      "path": "tools/app/assets/fonts/OFL.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "01497cc60dc7de39750e702c395530760cb014cf",
+      "size": 4363,
+      "url": "https://api.github.com/repos/EffectiveEquivalent/FreeDSP-Studio/git/blobs/01497cc60dc7de39750e702c395530760cb014cf"
+    },
+    {
+      "path": "tools/app/assets/icons",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "6125fbc6e4ebf81a9997d054f86a485f4267d276",
+      "url": "https://api.github.com/repos/EffectiveEquivalent/FreeDSP-Studio/git/trees/6125fbc6e4ebf81a9997d054f86a485f4267d276"
+    },
+    {
+      "path": "tools/app/assets/icons/128x128.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "85d3f4031d3cc2d20236deb3d6656142b12dad12",
+      "size": 3787,
+      "url": "https://api.github.com/repos/EffectiveEquivalent/FreeDSP-Studio/git/blobs/85d3f4031d3cc2d20236deb3d6656142b12dad12"
+    },
+    {
+      "path": "tools/app/assets/icons/128x128@2x.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1f6661d7648d0abbc3c521237367d109073d440a",
+      "size": 8052,
+      "url": "https://api.github.com/repos/EffectiveEquivalent/FreeDSP-Studio/git/blobs/1f6661d7648d0abbc3c521237367d109073d440a"
+    },
+    {
+      "path": "tools/app/assets/icons/32x32.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e4b896a5bc13d5e071773e120724392843804d46",
+      "size": 918,
+      "url": "https://api.github.com/repos/EffectiveEquivalent/FreeDSP-Studio/git/blobs/e4b896a5bc13d5e071773e120724392843804d46"
+    },
+    {
+      "path": "tools/app/assets/icons/app-icon.svg",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "dd9e0a3661e24caf8847f93063d917fb89d193b5",
+      "size": 774,
+      "url": "https://api.github.com/repos/EffectiveEquivalent/FreeDSP-Studio/git/blobs/dd9e0a3661e24caf8847f93063d917fb89d193b5"
+    },
+    {
+      "path": "tools/app/assets/icons/icon-128.rgba",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "96041dc795bd4a580a70cd03458e4fc9c3636eb5",
+      "size": 65536,
+      "url": "https://api.github.com/repos/EffectiveEquivalent/FreeDSP-Studio/git/blobs/96041dc795bd4a580a70cd03458e4fc9c3636eb5"
+    },
+    {
+      "path": "tools/app/assets/icons/icon.icns",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "23d8593026e2fcf6053ee1530bc37228017b543a",
+      "size": 113241,
+      "url": "https://api.github.com/repos/EffectiveEquivalent/FreeDSP-Studio/git/blobs/23d8593026e2fcf6053ee1530bc37228017b543a"
+    },
+    {
+      "path": "tools/app/assets/icons/icon.ico",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a8b4abc50c03d619a437c005c506c602c56c4096",
+      "size": 21534,
+      "url": "https://api.github.com/repos/EffectiveEquivalent/FreeDSP-Studio/git/blobs/a8b4abc50c03d619a437c005c506c602c56c4096"
+    },
+    {
+      "path": "tools/app/assets/icons/icon.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "67ae45d0ef5834d0f562cfeb5433a189cc682d51",
+      "size": 18261,
+      "url": "https://api.github.com/repos/EffectiveEquivalent/FreeDSP-Studio/git/blobs/67ae45d0ef5834d0f562cfeb5433a189cc682d51"
+    },
+    {
+      "path": "tools/app/build.rs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "59da7981540197ba9528dbee0aca20a4b7830861",
+      "size": 518,
+      "url": "https://api.github.com/repos/EffectiveEquivalent/FreeDSP-Studio/git/blobs/59da7981540197ba9528dbee0aca20a4b7830861"
+    },
+    {
+      "path": "tools/app/packaging",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "b67dd3182ba698d0809fcb702b4dec9998778991",
+      "url": "https://api.github.com/repos/EffectiveEquivalent/FreeDSP-Studio/git/trees/b67dd3182ba698d0809fcb702b4dec9998778991"
+    },
+    {
+      "path": "tools/app/packaging/linux",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "d92e201a1014c2613bb182d893a938dc428dd95f",
+      "url": "https://api.github.com/repos/EffectiveEquivalent/FreeDSP-Studio/git/trees/d92e201a1014c2613bb182d893a938dc428dd95f"
+    },
+    {
+      "path": "tools/app/packaging/linux/70-freedsp-studio.rules",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "39131a60e69cd3543239c913a12fe7f4558db309",
+      "size": 2684,
+      "url": "https://api.github.com/repos/EffectiveEquivalent/FreeDSP-Studio/git/blobs/39131a60e69cd3543239c913a12fe7f4558db309"
+    },
+    {
+      "path": "tools/app/packaging/linux/debian",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "2089777994b04af89d1d3609f7b640800cdfdbe4",
+      "url": "https://api.github.com/repos/EffectiveEquivalent/FreeDSP-Studio/git/trees/2089777994b04af89d1d3609f7b640800cdfdbe4"
+    },
+    {
+      "path": "tools/app/packaging/linux/debian/postinst",
+      "mode": "100755",
+      "type": "blob",
+      "sha": "317a1f91a647cc233773cd28a55112cc53fd297c",
+      "size": 241,
+      "url": "https://api.github.com/repos/EffectiveEquivalent/FreeDSP-Studio/git/blobs/317a1f91a647cc233773cd28a55112cc53fd297c"
+    },
+    {
+      "path": "tools/app/packaging/linux/freedsp-studio.desktop",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1f695c1db6a5292099db7689c2123181d168a376",
+      "size": 224,
+      "url": "https://api.github.com/repos/EffectiveEquivalent/FreeDSP-Studio/git/blobs/1f695c1db6a5292099db7689c2123181d168a376"
+    },
+    {
+      "path": "tools/app/packaging/linux/tarball",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "23b0d92981fc8f64a00b016b235b3d00923f25e5",
+      "url": "https://api.github.com/repos/EffectiveEquivalent/FreeDSP-Studio/git/trees/23b0d92981fc8f64a00b016b235b3d00923f25e5"
+    },
+    {
+      "path": "tools/app/packaging/linux/tarball/README.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8d8e2af4e5bae713d70d5aa9d2607b878b330f40",
+      "size": 736,
+      "url": "https://api.github.com/repos/EffectiveEquivalent/FreeDSP-Studio/git/blobs/8d8e2af4e5bae713d70d5aa9d2607b878b330f40"
+    },
+    {
+      "path": "tools/app/packaging/linux/tarball/install.sh",
+      "mode": "100755",
+      "type": "blob",
+      "sha": "961127f59622ae9e51b91fb7e9fb5ef75f062c68",
+      "size": 1119,
+      "url": "https://api.github.com/repos/EffectiveEquivalent/FreeDSP-Studio/git/blobs/961127f59622ae9e51b91fb7e9fb5ef75f062c68"
+    },
+    {
+      "path": "tools/app/packaging/macos",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "0b7bb656812ae6f6de59767b955a7bb052af3e86",
+      "url": "https://api.github.com/repos/EffectiveEquivalent/FreeDSP-Studio/git/trees/0b7bb656812ae6f6de59767b955a7bb052af3e86"
+    },
+    {
+      "path": "tools/app/packaging/macos/Info.plist",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "491c9c71f554a7f1ad51fc40e1e2ee4401735af4",
+      "size": 768,
+      "url": "https://api.github.com/repos/EffectiveEquivalent/FreeDSP-Studio/git/blobs/491c9c71f554a7f1ad51fc40e1e2ee4401735af4"
+    },
+    {
+      "path": "tools/app/src",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "5d67bd4f795644e5305aafbd773e201f73aacaa4",
+      "url": "https://api.github.com/repos/EffectiveEquivalent/FreeDSP-Studio/git/trees/5d67bd4f795644e5305aafbd773e201f73aacaa4"
+    },
+    {
+      "path": "tools/app/src/app.rs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d1d32abad5a9a2fa42b19b41973a66d051cb53a8",
+      "size": 79708,
+      "url": "https://api.github.com/repos/EffectiveEquivalent/FreeDSP-Studio/git/blobs/d1d32abad5a9a2fa42b19b41973a66d051cb53a8"
+    },
+    {
+      "path": "tools/app/src/audio.rs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "663e7a7baf3e32daf1b56cd886018c0a62f460f4",
+      "size": 8725,
+      "url": "https://api.github.com/repos/EffectiveEquivalent/FreeDSP-Studio/git/blobs/663e7a7baf3e32daf1b56cd886018c0a62f460f4"
+    },
+    {
+      "path": "tools/app/src/device.rs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "aacd67133687f04f63ebf814aafbab4f3a08f537",
+      "size": 9626,
+      "url": "https://api.github.com/repos/EffectiveEquivalent/FreeDSP-Studio/git/blobs/aacd67133687f04f63ebf814aafbab4f3a08f537"
+    },
+    {
+      "path": "tools/app/src/dialogs.rs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a63fe2aa04a1cfab5f096a13edd0d3f16673e431",
+      "size": 44120,
+      "url": "https://api.github.com/repos/EffectiveEquivalent/FreeDSP-Studio/git/blobs/a63fe2aa04a1cfab5f096a13edd0d3f16673e431"
+    },
+    {
+      "path": "tools/app/src/dsp.rs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2614e7457e22e4f2ff65ba5ecf9a16aa0772ab3d",
+      "size": 11198,
+      "url": "https://api.github.com/repos/EffectiveEquivalent/FreeDSP-Studio/git/blobs/2614e7457e22e4f2ff65ba5ecf9a16aa0772ab3d"
+    },
+    {
+      "path": "tools/app/src/dsp2.rs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "fe0a56ae603be4cb913acca0069004ef6b7ebe79",
+      "size": 35854,
+      "url": "https://api.github.com/repos/EffectiveEquivalent/FreeDSP-Studio/git/blobs/fe0a56ae603be4cb913acca0069004ef6b7ebe79"
+    },
+    {
+      "path": "tools/app/src/dsp_fiio.rs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "221fe5313e2cdeb7449c46d37ffc8270d97568ea",
+      "size": 37287,
+      "url": "https://api.github.com/repos/EffectiveEquivalent/FreeDSP-Studio/git/blobs/221fe5313e2cdeb7449c46d37ffc8270d97568ea"
+    },
+    {
+      "path": "tools/app/src/dsp_fosi.rs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7facfa7762fb7dcd23f4f061e03169ed9c2c916e",
+      "size": 11514,
+      "url": "https://api.github.com/repos/EffectiveEquivalent/FreeDSP-Studio/git/blobs/7facfa7762fb7dcd23f4f061e03169ed9c2c916e"
+    },
+    {
+      "path": "tools/app/src/dsp_kt.rs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c35a1e2caa5e9801f01db1d217280d348845f761",
+      "size": 12636,
+      "url": "https://api.github.com/repos/EffectiveEquivalent/FreeDSP-Studio/git/blobs/c35a1e2caa5e9801f01db1d217280d348845f761"
+    },
+    {
+      "path": "tools/app/src/eq.rs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e20e1769f30566cacf5b1405486952c0b78b4820",
+      "size": 22283,
+      "url": "https://api.github.com/repos/EffectiveEquivalent/FreeDSP-Studio/git/blobs/e20e1769f30566cacf5b1405486952c0b78b4820"
+    },
+    {
+      "path": "tools/app/src/fit.rs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2bd93edfc0da28d1cb475be2dc4561b279efc265",
+      "size": 20151,
+      "url": "https://api.github.com/repos/EffectiveEquivalent/FreeDSP-Studio/git/blobs/2bd93edfc0da28d1cb475be2dc4561b279efc265"
+    },
+    {
+      "path": "tools/app/src/fr.rs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "263319e63c858acf19c5f7089af82813861b12a3",
+      "size": 10591,
+      "url": "https://api.github.com/repos/EffectiveEquivalent/FreeDSP-Studio/git/blobs/263319e63c858acf19c5f7089af82813861b12a3"
+    },
+    {
+      "path": "tools/app/src/hid.rs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d014c7125fa21cfc155885fa3afbd9c3749343e3",
+      "size": 35545,
+      "url": "https://api.github.com/repos/EffectiveEquivalent/FreeDSP-Studio/git/blobs/d014c7125fa21cfc155885fa3afbd9c3749343e3"
+    },
+    {
+      "path": "tools/app/src/hid_api.rs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "654d9de0863affccaa4108b51f75b9a8836c69db",
+      "size": 2464,
+      "url": "https://api.github.com/repos/EffectiveEquivalent/FreeDSP-Studio/git/blobs/654d9de0863affccaa4108b51f75b9a8836c69db"
+    },
+    {
+      "path": "tools/app/src/hid_desc.rs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f544a62b7f738ba5efaf50008c6ed28d91a0525e",
+      "size": 4834,
+      "url": "https://api.github.com/repos/EffectiveEquivalent/FreeDSP-Studio/git/blobs/f544a62b7f738ba5efaf50008c6ed28d91a0525e"
+    },
+    {
+      "path": "tools/app/src/hid_fiio.rs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "dc7911f2b26dfb350b8770741557aee19a5d52b7",
+      "size": 1102,
+      "url": "https://api.github.com/repos/EffectiveEquivalent/FreeDSP-Studio/git/blobs/dc7911f2b26dfb350b8770741557aee19a5d52b7"
+    },
+    {
+      "path": "tools/app/src/hid_gen2.rs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "fc296be617452fb397c4ea674510e89965cd0621",
+      "size": 4162,
+      "url": "https://api.github.com/repos/EffectiveEquivalent/FreeDSP-Studio/git/blobs/fc296be617452fb397c4ea674510e89965cd0621"
+    },
+    {
+      "path": "tools/app/src/hid_hidapi.rs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e248ec959bd48a4de6a62e71923baafecbb1b7d8",
+      "size": 5174,
+      "url": "https://api.github.com/repos/EffectiveEquivalent/FreeDSP-Studio/git/blobs/e248ec959bd48a4de6a62e71923baafecbb1b7d8"
+    },
+    {
+      "path": "tools/app/src/hid_report.rs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "241f2bd46816bceba67de390a054ec8d1e47a3b6",
+      "size": 7413,
+      "url": "https://api.github.com/repos/EffectiveEquivalent/FreeDSP-Studio/git/blobs/241f2bd46816bceba67de390a054ec8d1e47a3b6"
+    },
+    {
+      "path": "tools/app/src/hid_win.rs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d9bfb22605e337a29c33e8fdc4aaffa9acf46458",
+      "size": 4294,
+      "url": "https://api.github.com/repos/EffectiveEquivalent/FreeDSP-Studio/git/blobs/d9bfb22605e337a29c33e8fdc4aaffa9acf46458"
+    },
+    {
+      "path": "tools/app/src/lib.rs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ae9b4048674763340c9d49b56420502a85d06ee8",
+      "size": 701,
+      "url": "https://api.github.com/repos/EffectiveEquivalent/FreeDSP-Studio/git/blobs/ae9b4048674763340c9d49b56420502a85d06ee8"
+    },
+    {
+      "path": "tools/app/src/main.rs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "43ee441d87201d3369e183b4916fef7e7d5b6b72",
+      "size": 240,
+      "url": "https://api.github.com/repos/EffectiveEquivalent/FreeDSP-Studio/git/blobs/43ee441d87201d3369e183b4916fef7e7d5b6b72"
+    },
+    {
+      "path": "tools/app/src/store.rs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f228f03703f4f986861fd048c79c6ad3aeab81c8",
+      "size": 12030,
+      "url": "https://api.github.com/repos/EffectiveEquivalent/FreeDSP-Studio/git/blobs/f228f03703f4f986861fd048c79c6ad3aeab81c8"
+    },
+    {
+      "path": "tools/app/src/theme.rs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a19d2c37f1f944503c1162c0ceaf725caa131ecf",
+      "size": 22773,
+      "url": "https://api.github.com/repos/EffectiveEquivalent/FreeDSP-Studio/git/blobs/a19d2c37f1f944503c1162c0ceaf725caa131ecf"
+    },
+    {
+      "path": "tools/app/src/treble.rs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "dce5923bd7eb45936301817005986208bddcac1e",
+      "size": 15188,
+      "url": "https://api.github.com/repos/EffectiveEquivalent/FreeDSP-Studio/git/blobs/dce5923bd7eb45936301817005986208bddcac1e"
+    },
+    {
+      "path": "tools/app/src/ui.rs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0d5ea6d92e50c2798415c0417bd2c5aaba85a91f",
+      "size": 61160,
+      "url": "https://api.github.com/repos/EffectiveEquivalent/FreeDSP-Studio/git/blobs/0d5ea6d92e50c2798415c0417bd2c5aaba85a91f"
+    },
+    {
+      "path": "tools/app/tests",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "dad674cf4ebad26cef1fcec80dcfe55c1b386e73",
+      "url": "https://api.github.com/repos/EffectiveEquivalent/FreeDSP-Studio/git/trees/dad674cf4ebad26cef1fcec80dcfe55c1b386e73"
+    },
+    {
+      "path": "tools/app/tests/port.rs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f3fd92424a25e956db9f366d14a0431e9cec242e",
+      "size": 12293,
+      "url": "https://api.github.com/repos/EffectiveEquivalent/FreeDSP-Studio/git/blobs/f3fd92424a25e956db9f366d14a0431e9cec242e"
+    },
+    {
+      "path": "tools/app/tests/reference.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "dd913915993850636a6fd91e61465c33762bcf62",
+      "size": 38106,
+      "url": "https://api.github.com/repos/EffectiveEquivalent/FreeDSP-Studio/git/blobs/dd913915993850636a6fd91e61465c33762bcf62"
+    }
+  ],
+  "truncated": false
+}

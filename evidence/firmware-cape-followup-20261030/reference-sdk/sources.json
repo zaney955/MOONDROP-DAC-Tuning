@@ -1,0 +1,28 @@
+{
+  "repository": "edgeimpulse/firmware-synaptics-ka10000",
+  "commit": "ec5de44cc7dad796e9b81f748ddd4e7d8fea2e2d",
+  "scope": "Three public source files, read only; no compilation, target execution, SDK installation, or USB access",
+  "sources": [
+    {
+      "file": "AudioSmart_libbg_upgrade.c",
+      "url": "https://github.com/edgeimpulse/firmware-synaptics-ka10000/blob/ec5de44cc7dad796e9b81f748ddd4e7d8fea2e2d/SDK/fcp/host/api_src/top_level_api/bg_upgrade_api/AudioSmart_libbg_upgrade.c",
+      "github_blob_sha": "9eb61c3d533e38486c7247110ee4e24ba8fde563",
+      "encoding": "utf-8",
+      "sha256": "841819ce3e39921c5215379adbe9dd44a7179eb0e1adfee0a26c1bc3b49cf3fd"
+    },
+    {
+      "file": "AudioSmart_sendcmd_common.h",
+      "url": "https://github.com/edgeimpulse/firmware-synaptics-ka10000/blob/ec5de44cc7dad796e9b81f748ddd4e7d8fea2e2d/SDK/fcp/host/api_src/top_level_api/bg_upgrade_api/AudioSmart_sendcmd_common.h",
+      "github_blob_sha": "8d0cb13a9224f758113f532076fb6055214d426d",
+      "encoding": "utf-8",
+      "sha256": "7a2d861756388097d11d77559869b183648d43e780c3b048e84c5c52359d2d03"
+    },
+    {
+      "file": "AudioSmart_libbg_upgrade.h",
+      "url": "https://github.com/edgeimpulse/firmware-synaptics-ka10000/blob/ec5de44cc7dad796e9b81f748ddd4e7d8fea2e2d/SDK/fcp/host/api/top_level_api/bg_upgrade_api/include/AudioSmart_libbg_upgrade.h",
+      "github_blob_sha": "fbbcefe0376b48c198852bf544585cc6ea861327",
+      "encoding": "utf-8",
+      "sha256": "c74e45072b04cd1b3f8d0fa97d92dfd520610fab2d61414f019cc160a7b7255a"
+    }
+  ]
+}

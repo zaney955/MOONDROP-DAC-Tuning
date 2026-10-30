@@ -1,0 +1,14 @@
+[
+  {
+    "url": "https://raw.githubusercontent.com/fwupd/fwupd/2796458862b73aa541ee1786bf73c9cb7d147103/plugins/synaptics-cape/fu-synaptics-cape.rs",
+    "error": "<urlopen error [Errno 1] Operation not permitted>"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/fwupd/fwupd/2796458862b73aa541ee1786bf73c9cb7d147103/plugins/synaptics-cape/fu-synaptics-cape-hid-firmware.c",
+    "error": "<urlopen error [Errno 1] Operation not permitted>"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/fwupd/fwupd/2796458862b73aa541ee1786bf73c9cb7d147103/plugins/synaptics-cape/fu-synaptics-cape-sngl-firmware.c",
+    "error": "<urlopen error [Errno 1] Operation not permitted>"
+  }
+]

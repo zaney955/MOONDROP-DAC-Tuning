@@ -1,0 +1,8 @@
+{
+  "url": "https://download.moondroplab.com/moondroplink/app-release.apk",
+  "requested_at_utc": "2026-10-30T15:10:35.023815+00:00",
+  "file": "/private/tmp/echo-b-legacy-download-20261030/vendor-app-release.apk",
+  "scope": "One GET of known official published URL; static analysis only",
+  "http_status": 500,
+  "error": "HTTP Error 500: Internal Server Error"
+}

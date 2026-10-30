@@ -35,8 +35,9 @@
           <p id="validation" role="status" aria-live="polite">正在载入编辑器…</p>
           <div class="eq-controls">
             <section id="selected-filter" class="filter-inspector" aria-labelledby="selected-title">
-              <div class="inspector-head"><div class="selection-title"><span id="selected-color" hidden></span><h3 id="selected-title">选择滤波器</h3></div><div class="filter-actions"><button id="add" type="button">＋ 新增</button><button id="delete" type="button" disabled>删除此段</button></div></div>
+              <div class="inspector-head"><div class="selection-title"><span id="selected-color" hidden></span><h3 id="selected-title">选择滤波器</h3></div><div class="filter-actions"><button id="add" type="button">＋ 新增</button><button id="reset-band" type="button" title="将此段增益归零，保留频率、类型和 Q" disabled>重置此段</button><button id="delete" type="button" disabled>删除此段</button></div></div>
               <div id="bands"></div>
+              <div class="reset-actions"><button id="reset-eq" type="button" disabled>重置全部 EQ</button><button id="undo-reset" type="button" hidden>撤销重置</button><span>仅将增益归零，保留频率、类型、Q 和整体输出。</span></div>
               <p class="filter-help">频率 20–20000 Hz · 增益步进 0.1 dB · 峰值 Q 按 1/256 量化</p>
             </section>
             <section class="output" aria-labelledby="output-title">

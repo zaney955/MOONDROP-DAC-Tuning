@@ -1,0 +1,38 @@
+[
+  {
+    "name": "old-official-app-head",
+    "url": "https://download.moondroplab.com/moondroplink/app-release.apk",
+    "method": "HEAD",
+    "status": "500",
+    "rc": 0,
+    "sha256": "ea3249f9b7a047d8678f0dbd70eb5d62bdfc3763e934fa6fc8a1349273848576",
+    "body": "HTTP/1.1 200 Connection established\n\nHTTP/2 500 \ndate: Fri, 30 Oct 2026 15:08:38 GMT\ncontent-type: text/html\nserver: cloudflare\ncf-cache-status: BYPASS\nvary: accept-encoding\ncf-ray: a52b56259d779771-FRA\nalt-svc: h3=\":443\"; ma=86400\n\n"
+  },
+  {
+    "name": "current-official-app-head",
+    "url": "https://download.moondroplab.com/moondroplink/android-release.apk",
+    "method": "HEAD",
+    "status": "200",
+    "rc": 0,
+    "sha256": "887f950a41f8cbcc4ac26cb64e2e3f2fbc2277631f5f7f82681a471c2758882e",
+    "body": "HTTP/1.1 200 Connection established\n\nHTTP/2 200 \ndate: Fri, 30 Oct 2026 15:08:39 GMT\ncontent-type: application/octet-stream\ncontent-length: 110710316\nserver: cloudflare\nlast-modified: Wed, 16 Sep 2026 12:00:56 GMT\netag: \"6aaa84f8-6994e2c\"\nstrict-transport-security: max-age=31536000\naccept-ranges: bytes\nage: 372\ncache-control: max-age=31536000\ncf-cache-status: HIT\nvary: accept-encoding\ncf-ray: a52b562c4dc2dcb2-FRA\nalt-svc: h3=\":443\"; ma=86400\n\n"
+  },
+  {
+    "name": "archive-old-app-index",
+    "url": "https://web.archive.org/cdx/search/cdx?url=download.moondroplab.com%2Fmoondroplink%2Fapp-release.apk&output=json&filter=statuscode%3A200&collapse=digest",
+    "method": "GET",
+    "status": "200",
+    "rc": 0,
+    "sha256": "dfe23e2eb7b07a68c8a9bf45e12e9c824cd14a8d8d26b2678bd092fb1828ffa4",
+    "body": "[[\"urlkey\",\"timestamp\",\"original\",\"mimetype\",\"statuscode\",\"digest\",\"length\"],\n[\"com,moondroplab,download)/moondroplink/app-release.apk\",\"20240109235310\",\"https://download.moondroplab.com/moondroplink/app-release.apk\",\"application/vnd.android.package-archive\",\"200\",\"HULEZH3MVNC7EWEZV5EXBZTBC5Q5TTU7\",\"54518413\"],\n[\"com,moondroplab,download)/moondroplink/app-release.apk\",\"20240925174627\",\"https://download.moondroplab.com/moondroplink/app-release.apk\",\"application/vnd.android.package-archive\",\"200\",\"X4B3AVGXSSCQQ6OGPGFFBJECWDULAXFX\",\"29380485\"],\n[\"com,moondroplab,download)/moondroplink/app-release.apk\",\"20250118043707\",\"https://download.moondroplab.com/moondroplink/app-release.apk\",\"application/vnd.android.package-archive\",\"200\",\"2KRGCDVPKZUVGLX73CKXKVY6DC5UMZW2\",\"32037599\"],\n[\"com,moondroplab,download)/moondroplink/app-release.apk\",\"20251122143410\",\"https://download.moondroplab.com/moondroplink/app-release.apk\",\"application/vnd.android.package-archive\",\"200\",\"2EG5M6A2TLUJ3AMSQJJTY2AHSAAO7JSO\",\"49212864\"]]\n"
+  },
+  {
+    "name": "archive-current-app-index",
+    "url": "https://web.archive.org/cdx/search/cdx?url=download.moondroplab.com%2Fmoondroplink%2Fandroid-release.apk&output=json&filter=statuscode%3A200&collapse=digest",
+    "method": "GET",
+    "status": "200",
+    "rc": 0,
+    "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+    "body": "[]\n"
+  }
+]

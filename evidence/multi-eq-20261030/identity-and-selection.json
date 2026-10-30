@@ -1,0 +1,98 @@
+{
+  "apk": "/Users/zane/Projects/reverse/ECHO-B-DAC-Amp-Tuning/evidence/moondrop-android-release.apk",
+  "sha256": "04756b49acfea523758d86101c96c1824b7b209ae3a8836c07837088e795d2d5",
+  "scope": "Offline Androguard DEX disassembly, not REA decompilation; no target execution or device I/O",
+  "selected_methods": [
+    {
+      "dex": "classes.dex",
+      "class": "Lcom/conexant/cnxtusbcheadset/FreemanCnxtUsbDevice;",
+      "method": "getEQMode",
+      "descriptor": "()I",
+      "code_offset": 5878472
+    },
+    {
+      "dex": "classes.dex",
+      "class": "Lcom/conexant/cnxtusbcheadset/FreemanCnxtUsbDevice;",
+      "method": "getEQParamList",
+      "descriptor": "()Ljava/util/List;",
+      "code_offset": 5881772
+    },
+    {
+      "dex": "classes.dex",
+      "class": "Lcom/conexant/cnxtusbcheadset/FreemanCnxtUsbDevice;",
+      "method": "getEQParamsFromFlash",
+      "descriptor": "(Lcom/conexant/genericfeature/PersistEQParams;)I",
+      "code_offset": 5878596
+    },
+    {
+      "dex": "classes.dex",
+      "class": "Lcom/conexant/cnxtusbcheadset/FreemanCnxtUsbDevice;",
+      "method": "saveEQParamsToFlash",
+      "descriptor": "(Lcom/conexant/genericfeature/PersistEQParams;)I",
+      "code_offset": 5880012
+    },
+    {
+      "dex": "classes.dex",
+      "class": "Lcom/conexant/cnxtusbcheadset/FreemanCnxtUsbDevice;",
+      "method": "switchEQMode",
+      "descriptor": "(I)I",
+      "code_offset": 5881652
+    },
+    {
+      "dex": "classes.dex",
+      "class": "Lcom/conexant/conexantusbtypec/common/ApplicationData$CommonEQParams;",
+      "method": "<init>",
+      "descriptor": "()V",
+      "code_offset": 5887284
+    },
+    {
+      "dex": "classes.dex",
+      "class": "Lcom/conexant/conexantusbtypec/common/ApplicationData$CommonEQParams;",
+      "method": "getPresetList",
+      "descriptor": "()Ljava/util/List;",
+      "code_offset": 5887196
+    },
+    {
+      "dex": "classes.dex",
+      "class": "Lcom/conexant/genericfeature/PersistEQParams;",
+      "method": "<clinit>",
+      "descriptor": "()V",
+      "code_offset": 5902312
+    },
+    {
+      "dex": "classes.dex",
+      "class": "Lcom/conexant/genericfeature/PersistEQParams;",
+      "method": "<init>",
+      "descriptor": "()V",
+      "code_offset": 5902344
+    },
+    {
+      "dex": "classes.dex",
+      "class": "Lcom/conexant/genericfeature/PersistEQParams;",
+      "method": "<init>",
+      "descriptor": "(Landroid/os/Parcel;)V",
+      "code_offset": 5902368
+    },
+    {
+      "dex": "classes.dex",
+      "class": "Lcom/conexant/genericfeature/PersistEQParams;",
+      "method": "<init>",
+      "descriptor": "(Ljava/util/List;)V",
+      "code_offset": 5902420
+    },
+    {
+      "dex": "classes.dex",
+      "class": "Lcom/conexant/genericfeature/PersistEQParams;",
+      "method": "describeContents",
+      "descriptor": "()I",
+      "code_offset": 5902292
+    },
+    {
+      "dex": "classes.dex",
+      "class": "Lcom/conexant/genericfeature/PersistEQParams;",
+      "method": "writeToParcel",
+      "descriptor": "(Landroid/os/Parcel; I)V",
+      "code_offset": 5902448
+    }
+  ]
+}

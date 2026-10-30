@@ -1,0 +1,27 @@
+{
+  "commit": "2796458862b73aa541ee1786bf73c9cb7d147103",
+  "scope": "Static source facts only; fwupd not installed or executed",
+  "device_class_hooks": [
+    "to_string",
+    "setup",
+    "write_firmware",
+    "prepare_firmware",
+    "set_progress",
+    "convert_version"
+  ],
+  "has_read_firmware_hook": false,
+  "quirk_contains_moondrop_or_35d8_149b": false,
+  "protocol": {
+    "report_id_u16": 1,
+    "message_bytes": 60,
+    "report_bytes": 62,
+    "data_words": 13,
+    "module": "0xb32d2300",
+    "get_flag": "0x100",
+    "reply_flag": "0x8000"
+  },
+  "prepare_firmware_input_assumption": "combined two equal-sized partition images; selects opposite half to active partition",
+  "has_vid_pid_check_in_prepare": true,
+  "exact_ECHO_B_support_proven": false,
+  "warning": "No generic fwupd runner was invoked; static framing match does not prove full driver or image compatibility."
+}

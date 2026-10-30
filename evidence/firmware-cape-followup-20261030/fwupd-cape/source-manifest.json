@@ -1,0 +1,37 @@
+{
+  "repository": "fwupd/fwupd",
+  "commit": "2796458862b73aa541ee1786bf73c9cb7d147103",
+  "retrieval": "GitHub connector fetch_file; static source only",
+  "sources": [
+    {
+      "file": "README.md",
+      "url": "https://github.com/fwupd/fwupd/blob/2796458862b73aa541ee1786bf73c9cb7d147103/plugins/synaptics-cape/README.md",
+      "github_blob_sha": "9b56c3047fde6c353abfd78c9803c9db0fac4be7"
+    },
+    {
+      "file": "fu-synaptics-cape-device.c",
+      "url": "https://github.com/fwupd/fwupd/blob/2796458862b73aa541ee1786bf73c9cb7d147103/plugins/synaptics-cape/fu-synaptics-cape-device.c",
+      "github_blob_sha": "ec11b05a74eff907403049614df3f4d7099b8c86"
+    },
+    {
+      "file": "synaptics-cape.quirk",
+      "url": "https://github.com/fwupd/fwupd/blob/2796458862b73aa541ee1786bf73c9cb7d147103/plugins/synaptics-cape/synaptics-cape.quirk",
+      "github_blob_sha": "5c6d12acbce5f3dc22b14165bd9c382f42bbc1cc"
+    },
+    {
+      "file": "fu-synaptics-cape.rs",
+      "url": "https://github.com/fwupd/fwupd/blob/2796458862b73aa541ee1786bf73c9cb7d147103/plugins/synaptics-cape/fu-synaptics-cape.rs",
+      "github_blob_sha": "3107b19154cba7e0850158042cfd9cf53b44e0a3"
+    },
+    {
+      "file": "fu-synaptics-cape-hid-firmware.c",
+      "url": "https://github.com/fwupd/fwupd/blob/2796458862b73aa541ee1786bf73c9cb7d147103/plugins/synaptics-cape/fu-synaptics-cape-hid-firmware.c",
+      "github_blob_sha": "3b2bacc10b7a361dbf114380d99a39b111485194"
+    },
+    {
+      "file": "fu-synaptics-cape-sngl-firmware.c",
+      "url": "https://github.com/fwupd/fwupd/blob/2796458862b73aa541ee1786bf73c9cb7d147103/plugins/synaptics-cape/fu-synaptics-cape-sngl-firmware.c",
+      "github_blob_sha": "e153d7753f8b51e3b694240dfc26628738af4f85"
+    }
+  ]
+}

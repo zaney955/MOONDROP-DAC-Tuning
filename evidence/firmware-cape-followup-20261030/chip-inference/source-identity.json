@@ -1,0 +1,6 @@
+{
+  "evidence/android-arm64/libCxAudioHidLib.so": "e3b58275c7421029be587218c35d8b997a9616a98c8e9795fc4c7db88d6e22cd",
+  "evidence/usb-identity.json": "74bf2dc65f91c831c096723fedca2fa305b8e29642416745d3de33ba126727cd",
+  "backups/initial-read.jsonl": "df7148e8cf906f0b72d1591c994f6e409c4e5b71c9b302dd87e59e0ae27806ce",
+  "backups/coefficients-read.jsonl": "dcda057e6bbbce05766acf11d9fa7db54c13984839d6fa61e3a388ed4aedcd8a"
+}

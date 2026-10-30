@@ -1,0 +1,18 @@
+{
+  "action": "apply",
+  "stage": "complete",
+  "status": "saved_verified",
+  "write_attempted": true,
+  "save_command_acknowledged": true,
+  "readback_verified": true,
+  "physical_unplug_tested": false,
+  "message": "已写入并保存，重新读取后验证通过；物理拔插尚未验证",
+  "updated_at_utc": "20261030T152301.527675Z",
+  "acknowledged_operations": 56,
+  "all_56_operations_acknowledged": true,
+  "read_recovery_attempts": 1,
+  "read_reconnect_attempts": 1,
+  "readback_recovery_attempted": true,
+  "last_read_recovery_error": "GetReport cmd=0xdd arg=2: 0x10000003",
+  "readback_recovered": true
+}

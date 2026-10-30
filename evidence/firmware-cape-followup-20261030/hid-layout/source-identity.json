@@ -1,0 +1,32 @@
+[
+  {
+    "path": "/Users/zane/Projects/reverse/ECHO-B-DAC-Amp-Tuning/evidence/firmware-cape-followup-20261030/fwupd-cape/fu-synaptics-cape.rs",
+    "github_url": "https://github.com/fwupd/fwupd/blob/2796458862b73aa541ee1786bf73c9cb7d147103/plugins/synaptics-cape/fu-synaptics-cape.rs",
+    "sha256": "dc95d1b96110a9d8a44c96bed79e16457cd8c87baaf9f7c3e5c4d66fc283a482",
+    "acquisition": "Parent downloaded through GitHub connector; subagent read only."
+  },
+  {
+    "path": "/Users/zane/Projects/reverse/ECHO-B-DAC-Amp-Tuning/evidence/firmware-cape-followup-20261030/fwupd-cape/fu-synaptics-cape-hid-firmware.c",
+    "github_url": "https://github.com/fwupd/fwupd/blob/2796458862b73aa541ee1786bf73c9cb7d147103/plugins/synaptics-cape/fu-synaptics-cape-hid-firmware.c",
+    "sha256": "92f6883a49a341dec140c98ac41a4101f8823d58eb73ff684fe2f6c3a9baa50c",
+    "acquisition": "Parent downloaded through GitHub connector; subagent read only."
+  },
+  {
+    "path": "/Users/zane/Projects/reverse/ECHO-B-DAC-Amp-Tuning/evidence/firmware-cape-followup-20261030/fwupd-cape/fu-synaptics-cape-sngl-firmware.c",
+    "github_url": "https://github.com/fwupd/fwupd/blob/2796458862b73aa541ee1786bf73c9cb7d147103/plugins/synaptics-cape/fu-synaptics-cape-sngl-firmware.c",
+    "sha256": "5d1ca5ff04fc3c67a99ad185b43cb9ac535a13854610aee419ca41140a8daad1",
+    "acquisition": "Parent downloaded through GitHub connector; subagent read only."
+  },
+  {
+    "path": "/Users/zane/Projects/reverse/ECHO-B-DAC-Amp-Tuning/evidence/firmware-cape-followup-20261030/fwupd-cape/fu-synaptics-cape-device.c",
+    "github_url": "https://github.com/fwupd/fwupd/blob/2796458862b73aa541ee1786bf73c9cb7d147103/plugins/synaptics-cape/fu-synaptics-cape-device.c",
+    "sha256": "6d5f2fd8323ad73a9d8514037ad1b1ccf35616363c02dbd3bddd47c320fb59fc",
+    "acquisition": "Parent downloaded through GitHub connector; subagent read only."
+  },
+  {
+    "path": "/Users/zane/Projects/reverse/ECHO-B-DAC-Amp-Tuning/evidence/firmware-cape-followup-20261030/fwupd-cape/README.md",
+    "github_url": "https://github.com/fwupd/fwupd/blob/2796458862b73aa541ee1786bf73c9cb7d147103/plugins/synaptics-cape/README.md",
+    "sha256": "0a705290a396fa338fc619bbdface2dbfb985415fcd378fe422cd8fc08ada572",
+    "acquisition": "Parent downloaded through GitHub connector; subagent read only."
+  }
+]

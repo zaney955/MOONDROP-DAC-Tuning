@@ -1,0 +1,88 @@
+{
+  "results": [
+    {
+      "url": "https://github.com/edgeimpulse/firmware-synaptics-ka10000/blob/ec5de44cc7dad796e9b81f748ddd4e7d8fea2e2d/SDK/mcusdk/platform/src/api_src/include/mcu_ex_sub.h",
+      "path": "SDK/mcusdk/platform/src/api_src/include/mcu_ex_sub.h",
+      "display_url": "https://github.com/edgeimpulse/firmware-synaptics-ka10000/blob/ec5de44cc7dad796e9b81f748ddd4e7d8fea2e2d/SDK/mcusdk/platform/src/api_src/include/mcu_ex_sub.h",
+      "display_title": "SDK/mcusdk/platform/src/api_src/include/mcu_ex_sub.h",
+      "text_matches": [
+        {
+          "property": "content",
+          "fragment": "  SW_CMD_NONE                           = 0,\n\n  SW_SPIMEM_TUNNEL_CMD                  = 1,\n  SW_SPIMEM_TUNNEL_CMD_CONFIG           = 2,\n  SW_SPIMEM_TUNNEL_CMD_DATA             = 3,\n  SW_SPIMEM_TUNNEL_CMD_APPLY            = 4,\n  SW_SPIMEM_TUNNEL_CMD_ERASE            = 5,",
+          "matches": [
+            {
+              "text": "SW_SPIMEM_TUNNEL_CMD_CONFIG",
+              "indices": [
+                93,
+                120
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "url": "https://github.com/edgeimpulse/firmware-synaptics-ka10000/blob/ec5de44cc7dad796e9b81f748ddd4e7d8fea2e2d/SDK/mcusdk/caf/include/mcu_ex.h",
+      "path": "SDK/mcusdk/caf/include/mcu_ex.h",
+      "display_url": "https://github.com/edgeimpulse/firmware-synaptics-ka10000/blob/ec5de44cc7dad796e9b81f748ddd4e7d8fea2e2d/SDK/mcusdk/caf/include/mcu_ex.h",
+      "display_title": "SDK/mcusdk/caf/include/mcu_ex.h",
+      "text_matches": [
+        {
+          "property": "content",
+          "fragment": "  SW_CMD_NONE                           = 0,\r\n\r\n  SW_SPIMEM_TUNNEL_CMD                  = 1,\r\n  SW_SPIMEM_TUNNEL_CMD_CONFIG           = 2,\r\n  SW_SPIMEM_TUNNEL_CMD_DATA             = 3,\r\n  SW_SPIMEM_TUNNEL_CMD_APPLY            = 4,\r\n  SW_SPIMEM_TUNNEL_CMD_ERASE            = 5,\r",
+          "matches": [
+            {
+              "text": "SW_SPIMEM_TUNNEL_CMD_CONFIG",
+              "indices": [
+                96,
+                123
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "url": "https://github.com/edgeimpulse/firmware-synaptics-ka10000/blob/ec5de44cc7dad796e9b81f748ddd4e7d8fea2e2d/SDK/fcp/host/api_src/include/AudioSmart_definitions.h",
+      "path": "SDK/fcp/host/api_src/include/AudioSmart_definitions.h",
+      "display_url": "https://github.com/edgeimpulse/firmware-synaptics-ka10000/blob/ec5de44cc7dad796e9b81f748ddd4e7d8fea2e2d/SDK/fcp/host/api_src/include/AudioSmart_definitions.h",
+      "display_title": "SDK/fcp/host/api_src/include/AudioSmart_definitions.h",
+      "text_matches": [
+        {
+          "property": "content",
+          "fragment": "  SW_CMD_NONE                           = 0,\r\n\r\n  SW_SPIMEM_TUNNEL_CMD                  = 1,\r\n  SW_SPIMEM_TUNNEL_CMD_CONFIG           = 2,\r\n  SW_SPIMEM_TUNNEL_CMD_DATA             = 3,\r\n  SW_SPIMEM_TUNNEL_CMD_APPLY            = 4,\r\n  SW_SPIMEM_TUNNEL_CMD_ERASE            = 5,\r",
+          "matches": [
+            {
+              "text": "SW_SPIMEM_TUNNEL_CMD_CONFIG",
+              "indices": [
+                96,
+                123
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "url": "https://github.com/edgeimpulse/firmware-synaptics-ka10000/blob/ec5de44cc7dad796e9b81f748ddd4e7d8fea2e2d/SDK/mcusdk/platform/src/api_src/include/AudioSmart_definitions.h",
+      "path": "SDK/mcusdk/platform/src/api_src/include/AudioSmart_definitions.h",
+      "display_url": "https://github.com/edgeimpulse/firmware-synaptics-ka10000/blob/ec5de44cc7dad796e9b81f748ddd4e7d8fea2e2d/SDK/mcusdk/platform/src/api_src/include/AudioSmart_definitions.h",
+      "display_title": "SDK/mcusdk/platform/src/api_src/include/AudioSmart_definitions.h",
+      "text_matches": [
+        {
+          "property": "content",
+          "fragment": "  SW_CMD_NONE                           = 0,\r\n\r\n  SW_SPIMEM_TUNNEL_CMD                  = 1,\r\n  SW_SPIMEM_TUNNEL_CMD_CONFIG           = 2,\r\n  SW_SPIMEM_TUNNEL_CMD_DATA             = 3,\r\n  SW_SPIMEM_TUNNEL_CMD_APPLY            = 4,\r\n  SW_SPIMEM_TUNNEL_CMD_ERASE            = 5,\r",
+          "matches": [
+            {
+              "text": "SW_SPIMEM_TUNNEL_CMD_CONFIG",
+              "indices": [
+                96,
+                123
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

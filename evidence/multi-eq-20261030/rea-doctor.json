@@ -1,0 +1,54 @@
+{
+  "scope": {
+    "mode": "explicit",
+    "clients": [
+      "codex"
+    ],
+    "providers": [],
+    "skill": false,
+    "target": null
+  },
+  "scope_checks": [
+    {
+      "name": "node",
+      "ok": true,
+      "classification": "healthy",
+      "detail": "26.13.0",
+      "details": {
+        "runtime": "node",
+        "version": "26.13.0"
+      }
+    },
+    {
+      "name": "registration:codex",
+      "ok": true,
+      "classification": "healthy",
+      "detail": "/Users/zane/.codex/config.toml"
+    }
+  ],
+  "android_provider": [
+    {
+      "id": "jadx",
+      "configured": false,
+      "available": false,
+      "providerVersion": null,
+      "registrationEnvironment": {},
+      "checks": [
+        {
+          "name": "configuration",
+          "ok": false,
+          "code": "not_configured",
+          "detail": "Set REA_JADX_MCP_JAR to the absolute path of a caller-supplied jadx-headless-mcp 0.7.1 JAR. REA does not download or install it.",
+          "remediation": "Set REA_JADX_MCP_JAR to the absolute path of a caller-supplied jadx-headless-mcp 0.7.1 JAR. REA does not download or install it.",
+          "classification": "missing_analysis_engine"
+        }
+      ]
+    }
+  ],
+  "cli_package_version": "6.5.0",
+  "live_server": {
+    "state": "unknown",
+    "remediation": "Call binary_session in the active client to inspect the running server identity."
+  },
+  "note": "Selected fields from rea doctor --client codex --json. No setup or configuration changes were performed."
+}
