@@ -1,5 +1,8 @@
-.PHONY: build test
+.PHONY: build test editor
 build: bin/echo_probe bin/echo_apply_plan bin/echo_gain_probe bin/echo_filter_probe
+
+editor:
+	python3 tools/editor.py --open
 
 bin/echo_probe: tools/echo_probe.c
 	mkdir -p bin

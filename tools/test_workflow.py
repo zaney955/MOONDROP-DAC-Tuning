@@ -4,6 +4,7 @@ import io
 import json
 from pathlib import Path
 import subprocess
+import struct
 import tempfile
 import unittest
 from unittest.mock import patch
@@ -15,8 +16,25 @@ METADATA = (ROOT/'backups/initial-read.jsonl').read_bytes()
 COEFFICIENTS = (ROOT/'backups/coefficients-read.jsonl').read_bytes()
 
 
+def plan_capture(plan, coefficients=False):
+    """Synthetic device replies; metadata independently truncates requested gain."""
+    rows = [json.loads(s) for s in (COEFFICIENTS if coefficients else METADATA).splitlines()]
+    for i, row in enumerate(rows[1:]):
+        payload = bytearray.fromhex(row['hex'])
+        if coefficients:
+            values = [0, i+1, 3] + plan['coefficients_q22']['48000'][i]
+        else:
+            band = plan['bands'][i]
+            values = [0, i+1, band['frequency_hz'], round(band['q']*256),
+                      band['type_code'], int(band['gain_db']) & 0xffffff]
+        struct.pack_into('<' + 'I'*len(values), payload, 10, *[v & 0xffffffff for v in values])
+        row['hex'] = payload.hex()
+    return ('\n'.join(json.dumps(r) for r in rows)+'\n').encode()
+
+
 class FakeUSB:
-    def __init__(self, failure=None):
+    def __init__(self, failure=None, plan=None):
+        self.plan = plan
         self.failure = failure
         self.writes = 0
         self.reads = 0
@@ -49,6 +67,8 @@ class FakeUSB:
         if self.failure == 'interrupt_after' and self.writes:
             raise KeyboardInterrupt()
         raw = COEFFICIENTS if '--coefficients' in args else METADATA
+        if self.plan is not None:
+            raw = plan_capture(self.plan, '--coefficients' in args)
         if self.failure == 'mismatch' and self.writes and '--coefficients' in args:
             raw = (ROOT/'profiles/muffled-persistence-test/readback-coefficients.jsonl').read_bytes()
         if self.failure == 'corrupt':
@@ -189,6 +209,45 @@ class WorkflowTests(unittest.TestCase):
         with patch.object(preset.subprocess, 'run', fake), self.assertRaises(ValueError):
             preset.verify_run(self.run)
         self.assertEqual(fake.reads+fake.writes, 0)
+
+    def test_fractional_apply_and_historical_verify_compare_exact_coefficients(self):
+        doc = dict(self.plan['preset'], filters=[dict(type='peak', frequency_hz=1000, q=1, gain_db=-1.9)])
+        self.plan, binary = preset.compile_preset(doc)
+        preset.save_json(self.run/'plan.json', self.plan)
+        (self.run/'plan.bin').write_bytes(binary)
+        preset.save_json(self.run/'manifest.json', {'plan_sha256': preset.hashlib.sha256(binary).hexdigest()})
+        fake = FakeUSB(plan=self.plan)
+        self.apply(fake)
+        self.assertEqual(self.status()['status'], 'saved_verified')
+        with patch.object(preset.subprocess, 'run', fake), patch.object(preset, 'biquad', side_effect=AssertionError('must not recompile')), contextlib.redirect_stdout(io.StringIO()):
+            preset.verify_run(self.run)
+        self.assertEqual(fake.writes, 1)
+        # Same integer label, different precise gain: must fail coefficient check.
+        wrong_doc = dict(doc, filters=[dict(doc['filters'][0], gain_db=-1.8)])
+        wrong, _ = preset.compile_preset(wrong_doc)
+        (self.run/'after-coefficients.jsonl').write_bytes(plan_capture(wrong, True))
+        with self.assertRaisesRegex(ValueError, 'Readback differs'):
+            preset.verify(self.run, self.plan)
+        result = json.loads((self.run/'verification.json').read_text())
+        self.assertTrue(result['metadata_matches'])
+        self.assertEqual(result['current_coefficients_match_rates'], [])
+        # Correct coefficients cannot hide a bad label either.
+        (self.run/'after-coefficients.jsonl').write_bytes(plan_capture(self.plan, True))
+        wrong['bands'][0]['gain_db'] = -2
+        (self.run/'after-metadata.jsonl').write_bytes(plan_capture(wrong))
+        with self.assertRaisesRegex(ValueError, 'Readback differs'):
+            preset.verify(self.run, self.plan)
+        result = json.loads((self.run/'verification.json').read_text())
+        self.assertFalse(result['metadata_matches'])
+        self.assertIn('48000', result['current_coefficients_match_rates'])
+
+    def test_legacy_integer_plan_without_separate_labels_still_verifies(self):
+        for band in self.plan['bands']:
+            del band['gain_label_db']
+        preset.save_json(self.run/'plan.json', self.plan)
+        self.assertEqual(preset.load_run_plan(self.run), self.plan)
+        self.apply(FakeUSB())
+        self.assertEqual(self.status()['status'], 'saved_verified')
 
     def test_short_reply_rejected_as_invalid_data(self):
         rows = [json.loads(s) for s in COEFFICIENTS.splitlines()]

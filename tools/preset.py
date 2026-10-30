@@ -120,7 +120,7 @@ def compile_preset(doc):
     filters = doc['filters']
     if not isinstance(filters, list) or len(filters) > 8:
         raise ValueError('At most 8 filters; band 9 is reserved for overall output gain')
-    bands = [dict(band=n, frequency_hz=500*n, q=1, type_code=1, gain_db=0) for n in range(1, 10)]
+    bands = [dict(band=n, frequency_hz=500*n, q=1, type_code=1, gain_db=0, gain_label_db=0) for n in range(1, 10)]
     normalized = []
     for i, filt in enumerate(filters):
         if not isinstance(filt, dict) or set(filt) != {'type', 'frequency_hz', 'q', 'gain_db'}:
@@ -132,13 +132,20 @@ def compile_preset(doc):
         # coefficient set must still fit Q22 and remain stable after quantization.
         gain = number(filt['gain_db'])
         q = number(filt['q'], 0.1, 10)
-        if freq != round(freq) or gain != round(gain):
-            raise ValueError('This version supports integer Hz and integer filter gain dB')
+        if freq != round(freq):
+            raise ValueError('This version supports integer Hz')
+        rounded_gain = round(gain, 1)
+        if not math.isclose(gain, rounded_gain, rel_tol=0, abs_tol=1e-9):
+            raise ValueError('Filter gain must use 0.1 dB steps')
+        gain = rounded_gain
         if filt['type'] != 'peak' and q != 1:
             raise ValueError('Shelf filters currently require q=1 (slope S=1)')
         q = round(q*256)/256
-        normalized.append(dict(filt, q=q))
-        bands[i] = dict(band=i+1, frequency_hz=int(freq), q=q, type_code=TYPES[filt['type']], gain_db=int(gain))
+        normalized.append(dict(filt, q=q, gain_db=gain))
+        # The official metadata path truncates toward zero. Only coefficients
+        # carry fractional gain; never design or verify them from this label.
+        bands[i] = dict(band=i+1, frequency_hz=int(freq), q=q, type_code=TYPES[filt['type']],
+                        gain_db=gain, gain_label_db=int(gain))
     coeffs, response = {}, {}
     for fs in RATES.values():
         try:
@@ -168,11 +175,16 @@ def compile_preset(doc):
     return plan, encode_plan(plan)
 
 
+def gain_label(band):
+    # Historical integer-only plans did not have a separate metadata field.
+    return band.get('gain_label_db', band['gain_db'])
+
+
 def encode_plan(plan):
     """Pack existing coefficients, without recalculating EQ for historical verification."""
     bands, coeffs = plan['bands'], plan['coefficients_q22']
     frames = [frame(0x5a, [0x5a, 0])]
-    frames += [frame(0xdc, [0, b['band'], b['frequency_hz'], round(b['q']*256), b['type_code'], b['gain_db'] & 0xffffff]) for b in bands]
+    frames += [frame(0xdc, [0, b['band'], b['frequency_hz'], round(b['q']*256), b['type_code'], gain_label(b) & 0xffffff]) for b in bands]
     frames += [frame(0xdc, [idx, n, 3] + coeffs[str(fs)][n-1]) for n in range(1, 10) for idx, fs in RATES.items()]
     frames += [frame(0xdc, [255])]
     return b''.join(frames)
@@ -238,7 +250,7 @@ def read_coefficients(path):
 def verify(directory, plan):
     metadata = decode(directory/'after-metadata.jsonl')
     mode, coefficients = read_coefficients(directory/'after-coefficients.jsonl')
-    expected = [dict(band=b['band'], frequency_hz=b['frequency_hz'], q=b['q'], type_code=b['type_code'], gain_label_db=b['gain_db']) for b in plan['bands']]
+    expected = [dict(band=b['band'], frequency_hz=b['frequency_hz'], q=b['q'], type_code=b['type_code'], gain_label_db=gain_label(b)) for b in plan['bands']]
     rates = [fs for fs, rows in plan['coefficients_q22'].items() if rows == coefficients]
     result = dict(metadata_matches=metadata['bands'] == expected, mode_matches=mode == metadata['mode'] == 0,
                   current_coefficients_match_rates=rates, physical_unplug_tested=False)

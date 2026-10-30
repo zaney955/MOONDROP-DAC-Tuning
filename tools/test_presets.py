@@ -71,6 +71,31 @@ class PresetTests(unittest.TestCase):
             # Preserve the requested integer label rather than silently clamping it.
             self.assertEqual(struct.unpack_from('<I', binary, 62+30)[0], gain & 0xffffff)
 
+    def test_fractional_gain_coefficients_and_integer_labels_are_independent(self):
+        for gain in (-1.9, -1.5, -0.1, 0.1, 0.2, 0.5, 1.5, 1.9):
+            with self.subTest(gain=gain):
+                plan, binary = compile_preset(self.filter_doc(gain))
+                self.assertEqual(plan['bands'][0]['gain_db'], gain)
+                self.assertEqual(plan['bands'][0]['gain_label_db'], int(gain))
+                self.assertEqual(struct.unpack_from('<I', binary, 62+30)[0], int(gain) & 0xffffff)
+                integer_plan, _ = compile_preset(self.filter_doc(int(gain)))
+                for fs, rows in plan['coefficients_q22'].items():
+                    self.assertNotEqual(rows[0], integer_plan['coefficients_q22'][fs][0])
+                    self.assertAlmostEqual(self.response_db(rows[0], 1000, int(fs)), gain, delta=.001)
+                    operation = 10 + list(plan['coefficients_q22']).index(fs)
+                    encoded = struct.unpack_from('<5I', binary, operation*62+22)
+                    self.assertEqual(encoded, tuple(v & 0xffffffff for v in rows[0]))
+
+    def test_fractional_shelves_and_float_arithmetic(self):
+        for kind in ('low_shelf', 'high_shelf'):
+            plan, _ = compile_preset(self.filter_doc(-1.3, kind))
+            for fs, rows in plan['coefficients_q22'].items():
+                self.assertAlmostEqual(self.response_db(rows[0], 1000, int(fs)), -.65, delta=.005)
+        noisy, binary = compile_preset(self.filter_doc(.1 + .2))
+        clean, expected = compile_preset(self.filter_doc(.3))
+        self.assertEqual(binary, expected)
+        self.assertEqual(noisy['bands'], clean['bands'])
+
     def test_shelf_beyond_old_limit_keeps_s1_plateau_and_midpoint(self):
         for gain in (-24, 24):
             plan, _ = compile_preset(self.filter_doc(gain, 'low_shelf'))
@@ -94,7 +119,7 @@ class PresetTests(unittest.TestCase):
     def test_invalid_extreme_and_unstable_gain_fail_before_device_access(self):
         cases = [(float('nan'), 'finite'), (float('inf'), 'finite'),
                  (True, 'finite'), (None, 'finite'), ('24', 'finite'),
-                 (0.5, 'integer'), (1e308, 'compute finite'),
+                 (0.05, '0.1 dB'), (-1.25, '0.1 dB'), (1e308, 'compute finite'),
                  (-1e308, 'compute finite'), (10**1000, 'finite'),
                  (-245, 'Unstable quantized filter')]
         with tempfile.TemporaryDirectory() as temp, patch.object(preset.subprocess, 'run') as command:

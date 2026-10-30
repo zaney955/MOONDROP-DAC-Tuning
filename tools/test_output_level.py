@@ -112,7 +112,7 @@ class OutputLevelTests(unittest.TestCase):
                 plan, binary = preset.compile_preset(doc)
                 self.assertEqual(binary, (path.parent/'plan.bin').read_bytes())
                 self.assertEqual(plan['coefficients_q22'], old['coefficients_q22'])
-                self.assertEqual(plan['bands'], old['bands'])
+                self.assertEqual(plan['bands'], [dict(b, gain_label_db=b['gain_db']) for b in old['bands']])
         self.assertGreater(checked, 0)
 
     def test_all_editable_presets_are_complete_and_valid(self):

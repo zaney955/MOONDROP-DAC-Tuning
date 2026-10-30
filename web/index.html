@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="editor-version" content="__EDITOR_VERSION__">
+  <title>ECHO-B · 声音工作台</title>
+  <link rel="stylesheet" href="/style.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <a href="/" class="wordmark" aria-label="ECHO-B 声音工作台首页"><span class="mark" aria-hidden="true">e.</span><b>ECHO-B</b><span class="divider"></span><span>声音工作台</span></a>
+    <span class="local"><i></i> 本地运行</span>
+  </header>
+  <main>
+    <section class="intro">
+      <div><p class="eyebrow">MOONDROP / PARAMETRIC EQ</p><h1>把声音，调成你的样子。</h1><p class="subtitle">观察频响，微调每一段，把喜欢的声音存下来。</p></div>
+      <div class="file-actions"><button id="import" type="button">↓ 导入配置</button><button id="export" type="button">↑ 导出 JSON</button><input id="file" type="file" accept=".json,application/json" hidden></div>
+    </section>
+    <p id="notice" role="status" aria-live="polite"></p>
+    <div class="workspace">
+      <aside class="sidebar">
+        <section class="panel library"><p class="eyebrow">01 / PRESETS</p><h2>预设库</h2><div id="presets"></div><button class="text-button" id="new" type="button">＋ 新建空白配置</button></section>
+        <section class="panel device"><span class="device-symbol" aria-hidden="true">▥</span><p class="eyebrow">USB DAC / AMP</p><h2>MOONDROP ECHO-B</h2><p>编辑器参数与设备状态独立。<br>点击写入后才会应用到耳放。</p><div class="device-tag">9 段 DSP · 8 段可调 EQ</div></section>
+      </aside>
+      <div class="editor">
+        <section class="panel response">
+          <div class="section-head"><div><p class="eyebrow">02 / FREQUENCY RESPONSE</p><h2>频率响应</h2></div><label class="rate-label" for="rate">预览采样率<select id="rate" name="rate"><option value="44100">44.1 kHz</option><option value="48000" selected>48 kHz</option><option value="96000">96 kHz</option><option value="192000">192 kHz</option><option value="384000">384 kHz</option></select></label></div>
+          <div class="legend"><span class="line-key total"></span>组合响应（含输出增益）<span class="line-key band"></span>各段 EQ</div>
+          <div id="chart-wrap" role="group" aria-label="频率响应调节"><svg id="chart" viewBox="0 0 900 310" role="img" aria-labelledby="chart-title chart-description"><title id="chart-title">EQ 频率响应曲线</title><desc id="chart-description">正在计算频率响应</desc></svg><div id="chart-handles"></div></div>
+          <p id="chart-help">拖动编号控制点：左右调频率，上下调增益；峰值控制点上滚轮调 Q，Shift＋滚轮精调。也可用方向键微调位置；Esc 取消拖动。</p>
+          <div class="chart-footer"><span id="curve-state">等待配置</span><span>20 Hz — 20 kHz · Q22 量化模型</span></div>
+          <p id="validation" role="status" aria-live="polite">正在载入编辑器…</p>
+        </section>
+        <form id="settings" action="/api/apply" method="post">
+          <section class="panel configuration">
+            <div class="section-head"><div><p class="eyebrow">03 / CONFIGURATION</p><h2>配置与输出</h2></div><span class="small-tag" id="draft-state">编辑草稿</span></div>
+            <div class="metadata"><label for="name">配置名称 <span>必填</span><input id="name" name="name" required maxlength="200" autocomplete="off"></label><label for="description">备注<textarea id="description" name="description" rows="2"></textarea></label></div>
+            <div class="output"><div><label for="output">整体输出数字增益</label><p id="output-help">第 9 段控制整体电平，独立于音色 EQ。</p></div><div class="output-control"><label class="sr-only" for="output-slider">整体输出增益滑块（dB）</label><input type="range" id="output-slider" name="output-slider" min="-132.45319809215172" max="6.020598877840829" step="any" value="-16"><div class="unit-input"><input id="output" name="output_gain_db" type="number" step="any" required aria-describedby="output-help"><span>dB</span></div></div></div>
+          </section>
+          <section class="panel filters">
+            <div class="section-head"><div><p class="eyebrow">04 / FILTER BANK</p><h2>参数均衡器 <span id="band-count">0 / 8</span></h2></div><button id="add" type="button">＋ 添加滤波器</button></div>
+            <div id="bands"></div>
+            <p class="filter-help">频率为整数 Hz，增益按 0.1 dB 步进；峰值 Q 按 1/256 量化，架式固定 S=1。增益可用范围由系数校验决定。</p>
+          </section>
+          <section class="apply-bar"><div><b id="apply-title">准备好再应用</b><p>整体替换设备 EQ 并保存，随后自动读回验证。</p></div><button class="primary" id="apply" type="submit">写入耳放 <span aria-hidden="true">↗</span></button></section>
+        </form>
+        <section class="panel operation" id="operation" hidden><div class="section-head"><h2>设备操作</h2><button id="verify" type="button" disabled>只读复核上次写入</button></div><p id="job-summary" role="status" aria-live="polite"></p><pre id="job-detail"></pre></section>
+      </div>
+    </div>
+    <footer><span>ECHO-B / SOUND WORKBENCH</span><span>曲线为数字模型，非耳机实测频响。</span></footer>
+  </main>
+  <noscript>请启用 JavaScript 使用可视化编辑器。也可以运行 python3 tools/preset.py 通过命令行管理配置。</noscript>
+</body>
+</html>
