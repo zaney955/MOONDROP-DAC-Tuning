@@ -69,9 +69,14 @@ class RunStatus:
         print(f'[{stage}] {message}', flush=True)
 
 
-def number(value, lo, hi):
-    if type(value) not in (int, float) or not math.isfinite(value) or not lo <= value <= hi:
-        raise ValueError(f'Expected finite number in [{lo}, {hi}]: {value!r}')
+def number(value, lo=None, hi=None):
+    try:
+        finite = type(value) in (int, float) and math.isfinite(value)
+    except OverflowError:
+        finite = False
+    if not finite or (lo is not None and value < lo) or (hi is not None and value > hi):
+        bounds = f' in [{lo}, {hi}]' if lo is not None or hi is not None else ''
+        raise ValueError(f'Expected finite number{bounds}: {value!r}')
     return value
 
 
@@ -123,9 +128,9 @@ def compile_preset(doc):
         if filt['type'] not in TYPES:
             raise ValueError('Filter type must be peak, low_shelf or high_shelf')
         freq = number(filt['frequency_hz'], 20, 20000)
-        # Preset input policy, not a universal hardware limit; see
-        # docs/devices/echo-b-filter-gain-range.md for coefficient acceptance tests.
-        gain = number(filt['gain_db'], -12, 12)
+        # Standard RBJ gain has no fixed +/-dB input ceiling. Every sample-rate
+        # coefficient set must still fit Q22 and remain stable after quantization.
+        gain = number(filt['gain_db'])
         q = number(filt['q'], 0.1, 10)
         if freq != round(freq) or gain != round(gain):
             raise ValueError('This version supports integer Hz and integer filter gain dB')
@@ -136,7 +141,10 @@ def compile_preset(doc):
         bands[i] = dict(band=i+1, frequency_hz=int(freq), q=q, type_code=TYPES[filt['type']], gain_db=int(gain))
     coeffs, response = {}, {}
     for fs in RATES.values():
-        rows = [biquad(f, fs) for f in normalized]
+        try:
+            rows = [biquad(f, fs) for f in normalized]
+        except (ArithmeticError, ValueError) as error:
+            raise ValueError(f'Cannot compute finite filter coefficients at {fs} Hz: {error}') from error
         rows += [IDENTITY.copy() for _ in range(8-len(rows))]
         rows.append([round(SCALE*10**(output_gain_db/20)), 0, 0, 0, 0])
         for cf in rows:

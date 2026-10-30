@@ -1,6 +1,6 @@
 # ECHO-B 功能探索
 
-调查日期：2026-10-30。基于源码、APK 静态证据、历史实机记录和离线计算；本轮未操作设备。本文记录能力与开发方向，不维护具体听音参数。
+本文说明扩展功能所需的接口、验收条件和能力边界。具体听音参数由预设 JSON 管理。
 
 ## 可扩展方向
 
@@ -13,7 +13,7 @@
 | 第 9 段用于音色滤波 | 整体衰减可合并进已有滤波器分子；有第三方实现和离线样例 | 逐项检查量化误差、范围与稳定性，再做实机验收 |
 | 高通、低通、陷波 | 二阶系数路径具备研究基础，APK 有部分类型常量 | 扩展编译器并确认设备行为；静态常量不等于本机支持 |
 
-建议优先做临时试听与小数微调，再做界面和导入。A/B 应匹配听感响度，不能承诺无缝切换。本机 Gen1 读取使用控制管道，网页界面需要合适的本地后端，不能直接等同于普通 WebHID 支持。
+A/B 应匹配听感响度，不能承诺无缝切换。本机 Gen1 读取使用控制管道，网页界面需要合适的本地后端，不能直接等同于普通 WebHID 支持。
 
 ## 未证实的能力
 
@@ -28,8 +28,8 @@
 - [临时修改记录](../../backups/runtime-roundtrip.jsonl)与[测试源码](../../tools/echo_runtime_test.c)：单段实测，不是完整预览工具。
 - [官方反汇编](../../evidence/official-dex-protocol.asm)与[类/常量库存](../../evidence/dex-command-constants.json)：跨机型共享 SDK，需区分本机适用性。
 - [上游代码快照](../../evidence/upstream-dsp.rs)：Gen1 模式选择及合并衰减实现，不代替本机实测。
-- [离线计算记录](../../evidence/echo-b-extension-feasibility.json)：固定样例中的小数峰值误差低于 0.00001 dB，合并衰减的最大响应差异约 0.003142 dB。仅证明当次样例的数值可行性，不保证任意输入或硬件内部余量。
+- [离线计算记录](../../evidence/echo-b-extension-feasibility.json)：固定样例中的小数峰值误差低于 0.00001 dB，合并衰减的最大响应差异约 0.003142 dB。这些误差值仅适用于所列算例，不保证任意输入或硬件内部余量。
 - [厂商产品页](https://moondroplab.com/cn-products/echo-b)：说明与 FreeDSP 共享调音及 USB 音频兼容性，不等于所有控制功能兼容。
-- [FreeDSP Studio](https://github.com/EffectiveEquivalent/FreeDSP-Studio)：同代功能与实现参考；ECHO-B 不在调查时的明确实测型号表中。
+- [FreeDSP Studio](https://github.com/EffectiveEquivalent/FreeDSP-Studio)：同代功能与实现参考；第三方型号兼容性需要独立核对。
 
-后续实验应逐项设计、读回与试听，并另留操作记录，不把开发设想写成已经支持的功能。
+扩展功能需要对应的系数检查、设备读回和实际效果验收，开发方向不等于已支持功能。

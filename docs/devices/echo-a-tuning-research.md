@@ -1,33 +1,27 @@
-# ECHO-A 调音支持调研
+# ECHO-A 调音能力与兼容性
 
-调研日期：2026-10-30。仅查阅公开资料和源码；本次未连接、读取或写入 ECHO-A。
+ECHO-A 支持设备端参数均衡器（PEQ）。公开实机证据对应 USB `3302:12C5`、产品名 `ECHO-A`、固件 `0.1`；证据来自 Contour 作者的写入、读回和模拟输出测量，本仓库没有 ECHO-A 本地实机验收。[协议依据](https://github.com/Chronosauros/contour/blob/main/research/protocol/PROTOCOL.md#moondrop-echo-a-330212c5-supported-in-contour-160)
 
-## 结论
+## 软件与参数
 
-**支持设备端参数均衡器（PEQ）调音，有第三方作者的实机写入、读回和模拟输出测量证据。** 对应被测硬件为 USB `3302:12C5`、产品名 `ECHO-A`、固件 `0.1`，并非仅由 ECHO-B 或同品牌产品推测。[Contour 协议记录](https://github.com/Chronosauros/contour/blob/main/research/protocol/PROTOCOL.md#moondrop-echo-a-330212c5-supported-in-contour-160)
-
-水月雨官方产品页说明了 USB-C、3.5 mm 单端及麦克风等功能，但未明确宣传 PEQ；页面附带 APP 下载卡也不能单独证明官方软件支持该型号。[官方产品页](https://moondroplab.com/en/products/echo-a)
-
-## 已有调音能力与软件
-
-| 项目 | 当前公开证据 |
+| 项目 | Contour 支持范围 |
 | --- | --- |
 | 频段 | 8 段 |
-| 单段增益 | Contour 使用 −10 至 +10 dB |
-| 原生滤波器 | 峰值 PK、低架 LS、低通 LP、高通 HP |
-| 高架 HS | Contour 用反向低架加前级增益模拟，增益取整 dB，可能需要进一步降低前级 |
-| 前级 | Contour 提供 −30 至 0 dB，整 dB 步进 |
+| 单段增益 | −10 至 +10 dB |
+| 原生滤波器 | 峰值、低架、低通、高通 |
+| 高架 | 由反向低架与前级增益组合，增益为整 dB，可能需要降低前级 |
+| 前级 | −30 至 0 dB，整 dB 步进 |
 
-滤波器、增益和实测结论见 [Contour 1.6.0 发布说明](https://github.com/Chronosauros/contour/releases/tag/v1.6.0)；前级范围见 [使用指南](https://contoureq.app/guide/)。这些是软件采用的范围，不能据此断言已经测出了硬件所有极限。
+Android 可使用 Contour 1.6.0 或以上，发送后会读回核对。上述范围是软件支持范围，不代表硬件的全部极限。[使用指南](https://contoureq.app/guide/)、[设备定义](https://github.com/Chronosauros/contour/blob/main/devices/moondrop-echo-a.json)
 
-**现成路线优先考虑 Android 的 Contour 1.6.0 或以上。** 1.6.0 在 2026-10-25 加入 ECHO-A；本次查阅的最新 GitHub 发布为 1.6.4。发送后软件会读回核对。项目说明 EQ 存入 DAC，换到电脑或其他播放设备后仍使用设备内设置；但 ECHO-A JSON 记录的独立 `persistence` 证据栏仍为空，不能将项目总说明表述成本次已完成 ECHO-A 拔插验证。[发布列表](https://github.com/Chronosauros/contour/releases)、[项目说明](https://github.com/Chronosauros/contour#why-it-exists)、[ECHO-A 设备记录](https://github.com/Chronosauros/contour/blob/main/devices/moondrop-echo-a.json)
+Contour 说明调音存于 DAC，可供其他播放设备使用；ECHO-A 独立断电保持证据栏不完整，本仓库不提供本地拔插验证结论。[项目说明](https://github.com/Chronosauros/contour#why-it-exists)
 
-电脑网页路线可研究 DevicePEQ，但必须核对实际 VID/PID、USB 名称和所选协议。其源码的 WalkPlay SchemeNo11 分组包含 PID `0x12C5`；另一个名为 `Echo A` 的别名却选择不同 handler 和限制，不能将名称条目直接当作同一硬件的实测证明。网页兼容与写入尚未在本地验证。[DevicePEQ 配置](https://github.com/jeromeof/devicePEQ/blob/master/devicePEQ/usbDeviceConfig.js)、[浏览器要求](https://github.com/jeromeof/devicePEQ/blob/master/devicePEQ/index.md#browser-requirements)
+DevicePEQ 提供电脑网页控制路线，须按实际 VID/PID、USB 名称与协议匹配。其 WalkPlay SchemeNo11 包含 PID `0x12C5`，但 `Echo A` 名称别名可选择其他 handler，不能仅凭名称认定兼容。网页写入没有本地实机验收。[配置](https://github.com/jeromeof/devicePEQ/blob/master/devicePEQ/usbDeviceConfig.js)、[浏览器要求](https://github.com/jeromeof/devicePEQ/blob/master/devicePEQ/index.md#browser-requirements)
 
-## 与本仓库 ECHO-B 的关系
+厂商产品页说明 USB-C、3.5 mm 单端及麦克风功能，但没有明确的 PEQ 支持承诺；附带 App 下载卡不构成型号兼容证明。[官方产品页](https://moondroplab.com/en/products/echo-a)
 
-ECHO-A 被测版本采用 WalkPlay SchemeNo11、HID 接口 3、Report ID `0x4B`；作者测得 DSP 系数运行于 93,750 Hz，不能直接采用普通 96 kHz 系数假设。其设备记录仍标记 `records-only`，README 明确解释这是字段尚未补齐：EQ 写入自 10 月 25 日已通过复用 Protocol Micro 的代码发布，不代表 EQ 写入仍被禁用。[协议记录](https://github.com/Chronosauros/contour/blob/main/research/protocol/PROTOCOL.md#moondrop-echo-a-330212c5-supported-in-contour-160)、[设备记录说明](https://github.com/Chronosauros/contour/blob/main/devices/README.md)
+## 协议与本仓库支持范围
 
-本仓库后端针对 USB `35d8:149b` 的 ECHO-B，使用 Report ID 1、62 字节报告、CTRL 模块和 Q22 系数。因此 **ECHO-B 的设备写入程序和编译结果不能直接用于 ECHO-A**；若要纳入本仓库，需要单独的设备识别、WalkPlay 编码及验证路径。[本仓库设备协议](echo-b-investigation.md)、[项目说明](../../README.md)
+ECHO-A 的已验证版本采用 WalkPlay SchemeNo11、HID 接口 3、Report ID `0x4B`，系数设计率为 93,750 Hz。[协议依据](https://github.com/Chronosauros/contour/blob/main/research/protocol/PROTOCOL.md#moondrop-echo-a-330212c5-supported-in-contour-160)
 
-目前证据足以回答“ECHO-A 能否调音”：能。具体用户设备是否与上述被测 USB/固件一致、官方 APP 能否控制、网页工具实际兼容性及跨固件行为，仍应以设备枚举和只读备份为起点验证。
+本仓库硬件后端针对 ECHO-B `35d8:149b`，使用 Report ID 1、62 字节报告和 CTRL 模块。ECHO-B 写入程序及编译结果不能直接用于 ECHO-A；设备识别、WalkPlay 编码和验收路径需要独立适配。[ECHO-B 协议](echo-b-investigation.md)
