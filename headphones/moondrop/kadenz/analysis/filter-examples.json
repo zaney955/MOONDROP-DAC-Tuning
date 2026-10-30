@@ -4,7 +4,7 @@
       "version": 1,
       "device": "MOONDROP ECHO-B",
       "name": "sub_bass",
-      "preamp_db": -3,
+      "output_gain_db": -3,
       "filters": [
         {
           "type": "low_shelf",
@@ -44,7 +44,7 @@
       "version": 1,
       "device": "MOONDROP ECHO-B",
       "name": "less_bass",
-      "preamp_db": -3,
+      "output_gain_db": -3,
       "filters": [
         {
           "type": "low_shelf",
@@ -84,7 +84,7 @@
       "version": 1,
       "device": "MOONDROP ECHO-B",
       "name": "midbass",
-      "preamp_db": -3,
+      "output_gain_db": -3,
       "filters": [
         {
           "type": "peak",
@@ -124,7 +124,7 @@
       "version": 1,
       "device": "MOONDROP ECHO-B",
       "name": "body",
-      "preamp_db": -3,
+      "output_gain_db": -3,
       "filters": [
         {
           "type": "peak",
@@ -164,7 +164,7 @@
       "version": 1,
       "device": "MOONDROP ECHO-B",
       "name": "presence",
-      "preamp_db": -3,
+      "output_gain_db": -3,
       "filters": [
         {
           "type": "peak",
@@ -204,7 +204,7 @@
       "version": 1,
       "device": "MOONDROP ECHO-B",
       "name": "clarity",
-      "preamp_db": -3,
+      "output_gain_db": -3,
       "filters": [
         {
           "type": "peak",
@@ -244,7 +244,7 @@
       "version": 1,
       "device": "MOONDROP ECHO-B",
       "name": "sibilance",
-      "preamp_db": -3,
+      "output_gain_db": -3,
       "filters": [
         {
           "type": "peak",
@@ -284,7 +284,7 @@
       "version": 1,
       "device": "MOONDROP ECHO-B",
       "name": "air",
-      "preamp_db": -3,
+      "output_gain_db": -3,
       "filters": [
         {
           "type": "high_shelf",

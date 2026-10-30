@@ -1,0 +1,69 @@
+{
+  "device": "MOONDROP ECHO-B",
+  "usb_id": "35d8:149b",
+  "purpose": "volatile gain range register acceptance",
+  "flash_save_sent": false,
+  "analog_output_measured": false,
+  "status": "restored_verified",
+  "probe_exit_code": 0,
+  "cases": [
+    {
+      "b0_q22": 0,
+      "ack_ok": true,
+      "exact_readback": true,
+      "represented_gain_db": null
+    },
+    {
+      "b0_q22": 1,
+      "ack_ok": true,
+      "exact_readback": true,
+      "represented_gain_db": -132.45319809215172
+    },
+    {
+      "b0_q22": 4194,
+      "ack_ok": true,
+      "exact_readback": true,
+      "represented_gain_db": -60.00062956956523
+    },
+    {
+      "b0_q22": 664752,
+      "ack_ok": true,
+      "exact_readback": true,
+      "represented_gain_db": -16.00000503931823
+    },
+    {
+      "b0_q22": 4194304,
+      "ack_ok": true,
+      "exact_readback": true,
+      "represented_gain_db": 0.0
+    },
+    {
+      "b0_q22": 4706081,
+      "ack_ok": true,
+      "exact_readback": true,
+      "represented_gain_db": 0.9999898654995596
+    },
+    {
+      "b0_q22": 5924678,
+      "ack_ok": true,
+      "exact_readback": true,
+      "represented_gain_db": 3.0000969453788375
+    },
+    {
+      "b0_q22": 8368737,
+      "ack_ok": true,
+      "exact_readback": true,
+      "represented_gain_db": 6.00000030231538
+    },
+    {
+      "b0_q22": 8388607,
+      "ack_ok": true,
+      "exact_readback": true,
+      "represented_gain_db": 6.020598877840829
+    }
+  ],
+  "metadata_exactly_restored": true,
+  "all_current_coefficients_exactly_restored": true,
+  "probe_source_sha256": "1b4ddb64cf32cf3e7c07a278681f08f8f8793173f778655ec285507cc84419ac",
+  "probe_binary_sha256": "afb3834e10aa7c5e45137df7ae69ff1dd4dbecf07c1ca09b0100d20a2217da4d"
+}

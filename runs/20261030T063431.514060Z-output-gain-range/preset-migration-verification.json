@@ -1,0 +1,31 @@
+{
+  "presets": [
+    {
+      "preset": "kadenz-death-metal-structure-v1.json",
+      "old_gain_db": -20,
+      "output_gain_db": -20,
+      "filters_unchanged": true,
+      "device_frames_identical": true,
+      "plan_sha256": "ce7f96d30e728dc8dc3b896705cd997af8e017472df76342608e0315af2e7b76"
+    },
+    {
+      "preset": "original-default.json",
+      "old_gain_db": 0,
+      "output_gain_db": 0,
+      "filters_unchanged": true,
+      "device_frames_identical": true,
+      "plan_sha256": "a54f54d0aa963c218fddb6c3f3e83cde6e82dd3a9a8b8a2e5aece37718b0427c"
+    },
+    {
+      "preset": "original-minus-16db.json",
+      "old_gain_db": -16,
+      "output_gain_db": -16,
+      "filters_unchanged": true,
+      "device_frames_identical": true,
+      "plan_sha256": "83b2ae33f048847b78f8a3ad88d63e71201a3eb2dbc3b50cd9a420708295a42c"
+    }
+  ],
+  "device_write_performed_for_migration": false,
+  "output_gain_min_db": -132.45319809215172,
+  "output_gain_max_db": 6.020598877840829
+}

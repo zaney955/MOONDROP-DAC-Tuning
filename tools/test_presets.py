@@ -5,14 +5,13 @@ import math
 import struct
 import unittest
 
-from preset import ROOT, SCALE, compile_preset, read_coefficients
+from preset import ROOT, SCALE, compile_preset, read_coefficients, OUTPUT_GAIN_MIN_DB, OUTPUT_GAIN_MAX_DB
 
 
 class PresetTests(unittest.TestCase):
     def setUp(self):
         self.doc = json.loads((ROOT/'presets/original-default.json').read_text())
-        self.doc['preamp_db'] = -2  # Synthetic attenuation fixture, not a user preset.
-        self.doc['output_trim_db'] = 0  # Isolate original DSP regression from listening level.
+        self.doc['output_gain_db'] = -2  # Synthetic attenuation fixture, not a user preset.
 
     def test_global_attenuation_is_flat_at_all_rates_and_encoded(self):
         plan, binary = compile_preset(self.doc)
@@ -31,7 +30,7 @@ class PresetTests(unittest.TestCase):
 
     def test_matches_previously_verified_muffled_plan(self):
         doc = copy.deepcopy(self.doc)
-        doc['preamp_db'] = 0
+        doc['output_gain_db'] = 0
         doc['filters'] = [dict(type='high_shelf', frequency_hz=f, q=1, gain_db=-12) for f in (500, 1200, 3000)]
         plan, binary = compile_preset(doc)
         old = ROOT/'profiles/muffled-persistence-test'
@@ -40,8 +39,8 @@ class PresetTests(unittest.TestCase):
         self.assertEqual(actual, plan['coefficients_q22']['48000'])
 
     def test_invalid_inputs_fail_before_any_io(self):
-        for value in (float('nan'), float('inf'), 1, -61, True):
-            doc = dict(self.doc, preamp_db=value)
+        for value in (float('nan'), float('inf'), OUTPUT_GAIN_MAX_DB + 0.01, OUTPUT_GAIN_MIN_DB - 0.01, True):
+            doc = dict(self.doc, output_gain_db=value)
             with self.assertRaises(ValueError):
                 compile_preset(doc)
         with self.assertRaises(ValueError):

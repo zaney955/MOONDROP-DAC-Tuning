@@ -17,6 +17,8 @@ from summarize_backup import decode
 
 ROOT = Path(__file__).resolve().parent.parent
 SCALE = 1 << 22
+OUTPUT_GAIN_MIN_DB = 20 * math.log10(1 / SCALE)
+OUTPUT_GAIN_MAX_DB = 20 * math.log10(((1 << 23) - 1) / SCALE)
 RATES = {4: 44100, 5: 48000, 6: 96000, 7: 192000, 8: 384000}
 IDENTITY = [SCALE, 0, 0, 0, 0]
 TYPES = {'peak': 0, 'low_shelf': 1, 'high_shelf': 2}
@@ -102,19 +104,17 @@ def frame(cmd, values):
 
 
 def compile_preset(doc):
-    allowed = {'version', 'device', 'name', 'description', 'preamp_db', 'output_trim_db', 'filters'}
+    allowed = {'version', 'device', 'name', 'description', 'output_gain_db', 'filters'}
     if not isinstance(doc, dict) or set(doc) - allowed or doc.get('version') != 1 or doc.get('device') != 'MOONDROP ECHO-B':
         raise ValueError('Unknown fields, version or device')
     if not isinstance(doc.get('name'), str) or not doc['name'].strip():
         raise ValueError('name is required')
-    preset_preamp = number(doc['preamp_db'], -60, 0)
-    if 'output_trim_db' not in doc:
-        raise ValueError('预设缺少 output_trim_db；请在配置副本中明确填写输出衰减（-40 至 0 dB），不会自动按 0 dB 写入')
-    output_trim_db = number(doc['output_trim_db'], -40, 0)
-    preamp = number(preset_preamp + output_trim_db, -60, 0)
+    if 'output_gain_db' not in doc:
+        raise ValueError('预设缺少 output_gain_db；请明确填写整体输出数字增益，不会自动按 0 dB 写入')
+    output_gain_db = number(doc['output_gain_db'], OUTPUT_GAIN_MIN_DB, OUTPUT_GAIN_MAX_DB)
     filters = doc['filters']
     if not isinstance(filters, list) or len(filters) > 8:
-        raise ValueError('At most 8 filters; band 9 is reserved for global attenuation')
+        raise ValueError('At most 8 filters; band 9 is reserved for overall output gain')
     bands = [dict(band=n, frequency_hz=500*n, q=1, type_code=1, gain_db=0) for n in range(1, 10)]
     normalized = []
     for i, filt in enumerate(filters):
@@ -123,6 +123,8 @@ def compile_preset(doc):
         if filt['type'] not in TYPES:
             raise ValueError('Filter type must be peak, low_shelf or high_shelf')
         freq = number(filt['frequency_hz'], 20, 20000)
+        # Preset input policy, not a universal hardware limit; see
+        # docs/devices/echo-b-filter-gain-range.md for coefficient acceptance tests.
         gain = number(filt['gain_db'], -12, 12)
         q = number(filt['q'], 0.1, 10)
         if freq != round(freq) or gain != round(gain):
@@ -136,7 +138,7 @@ def compile_preset(doc):
     for fs in RATES.values():
         rows = [biquad(f, fs) for f in normalized]
         rows += [IDENTITY.copy() for _ in range(8-len(rows))]
-        rows.append([round(SCALE*10**(preamp/20)), 0, 0, 0, 0])
+        rows.append([round(SCALE*10**(output_gain_db/20)), 0, 0, 0, 0])
         for cf in rows:
             if any(not -(1 << 23) <= x < (1 << 23) for x in cf):
                 raise ValueError(f'Coefficient exceeds signed 24-bit range at {fs} Hz')
@@ -154,9 +156,7 @@ def compile_preset(doc):
         response[str(fs)] = dict(min_gain_db=min(gains), max_gain_db=max(gains))
         coeffs[str(fs)] = rows
     plan = dict(preset=doc, bands=bands, coefficients_q22=coeffs, response_check=response,
-                note='Band 9 implements global attenuation directly; Android metadata labels do not encode it.')
-    plan['gain_staging'] = dict(preset_preamp_db=preset_preamp,
-                               output_trim_db=output_trim_db, effective_preamp_db=preamp)
+                note='Band 9 implements overall digital output gain directly; Android metadata labels do not encode it.')
     return plan, encode_plan(plan)
 
 
@@ -335,8 +335,8 @@ def main():
     if args.action == 'list':
         for path in sorted((ROOT/'presets').glob('*.json')):
             doc = json.loads(path.read_text())
-            trim = doc.get('output_trim_db', '缺失，需补充')
-            print(f"{path.stem}: {doc['name']} (preamp {doc['preamp_db']} dB, output_trim {trim} dB)")
+            gain = doc.get('output_gain_db', '缺失，需补充')
+            print(f"{path.stem}: {doc['name']} (output_gain {gain} dB)")
         return
     if not args.preset:
         parser.error('build/apply requires a preset; verify requires a historical run directory')
@@ -350,7 +350,6 @@ def main():
     source = resolve_preset(args.preset)
     doc = json.loads(source.read_text())
     plan, binary = compile_preset(doc)
-    trim = doc['output_trim_db']
     if args.action == 'build':
         directory = ROOT/'profiles'/'compiled'/source.stem
         directory.mkdir(parents=True, exist_ok=True)
@@ -364,9 +363,11 @@ def main():
     (directory/'plan.bin').write_bytes(binary)
     save_json(directory/'manifest.json', dict(plan_sha256=hashlib.sha256(binary).hexdigest(), source=str(source)))
     print(directory, flush=True)
-    print(f'音色预设增益 {doc["preamp_db"]:g} dB + 输出衰减 {trim:g} dB = {plan["gain_staging"]["effective_preamp_db"]:g} dB', flush=True)
+    print(f'整体输出数字增益 {doc["output_gain_db"]:g} dB', flush=True)
     maximum = max(r['max_gain_db'] for r in plan['response_check'].values())
     print(f'20 Hz–20 kHz sampled peak: {maximum:.6f} dB', flush=True)
+    if maximum > 0:
+        print('提示：组合频响超过 0 dB，满幅输入可能削波；请降低音源电平或调整 EQ。', flush=True)
     if args.action == 'apply':
         with device_lock():
             apply_plan(directory, plan)

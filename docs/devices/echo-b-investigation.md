@@ -23,13 +23,15 @@
 - [初始状态备份](../../backups/ECHO-B-original-current-state.json)：模式、9 段标签和当前系数；校验值见 [SHA256SUMS](../../backups/SHA256SUMS)。
 - [临时修改与恢复](../../backups/runtime-roundtrip.jsonl)：狭窄的单段系数变更，恢复后原始回包逐字节一致，未发送闪存保存。
 - [早期保存验收](../../profiles/muffled-persistence-test/verification.json)：完整保存序列与当前运行系数读回。
+- [整体输出增益范围](echo-b-output-gain-range.md)：Q22 正系数端点临时写入、读回及完整恢复；未测量模拟输出。
+- [滤波器增益范围](echo-b-filter-gain-range.md)：105 组系数临时写入、逐字节读回及恢复；±12 dB 不是统一硬件极限，未测量模拟频响。
 - 后续各次操作见 `runs/` 中的快照、ACK 和检查结果；历史目录名不代表设备实时状态。
 
 这些记录验证了参数/系数读取、临时修改与恢复、保存及当前系数核对，不能证明完整闪存恢复、全部模式或物理拔插保持。`tools/echo_runtime_test.c` 只适用于特定初始状态，不是通用预览工具；运行中拔线或强制终止会打断恢复。
 
 ## 静态分析来源
 
-- [官方 APK 库存](../../evidence/apk-inventory.json)与[反汇编](../../evidence/official-dex-protocol.asm)：包含来源哈希及系数读写路径；APK 和 Android 库未被运行。
+- [官方 APK 库存](../../evidence/apk-inventory.json)与[反汇编](../../evidence/official-dex-protocol.asm)：包含来源哈希及系数读写路径；APK 未启动。后续已在 ARM64 模拟器中执行其系数计算库，与本工具比较 1355 个样本，见[官方系数对比](echo-b-android-eq-comparison.md)。模拟器使用主机数学函数桥接 libm，不是 Android UI 或模拟回录验证。
 - [FreeDSP Studio 固定版本](https://github.com/EffectiveEquivalent/FreeDSP-Studio/tree/1b42f63db24f7dc8e94f6897575c1c403f4d4882)：本地保留 [DSP](../../evidence/upstream-dsp.rs) 与 [HID](../../evidence/upstream-hid_hidapi.rs) 副本。第三方实现不能代替本机验收。
 - [REA 诊断记录](../../evidence/rea-memory-read.json)：当次工具未能启动，实际静态检查使用 LLVM 和 Androguard；本地分析文件不是 REA Evidence ID。
 - [ECHO-B 官方产品页](https://moondroplab.com/cn-products/echo-b)：2026-10-30 定位，说明与 FreeDSP 共享调音及 USB 音频兼容性；不据此推断所有控制功能。

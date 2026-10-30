@@ -12,7 +12,7 @@
 
 | 目录 | 用途 |
 | --- | --- |
-| `presets/` | 可编辑的完整 JSON，音色与输出衰减在同一文件 |
+| `presets/` | 可编辑的完整 JSON，音色与整体输出数字增益 `output_gain_db` 在同一文件 |
 | `profiles/compiled/` | 可重建的编译缓存 |
 | `runs/` | 每次操作的快照、ACK、读回及验收 |
 | `backups/` | 初始备份和独立采集 |

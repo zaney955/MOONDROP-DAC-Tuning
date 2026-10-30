@@ -23,7 +23,7 @@ python3 tools/preset.py apply "$EQ_FILE"
 | `apply` | 读取、写入、保存、读回核对 | 新建 `runs/<UTC时间>-<文件名>/` |
 | `verify` | 只读核对历史计划 | 对应运行目录中的 `checks/<UTC时间>/` |
 
-`apply` 会重新编译所选 JSON，整体替换音色和输出衰减。编辑文件本身不会改变设备。写入前降低播放音量，连接恰好一台 ECHO-B，关闭其他控制它的程序。
+`apply` 会重新编译所选 JSON，整体替换音色和输出数字增益。编辑文件本身不会改变设备。写入前降低播放音量，连接恰好一台 ECHO-B，关闭其他控制它的程序。
 
 日常使用 `preset.py`，不要直接调用底层写入器。`apply` 与 `verify` 使用 `.echo-b.lock` 防止本工具并行操作；它不能阻止外部 App。
 
@@ -31,9 +31,9 @@ python3 tools/preset.py apply "$EQ_FILE"
 
 复制一份 JSON，修改名称、用途和参数后执行 `build`。字段规则集中在 [JSON 格式](../presets/README.md)，耳机研究在[资料库](../headphones/README.md)。文档不列举具体文件或参数；改名、调参只修改 JSON。
 
-编译目录包含源文件快照 `preset.json`、参数与系数 `plan.json`、写入序列 `plan.bin` 和哈希记录 `manifest.json`。`gain_staging` 记录增益相加结果，`response_check` 记录量化后的频响检查。
+编译目录包含源文件快照 `preset.json`、参数与系数 `plan.json`、写入序列 `plan.bin` 和哈希记录 `manifest.json`。整体输出数字增益记录在 `plan.json` 的 `preset.output_gain_db`，`response_check` 记录量化后的频响检查。
 
-编译器为 44.1 / 48 / 96 / 192 / 384 kHz 生成系数，检查参数、24 位范围、稳定性和采样频点响应。组合正增益不会自动被拒绝，应检查峰值与余量；最终幅度留有余量也不能证明内部各级不会溢出。编译结果不代替实机、听感或拔插验证。
+编译器为 44.1 / 48 / 96 / 192 / 384 kHz 生成系数，检查参数、24 位范围、稳定性和采样频点响应。整体输出支持正数字增益，范围及验证边界见 [JSON 格式](../presets/README.md)。组合频响超过 0 dB 会提示满幅输入可能削波，不会自动降低增益；最终幅度留有余量也不能证明内部各级不会溢出。编译结果不代替实机、听感或拔插验证。
 
 ## 判断结果与恢复读取
 
@@ -61,7 +61,13 @@ python3 tools/preset.py verify "$EQ_RUN"
 
 ## 回退与拔插验证
 
-回退时选定一份已知配置，或使用历史运行中的 `preset.json`，先 `build` 再 `apply`。旧快照缺少 `output_trim_db` 时，复制到 `presets/` 后明确补充；若要复现旧输出，查旧计划的 `gain_staging.output_trim_db`，没有该记录的早期计划按当时的 0 dB 规则处理。不要修改历史证据。
+回退时选定一份已知配置，先 `build` 再 `apply`。使用历史运行中的旧格式 `preset.json` 时，先复制到 `presets/`，再迁移为顶层 `output_gain_db`：
+
+- 顶层为 `gain_db`：原值改名为 `output_gain_db`，保留滤波器内的 `gain_db`。
+- 同时包含 `preamp_db` 与 `output_trim_db`：两者相加作为 `output_gain_db`，删除两个旧字段。
+- 只有 `preamp_db` 的更早快照：加上旧计划 `gain_staging.output_trim_db` 中的衰减；若旧计划没有该项，按当时的 0 dB 规则处理。
+
+新编译器不接受旧字段，也不会默认补零。不要修改历史证据；历史 `verify` 仍直接核对保存的系数，无需迁移。
 
 重新编译不保证跨编译器版本字节一致，必要时比较新旧系数。写前采集仅代表当时运行状态，不是完整闪存备份，也不是可直接重放的预设。恢复 EQ 不等于恢复出厂固件。
 

@@ -1,0 +1,6 @@
+{
+  "status": "not_written",
+  "stage": "before_read",
+  "reason": "sandbox IOHIDDeviceOpen returned 0xe00002e2; later investigation used device access outside sandbox",
+  "write_attempted": false
+}
