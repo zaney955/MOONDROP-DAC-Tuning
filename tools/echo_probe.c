@@ -1,5 +1,6 @@
 #include <CoreFoundation/CoreFoundation.h>
 #include <IOKit/hid/IOHIDManager.h>
+#include <mach/message.h>
 #include <stdint.h>
 #include <stdio.h>
 #include <string.h>
@@ -12,7 +13,7 @@ static int query(IOHIDDeviceRef d, uint8_t cmd, int arg) {
     int at=cmd==0xbe ? 14 : 10;
     out[at]=arg&255; out[at+1]=(arg>>8)&255;
     IOReturn s=IOHIDDeviceSetReport(d,kIOHIDReportTypeOutput,1,out,sizeof out);
-    if(s) { fprintf(stderr,"SetReport: 0x%08x\n",s); return 1; }
+    if(s) { fprintf(stderr,"SetReport: 0x%08x\n",s); return s==MACH_SEND_INVALID_DEST?5:1; }
     usleep(20000);
     uint8_t in[62]; CFIndex len=sizeof in;
     IOReturn r=kIOReturnNotReady;
@@ -29,7 +30,9 @@ static int query(IOHIDDeviceRef d, uint8_t cmd, int arg) {
     if(r) {
         fprintf(stderr,"GetReport cmd=0x%02x arg=%d: 0x%08x%s\n",cmd,arg,r,
                 r==kIOReturnNotReady?" (NotReady retry limit reached)":"");
-        return r==kIOReturnNotReady?4:1;
+        /* A dead Mach destination cannot recover on this handle. Exit 5 tells
+         * the caller to create a new manager/device and repeat only reads. */
+        return r==kIOReturnNotReady?4:r==MACH_SEND_INVALID_DEST?5:1;
     }
     if(reads>1)fprintf(stderr,"GetReport cmd=0x%02x arg=%d recovered after %d reads\n",cmd,arg,reads);
     int16_t words=(int16_t)((unsigned)in[2]|((unsigned)in[3]<<8));
@@ -54,10 +57,14 @@ int main(int argc, char **argv) {
     CFDictionaryRef match=CFDictionaryCreate(NULL,keys,vals,2,&kCFTypeDictionaryKeyCallBacks,&kCFTypeDictionaryValueCallBacks);
     IOHIDManagerSetDeviceMatching(m,match);
     CFSetRef set=IOHIDManagerCopyDevices(m);
-    if(!set || CFSetGetCount(set)!=1){fprintf(stderr,"Expected one ECHO-B; found %ld\n",set?CFSetGetCount(set):0L);return 2;}
+    if(!set || CFSetGetCount(set)!=1){
+        CFIndex count=set?CFSetGetCount(set):0;
+        fprintf(stderr,"Expected one ECHO-B; found %ld\n",count);
+        return count==0?6:2; /* 6: absent during re-enumeration; 2: ambiguous. */
+    }
     IOHIDDeviceRef d; CFSetGetValues(set,(const void**)&d);
     IOReturn r=IOHIDDeviceOpen(d,kIOHIDOptionsTypeNone);
-    if(r){fprintf(stderr,"Open: 0x%08x\n",r);return 3;}
+    if(r){fprintf(stderr,"Open: 0x%08x\n",r);return r==MACH_SEND_INVALID_DEST?5:3;}
     int err=query(d,0x5a,0x5a);
     for(int n=1;n<=9&&!err;n++) err=query(d,coeff?0xbe:0xdd,n);
     IOHIDDeviceClose(d,kIOHIDOptionsTypeNone);

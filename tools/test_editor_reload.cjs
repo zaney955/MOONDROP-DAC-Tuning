@@ -74,6 +74,8 @@ const {spawn} = require('node:child_process');
     assert.equal(await page.locator('#band-0-frequency_hz').inputValue(), '2836');
     assert.equal(Number(await page.locator('#band-0-gain_db').inputValue()), .3);
     assert.equal(Number(await page.locator('#band-0-q').inputValue()), 1.2);
+    assert.equal(await page.locator('.band-row').count(), 1);
+    assert.equal(await page.locator('.chart-handle[aria-pressed="true"]').getAttribute('data-band'), '0');
     assert.equal(await page.locator('#rate').inputValue(), '96000');
     assert.match(await page.locator('#draft-state').textContent(), /未导出/);
     assert.equal(await page.evaluate(() => getComputedStyle(document.documentElement).getPropertyValue('--reload-test').trim()), '1');

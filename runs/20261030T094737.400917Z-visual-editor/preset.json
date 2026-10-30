@@ -1,0 +1,33 @@
+{
+  "version": 1,
+  "device": "MOONDROP ECHO-B",
+  "name": "Kadenz · 死亡金属结构清晰 V1",
+  "description": "从 20 Hz–20 kHz 全频段重新评估，以音乐结构、Riff 变化、鼓组转换与贝斯线条的可辨识度为优先，兼顾 Evoken、Esoteric 的深低频、密度与氛围。140 Hz / S=1 / -0.8 dB 低架轻收低频整体比例；180 Hz / Q 1.0 / -1.2 dB 峰值进一步收紧上低频重叠，避免单靠深削一处而削薄主体；800 Hz / Q 0.8 / +0.7 dB 峰值温和补充中频主体；3000 Hz / Q 1.1 / -0.9 dB 峰值轻收存在感压迫。200–500 Hz 无额外宽幅挖空，4–8 kHz 不主动提亮，8–20 kHz 不按未知佩戴条件的峰谷做补偿；各段尾部仍会叠加影响这些区域。整体输出数字增益为 -20 dB。增益按 0.1 dB 步进，已检查五采样率量化响应。这是基于 Kadenz 官方两套测量与个人偏好的试听方案，没有匹配的个人目标或耳内测量；EQ 不保证单元速度、声部分离或声场改善，最终取舍需本人匹配响度试听确认。",
+  "output_gain_db": -20,
+  "filters": [
+    {
+      "type": "low_shelf",
+      "frequency_hz": 140,
+      "q": 1,
+      "gain_db": -0.8
+    },
+    {
+      "type": "peak",
+      "frequency_hz": 180,
+      "q": 1,
+      "gain_db": -1.2
+    },
+    {
+      "type": "peak",
+      "frequency_hz": 800,
+      "q": 0.8,
+      "gain_db": 0.7
+    },
+    {
+      "type": "peak",
+      "frequency_hz": 3000,
+      "q": 1.1,
+      "gain_db": -0.9
+    }
+  ]
+}

@@ -4,9 +4,13 @@ const $ = (selector) => document.querySelector(selector);
 const colors = ['#66824d', '#b6853a', '#65898b', '#9b7587', '#897f46', '#6c78a4', '#ad795d', '#7f8c6a'];
 let token, doc, baseline, previewData, revision = 0, validatedRevision = -1, timer;
 let busy = false, canVerify = false, activeJob = null, activePreset = null;
+let jobPollTimer, jobPollSequence = 0;
 let lastError = '', showErrors = false;
 let chartGeometry, chartDrag = null, dragPreviewTimer, dragPreviewInFlight = false;
 let qWheelInput = null;
+let selectedBand = null;
+let previewFilterRefs = [];
+const CHART_HEIGHT = 360, PLOT_TOP = 18, PLOT_BOTTOM = 316, PLOT_HEIGHT = PLOT_BOTTOM - PLOT_TOP;
 const formatDb = (v) => `${v > 0 ? '+' : ''}${v.toFixed(2)} dB`;
 const clone = (value) => JSON.parse(JSON.stringify(value));
 const dirty = () => doc && JSON.stringify(doc) !== baseline;
@@ -22,7 +26,7 @@ function notify(message = '', error = false) {
 
 async function api(path, value) {
   if (reloadWaiting && ['/api/apply', '/api/verify'].includes(path)) throw new Error('代码正在更新，请等待页面恢复后再操作');
-  const options = value === undefined ? {} : {method: 'POST', headers: {
+  const options = value === undefined ? {priority: path === '/api/job' && !busy ? 'low' : 'auto'} : {method: 'POST', headers: {
     'Content-Type': 'application/json', 'X-Editor-Token': token, 'X-Editor-Version': clientVersion,
   }, body: JSON.stringify(value)};
   const response = await fetch(path, options);
@@ -42,7 +46,7 @@ function tryAutoReload() {
   try {
     const rawValues = Object.fromEntries([...$('#settings').querySelectorAll('input,textarea,select')]
       .filter((control) => control.id).map((control) => [control.id, control.value]));
-    sessionStorage.setItem(reloadDraftKey, JSON.stringify({schema: 1, doc, baseline, activePreset, rawValues,
+    sessionStorage.setItem(reloadDraftKey, JSON.stringify({schema: 1, doc, baseline, activePreset, selectedBand, rawValues,
       rate: $('#rate').value, scrollY, focusId: document.activeElement?.id,
       focusedBand: document.activeElement?.dataset?.band}));
   } catch {
@@ -55,7 +59,7 @@ function tryAutoReload() {
 
 async function watchServerVersion() {
   try {
-    const response = await fetch('/api/version', {cache: 'no-store'});
+    const response = await fetch('/api/version', {cache: 'no-store', priority: 'low'});
     if (!response.ok) throw new Error('版本检查暂不可用');
     const state = await response.json();
     reloadWaiting = state.reloading;
@@ -81,6 +85,9 @@ function recoverReloadDraft() {
   if (saved?.schema !== 1 || saved.doc?.device !== 'MOONDROP ECHO-B'
     || !Array.isArray(saved.doc.filters) || saved.doc.filters.length > 8) return false;
   setDocument(saved.doc, saved.activePreset);
+  const previousBand = 'selectedBand' in saved ? saved.selectedBand
+    : Number((saved.focusId || '').match(/^(?:band-|type-)(\d+)/)?.[1] ?? saved.focusedBand ?? -1);
+  if (Number.isInteger(previousBand) && previousBand >= 0 && previousBand < doc.filters.length) selectBand(previousBand);
   baseline = typeof saved.baseline === 'string' ? saved.baseline : JSON.stringify(doc);
   Object.entries(saved.rawValues || {}).forEach(([id, value]) => {
     const control = document.getElementById(id);
@@ -107,6 +114,7 @@ function setDocument(value, presetId = null) {
   finishChartDrag(true);
   qWheelInput = null;
   doc = clone(value);
+  selectedBand = null;
   baseline = JSON.stringify(doc);
   activePreset = presetId;
   $('#name').value = doc.name;
@@ -146,11 +154,13 @@ function validationError(error) {
 
 async function validateCurrent() {
   const currentRevision = revision;
+  const filterRefs = doc.filters.slice();
   try {
     if (!$('#settings').checkValidity()) throw new Error('请检查名称和数值范围：频率 20–20000 整数 Hz，单段增益按 0.1 dB 步进，Q 为 0.1–10。');
     const result = await api('/api/preview', clone(doc));
     if (currentRevision !== revision) return false;
     previewData = result;
+    previewFilterRefs = filterRefs;
     validatedRevision = currentRevision;
     lastError = '';
     const clipping = result.peak_db > 0;
@@ -172,6 +182,11 @@ async function validateCurrent() {
 
 async function requireValid() {
   showErrors = true;
+  const invalid = doc.filters.findIndex((filter) => !Number.isFinite(filter.frequency_hz)
+    || filter.frequency_hz < 20 || filter.frequency_hz > 20000 || !Number.isInteger(filter.frequency_hz)
+    || !Number.isFinite(filter.gain_db) || Math.abs(filter.gain_db * 10 - Math.round(filter.gain_db * 10)) > 1e-7
+    || !Number.isFinite(filter.q) || filter.q < .1 || filter.q > 10);
+  if (invalid >= 0) selectBand(invalid);
   if (!$('#settings').reportValidity()) return false;
   clearTimeout(timer);
   if (validatedRevision !== revision && !await validateCurrent()) return false;
@@ -218,23 +233,27 @@ function renderBands(focusIndex = null) {
   qWheelInput = null;
   const root = $('#bands');
   root.replaceChildren();
-  if (doc.filters.length === 0) {
+  const selected = selectedBand !== null ? doc.filters[selectedBand] : null;
+  $('#selected-title').textContent = selected ? `滤波器 ${String(selectedBand + 1).padStart(2, '0')}` : '选择滤波器';
+  $('#selected-color').hidden = !selected;
+  if (selected) {
+    $('#selected-color').style.background = colors[selectedBand];
+    $('#selected-color').textContent = selectedBand + 1;
+  }
+  if (!selected) {
     const empty = document.createElement('div');
     empty.className = 'empty';
     const title = document.createElement('b');
-    title.textContent = '一条平直的起点';
-    empty.append(title, '添加一段滤波器，在 20–20000 Hz 之间自由调节。');
+    title.textContent = doc.filters.length ? '点击曲线上的编号点' : '一条平直的起点';
+    empty.append(title, doc.filters.length ? '在这里调节所选滤波器的频率、增益和 Q。' : '新增一个滤波器，开始塑造你的声音。');
     root.append(empty);
   }
   doc.filters.forEach((filter, index) => {
+    if (index !== selectedBand) return;
     const row = document.createElement('div');
     row.className = 'band-row';
     row.setAttribute('role', 'group');
     row.setAttribute('aria-label', `第 ${index + 1} 段滤波器`);
-    const badge = document.createElement('span');
-    badge.className = 'band-number';
-    badge.style.background = colors[index];
-    badge.textContent = index + 1;
     const typeGroup = document.createElement('div');
     const typeLabel = document.createElement('label');
     typeLabel.htmlFor = `type-${index}`;
@@ -272,6 +291,7 @@ function renderBands(focusIndex = null) {
       freqSlider.value = Math.log(filter.frequency_hz / 20) / Math.log(1000);
       freqSlider.setAttribute('aria-valuetext', `${filter.frequency_hz} Hz`);
       changed();
+      if (sortFilters()) changed();
     });
     freq.input.addEventListener('input', () => {
       if (freq.input.validity.valid) {
@@ -280,6 +300,14 @@ function renderBands(focusIndex = null) {
       }
     });
     freq.wrapper.append(freqSlider);
+    const commitFrequency = () => {
+      if (!freq.input.validity.valid) return;
+      setTimeout(() => {
+        if (sortFilters()) { changed(); drawChart(); }
+      }, 0);
+    };
+    freq.input.addEventListener('change', commitFrequency);
+    freqSlider.addEventListener('change', commitFrequency);
     const gain = numberField(index, 'gain_db', '增益', {step: .1}, 'dB');
     const gainSlider = makeInput(`gain-slider-${index}`, `gain-slider-${index}`, {type: 'range', step: .1, 'aria-label': `第 ${index + 1} 段增益滑块（dB）`});
     function syncGain() {
@@ -305,22 +333,74 @@ function renderBands(focusIndex = null) {
     note.textContent = filter.type === 'peak' ? '按 1/256 量化' : '固定 S=1';
     q.input.setAttribute('aria-describedby', note.id);
     q.wrapper.append(note);
-    const remove = document.createElement('button');
-    remove.className = 'remove';
-    remove.type = 'button';
-    remove.textContent = '×';
-    remove.setAttribute('aria-label', `删除第 ${index + 1} 段滤波器`);
-    remove.addEventListener('click', () => {
-      doc.filters.splice(index, 1);
-      renderBands(Math.min(index, doc.filters.length - 1));
-      if (!doc.filters.length) $('#add').focus();
-      changed();
-    });
-    row.append(badge, typeGroup, freq.wrapper, gain.wrapper, q.wrapper, remove);
+    row.append(typeGroup, freq.wrapper, gain.wrapper, q.wrapper);
     root.append(row);
   });
   if (focusIndex !== null && focusIndex >= 0) $(`#type-${focusIndex}`).focus();
   setBusy(busy);
+}
+
+function selectBand(index) {
+  if (selectedBand === index) return;
+  finishChartDrag(true);
+  selectedBand = index;
+  renderBands();
+  drawChart();
+}
+
+function sortFilters() {
+  if (chartDrag) return false;
+  const before = doc.filters.slice();
+  const selected = before[selectedBand];
+  const focused = document.activeElement;
+  const inputMatch = focused?.id?.match(/^(band-|type-|frequency-slider-|gain-slider-)(\d+)(.*)$/);
+  const focusIndex = inputMatch ? Number(inputMatch[2]) : Number(focused?.dataset?.band ?? -1);
+  const focusedFilter = before[focusIndex];
+  const frequency = (filter) => Number.isFinite(filter.frequency_hz) ? filter.frequency_hz : Infinity;
+  doc.filters.sort((a, b) => frequency(a) - frequency(b));
+  if (doc.filters.every((filter, index) => filter === before[index])) return false;
+  selectedBand = selected ? doc.filters.indexOf(selected) : null;
+  renderBands();
+  drawChart();
+  if (focusedFilter) {
+    const index = doc.filters.indexOf(focusedFilter);
+    const next = inputMatch ? document.getElementById(`${inputMatch[1]}${index}${inputMatch[3]}`)
+      : $('#chart-handles').querySelector(`[data-band="${index}"]`);
+    next?.focus({preventScroll: true});
+  }
+  return true;
+}
+
+function sampleResponse(values, frequency) {
+  const point = Math.max(0, Math.min(600, Math.log10(frequency / 20) / 3 * 600));
+  const low = Math.floor(point), high = Math.min(600, low + 1);
+  return values[low] + (values[high] - values[low]) * (point - low);
+}
+
+function addFilter(frequency, gain = 0) {
+  if (busy || reloadWaiting) return;
+  if (doc.filters.length >= 8) {
+    notify('最多支持 8 段滤波器，请先删除一段再新增。');
+    return;
+  }
+  doc.filters.push({type: 'peak', frequency_hz: Math.max(20, Math.min(20000, Math.round(frequency))),
+    gain_db: Math.round(gain * 10) / 10, q: 1});
+  selectedBand = doc.filters.length - 1;
+  if (!sortFilters()) renderBands();
+  changed();
+  drawChart();
+}
+
+function chartHandleAt(event) {
+  const target = event.target.closest('.chart-handle');
+  if (!('clientX' in event) || (event.type === 'click' && event.detail === 0)) return target;
+  let closest = null, distance = 24;
+  $('#chart-handles').querySelectorAll('.chart-handle').forEach((handle) => {
+    const rect = handle.getBoundingClientRect();
+    const offset = Math.hypot(event.clientX - rect.left - rect.width / 2, event.clientY - rect.top - rect.height / 2);
+    if (offset < distance) { closest = handle; distance = offset; }
+  });
+  return closest || target;
 }
 
 function svgElement(name, attributes = {}, content) {
@@ -359,11 +439,13 @@ function scheduleDragPreview() {
     const gesture = chartDrag;
     if (!gesture) return;
     const requestedRevision = revision;
+    const filterRefs = doc.filters.slice();
     dragPreviewInFlight = true;
     try {
       const result = await api('/api/preview', clone(doc));
       if (chartDrag !== gesture) return;
       previewData = result;
+      previewFilterRefs = filterRefs;
       drawChart();
     } catch (error) {
       if (chartDrag === gesture && requestedRevision === revision) validationError(error);
@@ -378,7 +460,7 @@ function chartPosition(event, geometry) {
   const svg = $('#chart');
   const rect = svg.getBoundingClientRect();
   return {x: (event.clientX - rect.left) * geometry.width / rect.width,
-    y: (event.clientY - rect.top) * 310 / rect.height};
+    y: (event.clientY - rect.top) * CHART_HEIGHT / rect.height};
 }
 
 function finishChartDrag(cancelled = false) {
@@ -390,6 +472,7 @@ function finishChartDrag(cancelled = false) {
   const surface = $('#chart-wrap');
   if (surface.hasPointerCapture(gesture.pointerId)) surface.releasePointerCapture(gesture.pointerId);
   if (cancelled && doc.filters[gesture.index]) syncChartFilter(gesture.index, gesture.frequency, gesture.gain);
+  if (!cancelled && gesture.moved && sortFilters()) changed();
   showErrors = true;
   clearTimeout(timer);
   drawChart();
@@ -397,15 +480,16 @@ function finishChartDrag(cancelled = false) {
 }
 
 $('#chart-wrap').addEventListener('pointerdown', (event) => {
-  const handle = event.target.closest('.chart-handle');
+  const handle = chartHandleAt(event);
   if (!handle || busy || chartDrag || event.button !== 0 || !event.isPrimary || !chartGeometry) return;
   const index = Number(handle.dataset.band);
+  selectBand(index);
   const filter = doc.filters[index];
   if (!Number.isFinite(filter.frequency_hz) || !Number.isFinite(filter.gain_db)) return;
   event.preventDefault();
   clearTimeout(timer);
   handle.focus({preventScroll: true});
-  chartDrag = {index, pointerId: event.pointerId, geometry: {...chartGeometry},
+  chartDrag = {index, pointerId: event.pointerId, moved: false, geometry: {...chartGeometry},
     origin: chartPosition(event, chartGeometry), frequency: filter.frequency_hz,
     gain: filter.gain_db, pointY: Number(handle.dataset.y),
     factor: filter.type === 'peak' ? 1 : .5};
@@ -413,15 +497,25 @@ $('#chart-wrap').addEventListener('pointerdown', (event) => {
   drawChart();
 });
 $('#chart-wrap').addEventListener('pointermove', (event) => {
-  if (!chartDrag || event.pointerId !== chartDrag.pointerId) return;
+  if (!chartDrag) {
+    const hovered = chartHandleAt(event);
+    $('#chart-handles').querySelectorAll('.chart-handle').forEach((handle) => {
+      handle.style.zIndex = handle === hovered ? 3 : Number(handle.dataset.band) === selectedBand ? 2 : 1;
+    });
+    return;
+  }
+  if (event.pointerId !== chartDrag.pointerId) return;
   event.preventDefault();
   const {index, geometry, origin, frequency, gain, pointY, factor} = chartDrag;
   const position = chartPosition(event, geometry);
   const startX = 52 + Math.log10(frequency / 20) / 3 * geometry.span;
   const nextX = Math.max(52, Math.min(geometry.right, startX + position.x - origin.x));
-  const nextY = Math.max(18, Math.min(266, pointY + position.y - origin.y));
+  const nextY = Math.max(PLOT_TOP, Math.min(PLOT_BOTTOM, pointY + position.y - origin.y));
   if (syncChartFilter(index, 20 * 1000 ** ((nextX - 52) / geometry.span),
-    gain + (pointY - nextY) * (geometry.max - geometry.min) / 248 / factor)) drawChart();
+    gain + (pointY - nextY) * (geometry.max - geometry.min) / PLOT_HEIGHT / factor)) {
+    chartDrag.moved = true;
+    drawChart();
+  }
 });
 $('#chart-wrap').addEventListener('pointerup', (event) => {
   if (chartDrag?.pointerId === event.pointerId) finishChartDrag();
@@ -443,22 +537,42 @@ $('#chart-wrap').addEventListener('keydown', (event) => {
   if (chartDrag || !['ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown'].includes(event.key)) return;
   event.preventDefault();
   const index = Number(handle.dataset.band);
+  selectBand(index);
   const filter = doc.filters[index];
   const frequencyStep = event.shiftKey ? 100 : 1;
   const gainStep = event.shiftKey ? 1 : .1;
   showErrors = true;
   syncChartFilter(index, filter.frequency_hz + (event.key === 'ArrowRight' ? frequencyStep : event.key === 'ArrowLeft' ? -frequencyStep : 0),
     filter.gain_db + (event.key === 'ArrowUp' ? gainStep : event.key === 'ArrowDown' ? -gainStep : 0));
+  if (sortFilters()) changed();
   drawChart();
 });
 
+$('#chart-wrap').addEventListener('dblclick', (event) => {
+  if (event.button !== 0 || busy || reloadWaiting || chartDrag || !chartGeometry || chartHandleAt(event)) return;
+  const position = chartPosition(event, chartGeometry);
+  if (position.x < 52 || position.x > chartGeometry.right || position.y < PLOT_TOP || position.y > PLOT_BOTTOM) return;
+  event.preventDefault();
+  if (validatedRevision !== revision || !previewData) {
+    notify('请先完成当前参数校验，再双击新增滤波器。', true);
+    return;
+  }
+  const frequency = Math.round(20 * 1000 ** ((position.x - 52) / chartGeometry.span));
+  const target = chartGeometry.max - (position.y - PLOT_TOP) / PLOT_HEIGHT * (chartGeometry.max - chartGeometry.min);
+  // The plot includes existing EQ and overall output gain. A new peak's gain
+  // is the difference needed to place its center on the clicked total response.
+  const background = sampleResponse(previewData.curves[$('#rate').value].total, frequency);
+  addFilter(frequency, target - background);
+});
+
 $('#chart-handles').addEventListener('wheel', (event) => {
-  const handle = event.target.closest('.chart-handle');
+  const handle = chartHandleAt(event);
   // Keep browser zoom/pinch, horizontal scrolling and non-peak filters native.
   if (!handle || busy || chartDrag || event.ctrlKey) return;
   const index = Number(handle.dataset.band);
   const filter = doc.filters[index];
   if (filter.type !== 'peak' || !Number.isFinite(filter.q)) return;
+  selectBand(index);
   const unit = event.deltaMode === WheelEvent.DOM_DELTA_LINE ? 16
     : event.deltaMode === WheelEvent.DOM_DELTA_PAGE ? $('#chart').clientHeight : 1;
   const pixels = event.deltaY * unit;
@@ -486,13 +600,18 @@ $('#chart-handles').addEventListener('wheel', (event) => {
   $('#curve-state').textContent = `第 ${index + 1} 段 · Q ${q} · ${steps < 0 ? '更窄' : '更宽'}`;
 }, {passive: false});
 
+$('#chart-handles').addEventListener('click', (event) => {
+  const handle = event.target.closest('.chart-handle');
+  if (handle && !busy) selectBand(Number(handle.dataset.band));
+});
+
 function drawChart() {
   if (!previewData) return;
   const svg = $('#chart');
   const width = Math.max(260, svg.clientWidth);
   const right = width - 20;
   const span = right - 52;
-  svg.setAttribute('viewBox', `0 0 ${width} 310`);
+  svg.setAttribute('viewBox', `0 0 ${width} ${CHART_HEIGHT}`);
   const rate = $('#rate').value;
   const curves = previewData.curves[rate];
   const all = [0, ...curves.total, ...curves.bands.flat()];
@@ -500,7 +619,7 @@ function drawChart() {
   const max = chartDrag?.geometry.max ?? Math.ceil(Math.max(6, ...all) / 6) * 6 + 3;
   chartGeometry = {width, right, span, min, max};
   const x = (f) => 52 + Math.log10(f / 20) / 3 * span;
-  const y = (db) => 18 + (max - db) / (max - min) * 248;
+  const y = (db) => PLOT_TOP + (max - db) / (max - min) * PLOT_HEIGHT;
   // Keep native HTML button hit targets attached through curve redraws.
   // HTML handles give touch-action a CSS layout box on every browser.
   let artwork = svg.querySelector('.chart-artwork');
@@ -518,36 +637,41 @@ function drawChart() {
   }
   const ticks = width < 350 ? [20, 100, 1000, 20000] : width < 500 ? [20, 100, 1000, 10000, 20000] : [20, 50, 100, 200, 500, 1000, 2000, 5000, 10000, 20000];
   ticks.forEach((frequency) => {
-    grid.append(svgElement('line', {x1: x(frequency), x2: x(frequency), y1: 18, y2: 266, class: 'grid'}), svgElement('text', {x: x(frequency), y: 290, 'text-anchor': 'middle'}, frequency >= 1000 ? `${frequency / 1000}k` : frequency));
+    grid.append(svgElement('line', {x1: x(frequency), x2: x(frequency), y1: PLOT_TOP, y2: PLOT_BOTTOM, class: 'grid'}), svgElement('text', {x: x(frequency), y: CHART_HEIGHT - 20, 'text-anchor': 'middle'}, frequency >= 1000 ? `${frequency / 1000}k` : frequency));
   });
   grid.append(svgElement('text', {x: 16, y: 12}, 'dB'), svgElement('line', {x1: 52, x2: right, y1: y(0), y2: y(0), class: 'zero'}));
   artwork.append(grid);
   const pathFor = (values) => values.map((value, i) => `${i ? 'L' : 'M'}${x(previewData.frequencies[i]).toFixed(2)},${y(value).toFixed(2)}`).join(' ');
   const path = pathFor(curves.total);
-  const area = `${path} L${right},266 L52,266 Z`;
+  const area = `${path} L${right},${PLOT_BOTTOM} L52,${PLOT_BOTTOM} Z`;
   artwork.append(svgElement('path', {d: area, fill: '#dce7d0', opacity: '.5'}));
-  curves.bands.forEach((values, index) => artwork.append(svgElement('path', {d: pathFor(values), class: 'band-curve', stroke: colors[index]})));
+  curves.bands.forEach((values, previousIndex) => {
+    const index = doc.filters.indexOf(previewFilterRefs[previousIndex]);
+    if (index >= 0) artwork.append(svgElement('path', {d: pathFor(values), class: `band-curve${selectedBand === index ? ' selected' : ''}`, stroke: colors[index]}));
+  });
   artwork.append(svgElement('path', {d: path, class: 'total-curve'}));
-  const sample = (values, frequency) => {
-    const point = Math.max(0, Math.min(600, Math.log10(frequency / 20) / 3 * 600));
-    const low = Math.floor(point), high = Math.min(600, low + 1);
-    return values[low] + (values[high] - values[low]) * (point - low);
-  };
   handles.querySelectorAll('.chart-handle').forEach((handle) => {
     const filter = doc.filters[Number(handle.dataset.band)];
-    if (!filter || !Number.isFinite(filter.frequency_hz) || !Number.isFinite(filter.gain_db)) handle.remove();
+    if (!filter) handle.remove();
   });
-  doc.filters.forEach((filter, index) => {
-    if (!Number.isFinite(filter.frequency_hz) || !Number.isFinite(filter.gain_db)) return;
-    const reference = previewData.preset.filters[index];
+  doc.filters.forEach((requestedFilter, index) => {
+    const previousIndex = previewFilterRefs.indexOf(requestedFilter);
+    const reference = previewData.preset.filters[previousIndex];
+    // Keep an incomplete filter selectable at its last valid location, so a
+    // user can leave the inspector and return to finish its numeric input.
+    const filter = {...requestedFilter,
+      frequency_hz: Number.isFinite(requestedFilter.frequency_hz) && requestedFilter.frequency_hz >= 20 && requestedFilter.frequency_hz <= 20000
+        ? requestedFilter.frequency_hz : reference?.frequency_hz ?? 1000,
+      gain_db: Number.isFinite(requestedFilter.gain_db) ? requestedFilter.gain_db : reference?.gain_db ?? 0};
+    const incomplete = !['frequency_hz', 'gain_db', 'q'].every((key) => Number.isFinite(requestedFilter[key]));
     const matches = reference && reference.type === filter.type && reference.frequency_hz === filter.frequency_hz && reference.gain_db === filter.gain_db;
-    const total = sample(curves.total, filter.frequency_hz);
+    const total = sampleResponse(curves.total, filter.frequency_hz);
     // While a request is in flight, move the handle immediately using the
     // selected filter's center gain. The curve remains compiler-backed.
-    const response = matches ? total : total - (curves.bands[index] ? sample(curves.bands[index], filter.frequency_hz) : 0) + filter.gain_db * (filter.type === 'peak' ? 1 : .5);
-    const cx = x(filter.frequency_hz), cy = Math.max(18, Math.min(266, y(response)));
+    const response = matches ? total : total - (curves.bands[previousIndex] ? sampleResponse(curves.bands[previousIndex], filter.frequency_hz) : 0) + filter.gain_db * (filter.type === 'peak' ? 1 : .5);
+    const cx = x(filter.frequency_hz), cy = Math.max(PLOT_TOP, Math.min(PLOT_BOTTOM, y(response)));
     const qLabel = filter.type === 'peak' ? `Q ${filter.q}；滚轮调 Q，Shift 精调` : '架式固定 S=1';
-    const label = `第 ${index + 1} 段：${filter.frequency_hz} Hz，${filter.gain_db} dB，${qLabel}；左右方向键调频率，上下方向键调增益`;
+    const label = `第 ${index + 1} 段：${filter.frequency_hz} Hz，${filter.gain_db} dB，${qLabel}${incomplete ? '；参数待补全' : ''}；左右方向键调频率，上下方向键调增益`;
     let group = handles.querySelector(`[data-band="${index}"]`);
     if (!group) {
       group = document.createElement('button');
@@ -561,11 +685,12 @@ function drawChart() {
       group.append(dot);
       handles.append(group);
     }
-    Object.entries({class: `chart-handle${chartDrag?.index === index ? ' dragging' : ''}`, 'data-y': cy,
+    Object.entries({class: `chart-handle${chartDrag?.index === index ? ' dragging' : ''}${incomplete ? ' incomplete' : ''}`, 'data-y': cy,
+      'aria-pressed': String(selectedBand === index), 'aria-controls': 'selected-filter',
       tabindex: busy ? -1 : 0, 'aria-label': label, 'aria-disabled': String(busy)}).forEach(([key, value]) => group.setAttribute(key, value));
     group.title = label;
     group.style.left = `${cx * svg.clientWidth / width}px`;
-    group.style.top = `${cy * svg.getBoundingClientRect().height / 310}px`;
+    group.style.top = `${cy * svg.getBoundingClientRect().height / CHART_HEIGHT}px`;
   });
   const summary = `${Number(rate) / 1000} kHz · 峰值 ${formatDb(Math.max(...curves.total))}`;
   $('#curve-state').textContent = chartDrag ? `第 ${chartDrag.index + 1} 段 · ${doc.filters[chartDrag.index].frequency_hz} Hz · ${doc.filters[chartDrag.index].gain_db} dB` : validatedRevision === revision ? summary : '图中保留上次有效预览';
@@ -593,6 +718,7 @@ function setBusy(value) {
     control.disabled = value || (control.id.endsWith('-q') && doc && doc.filters[Number(control.id.split('-')[1])]?.type !== 'peak');
   });
   $('#add').disabled = value || !doc || doc.filters.length >= 8;
+  $('#delete').disabled = value || selectedBand === null;
   $('#import').disabled = value;
   $('#new').disabled = value;
   document.querySelectorAll('.preset').forEach((button) => { button.disabled = value; });
@@ -602,36 +728,49 @@ function setBusy(value) {
   $('#apply-title').textContent = value ? '请保持设备连接' : '准备好再应用';
 }
 
+function pauseJobPoll() {
+  clearTimeout(jobPollTimer);
+  jobPollSequence++;
+}
+
 async function pollJob() {
+  clearTimeout(jobPollTimer);
+  const sequence = ++jobPollSequence;
   try {
     const result = await api('/api/job');
+    if (sequence !== jobPollSequence) return;
     canVerify = result.can_verify;
     const job = result.job;
     if (!job) { setBusy(false); return; }
     activeJob = job.id;
     $('#operation').hidden = false;
     const status = job.device_status;
-    $('#job-summary').textContent = status?.message || job.message;
-    $('#job-detail').textContent = [
+    const summary = status?.message || job.message;
+    if ($('#job-summary').textContent !== summary) $('#job-summary').textContent = summary;
+    const detail = [
       job.action === 'apply' ? '操作：写入并保存，自动读回' : '操作：只读复核上次写入计划',
       status && `状态：${status.status} / ${status.stage}`,
       status && `写入已启动：${status.write_attempted ? '是' : '否'} · 保存 ACK：${status.save_command_acknowledged ? '已确认' : '未确认'} · 读回：${status.readback_verified ? '通过' : '尚未通过'}`,
+      status?.read_reconnect_attempts && `只读重新连接：${status.read_reconnect_attempts} 次${status.readback_recovered ? ' · 恢复后已验证' : ''}`,
       job.run && `运行记录：${job.run}`,
       (job.error || status?.error) && `详情：${job.error || status.error}`,
       '物理拔插保持未验证。',
     ].filter(Boolean).join('\n');
+    if ($('#job-detail').textContent !== detail) $('#job-detail').textContent = detail;
     setBusy(!job.done);
-    if (!job.done) setTimeout(pollJob, 700);
   } catch (error) {
+    if (sequence !== jobPollSequence) return;
     // A lost HTTP connection is not evidence that the device operation stopped.
     notify(`无法获取设备状态：${error.message}。请保持连接，正在重新获取状态。`, true);
-    if (activeJob) setTimeout(pollJob, 2000);
+  } finally {
+    if (sequence === jobPollSequence && !autoReloading) jobPollTimer = setTimeout(pollJob, busy ? 700 : 2000);
   }
 }
 
 $('#settings').addEventListener('submit', async (event) => {
   event.preventDefault();
   if (busy || !await requireValid() || busy) return;
+  pauseJobPoll();
   setBusy(true);
   try {
     const result = await api('/api/apply', clone(doc));
@@ -665,9 +804,21 @@ $('#output-slider').addEventListener('input', () => {
 $('#rate').addEventListener('change', () => { finishChartDrag(true); drawChart(); });
 $('#add').addEventListener('click', () => {
   if (doc.filters.length >= 8) return;
-  doc.filters.push({type: 'peak', frequency_hz: 1000, gain_db: 0, q: 1});
-  renderBands(doc.filters.length - 1);
+  const existing = doc.filters.map((filter) => filter.frequency_hz).filter((value) => Number.isFinite(value) && value > 0);
+  const candidates = [40, 100, 250, 600, 1000, 2500, 6000, 12000, 18000];
+  const distance = (frequency) => Math.min(...existing.map((value) => Math.abs(Math.log(frequency / value))));
+  const frequency = existing.length ? candidates.reduce((best, value) => distance(value) > distance(best) ? value : best) : 1000;
+  addFilter(frequency);
+});
+$('#delete').addEventListener('click', () => {
+  if (busy || selectedBand === null) return;
+  finishChartDrag(true);
+  doc.filters.splice(selectedBand, 1);
+  selectedBand = null;
+  renderBands();
   changed();
+  drawChart();
+  $('#add').focus();
 });
 $('#new').addEventListener('click', () => {
   if (!discardAllowed()) return;
@@ -706,6 +857,7 @@ $('#export').addEventListener('click', async () => {
 });
 $('#verify').addEventListener('click', async () => {
   if (busy) return;
+  pauseJobPoll();
   setBusy(true);
   try {
     const result = await api('/api/verify', {});

@@ -1,0 +1,13 @@
+{
+  "metadata_matches": true,
+  "mode_matches": true,
+  "current_coefficients_match_rates": [
+    "44100",
+    "48000",
+    "96000",
+    "192000",
+    "384000"
+  ],
+  "physical_unplug_tested": false,
+  "source_run": "runs/20261030T093252.591413Z-visual-editor"
+}

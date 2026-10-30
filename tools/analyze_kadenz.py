@@ -17,6 +17,9 @@ FREQUENCIES = [20, 30, 50, 80, 100, 150, 200, 300, 500, 800, 1000,
                1500, 2000, 2500, 3000, 4000, 5000, 6000, 8000, 10000, 12000, 14000, 16000]
 BANDS = [(20, 60), (60, 200), (200, 500), (500, 1000), (1000, 2000),
          (2000, 4000), (4000, 8000), (8000, 12000), (12000, 19896.974609)]
+TONE_BANDS = [(20, 60), (60, 120), (120, 250), (250, 500), (500, 1000),
+              (1000, 2000), (2000, 4000), (4000, 6000), (6000, 10000),
+              (10000, 20000)]
 
 
 def interpolate(x, y, f):
@@ -56,7 +59,7 @@ def analyze_listening_preset():
     result = dict(preset=str(source.relative_to(ROOT)),
                   source_sha256=hashlib.sha256(raw).hexdigest(),
                   write_plan_sha256=hashlib.sha256(binary).hexdigest(),
-                  method='Quantized Q22 theoretical steady-state response; 6001 log-spaced points, 20 Hz to 20 kHz. Tone excludes band 9. Cross-rate differences include digital frequency warping and quantization. Prefix peaks do not prove internal headroom or transient clipping safety.',
+                  method='Quantized Q22 theoretical steady-state response; 6001 log-spaced points, 20 Hz to 20 kHz. Tone excludes band 9. Band means integrate dB over log frequency, not loudness or energy. Band extrema also include exact endpoints. Cross-rate differences include digital frequency warping and quantization. Prefix peaks do not prove internal headroom or transient clipping safety. Theoretical EQ at 20 kHz does not extend the acoustic measurements beyond 19896.974609 Hz.',
                   device_written=False, acoustic_output_measured=False,
                   rates={})
     for fs, rows in rows_by_rate.items():
@@ -67,9 +70,17 @@ def analyze_listening_preset():
             output_gain_quantized_db=output,
             total_min_db=min(tone)+output, total_max_db=max(tone)+output,
             maximum_abs_difference_from_48000_db=max(abs(a-b) for a, b in zip(tone, tones['48000'])),
-            tone_at_hz_db={str(f): response_db(rows[:8], f, int(fs)) for f in FREQUENCIES},
+            tone_at_hz_db={str(f): response_db(rows[:8], f, int(fs))
+                           for f in sorted(set(FREQUENCIES + [60, 120, 180, 250, 5500, 20000]))},
             prefix_max_db_before_output_gain=[max(response_db(rows[:n], f, int(fs)) for f in grid)
                                               for n in range(1, len(plan['preset']['filters'])+1)])
+        result['rates'][fs]['tone_bands'] = []
+        for lo, hi in TONE_BANDS:
+            values = [response_db(rows[:8], f, int(fs)) for f in (lo, hi)]
+            values += [v for f, v in zip(grid, tone) if lo < f < hi]
+            result['rates'][fs]['tone_bands'].append(dict(
+                low_hz=lo, high_hz=hi, mean_gain_db=mean_log(grid, tone, lo, hi),
+                min_gain_db=min(values), max_gain_db=max(values)))
     (OUT/'death-metal-structure-v1.json').write_text(json.dumps(result, ensure_ascii=False, indent=2)+'\n')
     with (OUT/'death-metal-structure-v1.csv').open('w', newline='') as file:
         writer = csv.writer(file, lineterminator='\n')

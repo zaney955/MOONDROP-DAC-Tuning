@@ -1,0 +1,13 @@
+{
+  "action": "verify",
+  "stage": "complete",
+  "status": "readback_verified",
+  "write_attempted": false,
+  "save_command_acknowledged": false,
+  "readback_verified": true,
+  "physical_unplug_tested": false,
+  "source_run": "/Users/zane/Projects/reverse/ECHO-B-DAC-Amp-Tuning/runs/20261030T093252.591413Z-visual-editor",
+  "message": "当前运行状态与计划匹配；本次未写入，物理拔插需另行记录",
+  "updated_at_utc": "20261030T094144.525678Z",
+  "readback_recovered": false
+}

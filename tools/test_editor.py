@@ -94,6 +94,36 @@ class EditorTests(unittest.TestCase):
             self.assertEqual(fake.writes, 1)
             self.assertEqual(json.loads((Path(job['run']) / 'status.json').read_text())['status'], 'write_uncertain')
 
+    def test_job_reports_reconnecting_then_verified_and_keeps_failed_recovery_honest(self):
+        self.doc['filters'] = [dict(type='peak', frequency_hz=137, gain_db=-1.9, q=.9)]
+        compiled = preset.compile_preset(self.doc)
+        for failure, expected in [('disconnected_after', 'saved_verified'),
+                                  ('disconnected_forever_after', 'saved_unverified'),
+                                  ('reconnect_mismatch', 'saved_unverified')]:
+            with self.subTest(failure=failure), tempfile.TemporaryDirectory() as temp:
+                server = editor.EditorServer(('127.0.0.1', 0))
+                self.addCleanup(server.server_close)
+                job = dict(action='apply', done=False, error=None, run=None)
+                server.job = job
+                fake = FakeUSB(failure, plan=compiled[0])
+                progress = []
+                def command(args, **kwargs):
+                    if args[0] == 'make':
+                        return preset.subprocess.CompletedProcess(args, 0)
+                    return fake(args, **kwargs)
+                def read_progress(_):
+                    progress.append(server.job_status()['job']['device_status'])
+                with patch.object(preset, 'ROOT', Path(temp)), patch.object(preset.subprocess, 'run', command), patch.object(preset.time, 'sleep', read_progress):
+                    server.run_job(job, compiled, copy.deepcopy(self.doc), None)
+                final = server.job_status()['job']
+                self.assertTrue(final['done'])
+                self.assertEqual(final['device_status']['status'], expected)
+                self.assertEqual(final['device_status']['readback_verified'], expected == 'saved_verified')
+                self.assertEqual(final['error'] is None, expected == 'saved_verified')
+                self.assertEqual(fake.writes, 1)
+                self.assertTrue(any('重新连接' in state['message'] for state in progress))
+                self.assertTrue(all(state['save_command_acknowledged'] and not state['readback_verified'] for state in progress))
+
 
 class HTTPTests(unittest.TestCase):
     def setUp(self):

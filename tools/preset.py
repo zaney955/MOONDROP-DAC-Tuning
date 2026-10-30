@@ -68,6 +68,16 @@ class RunStatus:
             output.write(json.dumps(self.data, ensure_ascii=False)+'\n')
         print(f'[{stage}] {message}', flush=True)
 
+    def read_retry(self, prefix, suffix, attempt, kind, diagnostic):
+        reconnects = self.data.get('read_reconnect_attempts', 0) + (kind == 'reconnect')
+        self.update(self.data['stage'],
+                    f'{"连接失效，正在重新连接" if kind == "reconnect" else "设备暂未就绪，正在重新读取"} '
+                    f'{prefix}/{suffix}（{attempt}/2）；仅查询和复核，不重发 EQ 或保存命令',
+                    read_recovery_attempts=self.data.get('read_recovery_attempts', 0) + 1,
+                    read_reconnect_attempts=reconnects,
+                    readback_recovery_attempted=self.data.get('readback_recovery_attempted', False) or prefix == 'after',
+                    last_read_recovery_error=diagnostic)
+
 
 def number(value, lo=None, hi=None):
     try:
@@ -197,11 +207,12 @@ def resolve_preset(value):
     return path.resolve()
 
 
-def capture(directory, prefix):
+def capture(directory, prefix, on_retry=None):
     for suffix, args in [('metadata', []), ('coefficients', ['--coefficients'])]:
         canonical = directory/f'{prefix}-{suffix}.jsonl'
         if canonical.exists():
             raise FileExistsError(f'Refusing to overwrite capture: {canonical}')
+        reconnecting = False
         for attempt in range(1, 4):
             name = f'{prefix}-{suffix}-attempt{attempt}'
             raw, diagnostic = directory/(name+'.jsonl'), directory/(name+'.stderr.txt')
@@ -214,10 +225,17 @@ def capture(directory, prefix):
                     out.write(raw.read_bytes())
                 break
             detail = diagnostic.read_text(errors='replace').strip()
-            # Only exit 4 (bounded NotReady exhaustion) permits a fresh read-only probe.
-            if result.returncode != 4 or attempt == 3:
+            # Each process creates a fresh manager, enumerates exactly one DAC,
+            # and opens a new handle. Never reuse a dead connection or replay EQ.
+            reconnecting = reconnecting or result.returncode == 5
+            retryable = result.returncode in (4, 5) or (reconnecting and result.returncode == 6)
+            if not retryable or attempt == 3:
                 raise ValueError(f'{prefix}/{suffix} 读取失败 (exit {result.returncode}): {detail}; 日志 {raw}')
-            print(f'[read_retry] {prefix}/{suffix} 设备暂未就绪；仅重读 ({attempt}/2)', flush=True)
+            kind = 'reconnect' if result.returncode in (5, 6) else 'not_ready'
+            if on_retry:
+                on_retry(prefix, suffix, attempt, kind, detail)
+            else:
+                print(f'[read_retry] {prefix}/{suffix} {"重新连接" if kind == "reconnect" else "设备暂未就绪"}；仅重读 ({attempt}/2)', flush=True)
             time.sleep(0.25*attempt)
     metadata = decode(directory/f'{prefix}-metadata.jsonl')
     mode, _ = read_coefficients(directory/f'{prefix}-coefficients.jsonl')
@@ -280,7 +298,7 @@ def apply_plan(directory, plan):
     status = RunStatus(directory, 'apply')
     try:
         status.update('before_read', '读取写入前状态；尚未发送 EQ 写入')
-        capture(directory, 'before')
+        capture(directory, 'before', on_retry=status.read_retry)
         status.update('write', '开始发送 EQ 保存序列；不会自动重试写入', write_attempted=True)
         with (directory/'write-log.jsonl').open('xb') as out, (directory/'write-stderr.txt').open('xb') as err:
             result = subprocess.run([str(ROOT/'bin/echo_apply_plan'), str(directory/'plan.bin')],
@@ -291,13 +309,18 @@ def apply_plan(directory, plan):
             detail = (directory/'write-stderr.txt').read_text(errors='replace').strip()
             raise ValueError(f'写入程序 exit {result.returncode}；成功 ACK {evidence["acknowledged_operations"]}/56；{detail}')
         status.update('after_read', '56 条操作及保存命令已确认；正在读取验证')
-        capture(directory, 'after')
+        capture(directory, 'after', on_retry=status.read_retry)
         status.update('verify', '核对已保存配置的模式、参数和当前运行系数')
         verification = verify(directory, plan)
         verification.update(evidence)
+        recovered = status.data.get('readback_recovery_attempted', False)
+        if recovered:
+            verification.update(readback_recovered=True,
+                                read_reconnect_attempts=status.data.get('read_reconnect_attempts', 0))
         save_json(directory/'verification.json', verification)
-        status.update('complete', '已写入并保存，读回验证通过；物理拔插尚未验证',
-                      status='saved_verified', readback_verified=True)
+        message = '已写入并保存，重新读取后验证通过；物理拔插尚未验证' if recovered else '已写入并保存，读回验证通过；物理拔插尚未验证'
+        status.update('complete', message, status='saved_verified', readback_verified=True,
+                      readback_recovered=recovered)
     except (Exception, KeyboardInterrupt) as error:
         stage = status.data['stage']
         if status.data['write_attempted']:
@@ -335,11 +358,17 @@ def verify_run(directory):
     print(check, flush=True)
     try:
         status.update('after_read', '只读复核历史计划；不会发送 EQ 写入或保存命令')
-        capture(check, 'after')
+        capture(check, 'after', on_retry=status.read_retry)
         status.update('verify', '比较当前设备与历史计划，不重新计算滤波系数')
         verify(check, plan)
+        recovered = status.data.get('readback_recovery_attempted', False)
+        if recovered:
+            result = json.loads((check/'verification.json').read_text())
+            result.update(readback_recovered=True,
+                          read_reconnect_attempts=status.data.get('read_reconnect_attempts', 0))
+            save_json(check/'verification.json', result)
         status.update('complete', '当前运行状态与计划匹配；本次未写入，物理拔插需另行记录',
-                      status='readback_verified', readback_verified=True)
+                      status='readback_verified', readback_verified=True, readback_recovered=recovered)
     except (Exception, KeyboardInterrupt) as error:
         status.update(status.data['stage'], '只读复核失败；本次未发送 EQ 写入',
                       status='readback_failed', error=str(error) or type(error).__name__)

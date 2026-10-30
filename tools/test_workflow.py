@@ -57,6 +57,18 @@ class FakeUSB:
         if self.failure == 'permission' or (self.failure == 'permission_after' and self.writes):
             kwargs['stderr'].write(b'Open: 0xe00002e2\n')
             return subprocess.CompletedProcess(args, 3)
+        reconnect = (self.failure in ('disconnected_after', 'reconnect_mismatch', 'reconnect_absent')
+                     and self.writes and self.after_reads <= (2 if self.failure == 'disconnected_after' else 1))
+        if reconnect or (self.failure == 'disconnected_forever_after' and self.writes) or (self.failure == 'lost_once_readonly' and self.reads == 1):
+            kwargs['stdout'].write(b'\n'.join(METADATA.splitlines()[:2]) + b'\n')
+            kwargs['stderr'].write(b'GetReport cmd=0xdd arg=2: 0x10000003\n')
+            return subprocess.CompletedProcess(args, 5)
+        if self.failure == 'reconnect_absent' and self.writes and self.after_reads == 2:
+            kwargs['stderr'].write(b'Expected one ECHO-B; found 0\n')
+            return subprocess.CompletedProcess(args, 6)
+        if self.failure == 'io_after' and self.writes:
+            kwargs['stderr'].write(b'GetReport: 0xe00002bc\n')
+            return subprocess.CompletedProcess(args, 1)
         if self.failure == 'busy_forever' or (self.failure == 'busy_after' and self.writes):
             kwargs['stdout'].write(METADATA.splitlines(keepends=True)[0])
             kwargs['stderr'].write(b'GetReport: 0xe00002d8 (NotReady retry limit reached)\n')
@@ -69,7 +81,7 @@ class FakeUSB:
         raw = COEFFICIENTS if '--coefficients' in args else METADATA
         if self.plan is not None:
             raw = plan_capture(self.plan, '--coefficients' in args)
-        if self.failure == 'mismatch' and self.writes and '--coefficients' in args:
+        if self.failure in ('mismatch', 'reconnect_mismatch') and self.writes and '--coefficients' in args:
             raw = (ROOT/'profiles/muffled-persistence-test/readback-coefficients.jsonl').read_bytes()
         if self.failure == 'corrupt':
             raw = b'{}\n'
@@ -104,6 +116,67 @@ class WorkflowTests(unittest.TestCase):
         self.assertEqual(self.status()['status'], 'saved_verified')
         self.assertTrue((self.run/'after-metadata-attempt3.jsonl').exists())
         self.assertTrue((self.run/'after-metadata-attempt1.stderr.txt').exists())
+
+    def test_saved_then_connection_loss_reopens_and_verifies_without_second_write(self):
+        fake = FakeUSB('disconnected_after')
+        self.apply(fake)
+        state = self.status()
+        self.assertEqual(fake.writes, 1)
+        self.assertEqual(fake.after_reads, 4)
+        self.assertEqual(state['status'], 'saved_verified')
+        self.assertTrue(state['readback_verified'])
+        self.assertTrue(state['readback_recovered'])
+        self.assertEqual(state['read_reconnect_attempts'], 2)
+        self.assertEqual((self.run/'after-metadata.jsonl').read_bytes(), METADATA)
+        self.assertEqual(len((self.run/'after-metadata-attempt1.jsonl').read_text().splitlines()), 2)
+        self.assertIn('0x10000003', (self.run/'after-metadata-attempt1.stderr.txt').read_text())
+        events = [json.loads(line) for line in (self.run/'events.jsonl').read_text().splitlines()]
+        self.assertTrue(any('重新连接' in event['message'] for event in events))
+
+    def test_lost_connection_can_wait_for_reenumeration_within_the_same_bound(self):
+        fake = FakeUSB('reconnect_absent')
+        self.apply(fake)
+        self.assertEqual(fake.writes, 1)
+        self.assertEqual(fake.after_reads, 4)
+        self.assertEqual(self.status()['status'], 'saved_verified')
+
+    def test_connection_loss_exhaustion_stays_saved_unverified_without_rewrite(self):
+        fake = FakeUSB('disconnected_forever_after')
+        with self.assertRaises(preset.OperationError):
+            self.apply(fake)
+        self.assertEqual(fake.writes, 1)
+        self.assertEqual(fake.after_reads, 3)
+        self.assertEqual(self.status()['status'], 'saved_unverified')
+        self.assertFalse(self.status()['readback_verified'])
+
+    def test_reconnection_is_not_enough_if_actual_coefficients_differ(self):
+        fake = FakeUSB('reconnect_mismatch')
+        with self.assertRaises(preset.OperationError):
+            self.apply(fake)
+        self.assertEqual(fake.writes, 1)
+        self.assertEqual(self.status()['status'], 'saved_unverified')
+        self.assertFalse(self.status()['readback_verified'])
+
+    def test_other_io_error_does_not_trigger_reconnect(self):
+        fake = FakeUSB('io_after')
+        with self.assertRaises(preset.OperationError):
+            self.apply(fake)
+        self.assertEqual(fake.writes, 1)
+        self.assertEqual(fake.after_reads, 1)
+
+    def test_historical_readonly_verify_reconnects_without_any_writer_or_recompile(self):
+        with self.assertRaises(preset.OperationError):
+            self.apply(FakeUSB('busy_after'))
+        original = (self.run/'status.json').read_bytes()
+        fake = FakeUSB('lost_once_readonly')
+        with patch.object(preset.subprocess, 'run', fake), patch.object(preset.time, 'sleep'), patch.object(preset, 'biquad', side_effect=AssertionError('must not recompile')), contextlib.redirect_stdout(io.StringIO()):
+            check = preset.verify_run(self.run)
+        self.assertEqual(fake.writes, 0)
+        self.assertEqual(fake.reads, 3)
+        self.assertEqual((self.run/'status.json').read_bytes(), original)
+        state = json.loads((check/'status.json').read_text())
+        self.assertEqual(state['status'], 'readback_verified')
+        self.assertTrue(state['readback_recovered'])
 
     def test_before_permission_error_prevents_write_without_retries(self):
         fake = FakeUSB('permission')
