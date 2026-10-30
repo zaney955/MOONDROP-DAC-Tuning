@@ -75,12 +75,12 @@ const fs = require('node:fs/promises');
       const dot = await page.locator('.chart-handle[aria-pressed="true"] .dot').boundingBox();
       return g.max - (((dot.y + dot.height / 2 - g.top) / g.height * 360 - 18) / 298) * (g.max - g.min);
     }
-    // Output is -16 dB. New filter gain must account for that baseline.
+    // Output is -16 dB, but handles and new gains are independent of it.
     const first = await doubleClick(1000, -12.8);
     assert.equal(await page.locator('.chart-handle').count(), 1);
     let value = await fields();
     assert.equal(value.frequency, first.frequency);
-    const firstGain = Math.round((first.db + 16) * 10) / 10;
+    const firstGain = Math.round(first.db * 10) / 10;
     assert.equal(value.gain, firstGain);
     assert(Math.abs(await pointDb() - first.db) < .15);
     // Insert to the left of the first point; the new point becomes number 1.
@@ -149,6 +149,6 @@ const fs = require('node:fs/promises');
     await page.locator('#notice').filter({hasText: '最多支持 8 段'}).waitFor();
     assert.deepEqual(errors, []);
     assert.deepEqual(deviceRequests, []);
-    console.log('PASS: blank-chart double-click creates at requested response/frequency, automatically selects and sorts; toolbar/commit/drag ordering, filter identity/export, no duplicate on points/axes, Escape, eight-band limit, no USB operations.');
+    console.log('PASS: blank-chart double-click creates at requested gain/frequency, automatically selects and sorts; toolbar/commit/drag ordering, filter identity/export, no duplicate on points/axes, Escape, eight-band limit, no USB operations.');
   } finally { await browser.close(); }
 })().catch((error) => { console.error(error); process.exitCode = 1; });

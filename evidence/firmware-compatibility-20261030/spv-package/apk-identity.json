@@ -1,0 +1,6 @@
+{
+  "apk": "/Users/zane/Projects/reverse/ECHO-B-DAC-Amp-Tuning/evidence/moondrop-android-release.apk",
+  "sha256": "04756b49acfea523758d86101c96c1824b7b209ae3a8836c07837088e795d2d5",
+  "classes.dex_sha256": "532514c94af7aaf8579ff455843b8820a37d7f9a27b1615bc1bbcfa4ee3d94e9",
+  "scope": "Offline DEX disassembly only; no APK code executed or device IO."
+}

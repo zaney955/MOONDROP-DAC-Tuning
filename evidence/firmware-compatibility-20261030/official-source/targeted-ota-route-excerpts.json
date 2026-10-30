@@ -1,0 +1,68 @@
+[
+  {
+    "file": "hub-index-BiX0aPAV.js",
+    "query": "\\.hid",
+    "char_offset": 77078,
+    "text": "t.suspense=e.suspense;d.vnode=t,t.el=e.el;const f=t.ssContent,p=t.ssFallback,{activeBranch:h,pendingBranch:m,isInFallback:v,isHydrating:A}=d;if(m)d.pendingBranch=f,Qs(m,f)?(l(m,f,d.hiddenContainer,null,r,d,o,i,a),d.deps<=0?d.resolve():v&&(A||(l(h,p,n,s,r,null,o,i,a),Qa(d,p)))):(d.pendingId=Jg++,A?(d.isHydrating=!1,d.activeBranch=m):c(m,r,d),d.deps=0,d.effects.length=0,d.hiddenContainer=u(\"div\"),v?(l(null,f,d.hiddenContainer,null,r,d,o,i,a),d.deps<=0?d.resolve():(l(h,p,n,s,r,null,o,i,a),Qa(d,p))):h&&Qs(h,f)?(l(h,f,n,s,r,d,o,i,a),d.resolve(!0)):(l(null,f,d.hiddenContainer,null,r,d,o,i,a),d.deps<=0&&d.resolve()));else if(h&&Qs(h,f))l(h,f,n,s,r,d,o,i,a),Qa(d,f);else if(tu(t,\"onPending\"),d.pendingBranch=f,f.shapeFlag&512?d.pendingId=f.component.suspenseId:d.pendingId=Jg++,l(null"
+  },
+  {
+    "file": "hub-index-BiX0aPAV.js",
+    "query": "\\.hid",
+    "char_offset": 77270,
+    "text": "iner,null,r,d,o,i,a),d.deps<=0?d.resolve():v&&(A||(l(h,p,n,s,r,null,o,i,a),Qa(d,p)))):(d.pendingId=Jg++,A?(d.isHydrating=!1,d.activeBranch=m):c(m,r,d),d.deps=0,d.effects.length=0,d.hiddenContainer=u(\"div\"),v?(l(null,f,d.hiddenContainer,null,r,d,o,i,a),d.deps<=0?d.resolve():(l(h,p,n,s,r,null,o,i,a),Qa(d,p))):h&&Qs(h,f)?(l(h,f,n,s,r,d,o,i,a),d.resolve(!0)):(l(null,f,d.hiddenContainer,null,r,d,o,i,a),d.deps<=0&&d.resolve()));else if(h&&Qs(h,f))l(h,f,n,s,r,d,o,i,a),Qa(d,f);else if(tu(t,\"onPending\"),d.pendingBranch=f,f.shapeFlag&512?d.pendingId=f.component.suspenseId:d.pendingId=Jg++,l(null,f,d.hiddenContainer,null,r,d,o,i,a),d.deps<=0)d.resolve();else{const{timeout:w,pendingId:g}=d;w>0?setTimeout(()=>{d.pendingId===g&&d.fallback(p)},w):w===0&&d.fallback(p)}}function kT(e,t,n,s,"
+  },
+  {
+    "file": "hub-index-BiX0aPAV.js",
+    "query": "\\.hid",
+    "char_offset": 77309,
+    "text": "e():v&&(A||(l(h,p,n,s,r,null,o,i,a),Qa(d,p)))):(d.pendingId=Jg++,A?(d.isHydrating=!1,d.activeBranch=m):c(m,r,d),d.deps=0,d.effects.length=0,d.hiddenContainer=u(\"div\"),v?(l(null,f,d.hiddenContainer,null,r,d,o,i,a),d.deps<=0?d.resolve():(l(h,p,n,s,r,null,o,i,a),Qa(d,p))):h&&Qs(h,f)?(l(h,f,n,s,r,d,o,i,a),d.resolve(!0)):(l(null,f,d.hiddenContainer,null,r,d,o,i,a),d.deps<=0&&d.resolve()));else if(h&&Qs(h,f))l(h,f,n,s,r,d,o,i,a),Qa(d,f);else if(tu(t,\"onPending\"),d.pendingBranch=f,f.shapeFlag&512?d.pendingId=f.component.suspenseId:d.pendingId=Jg++,l(null,f,d.hiddenContainer,null,r,d,o,i,a),d.deps<=0)d.resolve();else{const{timeout:w,pendingId:g}=d;w>0?setTimeout(()=>{d.pendingId===g&&d.fallback(p)},w):w===0&&d.fallback(p)}}function kT(e,t,n,s,r,o,i,a,l,c,u=!1){const{p:d,m:f,um:p,n:"
+  },
+  {
+    "file": "hub-index-BiX0aPAV.js",
+    "query": "echo-b",
+    "char_offset": 535686,
+    "text": "ayloadOffset=20}async enableAllPEQ(){await this.cmd.sendCommand(st.OP_WRITE,WG.EQ_COMMIT)}};Me(Np,\"config\",{productUUID:\"6c12817e-eb67-4b62-9a91-170e6bd138e1\",sharedConfigGroupId:\"echo-bp\",reportId:75,peqIndex:0,peqCount:32,name:\"Echo-BP\",brand:\"MOONDROP\",type:hn.AUDIO_DEVICE,image:GG,supportEQIndex:!1,alwaysInPEQMode:!0,supportPreGain:!0,preGainMin:-80,preGainMax:0,supportGlobalGain:!1,supportFilter:!0,supportedViews:[Oe.OFFICIAL_PRESETS,Oe.CONFIGS,Oe.ADVANCED],defaultView:Oe.OFFICIAL_PRESETS});let qv=Np;const KG=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEgAAABICAMAAABiM0N1AAADAFBMVEVMaXH19fTc29nv7u3r6ujs7Ou/1N4JCQwPDw/m5eT5+ffi4uLh4N/l4+Hu7erI2uPo5+bk4uGdm5j8+/r+/f3U09Dj4d/V1dXh4Nzg3tvk5OTB1uHT4+p1dXXg3t1dYWHe3drp6OXT0cy9urbX1dG5t7LN3ubK3eWsrKrBv7vD2OG70t2lpKKgnpzMysb"
+  },
+  {
+    "file": "hub-index-CxuoSDqE.js",
+    "query": "\\.hid",
+    "char_offset": 195026,
+    "text": "pported:i,getUnsupportedReason:l,connectedDevice:c,isRetryingReachability:f,disconnect:d,switchDevice:h}=Aa();function g(){return i()?null:l()===\"insecure-context\"?t(\"pages.connect.hid-requires-https\"):()=>vn(zc,{keypath:\"pages.connect.browser-not-supported-tip\",tag:\"p\"},{chrome:()=>vn(\"a\",{href:lf,target:\"_blank\",class:Es},\"Chrome\"),edge:()=>vn(\"a\",{href:uf,target:\"_blank\",class:Es},\"Edge\")})}async function m(){const x=g();return x==null?!0:(await xn.call({title:t(\"pages.connect.browser-not-supported\"),content:x,positiveText:t(\"common.i-know\"),positiveOnly:!0}),!1)}async function p(){await m()&&await o()}async function y(x){await d(x)?Ze.success(t(\"pages.connect.device-disconnected-successfully\")):Ze.error(t(\"pages.connect.device-connection-failed\"))}async function b(){if("
+  },
+  {
+    "file": "hub-index-CxuoSDqE.js",
+    "query": "\\.hid",
+    "char_offset": 303782,
+    "text": ",(m,p)=>(D(),I(\"div\",{key:p,class:me((\"cn\"in h?h.cn:u(Ce))(\"w-full flex flex-nowrap items-stretch gap-2 [&>svg]:h-2.5 [&>svg]:w-2.5 [&>svg]:text-muted-foreground\",t.itemClass))},[e.hideIndicator?ve(\"\",!0):(D(),I(\"div\",{key:0,class:\"w-1 shrink-0 border-[--color-border] rounded-[2px] bg-[--color-bg]\",style:vt({\"--color-bg\":m.color,\"--color-border\":m.color})},null,4)),v(\"div\",{class:me((\"cn\"in h?h.cn:u(Ce))(\"min-w-0 flex flex-1 items-baseline justify-between gap-3 leading-none\",t.contentClass))},[v(\"span\",{class:me((\"cn\"in h?h.cn:u(Ce))(\"truncate text-muted-foreground\",t.nameClass))},$(u(Yo)([m.prefix,m.name,m.suffix])),3),m.value?(D(),I(\"span\",{key:0,class:me((\"cn\"in h?h.cn:u(Ce))(\"shrink-0 whitespace-nowrap text-foreground font-medium font-mono tabular-nums\",t.valueClass))},"
+  },
+  {
+    "file": "hub-index-CxuoSDqE.js",
+    "query": "\\.hid",
+    "char_offset": 359703,
+    "text": "alue,...n.value]),l=J(new Set);function c(E){const S=new Set(l.value);S.has(E)?S.delete(E):S.add(E),l.value=S}function f(E){return l.value.has(E)}const d=z(()=>i.value.filter(E=>!E.hidden&&!l.value.has(E.key))),h=new Map,g=z(()=>i.value.reduce((E,S)=>{if(E[S.key])throw new Error(`[useGraph] Duplicate line key \"${S.key}\". Each GraphLine.key must be unique.`);if(S.color)E[S.key]=S.color;else{let k=h.get(S.key);k||(k=Xw(),h.set(S.key,k)),E[S.key]=k}return E},{})),m=z(()=>t.value.map(E=>({key:E.key,name:E.name,prefix:E.prefix,suffix:E.suffix,color:g.value[E.key],hidden:E.hidden||l.value.has(E.key)}))),p=z(()=>{const E=d.value;if(!(E!=null&&E.length))return[];if(E.length===1)return E[0].points.map(k=>k.x).sort((k,P)=>k-P);const S=new Set;for(const k of E)for(const P of k.points)"
+  },
+  {
+    "file": "hub-index-CxuoSDqE.js",
+    "query": "ota-config",
+    "char_offset": 34521,
+    "text": "fi/evaluations\",e)}function Um(e){return yt.Get(`/huihifi/evaluations/${e}/raw-fr`)}function Vm(e){return yt.Get(\"microphoneadjust/info\",{params:e})}function Gm(e){return yt.Get(\"/ota-configs/all\",{params:e})}function uL(e,t){return yt.Get(\"/ota-config-voices/all\",{params:e,headers:{language:t}})}function jm(e){return yt.Get(\"products/all\",{params:e})}function Wm(e){return yt.Get(`products/${e}`)}function Zm(e){return yt.Get(\"/ota-config-app-resources/all\",{params:e})}function ms(){return ms=Object.assign?Object.assign.bind():function(e){for(var t=1;t<arguments.length;t++){var n=arguments[t];for(var r in n)({}).hasOwnProperty.call(n,r)&&(e[r]=n[r])}return e},ms.apply(null,arguments)}var Dd={relTol:1e-12,absTol:1e-15,matrix:\"Matrix\",number:\"number\",numberFallback:\"number\",precisio"
+  },
+  {
+    "file": "hub-index-CxuoSDqE.js",
+    "query": "ota-config",
+    "char_offset": 34583,
+    "text": "uations/${e}/raw-fr`)}function Vm(e){return yt.Get(\"microphoneadjust/info\",{params:e})}function Gm(e){return yt.Get(\"/ota-configs/all\",{params:e})}function uL(e,t){return yt.Get(\"/ota-config-voices/all\",{params:e,headers:{language:t}})}function jm(e){return yt.Get(\"products/all\",{params:e})}function Wm(e){return yt.Get(`products/${e}`)}function Zm(e){return yt.Get(\"/ota-config-app-resources/all\",{params:e})}function ms(){return ms=Object.assign?Object.assign.bind():function(e){for(var t=1;t<arguments.length;t++){var n=arguments[t];for(var r in n)({}).hasOwnProperty.call(n,r)&&(e[r]=n[r])}return e},ms.apply(null,arguments)}var Dd={relTol:1e-12,absTol:1e-15,matrix:\"Matrix\",number:\"number\",numberFallback:\"number\",precision:64,predictable:!1,randomSeed:null,legacySubset:!1};function "
+  },
+  {
+    "file": "hub-index-CxuoSDqE.js",
+    "query": "ota-config",
+    "char_offset": 34772,
+    "text": "g-voices/all\",{params:e,headers:{language:t}})}function jm(e){return yt.Get(\"products/all\",{params:e})}function Wm(e){return yt.Get(`products/${e}`)}function Zm(e){return yt.Get(\"/ota-config-app-resources/all\",{params:e})}function ms(){return ms=Object.assign?Object.assign.bind():function(e){for(var t=1;t<arguments.length;t++){var n=arguments[t];for(var r in n)({}).hasOwnProperty.call(n,r)&&(e[r]=n[r])}return e},ms.apply(null,arguments)}var Dd={relTol:1e-12,absTol:1e-15,matrix:\"Matrix\",number:\"number\",numberFallback:\"number\",precision:64,predictable:!1,randomSeed:null,legacySubset:!1};function Qm(e,t){if(hs(e,t)||Ad(e,t))return e[t];throw Xm(e,t)?new Error('Cannot access method \"'.concat(t,'\" as a property')):e==null?new TypeError('Cannot access property \"'.concat(t,'\": object is"
+  },
+  {
+    "file": "hub-index-CxuoSDqE.js",
+    "query": "Gm({",
+    "char_offset": 548984,
+    "text": "ocale:e}=Oe(),{deviceInstance:t}=Qe(gt()),{state:n,isLoading:r,execute:o}=Er(async()=>{var m;const h=(m=t.value)==null?void 0:m.getProductUUID();if(!h)return[];const{data:g}=await Gm({productUuid:h,appVersion:\"web-app\"}).send(!0);return Mg(uA(g||[]),p=>p.version)},[],{immediate:!1});ze(e,()=>o(),{immediate:!0});const{state:a,isLoading:s,error:i,execute:l}=Er(()=>is(async()=>{var g;const h=await((g=t.value)==null?void 0:g.getFirmwareVersion())??null;if(!h||!$g(h))throw new Error(\"Get firmware version failed\");return h},{retries:2,delay:300}),null,{immediate:!1});pn(()=>{l()});async function c(h){return(await Ta(h)).arrayBuffer()}const{isLoading:f,execute:d}=Er(c,null,{immediate:!1,throwError:!0,onError:()=>{}});return{firmwareList:n,loadingFirmwareList:r,firmwareVersion:a,lo"
+  }
+]

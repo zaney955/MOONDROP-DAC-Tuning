@@ -1,0 +1,56 @@
+[
+  {
+    "url": "https://cdn.moondroplab.tech/ota-config-file/kU_zax3OY85GbA-cS9YG5usb_headphone_denoise_dual_MOONDROP_0x119_8_27.bin",
+    "file": "BIANCA-catalog-candidate.bin",
+    "requested_at_utc": "2026-10-30T10:04:48.898952+00:00",
+    "http_status": 200,
+    "headers": {
+      "Content-Type": "application/octet-stream",
+      "Content-Length": "442216",
+      "ETag": "\"Fp4srL1MXfnp9Vxw8i2wYrqri3Jv\"",
+      "Last-Modified": "Fri, 18 Oct 2024 03:08:49 GMT",
+      "Content-Md5": "WOljKYMDqtNW6ePd3BFPvA=="
+    },
+    "size": 442216,
+    "sha256": "b68e0cd4a561cb664605f32ebf5d3c3e51f6138482b3bfc97ef9666a42b5acc1",
+    "first_64_bytes_hex": "6f00400a5350564000100048414d414f00a0000024b7004830b70048040000004350550000000048307b01004d9d84004d4f44000000044868bf0200c2005501"
+  },
+  {
+    "url": "https://cdn.moondroplab.tech/ota-config-file/yisxlaYhtjXT7_Fx0PUh-freedsp1.hid",
+    "file": "FreeDSP-1.1-reference.hid",
+    "requested_at_utc": "2026-10-30T10:04:48.899499+00:00",
+    "http_status": 200,
+    "headers": {
+      "Content-Type": "application/octet-stream",
+      "Content-Length": "114720",
+      "ETag": "\"FtmJo8UCOmS11a5lKFWUl344EOsK\"",
+      "Last-Modified": "Tue, 02 Apr 2024 06:26:16 GMT",
+      "Content-Md5": "eVlhs8+HnnPXtvCX6luUJw=="
+    },
+    "size": 114720,
+    "sha256": "ca0a21cdd1b6ed63255252759595e34a58b472b8d402c37a736527475d8b7859",
+    "first_64_bytes_hex": "d835000096140000020000004546534320b283a706000c000700090000000000454653438fe4bb120001000000bf010000000000e4430000e4430000d0d80000"
+  },
+  {
+    "url": "https://cdn.moondroplab.tech/ota-config-file/nfvX9QU1-bghh2285C__1006.fot",
+    "file": "Marigold-reference.fot",
+    "requested_at_utc": "2026-10-30T10:04:48.899634+00:00",
+    "http_status": 200,
+    "headers": {
+      "Content-Type": "application/octet-stream",
+      "Content-Length": "683008",
+      "ETag": "\"FswZm9bx0QcpPFBPTLE-7ahpht0q\"",
+      "Last-Modified": "Mon, 21 Jul 2025 08:40:46 GMT",
+      "Content-Md5": "01UC6RcsvwI8u734xklqZg=="
+    },
+    "size": 683008,
+    "sha256": "cc80e106eb9f4c0e0c6928fa158217274281f179409abe5239c49382ebbe4018",
+    "first_64_bytes_hex": "504f5400f86b0a00c9cec6cf300000005155454e010000008a78a44be9215167d2dbec9e0000000000000000000000000000000000000000a7b76cbcb620b5e3"
+  },
+  {
+    "url": "https://cdn-service.moondroplab.tech/api/v1/related-product-ota/search",
+    "file": "related-product-ota-search.json",
+    "requested_at_utc": "2026-10-30T10:04:48.899783+00:00",
+    "error": "HTTP Error 400: Bad Request"
+  }
+]

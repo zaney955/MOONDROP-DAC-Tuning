@@ -1,0 +1,47 @@
+[
+  {
+    "uuid": "6c12817e-eb67-4b62-9a91-170e6bd138e1",
+    "model": "Echo-BP",
+    "chipType": "jieliusb",
+    "appResourceRoot": {
+      "uri": "/jieliusb"
+    },
+    "eqBands": 32
+  },
+  {
+    "uuid": "395619a3-3442-419a-a598-94f9f1d4ef4b",
+    "model": "MOONDROP Marigold",
+    "chipType": "spv",
+    "appResourceRoot": {
+      "uri": "/spv"
+    },
+    "eqBands": 8
+  },
+  {
+    "uuid": "134f2d7c-93d2-44e2-ba04-de6157c48860",
+    "model": "BIANCA:STIGMATA",
+    "chipType": "bluetrum",
+    "appResourceRoot": {
+      "uri": "/bluetrum"
+    },
+    "eqBands": 5
+  },
+  {
+    "uuid": "f92054d7-b36e-492f-8d3b-db2b935c3279",
+    "model": "ECHO-B",
+    "chipType": "synopsys",
+    "appResourceRoot": {
+      "uri": "/synopsys"
+    },
+    "eqBands": 9
+  },
+  {
+    "uuid": "e39f79d7-3cb1-40c5-987c-982243e19673",
+    "model": "FreeDSP",
+    "chipType": "synopsys",
+    "appResourceRoot": {
+      "uri": "/synopsys"
+    },
+    "eqBands": 9
+  }
+]

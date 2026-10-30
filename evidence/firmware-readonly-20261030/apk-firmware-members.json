@@ -1,0 +1,13 @@
+{
+  "apk_sha256": "04756b49acfea523758d86101c96c1824b7b209ae3a8836c07837088e795d2d5",
+  "candidate_members": [
+    {
+      "path": "assets/flutter_assets/AssetManifest.bin",
+      "size": 14425
+    },
+    {
+      "path": "DebugProbesKt.bin",
+      "size": 1728
+    }
+  ]
+}

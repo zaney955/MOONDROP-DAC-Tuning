@@ -1,0 +1,25 @@
+{
+  "url": "https://cdn-service.moondroplab.tech/api/v1/ota-configs/all?productUuid=f92054d7-b36e-492f-8d3b-db2b935c3279",
+  "http_status": "200",
+  "returncode": 0,
+  "retrieved_at_utc": "2026-10-30T10:08:57.555319+00:00",
+  "sha256": "ec61f0e375b6bdfd1fe5d4fb4314b79578e7d622a88bd5cf2bb75e12e81e4607",
+  "same_json_as_web_app_query": true,
+  "response": {
+    "code": 0,
+    "desc": "success",
+    "data": [
+      {
+        "uuid": "a87f4c45-91f7-45c1-a79a-7da2bee72449",
+        "status": 1,
+        "name": "ECHO-B",
+        "type": "CONFIG",
+        "parentUuid": "00000000-0000-0000-0000-000000000000",
+        "file": "ota-config-file/zZje7CUxdVaqgDf5QpXgEusb_headphone_denoise_dual_MOONDROP_0x119_8_27.bin",
+        "isSeparatedVersion": false,
+        "version": "1.0.0",
+        "desc": ""
+      }
+    ]
+  }
+}

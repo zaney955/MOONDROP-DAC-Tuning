@@ -1,0 +1,27 @@
+{
+  "scope": "Public unauthenticated HTTP GET and local static analysis only; no USB/device access",
+  "recorded_at_utc": "2026-10-30T10:02:03.241855+00:00",
+  "analysis_tools": {
+    "REA CLI": "6.5.0 cached local package; inspect-artifact inventory only",
+    "Androguard": "4.1.4 for DEX instruction listings",
+    "objdump": "macOS /usr/bin/objdump for ARM64 ELF disassembly"
+  },
+  "api_fetches": [
+    {
+      "url": "https://cdn-service.moondroplab.tech/api/v1/products/all",
+      "http_status": 200,
+      "response_code": 0,
+      "size": 133222,
+      "sha256": "f2555c68964511e3defa22acb854ca54b7dbbcd69799aea9a69d0258574c32de",
+      "saved_response_mtime_utc": "2026-10-30T09:56:42.874929+00:00"
+    },
+    {
+      "url": "https://cdn-service.moondroplab.tech/api/v1/ota-configs/all",
+      "http_status": 200,
+      "response_code": 0,
+      "size": 58759,
+      "sha256": "97f06b21b60a2be312418b1d007066053412562e10eabd326bf91196786c35fd",
+      "saved_response_mtime_utc": "2026-10-30T09:56:42.614243+00:00"
+    }
+  ]
+}

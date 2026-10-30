@@ -1,0 +1,18 @@
+[
+  {
+    "url": "https://cdn-service.moondroplab.tech/api/v1/products/f92054d7-b36e-492f-8d3b-db2b935c3279/relations/uuids",
+    "status": "200",
+    "rc": 0,
+    "file": "/private/tmp/echo-b-official-firmware-20261030/product-relations-uuids.json",
+    "sha256": "52a6869b45a3e0bb66682dc5feb5d271659544834c85842042658579016dbc19",
+    "body": "{\"code\":0,\"desc\":\"success\",\"data\":{\"relatedUuids\":[]}}"
+  },
+  {
+    "url": "https://cdn-service.moondroplab.tech/api/v1/products/f92054d7-b36e-492f-8d3b-db2b935c3279",
+    "status": "200",
+    "rc": 0,
+    "file": "/private/tmp/echo-b-official-firmware-20261030/product-detail.json",
+    "sha256": "511d8601d0b147ca0671c263e877dd78d29078c2fcd7fdeea5ba40c269e870d0",
+    "body": "{\"code\":0,\"desc\":\"success\",\"data\":{\"id\":75,\"uuid\":\"f92054d7-b36e-492f-8d3b-db2b935c3279\",\"createTime\":1726811879666,\"updateTime\":1789701159792,\"createIp\":\"\",\"updateIp\":\"\",\"model\":\"ECHO-B\",\"name\":\"ECHO-B\",\"type\":\"USB\",\"manual\":\"\",\"manual_enUS\":\"\",\"manual_jaJP\":\"\",\"manual_koKR\":\"\",\"appResourceRootUuid\":\"9159afbb-823c-437b-ae69-dd60adfdc206\",\"appResourceRoot\":{\"id\":5,\"uuid\":\"9159afbb-823c-437b-ae69-dd60adfdc206\",\"createTime\":1686327666113,\"updateTime\":1686414066113,\"createIp\":\"\",\"updateIp\":\"\",\"name\":\"Synopsys\",\"parentUuid\":\"00000000-0000-0000-0000-000000000000\",\"ancestorUuids\":[],\"uri\":\"/synopsys\"},\"bannerImg\":\"\",\"bannerImgNight\":\"product-banner-img/LWVc_PVqp_4-A_wgOpxW1echo-夜间.png\",\"squareBannerImg\":\"\",\"squareBannerImgNight\":\"\",\"bannerImgV2\":\"product-banner-img/3Z90YlI24Is_pMJNSjUD4echo-白天.png\",\"bannerImgT\":\"product-banner-img/6uYj42z_D_AuyifXCP68Mecho-白天.png\",\"bannerImgNightT\":\"product-banner-img/i64pr-GRi_h8ldW-q_mfTecho-夜间.png\",\"bannerImgLT\":\"\",\"bannerImgRT\":\"\",\"bannerImgNightLT\":\"\",\"bannerImgNightRT\":\"\",\"sellpic\":\"\",\"targetlink\":\" \",\"hasotaconfig\":true,\"istws\":false,\"isSpeaker\":false,\"freqResponse\":\"\",\"languageType\":null,\"eqBands\":9,\"gainRange\":\"\",\"qRange\":\"\",\"isTotalGainSupported\":false,\"isPreGainSupported\":false,\"supportedFilterTypes\":\"\",\"isDisplay\":1,\"isGamingHeadphone\":false,\"isDacAmp\":true,\"isDongleUpgradable\":false,\"chipType\":\"synopsys\"}}"
+  }
+]

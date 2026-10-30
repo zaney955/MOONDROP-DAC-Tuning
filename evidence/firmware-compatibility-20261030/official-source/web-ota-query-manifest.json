@@ -1,0 +1,74 @@
+[
+  {
+    "url": "https://cdn-service.moondroplab.tech/api/v1/ota-configs/all?productUuid=f92054d7-b36e-492f-8d3b-db2b935c3279&appVersion=web-app",
+    "http_status": "200",
+    "returncode": 0,
+    "file": "/private/tmp/echo-b-firmware-search-deep-20261030/web-ota-echo.json",
+    "sha256": "ec61f0e375b6bdfd1fe5d4fb4314b79578e7d622a88bd5cf2bb75e12e81e4607",
+    "response": {
+      "code": 0,
+      "desc": "success",
+      "data": [
+        {
+          "uuid": "a87f4c45-91f7-45c1-a79a-7da2bee72449",
+          "status": 1,
+          "name": "ECHO-B",
+          "type": "CONFIG",
+          "parentUuid": "00000000-0000-0000-0000-000000000000",
+          "file": "ota-config-file/zZje7CUxdVaqgDf5QpXgEusb_headphone_denoise_dual_MOONDROP_0x119_8_27.bin",
+          "isSeparatedVersion": false,
+          "version": "1.0.0",
+          "desc": ""
+        }
+      ]
+    }
+  },
+  {
+    "url": "https://cdn-service.moondroplab.tech/api/v1/ota-configs/all?productUuid=e39f79d7-3cb1-40c5-987c-982243e19673&appVersion=web-app",
+    "http_status": "200",
+    "returncode": 0,
+    "file": "/private/tmp/echo-b-firmware-search-deep-20261030/web-ota-freedsp.json",
+    "sha256": "2ddba394496ad6452a3467d15535d6b2527ebf0ce58b0516151145d730ad1c55",
+    "response": {
+      "code": 0,
+      "desc": "success",
+      "data": [
+        {
+          "uuid": "3946f8a7-6ed2-4f9f-920d-bd469c8edd0f",
+          "status": 1,
+          "name": "FreeDSP 1.1",
+          "type": "CONFIG",
+          "parentUuid": "00000000-0000-0000-0000-000000000000",
+          "file": "ota-config-file/yisxlaYhtjXT7_Fx0PUh-freedsp1.hid",
+          "isSeparatedVersion": false,
+          "version": "1.0.0",
+          "desc": ""
+        }
+      ]
+    }
+  },
+  {
+    "url": "https://cdn-service.moondroplab.tech/api/v1/ota-configs/all?productUuid=395619a3-3442-419a-a598-94f9f1d4ef4b&appVersion=web-app",
+    "http_status": "200",
+    "returncode": 0,
+    "file": "/private/tmp/echo-b-firmware-search-deep-20261030/web-ota-marigold.json",
+    "sha256": "e7b50f271e0ca9fe24370baec9531974a345ecf14c11d9b5df8f5c3da567d140",
+    "response": {
+      "code": 0,
+      "desc": "success",
+      "data": [
+        {
+          "uuid": "4699ec41-9f8e-4dc3-a510-af5c0c897760",
+          "status": 1,
+          "name": "MOONDROP Marigold",
+          "type": "CONFIG",
+          "parentUuid": "00000000-0000-0000-0000-000000000000",
+          "file": "ota-config-file/nfvX9QU1-bghh2285C__1006.fot",
+          "isSeparatedVersion": false,
+          "version": "1.0.0",
+          "desc": ""
+        }
+      ]
+    }
+  }
+]

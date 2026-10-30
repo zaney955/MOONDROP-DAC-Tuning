@@ -144,7 +144,7 @@ const assert=require('node:assert/strict');
  await page.locator('.response .section-head').hover();
  const oldScroll=await page.evaluate(()=>scrollY);await page.mouse.wheel(0,150);
  await page.waitForFunction(old=>scrollY>old,oldScroll);
- // Shelf center moves at half the requested dB: still edits whole filter gain.
+ // Shelf handles also represent the full filter gain, independent of center response.
  await page.locator('#band-0-gain_db').fill('0');
  await page.locator('#type-0').selectOption('low_shelf');await valid();
  await handle().dispatchEvent('wheel',{deltaY:-120,bubbles:true,cancelable:true});

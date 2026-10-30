@@ -6,7 +6,7 @@ let token, doc, baseline, previewData, revision = 0, validatedRevision = -1, tim
 let busy = false, canVerify = false, activeJob = null, activePreset = null;
 let jobPollTimer, jobPollSequence = 0;
 let lastError = '', showErrors = false;
-let chartGeometry, chartDrag = null, dragPreviewTimer, dragPreviewInFlight = false;
+let chartGeometry, chartRange = null, chartDrag = null, dragPreviewTimer, dragPreviewInFlight = false;
 let qWheelInput = null;
 let selectedBand = null;
 let previewFilterRefs = [];
@@ -114,7 +114,9 @@ function setDocument(value, presetId = null) {
   finishChartDrag(true);
   qWheelInput = null;
   doc = clone(value);
+  chartRange = null;
   selectedBand = null;
+  $('#chart-readout').hidden = true;
   baseline = JSON.stringify(doc);
   activePreset = presetId;
   $('#name').value = doc.name;
@@ -371,12 +373,6 @@ function sortFilters() {
   return true;
 }
 
-function sampleResponse(values, frequency) {
-  const point = Math.max(0, Math.min(600, Math.log10(frequency / 20) / 3 * 600));
-  const low = Math.floor(point), high = Math.min(600, low + 1);
-  return values[low] + (values[high] - values[low]) * (point - low);
-}
-
 function addFilter(frequency, gain = 0) {
   if (busy || reloadWaiting) return;
   if (doc.filters.length >= 8) {
@@ -463,6 +459,11 @@ function chartPosition(event, geometry) {
     y: (event.clientY - rect.top) * CHART_HEIGHT / rect.height};
 }
 
+// The chart is an interactive surface. Prevent native SVG/text selection and
+// drag previews when double-clicking blank space or dragging across its axes.
+$('#chart-wrap').addEventListener('selectstart', (event) => event.preventDefault());
+$('#chart-wrap').addEventListener('dragstart', (event) => event.preventDefault());
+
 function finishChartDrag(cancelled = false) {
   if (!chartDrag) return;
   const gesture = chartDrag;
@@ -491,8 +492,7 @@ $('#chart-wrap').addEventListener('pointerdown', (event) => {
   handle.focus({preventScroll: true});
   chartDrag = {index, pointerId: event.pointerId, moved: false, geometry: {...chartGeometry},
     origin: chartPosition(event, chartGeometry), frequency: filter.frequency_hz,
-    gain: filter.gain_db, pointY: Number(handle.dataset.y),
-    factor: filter.type === 'peak' ? 1 : .5};
+    gain: filter.gain_db, pointY: Number(handle.dataset.y)};
   $('#chart-wrap').setPointerCapture(event.pointerId);
   drawChart();
 });
@@ -506,13 +506,13 @@ $('#chart-wrap').addEventListener('pointermove', (event) => {
   }
   if (event.pointerId !== chartDrag.pointerId) return;
   event.preventDefault();
-  const {index, geometry, origin, frequency, gain, pointY, factor} = chartDrag;
+  const {index, geometry, origin, frequency, gain, pointY} = chartDrag;
   const position = chartPosition(event, geometry);
   const startX = 52 + Math.log10(frequency / 20) / 3 * geometry.span;
   const nextX = Math.max(52, Math.min(geometry.right, startX + position.x - origin.x));
   const nextY = Math.max(PLOT_TOP, Math.min(PLOT_BOTTOM, pointY + position.y - origin.y));
   if (syncChartFilter(index, 20 * 1000 ** ((nextX - 52) / geometry.span),
-    gain + (pointY - nextY) * (geometry.max - geometry.min) / PLOT_HEIGHT / factor)) {
+    gain + (pointY - nextY) * (geometry.max - geometry.min) / PLOT_HEIGHT)) {
     chartDrag.moved = true;
     drawChart();
   }
@@ -559,10 +559,8 @@ $('#chart-wrap').addEventListener('dblclick', (event) => {
   }
   const frequency = Math.round(20 * 1000 ** ((position.x - 52) / chartGeometry.span));
   const target = chartGeometry.max - (position.y - PLOT_TOP) / PLOT_HEIGHT * (chartGeometry.max - chartGeometry.min);
-  // The plot includes existing EQ and overall output gain. A new peak's gain
-  // is the difference needed to place its center on the clicked total response.
-  const background = sampleResponse(previewData.curves[$('#rate').value].total, frequency);
-  addFilter(frequency, target - background);
+  // Handles express individual parameters, independently of the total curve.
+  addFilter(frequency, target);
 });
 
 $('#chart-handles').addEventListener('wheel', (event) => {
@@ -605,6 +603,12 @@ $('#chart-handles').addEventListener('click', (event) => {
   if (handle && !busy) selectBand(Number(handle.dataset.band));
 });
 
+$('#fit-chart').addEventListener('click', () => {
+  if (chartDrag) return;
+  chartRange = null;
+  drawChart();
+});
+
 function drawChart() {
   if (!previewData) return;
   const svg = $('#chart');
@@ -614,9 +618,15 @@ function drawChart() {
   svg.setAttribute('viewBox', `0 0 ${width} ${CHART_HEIGHT}`);
   const rate = $('#rate').value;
   const curves = previewData.curves[rate];
-  const all = [0, ...curves.total, ...curves.bands.flat()];
-  const min = chartDrag?.geometry.min ?? Math.floor(Math.min(-6, ...all) / 6) * 6 - 3;
-  const max = chartDrag?.geometry.max ?? Math.ceil(Math.max(6, ...all) / 6) * 6 + 3;
+  // Keep the scale stable across compiler replies and gesture release, too:
+  // automatic rescaling would make untouched handles appear to move again.
+  if (!chartRange) {
+    const all = [...curves.total, ...curves.bands.flat(),
+      ...doc.filters.map((filter) => filter.gain_db).filter(Number.isFinite)];
+    chartRange = {min: Math.floor(Math.min(-24, ...all) / 6) * 6 - 3,
+      max: Math.ceil(Math.max(24, ...all) / 6) * 6 + 3};
+  }
+  const {min, max} = chartRange;
   chartGeometry = {width, right, span, min, max};
   const x = (f) => 52 + Math.log10(f / 20) / 3 * span;
   const y = (db) => PLOT_TOP + (max - db) / (max - min) * PLOT_HEIGHT;
@@ -628,7 +638,7 @@ function drawChart() {
     artwork = svgElement('g', {class: 'chart-artwork', 'aria-hidden': 'true'});
     svg.append(artwork);
   }
-  $('#chart-description').textContent = `${Number(rate) / 1000} kHz 下的数字频响，含整体输出增益。组合响应从 ${formatDb(Math.min(...curves.total))} 到 ${formatDb(Math.max(...curves.total))}。`;
+  $('#chart-description').textContent = `${Number(rate) / 1000} kHz 下的数字频响，实线含整体输出增益，控制点仅表示各段自身的频率和增益，架式控制点通过细线连接其单段响应。组合响应从 ${formatDb(Math.min(...curves.total))} 到 ${formatDb(Math.max(...curves.total))}。`;
   artwork.replaceChildren();
   const grid = svgElement('g');
   for (let i = 0; i <= 6; i++) {
@@ -641,19 +651,31 @@ function drawChart() {
   });
   grid.append(svgElement('text', {x: 16, y: 12}, 'dB'), svgElement('line', {x1: 52, x2: right, y1: y(0), y2: y(0), class: 'zero'}));
   artwork.append(grid);
+  const clip = svgElement('clipPath', {id: 'plot-clip'});
+  clip.append(svgElement('rect', {x: 52, y: PLOT_TOP, width: span, height: PLOT_HEIGHT}));
+  const plots = svgElement('g', {'clip-path': 'url(#plot-clip)'});
+  artwork.append(clip, plots);
   const pathFor = (values) => values.map((value, i) => `${i ? 'L' : 'M'}${x(previewData.frequencies[i]).toFixed(2)},${y(value).toFixed(2)}`).join(' ');
   const path = pathFor(curves.total);
   const area = `${path} L${right},${PLOT_BOTTOM} L52,${PLOT_BOTTOM} Z`;
-  artwork.append(svgElement('path', {d: area, fill: '#dce7d0', opacity: '.5'}));
+  plots.append(svgElement('path', {d: area, fill: '#dce7d0', opacity: '.5'}));
+  let selectedCurve;
   curves.bands.forEach((values, previousIndex) => {
     const index = doc.filters.indexOf(previewFilterRefs[previousIndex]);
-    if (index >= 0) artwork.append(svgElement('path', {d: pathFor(values), class: `band-curve${selectedBand === index ? ' selected' : ''}`, stroke: colors[index]}));
+    if (index < 0) return;
+    const curve = svgElement('path', {d: pathFor(values), class: `band-curve${selectedBand === index ? ' selected' : ''}`, stroke: colors[index], 'data-band': index});
+    if (selectedBand === index) selectedCurve = curve;
+    else plots.append(curve);
   });
-  artwork.append(svgElement('path', {d: path, class: 'total-curve'}));
+  plots.append(svgElement('path', {d: path, class: 'total-curve'}));
+  if (selectedCurve) plots.append(selectedCurve);
+  const connectors = svgElement('g', {class: 'shelf-connectors', 'clip-path': 'url(#plot-clip)', 'pointer-events': 'none'});
+  artwork.append(connectors);
   handles.querySelectorAll('.chart-handle').forEach((handle) => {
     const filter = doc.filters[Number(handle.dataset.band)];
     if (!filter) handle.remove();
   });
+  const renderedBounds = svg.getBoundingClientRect();
   doc.filters.forEach((requestedFilter, index) => {
     const previousIndex = previewFilterRefs.indexOf(requestedFilter);
     const reference = previewData.preset.filters[previousIndex];
@@ -664,12 +686,25 @@ function drawChart() {
         ? requestedFilter.frequency_hz : reference?.frequency_hz ?? 1000,
       gain_db: Number.isFinite(requestedFilter.gain_db) ? requestedFilter.gain_db : reference?.gain_db ?? 0};
     const incomplete = !['frequency_hz', 'gain_db', 'q'].every((key) => Number.isFinite(requestedFilter[key]));
-    const matches = reference && reference.type === filter.type && reference.frequency_hz === filter.frequency_hz && reference.gain_db === filter.gain_db;
-    const total = sampleResponse(curves.total, filter.frequency_hz);
-    // While a request is in flight, move the handle immediately using the
-    // selected filter's center gain. The curve remains compiler-backed.
-    const response = matches ? total : total - (curves.bands[previousIndex] ? sampleResponse(curves.bands[previousIndex], filter.frequency_hz) : 0) + filter.gain_db * (filter.type === 'peak' ? 1 : .5);
-    const cx = x(filter.frequency_hz), cy = Math.max(PLOT_TOP, Math.min(PLOT_BOTTOM, y(response)));
+    // Even shelf handles represent the full gain parameter, rather than the
+    // half-gain response at their center or any other filter's contribution.
+    const cx = x(filter.frequency_hz), cy = Math.max(PLOT_TOP, Math.min(PLOT_BOTTOM, y(filter.gain_db)));
+    const bandValues = curves.bands[previousIndex];
+    if (['low_shelf', 'high_shelf'].includes(filter.type) && bandValues) {
+      // Interpolate the rendered band polyline in log-frequency space. During
+      // an in-flight preview, connect to the curve actually visible on screen.
+      const frequencies = previewData.frequencies;
+      const upper = frequencies.findIndex((frequency) => frequency >= filter.frequency_hz);
+      const high = upper < 0 ? frequencies.length - 1 : upper;
+      const low = Math.max(0, high - 1);
+      const fraction = high === low ? 0 : Math.log(filter.frequency_hz / frequencies[low]) / Math.log(frequencies[high] / frequencies[low]);
+      const response = bandValues[low] + fraction * (bandValues[high] - bandValues[low]);
+      const responseY = y(response);
+      const connector = svgElement('g', {class: `shelf-connector${selectedBand === index ? ' selected' : ''}`, 'data-band': index, stroke: colors[index]});
+      connector.append(svgElement('line', {x1: cx, x2: cx, y1: cy, y2: responseY}),
+        svgElement('circle', {cx, cy: responseY, r: 2.5}));
+      connectors.append(connector);
+    }
     const qLabel = filter.type === 'peak' ? `Q ${filter.q}；滚轮调 Q，Shift 精调` : '架式固定 S=1';
     const label = `第 ${index + 1} 段：${filter.frequency_hz} Hz，${filter.gain_db} dB，${qLabel}${incomplete ? '；参数待补全' : ''}；左右方向键调频率，上下方向键调增益`;
     let group = handles.querySelector(`[data-band="${index}"]`);
@@ -689,9 +724,33 @@ function drawChart() {
       'aria-pressed': String(selectedBand === index), 'aria-controls': 'selected-filter',
       tabindex: busy ? -1 : 0, 'aria-label': label, 'aria-disabled': String(busy)}).forEach(([key, value]) => group.setAttribute(key, value));
     group.title = label;
-    group.style.left = `${cx * svg.clientWidth / width}px`;
-    group.style.top = `${cy * svg.getBoundingClientRect().height / CHART_HEIGHT}px`;
+    group.style.left = `${cx * renderedBounds.width / width}px`;
+    group.style.top = `${cy * renderedBounds.height / CHART_HEIGHT}px`;
   });
+  const readout = $('#chart-readout');
+  const selectedFilter = doc.filters[selectedBand];
+  const selectedHandle = handles.querySelector('.chart-handle[aria-pressed="true"]');
+  readout.hidden = !selectedFilter || !selectedHandle;
+  if (!readout.hidden) {
+    readout.dataset.band = selectedBand;
+    readout.style.setProperty('--band-color', colors[selectedBand]);
+    const type = {peak: '峰值', low_shelf: '低架', high_shelf: '高架'}[selectedFilter.type];
+    readout.querySelector('strong').textContent = `${selectedBand + 1} · ${type}`;
+    readout.querySelector('[data-value="frequency"]').textContent = `频率  ${Number.isFinite(selectedFilter.frequency_hz) ? `${selectedFilter.frequency_hz} Hz` : '待补全'}`;
+    readout.querySelector('[data-value="gain"]').textContent = `增益  ${Number.isFinite(selectedFilter.gain_db) ? formatDb(selectedFilter.gain_db) : '待补全'}`;
+    readout.querySelector('[data-value="q"]').textContent = selectedFilter.type === 'peak'
+      ? `Q  ${Number.isFinite(selectedFilter.q) ? selectedFilter.q : '待补全'}` : 'S  1（架式固定）';
+    // This is a non-interactive duplicate of the handle's accessible label.
+    // Keep it beside the point, flip at the right edge and clamp vertically.
+    const pointX = parseFloat(selectedHandle.style.left), pointY = parseFloat(selectedHandle.style.top);
+    const boxWidth = readout.offsetWidth, boxHeight = readout.offsetHeight;
+    const plotRight = right * renderedBounds.width / width;
+    const plotTop = PLOT_TOP * renderedBounds.height / CHART_HEIGHT;
+    const plotBottom = PLOT_BOTTOM * renderedBounds.height / CHART_HEIGHT;
+    const left = pointX + 22 + boxWidth <= plotRight ? pointX + 22 : pointX - 22 - boxWidth;
+    readout.style.left = `${Math.max(4, Math.min(renderedBounds.width - boxWidth - 4, left))}px`;
+    readout.style.top = `${Math.max(plotTop, Math.min(plotBottom - boxHeight, pointY - boxHeight / 2))}px`;
+  }
   const summary = `${Number(rate) / 1000} kHz · 峰值 ${formatDb(Math.max(...curves.total))}`;
   $('#curve-state').textContent = chartDrag ? `第 ${chartDrag.index + 1} 段 · ${doc.filters[chartDrag.index].frequency_hz} Hz · ${doc.filters[chartDrag.index].gain_db} dB` : validatedRevision === revision ? summary : '图中保留上次有效预览';
   svg.onpointermove = (event) => {

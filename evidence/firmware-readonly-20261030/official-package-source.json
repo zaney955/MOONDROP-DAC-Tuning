@@ -1,0 +1,18 @@
+{
+  "url": "https://cdn.moondroplab.tech/ota-config-file/zZje7CUxdVaqgDf5QpXgEusb_headphone_denoise_dual_MOONDROP_0x119_8_27.bin",
+  "retrieved_at_utc": "2026-10-30T09:57:49.107068+00:00",
+  "http_status": 200,
+  "headers": {
+    "Content-Type": "application/octet-stream",
+    "Content-Length": "442216",
+    "Content-Disposition": "inline; filename=\"zZje7CUxdVaqgDf5QpXgEusb_headphone_denoise_dual_MOONDROP_0x119_8_27.bin\"; filename*=utf-8''zZje7CUxdVaqgDf5QpXgEusb_headphone_denoise_dual_MOONDROP_0x119_8_27.bin",
+    "Date": "Fri, 30 Oct 2026 09:57:46 GMT",
+    "ETag": "\"Fp4srL1MXfnp9Vxw8i2wYrqri3Jv\"",
+    "Last-Modified": "Fri, 20 Sep 2024 05:59:44 GMT",
+    "Content-Md5": "WOljKYMDqtNW6ePd3BFPvA=="
+  },
+  "size": 442216,
+  "sha256": "b68e0cd4a561cb664605f32ebf5d3c3e51f6138482b3bfc97ef9666a42b5acc1",
+  "first_128_bytes_hex": "6f00400a5350564000100048414d414f00a0000024b7004830b70048040000004350550000000048307b01004d9d84004d4f44000000044868bf0200c200550150424b0000c0064800000000000000004558540000c006480000000000000000b70700209c4b5bfd1703b7070020d853b7070920d8db3707004c144794df1c47",
+  "transfer_md5_matches": true
+}

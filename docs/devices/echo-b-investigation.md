@@ -28,6 +28,8 @@
 - [滤波器系数范围](echo-b-filter-gain-range.md)：参数相关的编码边界和单采样率读回证据。
 - [官方算法兼容性](echo-b-android-eq-comparison.md)：Q、架式、精度及缩放定义。
 - [功能边界](echo-b-possibilities.md)：扩展所需接口与尚未证实的能力。
+- [固件备份与恢复只读调查](echo-b-firmware-backup-investigation.md)：SDK 导出前置重置、官方候选包的适配疑点及尚未确认的救砖入口。
+- [候选固件型号核对](echo-b-firmware-package-compatibility.md)：Marigold 载荷、官方产品关联冲突及同代 `.hid` 目标头筛查。
 
 `tools/echo_runtime_test.c` 只适用于其声明的起始状态，不是通用预览工具。运行中断开设备或强制终止会打断恢复。
 

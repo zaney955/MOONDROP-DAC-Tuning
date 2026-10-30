@@ -1,0 +1,11 @@
+<resources>
+  <device device_name="Freeman3">
+    <usb_device product_id="5270" vendor_id="13784"/>
+    <usb_device product_id="5271" vendor_id="13784"/>
+    <usb_device product_id="5272" vendor_id="13784"/>
+    <usb_device product_id="5273" vendor_id="13784"/>
+    <usb_device product_id="5274" vendor_id="13784"/>
+    <usb_device product_id="5275" vendor_id="13784"/>
+    <usb_device product_id="5276" vendor_id="13784"/>
+  </device>
+</resources>

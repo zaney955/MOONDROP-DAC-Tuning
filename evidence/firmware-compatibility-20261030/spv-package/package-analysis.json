@@ -1,0 +1,347 @@
+{
+  "method": "stdlib byte parsing, modeled on official SPA class cj parseBinFiles and APK Law0.c",
+  "files": [
+    {
+      "path": "/Users/zane/Projects/reverse/ECHO-B-DAC-Amp-Tuning/evidence/firmware-readonly-20261030/official-ECHO-B-ota-1.0.0.bin",
+      "size": 442216,
+      "sha256": "b68e0cd4a561cb664605f32ebf5d3c3e51f6138482b3bfc97ef9666a42b5acc1",
+      "prefix_96_hex": "6f00400a5350564000100048414d414f00a0000024b7004830b70048040000004350550000000048307b01004d9d84004d4f44000000044868bf0200c200550150424b0000c0064800000000000000004558540000c006480000000000000000",
+      "spv_magic_offsets": [
+        4
+      ],
+      "claims_scope": "Static bytes only; no runtime configuration or chip compatibility established.",
+      "raw_spv_parser_accepted": true,
+      "layout": "AMA-tag branch; 16-byte bin records",
+      "encrypt_address_declared": "0x48001000",
+      "encrypt_size_declared": 40960,
+      "user_flag": "0x4f414d41",
+      "build_date_address": "0x4800b724",
+      "build_time_address": "0x4800b730",
+      "build_date": "Aug 23 2024",
+      "build_time": "14:11:15",
+      "whole_file_crc32_computed": "0xda606ac4",
+      "bins": [
+        {
+          "index": 0,
+          "record_offset": "0x20",
+          "name": "CPU",
+          "address": "0x48000000",
+          "file_offset": "0x0",
+          "size": 97072,
+          "end_offset_exclusive": "0x17b30",
+          "within_file": true,
+          "declared_checksum": "0x849d4d",
+          "payload_sha256": "df0e6ba3820c1f3d732b37b36ebe1b451f274699fd2ad9e751fc50888a7757cd",
+          "payload_byte_sum": "0x849ebb",
+          "checksum_field_byte_sum_excluded_if_inside_payload": 366,
+          "byte_sum_minus_own_checksum_field": "0x849d4d",
+          "additive_checksum_observed_match": true
+        },
+        {
+          "index": 1,
+          "record_offset": "0x30",
+          "name": "MOD",
+          "address": "0x48040000",
+          "file_offset": "0x40000",
+          "size": 180072,
+          "end_offset_exclusive": "0x6bf68",
+          "within_file": true,
+          "declared_checksum": "0x15500c2",
+          "payload_sha256": "9a68300b764c17bca5b807744b6f47e299f1490edff97e003d5c90965e098d21",
+          "payload_byte_sum": "0x15500c2",
+          "checksum_field_byte_sum_excluded_if_inside_payload": 0,
+          "byte_sum_minus_own_checksum_field": "0x15500c2",
+          "additive_checksum_observed_match": true
+        },
+        {
+          "index": 2,
+          "record_offset": "0x40",
+          "name": "PBK",
+          "address": "0x4806c000",
+          "file_offset": "0x6c000",
+          "size": 0,
+          "end_offset_exclusive": "0x6c000",
+          "within_file": false,
+          "declared_checksum": "0x0",
+          "payload_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "payload_byte_sum": "0x0",
+          "checksum_field_byte_sum_excluded_if_inside_payload": 0,
+          "byte_sum_minus_own_checksum_field": "0x0",
+          "additive_checksum_observed_match": true
+        },
+        {
+          "index": 3,
+          "record_offset": "0x50",
+          "name": "EXT",
+          "address": "0x4806c000",
+          "file_offset": "0x6c000",
+          "size": 0,
+          "end_offset_exclusive": "0x6c000",
+          "within_file": false,
+          "declared_checksum": "0x0",
+          "payload_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "payload_byte_sum": "0x0",
+          "checksum_field_byte_sum_excluded_if_inside_payload": 0,
+          "byte_sum_minus_own_checksum_field": "0x0",
+          "additive_checksum_observed_match": true
+        }
+      ],
+      "active_ranges": [
+        {
+          "start": "0x0",
+          "end_exclusive": "0x17b30",
+          "bin": "CPU"
+        },
+        {
+          "start": "0x40000",
+          "end_exclusive": "0x6bf68",
+          "bin": "MOD"
+        }
+      ],
+      "gaps": [
+        {
+          "start": "0x17b30",
+          "end_exclusive": "0x40000",
+          "size": 165072,
+          "all_zero": true,
+          "sha256": "d77aa535790b7b12c4656ad54844d81346ebbb16e1640b578740e079b57c3466"
+        }
+      ],
+      "usb_style_string_descriptors": [
+        {
+          "descriptor_offset": "0x11110",
+          "text_offset": "0x11112",
+          "length": 18,
+          "text": "Marigold",
+          "inside_sent_bin": "CPU",
+          "bytes_hex": "12034d0061007200690067006f006c006400",
+          "status": "syntactically plausible; runtime selection unproved"
+        },
+        {
+          "descriptor_offset": "0x11154",
+          "text_offset": "0x11156",
+          "length": 30,
+          "text": "00000000000822",
+          "inside_sent_bin": "CPU",
+          "bytes_hex": "1e0330003000300030003000300030003000300030003000380032003200",
+          "status": "syntactically plausible; runtime selection unproved"
+        },
+        {
+          "descriptor_offset": "0x11198",
+          "text_offset": "0x1119a",
+          "length": 18,
+          "text": "Marigold",
+          "inside_sent_bin": "CPU",
+          "bytes_hex": "12034d0061007200690067006f006c006400",
+          "status": "syntactically plausible; runtime selection unproved"
+        },
+        {
+          "descriptor_offset": "0x111dc",
+          "text_offset": "0x111de",
+          "length": 18,
+          "text": "MOONDROP",
+          "inside_sent_bin": "CPU",
+          "bytes_hex": "12034d004f004f004e00440052004f005000",
+          "status": "syntactically plausible; runtime selection unproved"
+        }
+      ],
+      "strict_usb_device_descriptor_candidates": [],
+      "raw_target_id_byte_occurrences_not_evidence_of_fields": {
+        "vid_35d8_little_endian": [
+          "0x5550f"
+        ],
+        "pid_149b_little_endian": [
+          "0x4b44c",
+          "0x53650"
+        ],
+        "adjacent_vid_pid_35d8_149b": []
+      }
+    },
+    {
+      "path": "/Users/zane/Projects/reverse/ECHO-B-DAC-Amp-Tuning/evidence/firmware-compatibility-20261030/BIANCA-catalog-candidate.bin",
+      "size": 442216,
+      "sha256": "b68e0cd4a561cb664605f32ebf5d3c3e51f6138482b3bfc97ef9666a42b5acc1",
+      "prefix_96_hex": "6f00400a5350564000100048414d414f00a0000024b7004830b70048040000004350550000000048307b01004d9d84004d4f44000000044868bf0200c200550150424b0000c0064800000000000000004558540000c006480000000000000000",
+      "spv_magic_offsets": [
+        4
+      ],
+      "claims_scope": "Static bytes only; no runtime configuration or chip compatibility established.",
+      "raw_spv_parser_accepted": true,
+      "layout": "AMA-tag branch; 16-byte bin records",
+      "encrypt_address_declared": "0x48001000",
+      "encrypt_size_declared": 40960,
+      "user_flag": "0x4f414d41",
+      "build_date_address": "0x4800b724",
+      "build_time_address": "0x4800b730",
+      "build_date": "Aug 23 2024",
+      "build_time": "14:11:15",
+      "whole_file_crc32_computed": "0xda606ac4",
+      "bins": [
+        {
+          "index": 0,
+          "record_offset": "0x20",
+          "name": "CPU",
+          "address": "0x48000000",
+          "file_offset": "0x0",
+          "size": 97072,
+          "end_offset_exclusive": "0x17b30",
+          "within_file": true,
+          "declared_checksum": "0x849d4d",
+          "payload_sha256": "df0e6ba3820c1f3d732b37b36ebe1b451f274699fd2ad9e751fc50888a7757cd",
+          "payload_byte_sum": "0x849ebb",
+          "checksum_field_byte_sum_excluded_if_inside_payload": 366,
+          "byte_sum_minus_own_checksum_field": "0x849d4d",
+          "additive_checksum_observed_match": true
+        },
+        {
+          "index": 1,
+          "record_offset": "0x30",
+          "name": "MOD",
+          "address": "0x48040000",
+          "file_offset": "0x40000",
+          "size": 180072,
+          "end_offset_exclusive": "0x6bf68",
+          "within_file": true,
+          "declared_checksum": "0x15500c2",
+          "payload_sha256": "9a68300b764c17bca5b807744b6f47e299f1490edff97e003d5c90965e098d21",
+          "payload_byte_sum": "0x15500c2",
+          "checksum_field_byte_sum_excluded_if_inside_payload": 0,
+          "byte_sum_minus_own_checksum_field": "0x15500c2",
+          "additive_checksum_observed_match": true
+        },
+        {
+          "index": 2,
+          "record_offset": "0x40",
+          "name": "PBK",
+          "address": "0x4806c000",
+          "file_offset": "0x6c000",
+          "size": 0,
+          "end_offset_exclusive": "0x6c000",
+          "within_file": false,
+          "declared_checksum": "0x0",
+          "payload_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "payload_byte_sum": "0x0",
+          "checksum_field_byte_sum_excluded_if_inside_payload": 0,
+          "byte_sum_minus_own_checksum_field": "0x0",
+          "additive_checksum_observed_match": true
+        },
+        {
+          "index": 3,
+          "record_offset": "0x50",
+          "name": "EXT",
+          "address": "0x4806c000",
+          "file_offset": "0x6c000",
+          "size": 0,
+          "end_offset_exclusive": "0x6c000",
+          "within_file": false,
+          "declared_checksum": "0x0",
+          "payload_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "payload_byte_sum": "0x0",
+          "checksum_field_byte_sum_excluded_if_inside_payload": 0,
+          "byte_sum_minus_own_checksum_field": "0x0",
+          "additive_checksum_observed_match": true
+        }
+      ],
+      "active_ranges": [
+        {
+          "start": "0x0",
+          "end_exclusive": "0x17b30",
+          "bin": "CPU"
+        },
+        {
+          "start": "0x40000",
+          "end_exclusive": "0x6bf68",
+          "bin": "MOD"
+        }
+      ],
+      "gaps": [
+        {
+          "start": "0x17b30",
+          "end_exclusive": "0x40000",
+          "size": 165072,
+          "all_zero": true,
+          "sha256": "d77aa535790b7b12c4656ad54844d81346ebbb16e1640b578740e079b57c3466"
+        }
+      ],
+      "usb_style_string_descriptors": [
+        {
+          "descriptor_offset": "0x11110",
+          "text_offset": "0x11112",
+          "length": 18,
+          "text": "Marigold",
+          "inside_sent_bin": "CPU",
+          "bytes_hex": "12034d0061007200690067006f006c006400",
+          "status": "syntactically plausible; runtime selection unproved"
+        },
+        {
+          "descriptor_offset": "0x11154",
+          "text_offset": "0x11156",
+          "length": 30,
+          "text": "00000000000822",
+          "inside_sent_bin": "CPU",
+          "bytes_hex": "1e0330003000300030003000300030003000300030003000380032003200",
+          "status": "syntactically plausible; runtime selection unproved"
+        },
+        {
+          "descriptor_offset": "0x11198",
+          "text_offset": "0x1119a",
+          "length": 18,
+          "text": "Marigold",
+          "inside_sent_bin": "CPU",
+          "bytes_hex": "12034d0061007200690067006f006c006400",
+          "status": "syntactically plausible; runtime selection unproved"
+        },
+        {
+          "descriptor_offset": "0x111dc",
+          "text_offset": "0x111de",
+          "length": 18,
+          "text": "MOONDROP",
+          "inside_sent_bin": "CPU",
+          "bytes_hex": "12034d004f004f004e00440052004f005000",
+          "status": "syntactically plausible; runtime selection unproved"
+        }
+      ],
+      "strict_usb_device_descriptor_candidates": [],
+      "raw_target_id_byte_occurrences_not_evidence_of_fields": {
+        "vid_35d8_little_endian": [
+          "0x5550f"
+        ],
+        "pid_149b_little_endian": [
+          "0x4b44c",
+          "0x53650"
+        ],
+        "adjacent_vid_pid_35d8_149b": []
+      }
+    },
+    {
+      "path": "/Users/zane/Projects/reverse/ECHO-B-DAC-Amp-Tuning/evidence/firmware-compatibility-20261030/Marigold-reference.fot",
+      "size": 683008,
+      "sha256": "cc80e106eb9f4c0e0c6928fa158217274281f179409abe5239c49382ebbe4018",
+      "prefix_96_hex": "504f5400f86b0a00c9cec6cf300000005155454e010000008a78a44be9215167d2dbec9e0000000000000000000000000000000000000000a7b76cbcb620b5e3c4c5d6001000000020000000010100010050000000100000c1d5da0008000000",
+      "spv_magic_offsets": [],
+      "claims_scope": "Static bytes only; no runtime configuration or chip compatibility established.",
+      "raw_spv_parser_accepted": false,
+      "raw_spv_rejection": "Too short or tag at offset 4 differs from 0x40565053",
+      "header_word_4": "0xa6bf8",
+      "header_word_4_equals_size_minus_8": true
+    },
+    {
+      "path": "/Users/zane/Projects/reverse/ECHO-B-DAC-Amp-Tuning/evidence/firmware-compatibility-20261030/FreeDSP-1.1-reference.hid",
+      "size": 114720,
+      "sha256": "ca0a21cdd1b6ed63255252759595e34a58b472b8d402c37a736527475d8b7859",
+      "prefix_96_hex": "d835000096140000020000004546534320b283a706000c000700090000000000454653438fe4bb120001000000bf010000000000e4430000e4430000d0d80000ffffffffffffffff11001e0011001e001b00ffff1f001f00ffffffffeed2974d",
+      "spv_magic_offsets": [],
+      "claims_scope": "Static bytes only; no runtime configuration or chip compatibility established.",
+      "raw_spv_parser_accepted": false,
+      "raw_spv_rejection": "Too short or tag at offset 4 differs from 0x40565053",
+      "header_word_4": "0x1496",
+      "header_word_4_equals_size_minus_8": false
+    }
+  ],
+  "identical_groups": [
+    [
+      "/Users/zane/Projects/reverse/ECHO-B-DAC-Amp-Tuning/evidence/firmware-readonly-20261030/official-ECHO-B-ota-1.0.0.bin",
+      "/Users/zane/Projects/reverse/ECHO-B-DAC-Amp-Tuning/evidence/firmware-compatibility-20261030/BIANCA-catalog-candidate.bin"
+    ]
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "0x2f009": ".hid",
+  "0x2f00e": "hid_header: vid = 0x%x, pid = 0x%x, fw_update_type = %d,\n",
+  "0x2f048": "fw_signature ,crc_value = ",
+  "0x2f063": "Device is ready for firmware upgrade \n",
+  "0x2f08a": "Device is not ready for firmware upgrade \n",
+  "0x2baf9": "rb"
+}

@@ -1,0 +1,14 @@
+[
+  {
+    "file": "hub-index-CxuoSDqE.js",
+    "query": "firmware-recovery",
+    "char_offset": 513945,
+    "text": "eveloper-feature-preview\",tools:[{icon:\"i-lucide-audio-waveform\",label:\"layout.header.developer-calibration-standalone\",routeName:\"calibration\"},{icon:\"i-lucide-wrench\",label:\"layout.header.developer-firmware-recovery\",routeName:\"firmware-recovery\"},{icon:\"i-lucide-bot\",label:\"layout.header.developer-yuki-test\",routeName:\"yuki-test\"}]},{label:\"layout.header.developer-device-debugging\",tools:[{icon:\"i-lucide-binary\",label:\"layout.header.developer-protocol-test\",routeName:\"test\"},{icon:\"i-lucide-activity\",label:\"layout.header.developer-device-stability\",routeName:\"device-stability\"}]},{label:\"layout.header.developer-graph-debugging\",tools:[{icon:\"i-lucide-chart-no-axes-combined\",label:\"layout.header.developer-graph-playground\",routeName:\"graph-playground\"},{icon:\"i-lucide-chart-spline\",label:\"layout.header.developer-graph-sync-playground\",routeName:\"graph-sync-playground\"}]}];function r(o){return t.resolve({name:o}).href}return(o,a)=>(D(),ee(u(So),null,{default:A(()=>[_(u(Mo),{\"as-child\":\"\"},{default:A(()=>[_(u(tt),{variant:\"ghost\",size:\"icon\",class:\"relative size-8 rounded-full transition-[color,backg"
+  },
+  {
+    "file": "hub-index-CxuoSDqE.js",
+    "query": "firmware-recovery",
+    "char_offset": 513975,
+    "text": "s:[{icon:\"i-lucide-audio-waveform\",label:\"layout.header.developer-calibration-standalone\",routeName:\"calibration\"},{icon:\"i-lucide-wrench\",label:\"layout.header.developer-firmware-recovery\",routeName:\"firmware-recovery\"},{icon:\"i-lucide-bot\",label:\"layout.header.developer-yuki-test\",routeName:\"yuki-test\"}]},{label:\"layout.header.developer-device-debugging\",tools:[{icon:\"i-lucide-binary\",label:\"layout.header.developer-protocol-test\",routeName:\"test\"},{icon:\"i-lucide-activity\",label:\"layout.header.developer-device-stability\",routeName:\"device-stability\"}]},{label:\"layout.header.developer-graph-debugging\",tools:[{icon:\"i-lucide-chart-no-axes-combined\",label:\"layout.header.developer-graph-playground\",routeName:\"graph-playground\"},{icon:\"i-lucide-chart-spline\",label:\"layout.header.developer-graph-sync-playground\",routeName:\"graph-sync-playground\"}]}];function r(o){return t.resolve({name:o}).href}return(o,a)=>(D(),ee(u(So),null,{default:A(()=>[_(u(Mo),{\"as-child\":\"\"},{default:A(()=>[_(u(tt),{variant:\"ghost\",size:\"icon\",class:\"relative size-8 rounded-full transition-[color,background-color,border-color,text-"
+  }
+]

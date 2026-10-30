@@ -1,0 +1,49 @@
+{
+  "path": "/Users/zane/Projects/reverse/ECHO-B-DAC-Amp-Tuning/evidence/firmware-readonly-20261030/official-ECHO-B-ota-1.0.0.bin",
+  "bytes": 442216,
+  "sha256": "b68e0cd4a561cb664605f32ebf5d3c3e51f6138482b3bfc97ef9666a42b5acc1",
+  "first_96_bytes_hex": "6f00400a5350564000100048414d414f00a0000024b7004830b70048040000004350550000000048307b01004d9d84004d4f44000000044868bf0200c200550150424b0000c0064800000000000000004558540000c006480000000000000000",
+  "ascii_tag_offsets": {
+    "SPV@": [
+      "0x4"
+    ],
+    "AMAO": [
+      "0xc"
+    ],
+    "CPU": [
+      "0x20"
+    ],
+    "MOD": [
+      "0x30"
+    ],
+    "PBK": [
+      "0x40"
+    ],
+    "EXT": [
+      "0x50"
+    ],
+    "SFSE": [],
+    "ESFS": []
+  },
+  "utf16_string_hits": [
+    {
+      "text": "Marigold",
+      "offset": "0x11112",
+      "preceding_two_bytes_hex": "1203",
+      "length": 16
+    },
+    {
+      "text": "Marigold",
+      "offset": "0x1119a",
+      "preceding_two_bytes_hex": "1203",
+      "length": 16
+    },
+    {
+      "text": "MOONDROP",
+      "offset": "0x111de",
+      "preceding_two_bytes_hex": "1203",
+      "length": 16
+    }
+  ],
+  "limitations": "Strings and byte structure only; no architecture, target compatibility, integrity algorithm, bootloader contents, or flash mapping proved. No device IO."
+}

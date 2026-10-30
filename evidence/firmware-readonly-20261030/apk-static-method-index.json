@@ -1,0 +1,1535 @@
+[
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/conexant/cnxtusbcheadset/ANCTuningParam;",
+    "method": "<clinit>",
+    "descriptor": "()V",
+    "code_offset": 5869088
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/conexant/cnxtusbcheadset/AvailableMode;",
+    "method": "<clinit>",
+    "descriptor": "()V",
+    "code_offset": 5869612
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/conexant/cnxtusbcheadset/AvailableModeList;",
+    "method": "<clinit>",
+    "descriptor": "()V",
+    "code_offset": 5869492
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/conexant/cnxtusbcheadset/CafCmdHelper;",
+    "method": "<clinit>",
+    "descriptor": "()V",
+    "code_offset": 5871324
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/conexant/cnxtusbcheadset/CafCmdHelper;",
+    "method": "readDataFromDevice",
+    "descriptor": "(I I [J Landroid/hardware/usb/UsbDeviceConnection; I)[B",
+    "code_offset": 5870772
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/conexant/cnxtusbcheadset/CafCmdHelper;",
+    "method": "writeGolemCmdToDevice",
+    "descriptor": "(Landroid/hardware/usb/UsbDeviceConnection; Lcom/conexant/universalfunction/CnxtUsbCommand; I Z)Z",
+    "code_offset": 5870144
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/conexant/cnxtusbcheadset/CnxtUsbDeviceBase;",
+    "method": "checkIsCnxtUsbDevice",
+    "descriptor": "()Z",
+    "code_offset": 5872028
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/conexant/cnxtusbcheadset/CnxtUsbDeviceBase;",
+    "method": "connectUsbDeviceByApplication",
+    "descriptor": "()Z",
+    "code_offset": 5872160
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/conexant/cnxtusbcheadset/CnxtUsbDeviceBase;",
+    "method": "disConnectUsbDeviceByApplication",
+    "descriptor": "()I",
+    "code_offset": 5872676
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/conexant/cnxtusbcheadset/CnxtUsbDeviceBase;",
+    "method": "getDeviceChipCode",
+    "descriptor": "()I",
+    "code_offset": 0
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/conexant/cnxtusbcheadset/CnxtUsbDeviceBase;",
+    "method": "getDeviceName",
+    "descriptor": "()Ljava/lang/String;",
+    "code_offset": 5872888
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/conexant/cnxtusbcheadset/CnxtUsbDeviceBase;",
+    "method": "getFirmwareParam",
+    "descriptor": "(Lcom/syna/FirmwareParam;)V",
+    "code_offset": 5873036
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/conexant/cnxtusbcheadset/CnxtUsbDeviceBase;",
+    "method": "getUpdateFwProgress",
+    "descriptor": "()I",
+    "code_offset": 5872764
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/conexant/cnxtusbcheadset/CnxtUsbDeviceBase;",
+    "method": "getUsbDevice",
+    "descriptor": "()Landroid/hardware/usb/UsbDevice;",
+    "code_offset": 5871980
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/conexant/cnxtusbcheadset/CnxtUsbDeviceBase;",
+    "method": "getUsbDeviceConnection",
+    "descriptor": "()Landroid/hardware/usb/UsbDeviceConnection;",
+    "code_offset": 5872004
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/conexant/cnxtusbcheadset/CnxtUsbDeviceBase;",
+    "method": "prepareUsbDevice",
+    "descriptor": "()Z",
+    "code_offset": 5872360
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/conexant/cnxtusbcheadset/CnxtUsbDeviceBase;",
+    "method": "reConnectUsbDeviceByApplication",
+    "descriptor": "()I",
+    "code_offset": 5872812
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/conexant/cnxtusbcheadset/CnxtUsbDeviceBase;",
+    "method": "releaseUsbDevice",
+    "descriptor": "()V",
+    "code_offset": 5873436
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/conexant/cnxtusbcheadset/CnxtUsbDeviceBase;",
+    "method": "resetDevice",
+    "descriptor": "()V",
+    "code_offset": 5873564
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/conexant/cnxtusbcheadset/CnxtUsbDeviceBase;",
+    "method": "setDeviceName",
+    "descriptor": "(Ljava/lang/String;)V",
+    "code_offset": 5873624
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/conexant/cnxtusbcheadset/CnxtUsbDeviceBase;",
+    "method": "updateFirmware",
+    "descriptor": "(Ljava/lang/String;)Lcom/conexant/cnxtusbcheadset/GenericReturnValue;",
+    "code_offset": 5872504
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/conexant/cnxtusbcheadset/CnxtUsbFactory;",
+    "method": "<clinit>",
+    "descriptor": "()V",
+    "code_offset": 5875216
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/conexant/cnxtusbcheadset/CnxtUsbFactory;",
+    "method": "identifyDeviceById",
+    "descriptor": "(Ljava/util/Map; Ljava/lang/String; Landroid/hardware/usb/UsbDevice;)Z",
+    "code_offset": 5873648
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/conexant/cnxtusbcheadset/CnxtUsbFactory;",
+    "method": "createUsbDeviceBase",
+    "descriptor": "(Landroid/content/Context; Landroid/hardware/usb/UsbDevice;)Lcom/conexant/cnxtusbcheadset/CnxtUsbDeviceBase;",
+    "code_offset": 5873952
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/conexant/cnxtusbcheadset/EQCoeffsList;",
+    "method": "<clinit>",
+    "descriptor": "()V",
+    "code_offset": 5875520
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/conexant/cnxtusbcheadset/EQParamList;",
+    "method": "<clinit>",
+    "descriptor": "()V",
+    "code_offset": 5875800
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/conexant/cnxtusbcheadset/Eq2Coeff;",
+    "method": "<clinit>",
+    "descriptor": "()V",
+    "code_offset": 5876012
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/conexant/cnxtusbcheadset/FeatureConfiguration;",
+    "method": "<clinit>",
+    "descriptor": "()V",
+    "code_offset": 5876224
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/conexant/cnxtusbcheadset/FreemanCnxtUsbDevice;",
+    "method": "canUpdate",
+    "descriptor": "()Z",
+    "code_offset": 5877084
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/conexant/cnxtusbcheadset/FreemanCnxtUsbDevice;",
+    "method": "setFreeman3EQ",
+    "descriptor": "(Lcom/conexant/genericfeature/EQParam;)Z",
+    "code_offset": 5877372
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/conexant/cnxtusbcheadset/FreemanCnxtUsbDevice;",
+    "method": "setFreeman3EQEnabled",
+    "descriptor": "()V",
+    "code_offset": 5885232
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/conexant/cnxtusbcheadset/FreemanCnxtUsbDevice;",
+    "method": "setFreemanEQ",
+    "descriptor": "(I I I D F I)Z",
+    "code_offset": 5877700
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/conexant/cnxtusbcheadset/FreemanCnxtUsbDevice;",
+    "method": "getDeviceChipCode",
+    "descriptor": "()I",
+    "code_offset": 5878348
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/conexant/cnxtusbcheadset/FreemanCnxtUsbDevice;",
+    "method": "getFreeman3EQConfig",
+    "descriptor": "()V",
+    "code_offset": 5883784
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/conexant/cnxtusbcheadset/FreemanCnxtUsbDevice;",
+    "method": "getFreeman3EQParam",
+    "descriptor": "(Lcom/conexant/genericfeature/EQParam;)I",
+    "code_offset": 5879332
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/conexant/cnxtusbcheadset/FreemanCnxtUsbDevice;",
+    "method": "releaseUsbDevice",
+    "descriptor": "()V",
+    "code_offset": 5884692
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/conexant/cnxtusbcheadset/GenericReturnValue;",
+    "method": "<clinit>",
+    "descriptor": "()V",
+    "code_offset": 5885504
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/conexant/cnxtusbcheadset/UsbHelper;",
+    "method": "getDeviceString",
+    "descriptor": "(Landroid/hardware/usb/UsbDeviceConnection; I)Ljava/lang/String;",
+    "code_offset": 5886364
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/conexant/conexantusbtypec/adapter/DetectUsbDeviceAttachReceiver;",
+    "method": "getUsbDeviceSafely",
+    "descriptor": "(Landroid/content/Intent;)Landroid/hardware/usb/UsbDevice;",
+    "code_offset": 5886484
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/conexant/conexantusbtypec/common/ApplicationData$CommonEQParams;",
+    "method": "getPresetList",
+    "descriptor": "()Ljava/util/List;",
+    "code_offset": 5887196
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/conexant/conexantusbtypec/common/ApplicationData$freeman3EQParams;",
+    "method": "<clinit>",
+    "descriptor": "()V",
+    "code_offset": 5887308
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/conexant/conexantusbtypec/common/ApplicationData$freemanEQParams;",
+    "method": "<clinit>",
+    "descriptor": "()V",
+    "code_offset": 5887940
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/conexant/conexantusbtypec/common/ApplicationData$wheelerEQParams;",
+    "method": "<clinit>",
+    "descriptor": "()V",
+    "code_offset": 5888276
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/conexant/conexantusbtypec/common/ApplicationData;",
+    "method": "<clinit>",
+    "descriptor": "()V",
+    "code_offset": 5888808
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/conexant/conexantusbtypec/crash/ActivityCollector;",
+    "method": "<clinit>",
+    "descriptor": "()V",
+    "code_offset": 5889136
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/conexant/conexantusbtypec/entity/FirmwareFileBean;",
+    "method": "<init>",
+    "descriptor": "()V",
+    "code_offset": 5889496
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/conexant/conexantusbtypec/entity/FirmwareFileBean;",
+    "method": "getId",
+    "descriptor": "()Ljava/lang/String;",
+    "code_offset": 5889400
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/conexant/conexantusbtypec/entity/FirmwareFileBean;",
+    "method": "getName",
+    "descriptor": "()Ljava/lang/String;",
+    "code_offset": 5889424
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/conexant/conexantusbtypec/entity/FirmwareFileBean;",
+    "method": "getPath",
+    "descriptor": "()Ljava/lang/String;",
+    "code_offset": 5889448
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/conexant/conexantusbtypec/entity/FirmwareFileBean;",
+    "method": "getSize",
+    "descriptor": "()Ljava/lang/String;",
+    "code_offset": 5889472
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/conexant/conexantusbtypec/entity/FirmwareFileBean;",
+    "method": "setId",
+    "descriptor": "(Ljava/lang/String;)V",
+    "code_offset": 5889520
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/conexant/conexantusbtypec/entity/FirmwareFileBean;",
+    "method": "setName",
+    "descriptor": "(Ljava/lang/String;)V",
+    "code_offset": 5889544
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/conexant/conexantusbtypec/entity/FirmwareFileBean;",
+    "method": "setPath",
+    "descriptor": "(Ljava/lang/String;)V",
+    "code_offset": 5889568
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/conexant/conexantusbtypec/entity/FirmwareFileBean;",
+    "method": "setSize",
+    "descriptor": "(Ljava/lang/String;)V",
+    "code_offset": 5889592
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/conexant/conexantusbtypec/svcimpl/UsbControllerBase;",
+    "method": "getDeviceChipCode",
+    "descriptor": "()I",
+    "code_offset": 0
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/conexant/conexantusbtypec/svcimpl/UsbControllerBase;",
+    "method": "getDeviceType",
+    "descriptor": "()I",
+    "code_offset": 5893812
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/conexant/conexantusbtypec/svcimpl/UsbControllerBase;",
+    "method": "getFirmwareParam",
+    "descriptor": "(Lcom/syna/FirmwareParam;)I",
+    "code_offset": 0
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/conexant/conexantusbtypec/svcimpl/UsbControllerBase;",
+    "method": "getUpdateFirmwareProgress",
+    "descriptor": "()I",
+    "code_offset": 0
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/conexant/conexantusbtypec/svcimpl/UsbControllerBase;",
+    "method": "resetDevice",
+    "descriptor": "()I",
+    "code_offset": 0
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/conexant/conexantusbtypec/svcimpl/UsbControllerBase;",
+    "method": "updateFirmware",
+    "descriptor": "(Ljava/lang/String;)Lcom/conexant/cnxtusbcheadset/GenericReturnValue;",
+    "code_offset": 0
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/conexant/debugfeature/ICmdSender;",
+    "method": "sendCmdToDevice",
+    "descriptor": "(Lcom/conexant/universalfunction/CnxtUsbCommand;)Lcom/conexant/universalfunction/CnxtUsbCommand;",
+    "code_offset": 0
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/conexant/conexantusbtypec/svcimpl/FreemanController;",
+    "method": "getDeviceChipCode",
+    "descriptor": "()I",
+    "code_offset": 5889820
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/conexant/conexantusbtypec/svcimpl/FreemanController;",
+    "method": "getFirmwareParam",
+    "descriptor": "(Lcom/syna/FirmwareParam;)I",
+    "code_offset": 5890048
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/conexant/conexantusbtypec/svcimpl/FreemanController;",
+    "method": "getUpdateFirmwareProgress",
+    "descriptor": "()I",
+    "code_offset": 5890304
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/conexant/conexantusbtypec/svcimpl/FreemanController;",
+    "method": "resetDevice",
+    "descriptor": "()I",
+    "code_offset": 5890428
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/conexant/conexantusbtypec/svcimpl/FreemanController;",
+    "method": "sendCmdToDevice",
+    "descriptor": "(Lcom/conexant/universalfunction/CnxtUsbCommand;)Lcom/conexant/universalfunction/CnxtUsbCommand;",
+    "code_offset": 5889676
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/conexant/conexantusbtypec/svcimpl/FreemanController;",
+    "method": "updateFirmware",
+    "descriptor": "(Ljava/lang/String;)Lcom/conexant/cnxtusbcheadset/GenericReturnValue;",
+    "code_offset": 5889616
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/conexant/conexantusbtypec/svcimpl/SvcModClient;",
+    "method": "<clinit>",
+    "descriptor": "()V",
+    "code_offset": 5892484
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/conexant/conexantusbtypec/svcimpl/SvcModClient;",
+    "method": "getUSBFreeman",
+    "descriptor": "()Lcom/conexant/genericfeature/IFreeman;",
+    "code_offset": 5892304
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/conexant/conexantusbtypec/svcimpl/SvcModClient;",
+    "method": "onDeviceAttach",
+    "descriptor": "(Lcom/conexant/libcnxtservice/service/UsbSessionDescriptor;)V",
+    "code_offset": 5893008
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/conexant/conexantusbtypec/svcimpl/SvcModClient;",
+    "method": "onDeviceDetach",
+    "descriptor": "(I)V",
+    "code_offset": 5893188
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/conexant/conexantusbtypec/svcimpl/SvcModClient;",
+    "method": "onDevicePermissionChanged",
+    "descriptor": "(I Z)V",
+    "code_offset": 5893368
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/conexant/conexantusbtypec/svcimpl/SvcModClient;",
+    "method": "addDevicePermissionListener",
+    "descriptor": "(Lcom/conexant/conexantusbtypec/svcimpl/SvcModClient$DevicePermissionListener;)V",
+    "code_offset": 5892616
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/conexant/conexantusbtypec/svcimpl/SvcModClient;",
+    "method": "addDevicePlugListener",
+    "descriptor": "(Lcom/conexant/conexantusbtypec/svcimpl/SvcModClient$DevicePlugListener;)V",
+    "code_offset": 5892664
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/conexant/conexantusbtypec/svcimpl/SvcModClient;",
+    "method": "addFirmwareUpdatedListener",
+    "descriptor": "(Lcom/conexant/conexantusbtypec/svcimpl/SvcModClient$FirmwareUpdatedListener;)V",
+    "code_offset": 5892712
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/conexant/conexantusbtypec/svcimpl/SvcModClient;",
+    "method": "checkIsSupportedDevice",
+    "descriptor": "()Z",
+    "code_offset": 5891612
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/conexant/conexantusbtypec/svcimpl/SvcModClient;",
+    "method": "forceDetectUSBDevice",
+    "descriptor": "()V",
+    "code_offset": 5892740
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/conexant/libcnxtservice/service/USBModuleBase;",
+    "method": "onUsbDeviceAttached",
+    "descriptor": "(Landroid/hardware/usb/UsbDevice;)V",
+    "code_offset": 0
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/conexant/libcnxtservice/service/USBModuleBase;",
+    "method": "onUsbDeviceDetached",
+    "descriptor": "(Landroid/hardware/usb/UsbDevice;)V",
+    "code_offset": 0
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/conexant/conexantusbtypec/svcimpl/UsbModImpl;",
+    "method": "bldCmdForceDetectUSBDevice",
+    "descriptor": "()Lcom/conexant/libcnxtservice/ServiceModuleCommand;",
+    "code_offset": 5894540
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/conexant/conexantusbtypec/svcimpl/UsbModImpl;",
+    "method": "findSessionByDevice",
+    "descriptor": "(Landroid/hardware/usb/UsbDevice;)Lcom/conexant/libcnxtservice/service/USBSessionBase;",
+    "code_offset": 5894892
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/conexant/conexantusbtypec/svcimpl/UsbModImpl;",
+    "method": "forceDetectUSBDevice",
+    "descriptor": "()V",
+    "code_offset": 5895648
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/conexant/conexantusbtypec/svcimpl/UsbModImpl;",
+    "method": "onUsbDeviceAttached",
+    "descriptor": "(Landroid/hardware/usb/UsbDevice;)V",
+    "code_offset": 5896020
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/conexant/conexantusbtypec/svcimpl/UsbModImpl;",
+    "method": "onUsbDeviceDetached",
+    "descriptor": "(Landroid/hardware/usb/UsbDevice;)V",
+    "code_offset": 5896120
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/conexant/conexantusbtypec/util/CommonUtil;",
+    "method": "<clinit>",
+    "descriptor": "()V",
+    "code_offset": 5898392
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/conexant/conexantusbtypec/util/CommonUtil;",
+    "method": "canUpdateApkVersion",
+    "descriptor": "(I I)Z",
+    "code_offset": 5896232
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/conexant/conexantusbtypec/util/CommonUtil;",
+    "method": "getFirmwareDirPath",
+    "descriptor": "()Ljava/lang/String;",
+    "code_offset": 5897552
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/conexant/conexantusbtypec/util/CommonUtil;",
+    "method": "getFirmwareFilePath",
+    "descriptor": "()Ljava/lang/String;",
+    "code_offset": 5897600
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/conexant/genericfeature/ANCTuningParam;",
+    "method": "<clinit>",
+    "descriptor": "()V",
+    "code_offset": 5899744
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/conexant/genericfeature/AvailableMode;",
+    "method": "<clinit>",
+    "descriptor": "()V",
+    "code_offset": 5900308
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/conexant/genericfeature/AvailableModeList;",
+    "method": "<clinit>",
+    "descriptor": "()V",
+    "code_offset": 5900160
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/conexant/genericfeature/BandEQCoefficient;",
+    "method": "<clinit>",
+    "descriptor": "()V",
+    "code_offset": 5900604
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/conexant/genericfeature/EQParam;",
+    "method": "<clinit>",
+    "descriptor": "()V",
+    "code_offset": 5901120
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/conexant/genericfeature/FeatureConfigFM3;",
+    "method": "<clinit>",
+    "descriptor": "()V",
+    "code_offset": 5901576
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/conexant/genericfeature/PersistEQParams;",
+    "method": "<clinit>",
+    "descriptor": "()V",
+    "code_offset": 5902312
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/conexant/libcnxtservice/ServiceModuleArg;",
+    "method": "<clinit>",
+    "descriptor": "()V",
+    "code_offset": 5910120
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/conexant/libcnxtservice/BooleanMsgArg;",
+    "method": "<clinit>",
+    "descriptor": "()V",
+    "code_offset": 5902648
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/conexant/libcnxtservice/ByteArrayMsgArg;",
+    "method": "<clinit>",
+    "descriptor": "()V",
+    "code_offset": 5902980
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/conexant/libcnxtservice/Command;",
+    "method": "<clinit>",
+    "descriptor": "()V",
+    "code_offset": 5903232
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/conexant/libcnxtservice/FloatParcelable;",
+    "method": "<clinit>",
+    "descriptor": "()V",
+    "code_offset": 5905040
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/conexant/libcnxtservice/LongMsgArg;",
+    "method": "<clinit>",
+    "descriptor": "()V",
+    "code_offset": 5905324
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/conexant/libcnxtservice/R$styleable;",
+    "method": "<clinit>",
+    "descriptor": "()V",
+    "code_offset": 5905776
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/conexant/libcnxtservice/ServiceConfigModule;",
+    "method": "<clinit>",
+    "descriptor": "()V",
+    "code_offset": 5908772
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/conexant/libcnxtservice/ServiceConfigParam;",
+    "method": "<clinit>",
+    "descriptor": "()V",
+    "code_offset": 5909252
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/conexant/libcnxtservice/ServiceDataProxyFactory;",
+    "method": "<clinit>",
+    "descriptor": "()V",
+    "code_offset": 5909860
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/conexant/libcnxtservice/ServiceModuleCommand;",
+    "method": "<clinit>",
+    "descriptor": "()V",
+    "code_offset": 5911476
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/conexant/libcnxtservice/ServiceModuleConfig;",
+    "method": "<clinit>",
+    "descriptor": "()V",
+    "code_offset": 5912588
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/conexant/libcnxtservice/ServiceModuleDescriptor;",
+    "method": "<clinit>",
+    "descriptor": "()V",
+    "code_offset": 5912956
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/conexant/libcnxtservice/ServiceModuleManager;",
+    "method": "<clinit>",
+    "descriptor": "()V",
+    "code_offset": 5914156
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/conexant/libcnxtservice/ServiceResultReceiver;",
+    "method": "<clinit>",
+    "descriptor": "()V",
+    "code_offset": 5914948
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/conexant/libcnxtservice/ServiceUtils$ServiceCallback;",
+    "method": "onServiceConnected",
+    "descriptor": "()V",
+    "code_offset": 0
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/conexant/libcnxtservice/ServiceUtils$ServiceCallback;",
+    "method": "onServiceDisconnected",
+    "descriptor": "()V",
+    "code_offset": 0
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/conexant/libcnxtservice/ServiceUtils$ServiceWrapper;",
+    "method": "onServiceConnected",
+    "descriptor": "(Landroid/content/ComponentName; Landroid/os/IBinder;)V",
+    "code_offset": 5915092
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/conexant/libcnxtservice/ServiceUtils$ServiceWrapper;",
+    "method": "onServiceDisconnected",
+    "descriptor": "(Landroid/content/ComponentName;)V",
+    "code_offset": 5915200
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/conexant/libcnxtservice/ServiceUtils;",
+    "method": "<clinit>",
+    "descriptor": "()V",
+    "code_offset": 5915492
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/conexant/libcnxtservice/StringMsgArg;",
+    "method": "<clinit>",
+    "descriptor": "()V",
+    "code_offset": 5916200
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/conexant/libcnxtservice/StringParcelable;",
+    "method": "<clinit>",
+    "descriptor": "()V",
+    "code_offset": 5916524
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/conexant/libcnxtservice/service/IUSBSession;",
+    "method": "getDeviceType",
+    "descriptor": "()I",
+    "code_offset": 0
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/conexant/libcnxtservice/service/IUSBSession;",
+    "method": "getUsbDevice",
+    "descriptor": "()Landroid/hardware/usb/UsbDevice;",
+    "code_offset": 0
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/conexant/libcnxtservice/service/USBSessionBase;",
+    "method": "<clinit>",
+    "descriptor": "()V",
+    "code_offset": 5921024
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/conexant/libcnxtservice/service/USBSessionBase;",
+    "method": "getDeviceType",
+    "descriptor": "()I",
+    "code_offset": 5920952
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/conexant/libcnxtservice/service/USBSessionBase;",
+    "method": "getUsbDevice",
+    "descriptor": "()Landroid/hardware/usb/UsbDevice;",
+    "code_offset": 5920716
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/conexant/libcnxtservice/service/USBSessionBase;",
+    "method": "getUsbDeviceBase",
+    "descriptor": "()Lcom/conexant/cnxtusbcheadset/CnxtUsbDeviceBase;",
+    "code_offset": 0
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/conexant/libcnxtservice/service/FreemanSession;",
+    "method": "bldCmdGetDeviceChipCode",
+    "descriptor": "(I)Lcom/conexant/libcnxtservice/ServiceModuleCommand;",
+    "code_offset": 5917448
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/conexant/libcnxtservice/service/FreemanSession;",
+    "method": "bldCmdGetFirmwareParam",
+    "descriptor": "(I Lcom/syna/FirmwareParam;)Lcom/conexant/libcnxtservice/ServiceModuleCommand;",
+    "code_offset": 5917800
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/conexant/libcnxtservice/service/FreemanSession;",
+    "method": "bldCmdGetUpdateFirmwareProgress",
+    "descriptor": "(I)Lcom/conexant/libcnxtservice/ServiceModuleCommand;",
+    "code_offset": 5918080
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/conexant/libcnxtservice/service/FreemanSession;",
+    "method": "bldCmdResetDevice",
+    "descriptor": "(I)Lcom/conexant/libcnxtservice/ServiceModuleCommand;",
+    "code_offset": 5918128
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/conexant/libcnxtservice/service/FreemanSession;",
+    "method": "bldCmdSendCmdToDevice",
+    "descriptor": "(I Lcom/conexant/universalfunction/CnxtUsbCommand;)Lcom/conexant/libcnxtservice/ServiceModuleCommand;",
+    "code_offset": 5918244
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/conexant/libcnxtservice/service/FreemanSession;",
+    "method": "bldCmdUpdateFirmware",
+    "descriptor": "(I Ljava/lang/String;)Lcom/conexant/libcnxtservice/ServiceModuleCommand;",
+    "code_offset": 5918760
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/conexant/libcnxtservice/service/FreemanSession;",
+    "method": "getUsbDeviceBase",
+    "descriptor": "()Lcom/conexant/cnxtusbcheadset/CnxtUsbDeviceBase;",
+    "code_offset": 5917368
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/conexant/libcnxtservice/service/USBModuleDescriptor;",
+    "method": "<clinit>",
+    "descriptor": "()V",
+    "code_offset": 5920292
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/conexant/libcnxtservice/service/USBSessionMsgArg;",
+    "method": "<clinit>",
+    "descriptor": "()V",
+    "code_offset": 5921580
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/conexant/libcnxtservice/service/USBUnKnownSession;",
+    "method": "getDeviceIdentifier",
+    "descriptor": "()Ljava/lang/String;",
+    "code_offset": 5921896
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/conexant/libcnxtservice/service/USBUnKnownSession;",
+    "method": "getUsbDeviceBase",
+    "descriptor": "()Lcom/conexant/cnxtusbcheadset/CnxtUsbDeviceBase;",
+    "code_offset": 5921872
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/conexant/libcnxtservice/service/UnknownCnxtUsbDevice;",
+    "method": "getDeviceChipCode",
+    "descriptor": "()I",
+    "code_offset": 5921984
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/conexant/libcnxtservice/service/UsbSessionDescriptor;",
+    "method": "<clinit>",
+    "descriptor": "()V",
+    "code_offset": 5922344
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/conexant/libcnxtservice/service/UsbSessionDescriptor;",
+    "method": "getDeviceType",
+    "descriptor": "()I",
+    "code_offset": 5922272
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/conexant/libcnxtservice/service/UsbSessionDescriptor;",
+    "method": "getUsbDevice",
+    "descriptor": "()Landroid/hardware/usb/UsbDevice;",
+    "code_offset": 5922204
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/conexant/libcnxtservice/service/UsbSessionFactory;",
+    "method": "doParseCnxtDevicesConfig",
+    "descriptor": "(Lorg/xmlpull/v1/XmlPullParser;)V",
+    "code_offset": 5923000
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/conexant/libcnxtservice/service/UsbSessionFactory;",
+    "method": "parseCnxtDevicesConfig",
+    "descriptor": "(Ljava/lang/String;)V",
+    "code_offset": 5923276
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/conexant/libcnxtservice/utils/Helper;",
+    "method": "<clinit>",
+    "descriptor": "()V",
+    "code_offset": 5924440
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/conexant/libcnxtservice/utils/UsbDeviceDetector;",
+    "method": "checkHasUsbDevice",
+    "descriptor": "()V",
+    "code_offset": 5925376
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/conexant/libcnxtservice/utils/UsbDeviceDetector;",
+    "method": "updateUsbDeviceState",
+    "descriptor": "(Landroid/hardware/usb/UsbDevice; Z)V",
+    "code_offset": 5925564
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/conexant/libcnxtservice/utils/UsbDeviceDetector;",
+    "method": "addOnUsbDeviceStateChanged",
+    "descriptor": "(Lcom/conexant/libcnxtservice/utils/UsbDeviceDetector$onUsbDeviceStateChanged;)V",
+    "code_offset": 5925300
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/conexant/libcnxtservice/utils/UsbDevicePermissionDetector;",
+    "method": "requestUsbDevicePermission",
+    "descriptor": "(Landroid/hardware/usb/UsbDevice;)V",
+    "code_offset": 5926100
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/conexant/libcnxtservice/utils/UsbDevicePermissionDetector;",
+    "method": "updatePermissionState",
+    "descriptor": "(Landroid/hardware/usb/UsbDevice; Z)V",
+    "code_offset": 5926216
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/conexant/universalfunction/CnxtUsbCommand;",
+    "method": "<clinit>",
+    "descriptor": "()V",
+    "code_offset": 5927092
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/conexant/universalfunction/CnxtUsbConstants;",
+    "method": "<clinit>",
+    "descriptor": "()V",
+    "code_offset": 5927392
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/conexant/universalfunction/CommonUtil;",
+    "method": "getDeviceIdFromXMLConfig",
+    "descriptor": "(Landroid/content/Context; I)Ljava/util/Map;",
+    "code_offset": 5929140
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/conexant/universalfunction/CommonUtil;",
+    "method": "shiftEQBandForFreeman3",
+    "descriptor": "(I)I",
+    "code_offset": 5928396
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/conexant/universalfunction/CommonUtilNative;",
+    "method": "<clinit>",
+    "descriptor": "()V",
+    "code_offset": 5927756
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/conexant/universalfunction/HidCmdByteArray;",
+    "method": "<clinit>",
+    "descriptor": "()V",
+    "code_offset": 5929920
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/moondroplab/moondrop/moondrop_app/FirmwareUpdateActivity$UpdateFwAsyncTask;",
+    "method": "onProgressUpdate",
+    "descriptor": "([Ljava/lang/Integer;)V",
+    "code_offset": 6214116
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/moondroplab/moondrop/moondrop_app/FirmwareUpdateActivity$UpdateFwAsyncTask;",
+    "method": "onProgressUpdate",
+    "descriptor": "([Ljava/lang/Object;)V",
+    "code_offset": 6214168
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/moondroplab/moondrop/moondrop_app/FirmwareUpdateActivity;",
+    "method": "lambda$showUpdatedStatusDialog$0",
+    "descriptor": "(Z)V",
+    "code_offset": 6214492
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/moondroplab/moondrop/moondrop_app/FirmwareUpdateActivity;",
+    "method": "showUpdateFirmwareDialog",
+    "descriptor": "()V",
+    "code_offset": 6215020
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/moondroplab/moondrop/moondrop_app/FirmwareUpdateActivity;",
+    "method": "showUpdatedStatusDialog",
+    "descriptor": "(Z)V",
+    "code_offset": 6215172
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/syna/FirmwareParam$1;",
+    "method": "<init>",
+    "descriptor": "()V",
+    "code_offset": 6945320
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/syna/FirmwareParam$1;",
+    "method": "createFromParcel",
+    "descriptor": "(Landroid/os/Parcel;)Lcom/syna/FirmwareParam;",
+    "code_offset": 6945212
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/syna/FirmwareParam$1;",
+    "method": "createFromParcel",
+    "descriptor": "(Landroid/os/Parcel;)Ljava/lang/Object;",
+    "code_offset": 6945264
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/syna/FirmwareParam$1;",
+    "method": "newArray",
+    "descriptor": "(I)[Lcom/syna/FirmwareParam;",
+    "code_offset": 6945240
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/syna/FirmwareParam$1;",
+    "method": "newArray",
+    "descriptor": "(I)[Ljava/lang/Object;",
+    "code_offset": 6945292
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/syna/FirmwareParam;",
+    "method": "<clinit>",
+    "descriptor": "()V",
+    "code_offset": 6945532
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/syna/FirmwareParam;",
+    "method": "<init>",
+    "descriptor": "()V",
+    "code_offset": 6945564
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/syna/FirmwareParam;",
+    "method": "<init>",
+    "descriptor": "(Landroid/os/Parcel;)V",
+    "code_offset": 6945588
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/syna/FirmwareParam;",
+    "method": "describeContents",
+    "descriptor": "()I",
+    "code_offset": 6945344
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/syna/FirmwareParam;",
+    "method": "getDevice",
+    "descriptor": "()I",
+    "code_offset": 6945364
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/syna/FirmwareParam;",
+    "method": "getFirmware_version",
+    "descriptor": "()Ljava/lang/String;",
+    "code_offset": 6945436
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/syna/FirmwareParam;",
+    "method": "getManufacture",
+    "descriptor": "()Ljava/lang/String;",
+    "code_offset": 6945460
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/syna/FirmwareParam;",
+    "method": "getProduct",
+    "descriptor": "()Ljava/lang/String;",
+    "code_offset": 6945484
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/syna/FirmwareParam;",
+    "method": "getSerial",
+    "descriptor": "()Ljava/lang/String;",
+    "code_offset": 6945508
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/syna/FirmwareParam;",
+    "method": "getUsb_product_id",
+    "descriptor": "()I",
+    "code_offset": 6945388
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/syna/FirmwareParam;",
+    "method": "getUsb_vendor_id",
+    "descriptor": "()I",
+    "code_offset": 6945412
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/syna/FirmwareParam;",
+    "method": "setDevice",
+    "descriptor": "(I)V",
+    "code_offset": 6945720
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/syna/FirmwareParam;",
+    "method": "setFirmware_version",
+    "descriptor": "(Ljava/lang/String;)V",
+    "code_offset": 6945744
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/syna/FirmwareParam;",
+    "method": "setManufacture",
+    "descriptor": "(Ljava/lang/String;)V",
+    "code_offset": 6945776
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/syna/FirmwareParam;",
+    "method": "setProduct",
+    "descriptor": "(Ljava/lang/String;)V",
+    "code_offset": 6945808
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/syna/FirmwareParam;",
+    "method": "setSerial",
+    "descriptor": "(Ljava/lang/String;)V",
+    "code_offset": 6945840
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/syna/FirmwareParam;",
+    "method": "setUsb_product_id",
+    "descriptor": "(I)V",
+    "code_offset": 6945872
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/syna/FirmwareParam;",
+    "method": "setUsb_vendor_id",
+    "descriptor": "(I)V",
+    "code_offset": 6945896
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/syna/FirmwareParam;",
+    "method": "writeToParcel",
+    "descriptor": "(Landroid/os/Parcel; I)V",
+    "code_offset": 6945920
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/syna/FirmwareUpdate;",
+    "method": "<clinit>",
+    "descriptor": "()V",
+    "code_offset": 6946700
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/syna/FirmwareUpdate;",
+    "method": "<init>",
+    "descriptor": "()V",
+    "code_offset": 6946736
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/syna/FirmwareUpdate;",
+    "method": "GetDeviceInformation",
+    "descriptor": "()V",
+    "code_offset": 6946772
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/syna/FirmwareUpdate;",
+    "method": "native_ClaimHidInterface",
+    "descriptor": "()I",
+    "code_offset": 0
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/syna/FirmwareUpdate;",
+    "method": "native_DeviceReset",
+    "descriptor": "()I",
+    "code_offset": 0
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/syna/FirmwareUpdate;",
+    "method": "native_FirmwareDetect",
+    "descriptor": "(Ljava/lang/String;)I",
+    "code_offset": 0
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/syna/FirmwareUpdate;",
+    "method": "native_GetChipCode",
+    "descriptor": "()I",
+    "code_offset": 0
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/syna/FirmwareUpdate;",
+    "method": "native_GetFirmwareVersionString",
+    "descriptor": "()Ljava/lang/String;",
+    "code_offset": 0
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/syna/FirmwareUpdate;",
+    "method": "native_GetManufacturerString",
+    "descriptor": "()Ljava/lang/String;",
+    "code_offset": 0
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/syna/FirmwareUpdate;",
+    "method": "native_GetProductID",
+    "descriptor": "()I",
+    "code_offset": 0
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/syna/FirmwareUpdate;",
+    "method": "native_GetProductString",
+    "descriptor": "()Ljava/lang/String;",
+    "code_offset": 0
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/syna/FirmwareUpdate;",
+    "method": "native_GetProgressPerCent",
+    "descriptor": "()I",
+    "code_offset": 0
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/syna/FirmwareUpdate;",
+    "method": "native_GetSerialNumberString",
+    "descriptor": "()Ljava/lang/String;",
+    "code_offset": 0
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/syna/FirmwareUpdate;",
+    "method": "native_GetVendorID",
+    "descriptor": "()I",
+    "code_offset": 0
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/syna/FirmwareUpdate;",
+    "method": "native_ReleaseHidInterface",
+    "descriptor": "()I",
+    "code_offset": 0
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/syna/FirmwareUpdate;",
+    "method": "native_connect",
+    "descriptor": "(I)I",
+    "code_offset": 0
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/syna/FirmwareUpdate;",
+    "method": "native_disconnect",
+    "descriptor": "()V",
+    "code_offset": 0
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/syna/FirmwareUpdate;",
+    "method": "native_download",
+    "descriptor": "(Ljava/lang/String; I)I",
+    "code_offset": 0
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/syna/FirmwareUpdate;",
+    "method": "native_finalize",
+    "descriptor": "()V",
+    "code_offset": 0
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/syna/FirmwareUpdate;",
+    "method": "native_init",
+    "descriptor": "()V",
+    "code_offset": 0
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/syna/FirmwareUpdate;",
+    "method": "DetectNewFirmware",
+    "descriptor": "(Ljava/lang/String;)Z",
+    "code_offset": 6946028
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/syna/FirmwareUpdate;",
+    "method": "claimSynaDeviceInterface",
+    "descriptor": "()Z",
+    "code_offset": 6946100
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/syna/FirmwareUpdate;",
+    "method": "connectSynaDevice",
+    "descriptor": "(I)Z",
+    "code_offset": 6946136
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/syna/FirmwareUpdate;",
+    "method": "deviceReset",
+    "descriptor": "()Z",
+    "code_offset": 6946200
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/syna/FirmwareUpdate;",
+    "method": "disconnectSynaDevice",
+    "descriptor": "()V",
+    "code_offset": 6946948
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/syna/FirmwareUpdate;",
+    "method": "downloadFirmware",
+    "descriptor": "(Ljava/lang/String; I)I",
+    "code_offset": 6946344
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/syna/FirmwareUpdate;",
+    "method": "getActivePartition",
+    "descriptor": "()Ljava/lang/String;",
+    "code_offset": 6946560
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/syna/FirmwareUpdate;",
+    "method": "getFirmwareVersionString",
+    "descriptor": "()Ljava/lang/String;",
+    "code_offset": 6946584
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/syna/FirmwareUpdate;",
+    "method": "getManufactureString",
+    "descriptor": "()Ljava/lang/String;",
+    "code_offset": 6946616
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/syna/FirmwareUpdate;",
+    "method": "getProductString",
+    "descriptor": "()Ljava/lang/String;",
+    "code_offset": 6946644
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/syna/FirmwareUpdate;",
+    "method": "getSerialNumberString",
+    "descriptor": "()Ljava/lang/String;",
+    "code_offset": 6946672
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/syna/FirmwareUpdate;",
+    "method": "getSynaDeviceChipCode",
+    "descriptor": "()I",
+    "code_offset": 6946448
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/syna/FirmwareUpdate;",
+    "method": "getSynaDeviceInfo",
+    "descriptor": "()Lcom/syna/FirmwareParam;",
+    "code_offset": 6946308
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/syna/FirmwareUpdate;",
+    "method": "getSynaDeviceProductId",
+    "descriptor": "()I",
+    "code_offset": 6946476
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/syna/FirmwareUpdate;",
+    "method": "getSynaDeviceVendorId",
+    "descriptor": "()I",
+    "code_offset": 6946504
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/syna/FirmwareUpdate;",
+    "method": "getUpdateFirmwareProgress",
+    "descriptor": "()I",
+    "code_offset": 6946532
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/syna/FirmwareUpdate;",
+    "method": "releaseSynaDeviceHidInterface",
+    "descriptor": "()Z",
+    "code_offset": 6946272
+  },
+  {
+    "dex": "classes.dex",
+    "class": "Lcom/syna/cxaudiohidinterface/BuildConfig;",
+    "method": "<init>",
+    "descriptor": "()V",
+    "code_offset": 6946980
+  }
+]

@@ -1,0 +1,97 @@
+[
+  {
+    "query": "Me($p,\"config\"",
+    "char_offset": 621066,
+    "text": "lc8G4UK9KF/AIi37dtBkPQ7AAAAAElFTkSuQmCC\",$p=class $p extends Us{constructor(t){super(t,$p.config)}};Me($p,\"config\",{productUUID:\"395619a3-3442-419a-a598-94f9f1d4ef4b\",sharedConfigGroupId:\"marigold\",reportId:75,peqIndex:7,peqCount:8,name:\"Marigold\",brand:\"MOONDROP\",type:hn.HEADPHONE,image:yj,supportEQIndex:!0,supportPreGain:!0,supportGlobalGain:!0,supportUpgradeFirmware:!1,upgradeDeviceConfig:{name:\"USB20\",productId:2184,vendorId:1638},supportFilter:!0,supportYukiAi:!0,disabledFilterType:[Mt.HIGH_SHELF_2,Mt.LOW_SHELF_2],supportedViews:[Oe.OFFICIAL_PRESETS,Oe.CUSTOM_PRESETS,Oe.CONFIGS,Oe.ADVANCED],defaultView:Oe.OFFICIAL_PRESETS,presetEQs:[{uuid:\"0\",index:0,titleKey:\"devices.presets.default\",descKey:\"devices.presets.default-desc\",icon:fu},{uuid:\"1\",index:1,titleKey:\"devices.presets.triple-a-game\",descKey:\"devices.presets.triple-a-game-desc\",icon:GA},{uuid:\"2\",index:2,titleKey:\"devices.presets.fps\",descK"
+  },
+  {
+    "query": "upgradeDeviceConfig",
+    "char_offset": 516456,
+    "text": "deFirmware(){return!!this.config.supportUpgradeFirmware}getUpgradeDeviceConfig(){return this.config.upgradeDeviceConfig||null}async setUpgradeMode(){var n;this.supportsUpgradeFirmware()&&await((n=this.enterUpgradeMode)==null?void 0:n.call(this))}async upgradeFirmware(n,s){var r;!this.supportsUpgradeFirmware()||!this.enterUpgradeMode||await((r=this.writeFirmware)==null?void 0:r.call(this,n,s))}async refreshFirmwareCapabilities(){var n;await((n=this.applyFirmwareCapabilities)==null?void 0:n.call(this)),await this.applyFeatureFirmwareGates()}getForceUpgradeMinVersion(){return this.config.forceUpgradeMinVersion??null}getForceUpgradeViaApp(){return this.config.forceUpgradeViaApp??!1}async needsForceUpgrade(){const n=this.config.forceUpgradeMinVersion;if(!n)return!1;const s=await this.getFirmwareVersion();return!s||!pl(s)?!1:hl(n,s)}getTiming(){return this.timing}setTimingOverrides(n){Object.assign(this.timing,n"
+  },
+  {
+    "query": "upgradeDeviceConfig",
+    "char_offset": 585661,
+    "text": "ADPHONE,image:XG,supportEQIndex:!0,supportPreGain:!0,supportGlobalGain:!0,supportUpgradeFirmware:!0,upgradeDeviceConfig:{name:\"USB20\",productId:2184,vendorId:1638},supportFilter:!0,disabledFilterType:[Mt.HIGH_SHELF_2,Mt.LOW_SHELF_2],supportedViews:[Oe.GAMING_PRESETS,Oe.CUSTOM_PRESETS,Oe.CONFIGS,Oe.ADVANCED],defaultView:Oe.GAMING_PRESETS,presetEQs:[{uuid:\"0\",index:0,title:\"AG emopig\",descKey:\"devices.presets.delta-force-game-desc\",descParams:{nickname:\"AG emopig\"},icon:Ud},{uuid:\"1\",index:1,title:\"AG Dz6lin\",descKey:\"devices.presets.delta-force-game-desc\",descParams:{nickname:\"AG Dz6lin\"},icon:Ud},{uuid:\"2\",index:2,title:\"AG 零三\",descKey:\"devices.presets.delta-force-game-desc\",descParams:{nickname:\"AG 零三\"},icon:Ud},{uuid:\"3\",index:3,title:\"AG 95k\",descKey:\"devices.presets.delta-force-game-desc\",descParams:{nickname:\"AG 95k\"},icon:Ud}]});let Yv=Up;const pj=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEgAAA"
+  },
+  {
+    "query": "upgradeDeviceConfig",
+    "char_offset": 590344,
+    "text": "_DEVICE,image:pj,supportEQIndex:!0,supportPreGain:!0,supportGlobalGain:!0,supportUpgradeFirmware:!0,upgradeDeviceConfig:{name:\"USB20\",productId:2184,vendorId:1638},supportFilter:!0,supportedViews:[Oe.OFFICIAL_PRESETS,Oe.CONFIGS,Oe.ADVANCED],defaultView:Oe.OFFICIAL_PRESETS});let Xv=Hp;const jO=\"/assets/deco-DU9rJes6.png\",Gp=class Gp extends Us{constructor(t){super(t,Gp.config)}};Me(Gp,\"config\",{productUUID:\"175b4b8f-2853-4bfe-8c91-5c6c5430d020\",sharedConfigGroupId:\"freeDSPPro\",reportId:75,peqIndex:7,peqCount:8,name:\"Deco Audio System\",type:hn.AUDIO_DEVICE,image:jO,supportEQIndex:!0,supportPreGain:!0,supportGlobalGain:!0,supportUpgradeFirmware:!0,upgradeDeviceConfig:{name:\"USB20\",productId:2184,vendorId:1638},supportFilter:!0,supportedViews:[Oe.OFFICIAL_PRESETS,Oe.CONFIGS,Oe.ADVANCED],defaultView:Oe.OFFICIAL_PRESETS});let Zv=Gp;const hj=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEgAAABICAYAAABV7bNHAAAAC"
+  },
+  {
+    "query": "upgradeDeviceConfig",
+    "char_offset": 590897,
+    "text": "_DEVICE,image:jO,supportEQIndex:!0,supportPreGain:!0,supportGlobalGain:!0,supportUpgradeFirmware:!0,upgradeDeviceConfig:{name:\"USB20\",productId:2184,vendorId:1638},supportFilter:!0,supportedViews:[Oe.OFFICIAL_PRESETS,Oe.CONFIGS,Oe.ADVANCED],defaultView:Oe.OFFICIAL_PRESETS});let Zv=Gp;const hj=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEgAAABICAYAAABV7bNHAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAOdEVYdFNvZnR3YXJlAEZpZ21hnrGWYwAACHhJREFUeAHtWUuPHcUVPtW3u+9r3s5glDFITAwoMw4Wiwi22dnJJgssIX5JNsE/wZJ/iLfB6yhGSmyUKCBYwAhZYGwL4Zm5c1/9Kr5zqqu7uu/AvdKwoz67p7u6uh7nO8/uS+Th4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh8fNQqz54+/btl3Bai6Io39raojRN1WAwKPjMRxiGajqdhnOtg2wy6eBeXBRFZz6fdwCFcRTHscqyLOj3+xQEAV/L2a7B/UFQoB1KG+OlT6kcz1J5L1F1X1jtj9vYQ6NtxzOwjub9YA39/Pnzf965c2dKKyBc5aG7d+929/b2HvZ6vT0sRHYjSqlzzy601ry5cpNKnlEqqPq5XXbL/XoKvtAYX1TzFIV2rgsZy2du11BVm59v9hk8evTozzjdpxWwEkGwjF0wf5k1zNbgElILHzTGGC"
+  },
+  {
+    "query": "upgradeDeviceConfig",
+    "char_offset": 594567,
+    "text": "pportEQIndex:!1,alwaysInPEQMode:!0,supportPreGain:!0,supportGlobalGain:!0,supportUpgradeFirmware:!0,upgradeDeviceConfig:{name:\"USB20\",productId:2184,vendorId:1638},supportFilter:!0,supportedViews:[Oe.OFFICIAL_PRESETS,Oe.CONFIGS,Oe.ADVANCED],defaultView:Oe.OFFICIAL_PRESETS});let Jv=jp;const GA=\"data:image/svg+xml,%3csvg%20width='56'%20height='56'%20viewBox='0%200%2056%2056'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20d='M55.5.5v55H.5V.5z'%20fill='%23000'%20stroke='%23000'/%3e%3cpath%20fill-rule='evenodd'%20clip-rule='evenodd'%20d='M34.18%2016.33c5.1%200%206.71%205.67%207.62%2013.57.42%204.2.07%207.7-2.45%207.62-3.63%200-3.77-3.28-6.36-4.82-.98-.5-3.15-.7-4.96-.77-1.82.07-4%20.28-4.97.77-2.59%201.54-2.73%204.82-6.36%204.82-2.6%200-3.01-3.5-2.52-7.69.84-7.83%202.45-13.5%207.55-13.5%202.59%200%203.85%202.66%206.23%202.87%202.3-.2%203.63-2.87%206.22-2.87m-12.38%205.6a3.66%203.66%200%200%200-3"
+  },
+  {
+    "query": "upgradeDeviceConfig",
+    "char_offset": 601286,
+    "text": "_DEVICE,image:mj,supportEQIndex:!0,supportPreGain:!0,supportGlobalGain:!0,supportUpgradeFirmware:!0,upgradeDeviceConfig:{name:\"USB20\",productId:2184,vendorId:1638},supportFilter:!0,disabledFilterType:[Mt.HIGH_SHELF_2,Mt.LOW_SHELF_2],supportedViews:[Oe.GAMING_PRESETS,Oe.CUSTOM_PRESETS,Oe.CONFIGS,Oe.ADVANCED],defaultView:Oe.GAMING_PRESETS,presetEQs:[{uuid:\"0\",index:0,titleKey:\"devices.presets.fps-1\",descKey:\"devices.presets.fps-1-desc\",icon:Hh},{uuid:\"1\",index:1,titleKey:\"devices.presets.fps-2\",descKey:\"devices.presets.fps-2-desc\",icon:WO},{uuid:\"2\",index:2,titleKey:\"devices.presets.movie-and-3a\",descKey:\"devices.presets.movie-an-3a-desc\",icon:GA},{uuid:\"3\",index:3,titleKey:\"devices.presets.music-game\",descKey:\"devices.presets.music-game-desc\",icon:Kh}]});let ey=Wp;const KO=\"data:image/svg+xml,%3csvg%20width='61'%20height='61'%20viewBox='0%200%2061%2061'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%"
+  },
+  {
+    "query": "upgradeDeviceConfig",
+    "char_offset": 611280,
+    "text": "_DEVICE,image:gj,supportEQIndex:!0,supportPreGain:!0,supportGlobalGain:!0,supportUpgradeFirmware:!1,upgradeDeviceConfig:{name:\"USB20\",productId:2184,vendorId:1638},supportFilter:!0,supportedViews:[Oe.OFFICIAL_PRESETS,Oe.CUSTOM_PRESETS,Oe.CONFIGS,Oe.ADVANCED],defaultView:Oe.OFFICIAL_PRESETS,presetEQs:[{uuid:\"0\",index:0,titleKey:\"devices.presets.default\",descKey:\"devices.presets.default-desc\",icon:Kh},{uuid:\"1\",index:1,titleKey:\"devices.presets.low-bass-enhancement\",descKey:\"devices.presets.low-bass-enhancement-desc\",icon:zO},{uuid:\"2\",index:2,titleKey:\"devices.presets.low-bass-super-enhancement\",descKey:\"devices.presets.low-bass-super-enhancement-desc\",icon:qO},{uuid:\"3\",index:3,titleKey:\"devices.presets.space-atmosphere-enhancement\",descKey:\"devices.presets.space-atmosphere-enhancement-desc\",icon:DA},{uuid:\"4\",index:4,titleKey:\"devices.presets.high-frequency-enhancement\",descKey:\"devices.presets.high-frequ"
+  },
+  {
+    "query": "upgradeDeviceConfig",
+    "char_offset": 616493,
+    "text": "_DEVICE,image:vj,supportEQIndex:!0,supportPreGain:!1,supportGlobalGain:!0,supportUpgradeFirmware:!0,upgradeDeviceConfig:{name:\"USB20\",productId:2184,vendorId:1638},supportFilter:!0,supportedViews:[Oe.OFFICIAL_PRESETS,Oe.CUSTOM_PRESETS,Oe.CONFIGS,Oe.ADVANCED],defaultView:Oe.OFFICIAL_PRESETS,presetEQs:[{uuid:\"0\",index:0,titleKey:\"devices.presets.default\",descKey:\"devices.presets.default-desc\",icon:Kh},{uuid:\"1\",index:1,titleKey:\"devices.presets.low-bass-enhancement\",descKey:\"devices.presets.low-bass-enhancement-desc\",icon:zO},{uuid:\"2\",index:2,titleKey:\"devices.presets.low-bass-super-enhancement\",descKey:\"devices.presets.low-bass-super-enhancement-desc\",icon:qO},{uuid:\"3\",index:3,titleKey:\"devices.presets.space-atmosphere-enhancement\",descKey:\"devices.presets.space-atmosphere-enhancement-desc\",icon:DA},{uuid:\"4\",index:4,titleKey:\"devices.presets.high-frequency-enhancement\",descKey:\"devices.presets.high-frequ"
+  },
+  {
+    "query": "writeFirmware",
+    "char_offset": 516706,
+    "text": "c upgradeFirmware(n,s){var r;!this.supportsUpgradeFirmware()||!this.enterUpgradeMode||await((r=this.writeFirmware)==null?void 0:r.call(this,n,s))}async refreshFirmwareCapabilities(){var n;await((n=this.applyFirmwareCapabilities)==null?void 0:n.call(this)),await this.applyFeatureFirmwareGates()}getForceUpgradeMinVersion(){return this.config.forceUpgradeMinVersion??null}getForceUpgradeViaApp(){return this.config.forceUpgradeViaApp??!1}async needsForceUpgrade(){const n=this.config.forceUpgradeMinVersion;if(!n)return!1;const s=await this.getFirmwareVersion();return!s||!pl(s)?!1:hl(n,s)}getTiming(){return this.timing}setTimingOverrides(n){Object.assign(this.timing,n)}};Me(Lp,\"BASE_HOOK_EXCLUDED_METHODS\",[\"checkReachability\",\"pingDevice\"]);let ml=Lp;const _c=Symbol(\"eqReadGuard\");async function Bse(e,t,n){const s=Reflect.get(e,_c);Reflect.set(e,_c,t);try{t();const r=await n();return t(),r}finally{s?Reflect"
+  },
+  {
+    "query": "writeFirmware",
+    "char_offset": 521845,
+    "text": ":js}=Eo.global,Nd=256,ng=20,BG=90;class VG{constructor(t,n){this.openDevice=t,this.reportId=n}async writeFirmware(t,n){n==null||n(0,js(\"pages.upgrade.start-firmware-upgrade\"));try{n==null||n(10,js(\"pages.upgrade.parsing-firmware\"));const r=new NG(t).parse();await Bt(300);const o=new FG;o.resetSequenceNumber(),n==null||n(ng,js(\"pages.upgrade.handshake-with-device\")),await this.handshake(o),await Bt(300);const i=r.binFiles.filter(a=>a.size>0);for(let a=0;a<i.length;a++)await this.writeBinFile(i[a],o,(l,c)=>{const u=ng+(BG-ng)*(l/100);n==null||n(u,c)},a,i.length),await Bt(200);await this.finalize(o),n==null||n(100,js(\"pages.upgrade.firmware-write-complete-and-rebooting\"))}catch(s){throw n==null||n(0,js(\"pages.upgrade.firmware-upgrade-failed-with-message\",{message:s.message})),s}}async handshake(t){if(!await this.openDevice.sendData(t.createHandshakeRequest(),this.reportId))throw new Error(js(\"pages.upgr"
+  },
+  {
+    "query": "writeFirmware",
+    "char_offset": 527344,
+    "text": "terUpgradeMode(){throw new Error(\"Bluetrum firmware upgrade protocol is not implemented yet\")}async writeFirmware(n,s){await this.flasher.writeFirmware(n,s)}}const kp=class kp extends HG{constructor(t){super(t,kp.config)}};Me(kp,\"config\",{productUUID:\"7898e618-1559-4bf4-8edc-79924a796906\",sharedConfigGroupId:\"freeDSPPro\",reportId:75,peqIndex:63,peqCount:8,name:\"MM3A\",brand:\"MOONDROP\",type:hn.HEADPHONE,image:l8,openSettleDelay:1e3,supportEQIndex:!0,alwaysInPEQMode:!1,supportPEQOverlay:!0,supportPreGain:!0,supportGlobalGain:!1,duckPreGainOnEqWrite:!0,supportFilter:!0,forceUpgradeMinVersion:\"1.2.3\",forceUpgradeViaApp:!0,supportSpeakerCalibration:!0,supportedViews:[Oe.OFFICIAL_PRESETS,Oe.CUSTOM_PRESETS,Oe.CONFIGS,Oe.ADVANCED],defaultView:Oe.OFFICIAL_PRESETS,presetEQs:[{uuid:\"0\",index:0,titleKey:\"devices.presets.monitor\",descKey:\"devices.presets.monitor-desc\",icon:fu},{uuid:\"1\",index:1,titleKey:\"devices.p"
+  },
+  {
+    "query": "writeFirmware",
+    "char_offset": 527382,
+    "text": "trum firmware upgrade protocol is not implemented yet\")}async writeFirmware(n,s){await this.flasher.writeFirmware(n,s)}}const kp=class kp extends HG{constructor(t){super(t,kp.config)}};Me(kp,\"config\",{productUUID:\"7898e618-1559-4bf4-8edc-79924a796906\",sharedConfigGroupId:\"freeDSPPro\",reportId:75,peqIndex:63,peqCount:8,name:\"MM3A\",brand:\"MOONDROP\",type:hn.HEADPHONE,image:l8,openSettleDelay:1e3,supportEQIndex:!0,alwaysInPEQMode:!1,supportPEQOverlay:!0,supportPreGain:!0,supportGlobalGain:!1,duckPreGainOnEqWrite:!0,supportFilter:!0,forceUpgradeMinVersion:\"1.2.3\",forceUpgradeViaApp:!0,supportSpeakerCalibration:!0,supportedViews:[Oe.OFFICIAL_PRESETS,Oe.CUSTOM_PRESETS,Oe.CONFIGS,Oe.ADVANCED],defaultView:Oe.OFFICIAL_PRESETS,presetEQs:[{uuid:\"0\",index:0,titleKey:\"devices.presets.monitor\",descKey:\"devices.presets.monitor-desc\",icon:fu},{uuid:\"1\",index:1,titleKey:\"devices.presets.music\",descKey:\"devices.presets"
+  },
+  {
+    "query": "writeFirmware",
+    "char_offset": 579313,
+    "text": ":As}=Eo.global,Hd=256,rg=20,dj=90;class fj{constructor(t,n){this.openDevice=t,this.reportId=n}async writeFirmware(t,n){n==null||n(0,As(\"pages.upgrade.start-firmware-upgrade\"));try{n==null||n(10,As(\"pages.upgrade.parsing-firmware\"));const r=new cj(t).parse();if(!r)throw new Error(As(\"pages.upgrade.parsing-firmware-failed\"));await Bt(300);const o=new uj;o.resetSequenceNumber(),n==null||n(rg,As(\"pages.upgrade.handshake-with-device\")),await this.handshake(o),await Bt(300);const i=r.binFiles.filter(a=>a.size>0);for(let a=0;a<i.length;a++)await this.writeBinFile(i[a],o,(l,c)=>{const u=rg+(dj-rg)*(l/100);n==null||n(u,c)},a,i.length),await Bt(200);await this.finalize(o),n==null||n(100,As(\"pages.upgrade.firmware-write-complete-and-rebooting\"))}catch(s){throw n==null||n(0,As(\"pages.upgrade.firmware-upgrade-failed-with-message\",{message:s.message})),s}}async handshake(t){if(!await this.openDevice.sendData(t.cre"
+  },
+  {
+    "query": "writeFirmware",
+    "char_offset": 585268,
+    "text": "rn Wh(n,zt)}async enterUpgradeMode(){await this.cmd.sendCommand(ct.OP_WRITE,ct.UPGRADE_ENTER)}async writeFirmware(n,s){await this.flasher.writeFirmware(n,s)}}const Up=class Up extends Us{constructor(t){super(t,Up.config)}};Me(Up,\"config\",{productUUID:\"c0a224c7-b6e1-4245-9f30-7f5233e082a5\",sharedConfigGroupId:\"rays\",reportId:75,peqIndex:7,peqCount:8,name:\"AG Rays\",brand:\"MOONDROP\",type:hn.HEADPHONE,image:XG,supportEQIndex:!0,supportPreGain:!0,supportGlobalGain:!0,supportUpgradeFirmware:!0,upgradeDeviceConfig:{name:\"USB20\",productId:2184,vendorId:1638},supportFilter:!0,disabledFilterType:[Mt.HIGH_SHELF_2,Mt.LOW_SHELF_2],supportedViews:[Oe.GAMING_PRESETS,Oe.CUSTOM_PRESETS,Oe.CONFIGS,Oe.ADVANCED],defaultView:Oe.GAMING_PRESETS,presetEQs:[{uuid:\"0\",index:0,title:\"AG emopig\",descKey:\"devices.presets.delta-force-game-desc\",descParams:{nickname:\"AG emopig\"},icon:Ud},{uuid:\"1\",index:1,title:\"AG Dz6lin\",descKey"
+  },
+  {
+    "query": "writeFirmware",
+    "char_offset": 585306,
+    "text": "wait this.cmd.sendCommand(ct.OP_WRITE,ct.UPGRADE_ENTER)}async writeFirmware(n,s){await this.flasher.writeFirmware(n,s)}}const Up=class Up extends Us{constructor(t){super(t,Up.config)}};Me(Up,\"config\",{productUUID:\"c0a224c7-b6e1-4245-9f30-7f5233e082a5\",sharedConfigGroupId:\"rays\",reportId:75,peqIndex:7,peqCount:8,name:\"AG Rays\",brand:\"MOONDROP\",type:hn.HEADPHONE,image:XG,supportEQIndex:!0,supportPreGain:!0,supportGlobalGain:!0,supportUpgradeFirmware:!0,upgradeDeviceConfig:{name:\"USB20\",productId:2184,vendorId:1638},supportFilter:!0,disabledFilterType:[Mt.HIGH_SHELF_2,Mt.LOW_SHELF_2],supportedViews:[Oe.GAMING_PRESETS,Oe.CUSTOM_PRESETS,Oe.CONFIGS,Oe.ADVANCED],defaultView:Oe.GAMING_PRESETS,presetEQs:[{uuid:\"0\",index:0,title:\"AG emopig\",descKey:\"devices.presets.delta-force-game-desc\",descParams:{nickname:\"AG emopig\"},icon:Ud},{uuid:\"1\",index:1,title:\"AG Dz6lin\",descKey:\"devices.presets.delta-force-game-des"
+  },
+  {
+    "query": "SPV",
+    "char_offset": 571641,
+    "text": "t={};if(t.appData=this.fileData,t.tagMagic=this.readInt(4),t.tagMagic!==ij)throw new Error(\"Invalid SPV APP Tag Magic\");if(t.encryptAddress=this.readInt(8),t.userFlag=this.readInt(12),(t.userFlag&aj)!==lj){t.sspVersion=this.readInt(32),t.buildDateAddress=this.readInt(36),t.buildTimeAddress=this.readInt(40),t.numberOfBinFiles=this.readInt(44);const r=64;t.binFiles=this.parseBinFiles(r,32,t.numberOfBinFiles)}else{t.encryptSize=this.readInt(16),t.buildDateAddress=this.readInt(20),t.buildTimeAddress=this.readInt(24),t.numberOfBinFiles=this.readInt(28);const r=32;t.binFiles=this.parseBinFiles(r,16,t.numberOfBinFiles)}if(t.numberOfBinFiles<=0||t.numberOfBinFiles>100)throw new Error(`Invalid number of bin files: ${t.numberOfBinFiles}`);const n=t.buildDateAddress&sg;t.buildDate=this.readString(n);const s=t.buildTimeAddress&sg;return t.buildTime=this.readString(s),t.crcForBin=`0x${Vn.buf(t.appData)."
+  },
+  {
+    "query": "firmwareFile",
+    "char_offset": 520952,
+    "text": "des(e)&&await OG(e),MG(e),await _G(e)}const kG=e=>{e.use(Eo),LG(DG())};class NG{constructor(t){this.firmwareFileBuffer=t}parse(){throw new Error(`BluetrumFirmwareParser: firmware container format is not implemented yet (${this.firmwareFileBuffer.byteLength} bytes)`)}}class FG{constructor(){Me(this,\"sequenceNumber\",0)}resetSequenceNumber(){this.sequenceNumber=0}createHandshakeRequest(){throw new Error(`BluetrumUpgradeSdk: protocol is not implemented yet (seq=${this.sequenceNumber})`)}createSetFlashWriteAreaRequest(t){throw new Error(`BluetrumUpgradeSdk: protocol is not implemented yet (seq=${this.sequenceNumber})`)}createWriteFlashDataRequest(t){throw new Error(`BluetrumUpgradeSdk: protocol is not implemented yet (seq=${this.sequenceNumber})`)}createEndDownloadResetRequest(){throw new Error(`BluetrumUpgradeSdk: protocol is not implemented yet (seq=${this.sequenceNumber})`)}}const{t:js}=Eo.global,Nd=2"
+  },
+  {
+    "query": "firmwareFile",
+    "char_offset": 521079,
+    "text": "){throw new Error(`BluetrumFirmwareParser: firmware container format is not implemented yet (${this.firmwareFileBuffer.byteLength} bytes)`)}}class FG{constructor(){Me(this,\"sequenceNumber\",0)}resetSequenceNumber(){this.sequenceNumber=0}createHandshakeRequest(){throw new Error(`BluetrumUpgradeSdk: protocol is not implemented yet (seq=${this.sequenceNumber})`)}createSetFlashWriteAreaRequest(t){throw new Error(`BluetrumUpgradeSdk: protocol is not implemented yet (seq=${this.sequenceNumber})`)}createWriteFlashDataRequest(t){throw new Error(`BluetrumUpgradeSdk: protocol is not implemented yet (seq=${this.sequenceNumber})`)}createEndDownloadResetRequest(){throw new Error(`BluetrumUpgradeSdk: protocol is not implemented yet (seq=${this.sequenceNumber})`)}}const{t:js}=Eo.global,Nd=256,ng=20,BG=90;class VG{constructor(t,n){this.openDevice=t,this.reportId=n}async writeFirmware(t,n){n==null||n(0,js(\"pages.upgr"
+  }
+]

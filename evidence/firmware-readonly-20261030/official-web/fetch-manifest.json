@@ -1,0 +1,37 @@
+[
+  {
+    "url": "https://moondroplab.com/cn/manual",
+    "file": "/private/tmp/echo-b-official-firmware-20261030/cn-manual.html",
+    "returncode": 0,
+    "bytes": 115950,
+    "sha256": "ae8c507d66bdcf8e096cf22feebd63fa4fbca2f94c60157449f31aee5eb94c12"
+  },
+  {
+    "url": "https://moondroplab.com/en/download",
+    "file": "/private/tmp/echo-b-official-firmware-20261030/en-download.html",
+    "returncode": 0,
+    "bytes": 79664,
+    "sha256": "a665f48ccde46bb242a9dd1ae7e4999cc99e949d0356bf0abd3af0e960e83bd6"
+  },
+  {
+    "url": "https://moondroplab.com/cn/download",
+    "file": "/private/tmp/echo-b-official-firmware-20261030/cn-download.html",
+    "returncode": 0,
+    "bytes": 83484,
+    "sha256": "8677cc7a3f92e4b0af9e99660ebc9dda2109232d3edd82381b54fcc0bc987ccd"
+  },
+  {
+    "url": "https://moondroplab.com/en/products/echo-b",
+    "file": "/private/tmp/echo-b-official-firmware-20261030/en-product.html",
+    "returncode": 0,
+    "bytes": 84243,
+    "sha256": "e6d50ae855648c8c1fe7e335fbc7c10bc891809e490c12a558866494cb6d8d26"
+  },
+  {
+    "url": "https://moondroplab.com/cn-products/echo-b",
+    "file": "/private/tmp/echo-b-official-firmware-20261030/cn-product.html",
+    "returncode": 0,
+    "bytes": 84900,
+    "sha256": "325443a6614f9ca0973bab3dd6ea17dc15994969d589775058be565d5fe00218"
+  }
+]

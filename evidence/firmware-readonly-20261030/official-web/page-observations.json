@@ -1,0 +1,108 @@
+{
+  "manual": {
+    "sha256": "c3d30191218f48d1c381445c886a9655ebf6802db0ae2a1d034e41b84084c985",
+    "manual_count": 53,
+    "echo_manual_entries": []
+  },
+  "cn-manual": {
+    "sha256": "ae8c507d66bdcf8e096cf22feebd63fa4fbca2f94c60157449f31aee5eb94c12",
+    "manual_count": 65,
+    "echo_manual_entries": []
+  },
+  "en-download": {
+    "sha256": "a665f48ccde46bb242a9dd1ae7e4999cc99e949d0356bf0abd3af0e960e83bd6",
+    "manual_count": 0,
+    "echo_manual_entries": [],
+    "official_download_links": [
+      {
+        "href": "https://download.moondroplab.com/62fa188db50b5.zip",
+        "class": "submit-text"
+      },
+      {
+        "href": "https://download.moondroplab.com/66c2bbfc74132.zip",
+        "class": "submit-text"
+      },
+      {
+        "href": "https://download.moondroplab.com/648040f4e7bc9.zip",
+        "class": "submit-text"
+      },
+      {
+        "href": "https://download.moondroplab.com/6440eb8b2e732.zip",
+        "class": "submit-text"
+      },
+      {
+        "href": "https://download.moondroplab.com/6632f93333e84.zip",
+        "class": "submit-text"
+      }
+    ]
+  },
+  "cn-download": {
+    "sha256": "8677cc7a3f92e4b0af9e99660ebc9dda2109232d3edd82381b54fcc0bc987ccd",
+    "manual_count": 0,
+    "echo_manual_entries": [],
+    "official_download_links": [
+      {
+        "href": "https://download.moondroplab.com/62fa188db50b5.zip",
+        "class": "submit-text"
+      },
+      {
+        "href": "https://download.moondroplab.com/66c2bbfc74132.zip",
+        "class": "submit-text"
+      },
+      {
+        "href": "https://download.moondroplab.com/648040f4e7bc9.zip",
+        "class": "submit-text"
+      },
+      {
+        "href": "https://download.moondroplab.com/6440eb8b2e732.zip",
+        "class": "submit-text"
+      },
+      {
+        "href": "https://download.moondroplab.com/6632f93333e84.zip",
+        "class": "submit-text"
+      },
+      {
+        "href": "https://download.moondroplab.com/moondroplink/android-release.apk",
+        "class": "page-link-col2-link"
+      }
+    ]
+  },
+  "en-product": {
+    "sha256": "e6d50ae855648c8c1fe7e335fbc7c10bc891809e490c12a558866494cb6d8d26",
+    "manual_count": 0,
+    "echo_manual_entries": [],
+    "echo_or_download_related_links": [
+      {
+        "href": "/en/download",
+        "class": "main-nav-submenu-link"
+      },
+      {
+        "href": "/en/download",
+        "class": "top-nav-list-link"
+      },
+      {
+        "href": "/en/download",
+        "class": "footer-links"
+      }
+    ]
+  },
+  "cn-product": {
+    "sha256": "325443a6614f9ca0973bab3dd6ea17dc15994969d589775058be565d5fe00218",
+    "manual_count": 0,
+    "echo_manual_entries": [],
+    "echo_or_download_related_links": [
+      {
+        "href": "/cn/download",
+        "class": "main-nav-submenu-link"
+      },
+      {
+        "href": "/cn/download",
+        "class": "top-nav-list-link"
+      },
+      {
+        "href": "/cn/download",
+        "class": "footer-links"
+      }
+    ]
+  }
+}

@@ -1,0 +1,1 @@
+{"statusCode":404,"message":"Cannot GET /api/v1/ota-configs/3946f8a7-6ed2-4f9f-920d-bd469c8edd0f","error":"Not Found"}

@@ -1,0 +1,12 @@
+[
+  {
+    "label": "Marigold config to alias",
+    "char_offset": 621066,
+    "text": "Me($p,\"config\",{productUUID:\"395619a3-3442-419a-a598-94f9f1d4ef4b\",sharedConfigGroupId:\"marigold\",reportId:75,peqIndex:7,peqCount:8,name:\"Marigold\",brand:\"MOONDROP\",type:hn.HEADPHONE,image:yj,supportEQIndex:!0,supportPreGain:!0,supportGlobalGain:!0,supportUpgradeFirmware:!1,upgradeDeviceConfig:{name:\"USB20\",productId:2184,vendorId:1638},supportFilter:!0,supportYukiAi:!0,disabledFilterType:[Mt.HIGH_SHELF_2,Mt.LOW_SHELF_2],supportedViews:[Oe.OFFICIAL_PRESETS,Oe.CUSTOM_PRESETS,Oe.CONFIGS,Oe.ADVANCED],defaultView:Oe.OFFICIAL_PRESETS,presetEQs:[{uuid:\"0\",index:0,titleKey:\"devices.presets.default\",descKey:\"devices.presets.default-desc\",icon:fu},{uuid:\"1\",index:1,titleKey:\"devices.presets.triple-a-game\",descKey:\"devices.presets.triple-a-game-desc\",icon:GA},{uuid:\"2\",index:2,titleKey:\"devices.presets.fps\",descKey:\"devices.presets.fps-desc\",icon:Hh}]});let ry=$p"
+  },
+  {
+    "label": "vendor default and registry",
+    "char_offset": 635641,
+    "text": "const Ej=13784;function $O(e,t){return{vendorId:e.vendorId??Ej,productId:e.productId,environment:t,deviceClass:e.deviceClass,config:e.deviceClass.config}}const Sj=[{deviceClass:ay,productId:283},{deviceClass:Yv,productId:286},{deviceClass:ny,productId:39123},{deviceClass:ty,productId:39124},{deviceClass:Xv,productId:285},{deviceClass:ry,productId:284},{deviceClass:Qv,productId:290},{deviceClass:oy,productId:17370},{deviceClass:ey,productId:39125},{deviceClass:Jv,productId:288},{deviceClass:sy,productId:298},{deviceClass:Zv,productId:299},{deviceClass:Kv,productId:302},{deviceClass:zv,productId:301},{deviceClass:$v,productId:307},{deviceClass:qv,productId:3845},{deviceClass:iy,productId:291}],"
+  }
+]

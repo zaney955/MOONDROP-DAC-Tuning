@@ -1,0 +1,15 @@
+{
+  "recorded_at_utc": "2026-10-30T10:11:59.384541+00:00",
+  "scope": "local byte/static artifact inspection and unauthenticated public HTTP GET only",
+  "device_usb_access": false,
+  "target_executed": false,
+  "original_target_vid_pid": "35d8:149b",
+  "source_apk_sha256": "04756b49acfea523758d86101c96c1824b7b209ae3a8836c07837088e795d2d5",
+  "result": "Candidate is a SPV-format payload with Marigold strings and duplicated BIANCA association; no matching 35d8:149b firmware identified within inspected sources",
+  "limits": [
+    "Static host updater data flow is not device runtime execution",
+    "Backend reason for mismatched association is unknown",
+    "Matching USB header alone is not full compatibility verification",
+    "Public current search does not exhaust factory or unpublished firmware"
+  ]
+}

@@ -1,0 +1,106 @@
+{
+  "device_commands_sent": false,
+  "usb_access_attempted": false,
+  "apk_sha256": "04756b49acfea523758d86101c96c1824b7b209ae3a8836c07837088e795d2d5",
+  "rea_inventory_evidence_id": "ev_d7b1fd776521b7149756d73e12bae48f6f8dd61947d94b2ff83d5072b65ddd0a",
+  "product_count": 108,
+  "ota_config_count": 197,
+  "echo_b_product": [
+    {
+      "uuid": "f92054d7-b36e-492f-8d3b-db2b935c3279",
+      "model": "ECHO-B",
+      "name": "ECHO-B",
+      "type": "USB",
+      "manual": "",
+      "appResourceRoot": {
+        "uri": "/synopsys"
+      },
+      "bannerImg": "",
+      "bannerImgNight": "product-banner-img/LWVc_PVqp_4-A_wgOpxW1echo-夜间.png",
+      "squareBannerImg": "",
+      "squareBannerImgNight": "",
+      "bannerImgV2": "product-banner-img/3Z90YlI24Is_pMJNSjUD4echo-白天.png",
+      "bannerImgT": "product-banner-img/6uYj42z_D_AuyifXCP68Mecho-白天.png",
+      "bannerImgNightT": "product-banner-img/i64pr-GRi_h8ldW-q_mfTecho-夜间.png",
+      "bannerImgLT": "",
+      "bannerImgRT": "",
+      "bannerImgNightLT": "",
+      "bannerImgNightRT": "",
+      "sellpic": "",
+      "targetlink": " ",
+      "hasotaconfig": true,
+      "istws": false,
+      "isSpeaker": false,
+      "freqResponse": "",
+      "languageType": null,
+      "eqBands": 9,
+      "gainRange": "",
+      "qRange": "",
+      "isTotalGainSupported": false,
+      "isPreGainSupported": false,
+      "supportedFilterTypes": "",
+      "isGamingHeadphone": false,
+      "isDacAmp": true,
+      "isDongleUpgradable": false,
+      "chipType": "synopsys"
+    }
+  ],
+  "echo_b_ota_catalog_entries": [
+    {
+      "uuid": "a87f4c45-91f7-45c1-a79a-7da2bee72449",
+      "status": 1,
+      "name": "ECHO-B",
+      "type": "CONFIG",
+      "parentUuid": "00000000-0000-0000-0000-000000000000",
+      "file": "ota-config-file/zZje7CUxdVaqgDf5QpXgEusb_headphone_denoise_dual_MOONDROP_0x119_8_27.bin",
+      "isSeparatedVersion": false,
+      "version": "1.0.0",
+      "desc": ""
+    }
+  ],
+  "same_filename_other_model_entries": [
+    {
+      "uuid": "ffd0b7a2-7efd-4b77-a79f-8b9a008cfa82",
+      "status": 1,
+      "name": "BIANCA:STIGMATA",
+      "type": "CONFIG",
+      "parentUuid": "00000000-0000-0000-0000-000000000000",
+      "file": "ota-config-file/kU_zax3OY85GbA-cS9YG5usb_headphone_denoise_dual_MOONDROP_0x119_8_27.bin",
+      "isSeparatedVersion": false,
+      "version": "1.1.1",
+      "desc": ""
+    }
+  ],
+  "package_usb_string_candidates": [
+    {
+      "offset": "0x11110",
+      "length": 18,
+      "string": "Marigold",
+      "classification": "USB string descriptor candidate; role not proven"
+    },
+    {
+      "offset": "0x11154",
+      "length": 30,
+      "string": "00000000000822",
+      "classification": "USB string descriptor candidate; role not proven"
+    },
+    {
+      "offset": "0x11198",
+      "length": 18,
+      "string": "Marigold",
+      "classification": "USB string descriptor candidate; role not proven"
+    },
+    {
+      "offset": "0x111dc",
+      "length": 18,
+      "string": "MOONDROP",
+      "classification": "USB string descriptor candidate; role not proven"
+    }
+  ],
+  "package_compatibility_with_35d8_149b": "unverified; Marigold USB string candidates conflict with catalog label",
+  "questions": {
+    "complete_backup": "partial: SDK has read/export code, no safe device dump or full-region coverage established",
+    "official_package": "partial: official catalog candidate downloaded, exact-device compatibility unresolved",
+    "brick_recovery_entry": "unresolved: normal-runtime updater found, no verified ECHO-B bootloader recovery procedure"
+  }
+}

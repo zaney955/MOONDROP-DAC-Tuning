@@ -1,0 +1,37 @@
+[
+  {
+    "query": "ota-configs",
+    "char_offset": 34521,
+    "text": "(e){return yt.Get(`/huihifi/evaluations/${e}/raw-fr`)}function Vm(e){return yt.Get(\"microphoneadjust/info\",{params:e})}function Gm(e){return yt.Get(\"/ota-configs/all\",{params:e})}function uL(e,t){return yt.Get(\"/ota-config-voices/all\",{params:e,headers:{language:t}})}function jm(e){return yt.Get(\"products/all\",{params:e})}function Wm(e){return yt.Get(`products/${e}`)}function Zm(e){return yt.Get(\"/ota-config-app-resources/all\",{params:e})}function ms(){return ms=Object.assign?Object.assign.bind():function(e){for(var t=1;t<arguments.length;t++){var n=arguments[t];for(var r in n)({}).hasOwnProperty.call(n,r)&&(e[r]=n[r])}return e},ms.apply(null,arguments)"
+  },
+  {
+    "query": "firmware",
+    "char_offset": 10283,
+    "text": "!0,supportPreGain:!0,supportGlobalGain:!0,supportAdcVolume:!0,adcVolumeMin:-15,adcVolumeMax:15,adcVolumeStep:1.5,supportControlPanel:!0,supportUpgradeFirmware:!0,upgradeDeviceConfig:{name:\"USB20\",productId:2184,vendorId:1638},supportFilter:!0,supportedViews:[wt.GAMING_PRESETS,wt.CUSTOM_PRESETS,wt.CONFIGS,wt.ADVANCED],defaultView:wt.GAMING_PRESETS,presetEQs:[{uuid:\"0\",index:0,titleKey:\"devices.presets.default\",descKey:\"devices.presets.default-desc\",icon:a0},{uuid:\"1\",index:1,titleKey:\"devices.presets.fps-1\",descKey:\"devices.presets.fps-1-desc\",icon:s0},{uuid:\"2\",index:2,titleKey:\"devices.presets.fps-2\",descKey:\"devices.presets.fps-2-desc\",icon:i0}]});"
+  },
+  {
+    "query": "firmware",
+    "char_offset": 513945,
+    "text": "udio-waveform\",label:\"layout.header.developer-calibration-standalone\",routeName:\"calibration\"},{icon:\"i-lucide-wrench\",label:\"layout.header.developer-firmware-recovery\",routeName:\"firmware-recovery\"},{icon:\"i-lucide-bot\",label:\"layout.header.developer-yuki-test\",routeName:\"yuki-test\"}]},{label:\"layout.header.developer-device-debugging\",tools:[{icon:\"i-lucide-binary\",label:\"layout.header.developer-protocol-test\",routeName:\"test\"},{icon:\"i-lucide-activity\",label:\"layout.header.developer-device-stability\",routeName:\"device-stability\"}]},{label:\"layout.header.developer-graph-debugging\",tools:[{icon:\"i-lucide-chart-no-axes-combined\",label:\"layout.header.d"
+  },
+  {
+    "query": "firmware",
+    "char_offset": 513975,
+    "text": "eader.developer-calibration-standalone\",routeName:\"calibration\"},{icon:\"i-lucide-wrench\",label:\"layout.header.developer-firmware-recovery\",routeName:\"firmware-recovery\"},{icon:\"i-lucide-bot\",label:\"layout.header.developer-yuki-test\",routeName:\"yuki-test\"}]},{label:\"layout.header.developer-device-debugging\",tools:[{icon:\"i-lucide-binary\",label:\"layout.header.developer-protocol-test\",routeName:\"test\"},{icon:\"i-lucide-activity\",label:\"layout.header.developer-device-stability\",routeName:\"device-stability\"}]},{label:\"layout.header.developer-graph-debugging\",tools:[{icon:\"i-lucide-chart-no-axes-combined\",label:\"layout.header.developer-graph-playground\",rou"
+  },
+  {
+    "query": "firmware",
+    "char_offset": 527115,
+    "text": "ew:u(wt)).UPGRADE))},{default:A(()=>[o[1]||(o[1]=v(\"i\",{i:\"lucide-refresh-cw\",class:\"size-3.5\"},null,-1)),v(\"span\",null,$(r.$t(\"pages.upgrade.upgrade-firmware\")),1),_(sp)]),_:1},8,[\"disabled\"])}}}),_9=[\"src\"],D9={key:1,i:\"lucide-cable\",class:\"size-5\"},A9={class:\"truncate text-[13px]\"},C9=se({__name:\"Menu\",setup(e){const{deviceInstance:t,deviceInfo:n}=Qe(gt()),{isForceUpgradeRequired:r}=il(),o=z(()=>{var d;return(d=t.value)==null?void 0:d.getImage()}),a=z(()=>jr),s=z(()=>{var d;return a.value&&((d=t.value)==null?void 0:d.supportsSpeakerCalibration())}),i=z(()=>{var d;return(d=t.value)==null?void 0:d.supportsUpgradeFirmware()}),l=z(()=>a.value),c=z(()="
+  },
+  {
+    "query": "firmware",
+    "char_offset": 527586,
+    "text": "()=>{var d;return a.value&&((d=t.value)==null?void 0:d.supportsSpeakerCalibration())}),i=z(()=>{var d;return(d=t.value)==null?void 0:d.supportsUpgradeFirmware()}),l=z(()=>a.value),c=z(()=>{var h;if(!l.value)return;const d=((h=t.value)==null?void 0:h.getOriginalProductUUID())??\"\";return Kc(d)}),f=z(()=>s.value||i.value||l.value);return(d,h)=>{const g=Hl,m=tt,p=Mo,y=Is,b=Ko,w=ko,x=So;return D(),ee(x,null,{default:A(()=>[_(p,{\"as-child\":\"\"},{default:A(()=>[_(m,{variant:\"ghost\",role:\"combobox\",\"aria-expanded\":\"open\",\"aria-label\":\"please select device\",class:\"h-8 justify-between gap-2 rounded-full px-2.5 data-[state=open]:bg-foreground/5 hover:bg-foregrou"
+  },
+  {
+    "query": "firmware",
+    "char_offset": 549232,
+    "text": ":!1});ze(e,()=>o(),{immediate:!0});const{state:a,isLoading:s,error:i,execute:l}=Er(()=>is(async()=>{var g;const h=await((g=t.value)==null?void 0:g.getFirmwareVersion())??null;if(!h||!$g(h))throw new Error(\"Get firmware version failed\");return h},{retries:2,delay:300}),null,{immediate:!1});pn(()=>{l()});async function c(h){return(await Ta(h)).arrayBuffer()}const{isLoading:f,execute:d}=Er(c,null,{immediate:!1,throwError:!0,onError:()=>{}});return{firmwareList:n,loadingFirmwareList:r,firmwareVersion:a,loadingFirmwareVersion:s,firmwareVersionError:i,fetchFirmwareVersion:l,isDownloading:f,downloadFirmware:async h=>await d(0,h)??null}}var Ht=(e=>(e.Upgrade"
+  }
+]

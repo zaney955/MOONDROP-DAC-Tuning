@@ -1,0 +1,37 @@
+[
+  {
+    "url": "https://raw.githubusercontent.com/fwupd/fwupd/main/plugins/synaptics-cxaudio/README.md",
+    "file": "/private/tmp/echo-b-official-firmware-20261030/fwupd-README.md",
+    "returncode": 0,
+    "bytes": 1383,
+    "sha256": "84bd924cef44f6a526f718156cb3aa48954b237da5a2fbdc5418540e06d887b5"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/fwupd/fwupd/main/plugins/synaptics-cxaudio/fu-synaptics-cxaudio-device.c",
+    "file": "/private/tmp/echo-b-official-firmware-20261030/fwupd-fu-synaptics-cxaudio-device.c",
+    "returncode": 0,
+    "bytes": 29236,
+    "sha256": "fa8eb0248e4a9f85a8346c1cccd0174f77ac2be69e9411b6f6c23823d68dd391"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/fwupd/fwupd/main/plugins/synaptics-cxaudio/synaptics-cxaudio.quirk",
+    "file": "/private/tmp/echo-b-official-firmware-20261030/fwupd-synaptics-cxaudio.quirk",
+    "returncode": 0,
+    "bytes": 1329,
+    "sha256": "dbacc50bffc0f332cdb6a8d57ab45af9a178177ca10dd4c431d856aea044b792"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/fwupd/fwupd/main/plugins/synaptics-cxaudio/fu-synaptics-cxaudio-common.h",
+    "file": "/private/tmp/echo-b-official-firmware-20261030/fwupd-fu-synaptics-cxaudio-common.h",
+    "returncode": 0,
+    "bytes": 1372,
+    "sha256": "328d07c05fc304a43e3a37e5902b59a006e304453c90053e2b3db048cd2e8bb8"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/fwupd/fwupd/main/plugins/synaptics-cxaudio/fu-synaptics-cxaudio.rs",
+    "file": "/private/tmp/echo-b-official-firmware-20261030/fwupd-fu-synaptics-cxaudio.rs",
+    "returncode": 0,
+    "bytes": 1684,
+    "sha256": "1380ffe26d30d2f401583885e00a8b6b1b25d313cabad491e1240fd30bac1bf7"
+  }
+]

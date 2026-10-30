@@ -1,0 +1,158 @@
+{
+  "scope": "Offline byte inspection only; no device or network access",
+  "candidate": {
+    "file": "evidence/firmware-readonly-20261030/official-ECHO-B-ota-1.0.0.bin",
+    "size": 442216,
+    "sha256": "b68e0cd4a561cb664605f32ebf5d3c3e51f6138482b3bfc97ef9666a42b5acc1"
+  },
+  "comparison": {
+    "file": "evidence/firmware-compatibility-20261030/BIANCA-catalog-candidate.bin",
+    "size": 442216,
+    "sha256": "b68e0cd4a561cb664605f32ebf5d3c3e51f6138482b3bfc97ef9666a42b5acc1"
+  },
+  "echo_b_and_bianca_bytes_identical": true,
+  "candidate_spv_structure": {
+    "magic": "SPV@",
+    "user_flag_bytes_hex": "414d414f",
+    "compact_header": true,
+    "build_date": "Aug 23 2024",
+    "build_time": "14:11:15",
+    "segments": [
+      {
+        "name": "CPU",
+        "address": "0x48000000",
+        "file_offset": "0x0",
+        "size": 97072,
+        "declared_checksum": "0x849d4d",
+        "nonempty": true,
+        "range_within_file": true,
+        "additive_byte_checksum": "0x849d4d",
+        "additive_byte_checksum_matches": true,
+        "payload_sha256": "df0e6ba3820c1f3d732b37b36ebe1b451f274699fd2ad9e751fc50888a7757cd"
+      },
+      {
+        "name": "MOD",
+        "address": "0x48040000",
+        "file_offset": "0x40000",
+        "size": 180072,
+        "declared_checksum": "0x15500c2",
+        "nonempty": true,
+        "range_within_file": true,
+        "additive_byte_checksum": "0x15500c2",
+        "additive_byte_checksum_matches": true,
+        "payload_sha256": "9a68300b764c17bca5b807744b6f47e299f1490edff97e003d5c90965e098d21"
+      },
+      {
+        "name": "PBK",
+        "address": "0x4806c000",
+        "file_offset": "0x6c000",
+        "size": 0,
+        "declared_checksum": "0x0",
+        "nonempty": false,
+        "range_within_file": false
+      },
+      {
+        "name": "EXT",
+        "address": "0x4806c000",
+        "file_offset": "0x6c000",
+        "size": 0,
+        "declared_checksum": "0x0",
+        "nonempty": false,
+        "range_within_file": false
+      }
+    ],
+    "string_descriptors": [
+      {
+        "text": "Marigold",
+        "text_offset": "0x11112",
+        "preceding_two_bytes_hex": "1203",
+        "included_in_payload_segments": [
+          "CPU"
+        ],
+        "runtime_descriptor_selection_proven": false
+      },
+      {
+        "text": "Marigold",
+        "text_offset": "0x1119a",
+        "preceding_two_bytes_hex": "1203",
+        "included_in_payload_segments": [
+          "CPU"
+        ],
+        "runtime_descriptor_selection_proven": false
+      },
+      {
+        "text": "MOONDROP",
+        "text_offset": "0x111de",
+        "preceding_two_bytes_hex": "1203",
+        "included_in_payload_segments": [
+          "CPU"
+        ],
+        "runtime_descriptor_selection_proven": false
+      }
+    ]
+  },
+  "hid_reference_headers": [
+    {
+      "file": "evidence/firmware-compatibility-20261030/FreeDSP-1.1-reference.hid",
+      "size": 114720,
+      "sha256": "ca0a21cdd1b6ed63255252759595e34a58b472b8d402c37a736527475d8b7859",
+      "declared_target": "35d8:1496",
+      "update_type": 2,
+      "signature_bytes": "EFSC",
+      "crc": "0xa783b220",
+      "header_target_matches_35d8_149b": false
+    },
+    {
+      "file": "evidence/firmware-compatibility-20261030/catalog-0539314b-eb40-458f-b757-9585e8e24c81.hid",
+      "size": 114720,
+      "sha256": "2f5bb9ad814637d58d3fcf7bb1c99c79c27688d739da725edf19479f89296151",
+      "declared_target": "35d8:1499",
+      "update_type": 2,
+      "signature_bytes": "EFSC",
+      "crc": "0xd0874f09",
+      "header_target_matches_35d8_149b": false
+    },
+    {
+      "file": "evidence/firmware-compatibility-20261030/catalog-50e01dd5-8e50-408d-aa6b-48042965d776.hid",
+      "size": 114720,
+      "sha256": "a9ec1db095573ad2ec0288fe1cc833758cf247085f58260de5b89ee892b332c0",
+      "declared_target": "35d8:1499",
+      "update_type": 2,
+      "signature_bytes": "EFSC",
+      "crc": "0xbb3512cb",
+      "header_target_matches_35d8_149b": false
+    },
+    {
+      "file": "evidence/firmware-compatibility-20261030/catalog-9ea1855b-4b05-472f-9c87-2e2b2d549ca4.hid",
+      "size": 114720,
+      "sha256": "8702ef7c69bec2cfca78f6b840b6fd7d3f0cb260fada2cb5de0250fb1a4b0b8e",
+      "declared_target": "06cb:1594",
+      "update_type": 2,
+      "signature_bytes": "EFSC",
+      "crc": "0x51e3645b",
+      "header_target_matches_35d8_149b": false
+    },
+    {
+      "file": "evidence/firmware-compatibility-20261030/catalog-ccfef235-da10-4370-956d-257a1b2361f2.hid",
+      "size": 114720,
+      "sha256": "264894f72a7f11fd60ed41635db50a0a02d54b9b8f8adb9ca766f8b39fde7714",
+      "declared_target": "35d8:1497",
+      "update_type": 2,
+      "signature_bytes": "EFSC",
+      "crc": "0xe5e8028f",
+      "header_target_matches_35d8_149b": false
+    },
+    {
+      "file": "evidence/firmware-compatibility-20261030/catalog-d1dd97cc-d14b-462a-8131-25d6dd280523.hid",
+      "size": 114720,
+      "sha256": "1da84aec9a14914eb2bd3621e6273459e30ac2774a2569b4bc6ad1af255f4792",
+      "declared_target": "35d8:1499",
+      "update_type": 2,
+      "signature_bytes": "EFSC",
+      "crc": "0x92af65d",
+      "header_target_matches_35d8_149b": false
+    }
+  ],
+  "matching_hid_reference_count": 0,
+  "limitations": "Simple sums are not signatures. Payload inclusion does not prove runtime descriptor selection. Catalog labels and matching USB IDs alone cannot prove compatibility."
+}

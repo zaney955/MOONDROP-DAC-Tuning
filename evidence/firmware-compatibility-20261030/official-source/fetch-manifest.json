@@ -1,0 +1,34 @@
+[
+  {
+    "url": "https://hub.moondroplab.tech/",
+    "status": "200",
+    "rc": 0,
+    "file": "/private/tmp/echo-b-firmware-search-deep-20261030/hub-index.txt",
+    "sha256": "8ee9c78f7bed9b406a237fc93ccbc1a5faab163157600c1ff651e449396a42d2",
+    "body": "<!doctype html>\n<html lang=\"en\">\n  <head>\n    <meta charset=\"UTF-8\" />\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, user-scalable=no\" />\n    <link rel=\"icon\" type=\"image/x-icon\" href=\"/favicon.ico\" />\n    <meta name=\"msapplication-TileColor\" content=\"#00aba9\" />\n    <title>Moondrop Custom EQ</title>\n    <script>\n      ;(function () {\n        var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches\n        var setting = localStorage.getItem('vueuse-color-scheme') || 'auto'\n        if (setting === 'dark' || (prefersDark && setting !== 'light'))\n          document.documentElement.classList.toggle('dark', true)\n      })()\n    </script>\n    <style>\n      html.dark {\n        color-scheme: dark;\n      }\n      /* lock scrolling while the splash is up so the app content mounting\n         underneath it can't pop in a scrollbar and re-center the logo */\n      body:has(#app-loading) {\n        overflow: hidden;\n      }\n      #app-loading {\n        position: fixed;\n        inset: 0;\n        background: #fff;\n        display: flex;\n        justify-content: center;\n        align-items: center;\n        z-index: 9999;\n        user-select: none;\n        -webkit-user-select: none;\n      }\n      html.dark #app-loading {\n        background: #0c0c0c;\n      }\n      html #app-loading .dark-mode {\n        display: none;\n      }\n      html.dark #app-loading .light-mode {\n        display: none;\n      }\n      html.dark #app-loading .dark-mode {\n        display: flex;\n      }\n      #app-loading.fade-out {\n        pointer-events: none;\n      }\n      #app-loading img {\n        width: 240px;\n        pointer-events: none;\n        user-select: none;\n        -webkit-user-select: none;\n        -webkit-user-drag: none;\n        will-change: opacity, transform;\n        transition:\n          opacity 0.42s cubic-bezier(0.4, 0, 0.2, 1),\n          transform 0.42s cubic-bezier(0.4, 0, 0.2, 1);\n      }\n      #app-loading.fade-out img {\n        opacity: 0;\n        transform: scale(1.08);\n      }\n    </style>\n    <script type=\"module\" crossorigin src=\"/assets/index-BiX0aPAV.js\"></script>\n    <link rel=\"stylesheet\" crossorigin href=\"/assets/index-Dyoi9RnM.css\">\n  \n    <meta name=\"app-version\" content=\"1.6.5\">\n    <meta name=\"app-build\" content=\"26B1081\">\n    <meta name=\"app-build-type\" content=\"Beta\">\n    <meta name=\"app-build-date\" content=\"2026-10-10T08:33:50.721Z\">\n\n    <script>\n      window.__APP_VERSION__ = {\"version\":\"1.6.5\",\"buildNumber\":\"26B1081\",\"buildDate\":\"2026-10-10T08:33:50.721Z\",\"buildType\":\"Beta\"};\n    </script>\n</head>\n  <body>\n    <div id=\"app\"></div>\n    <div id=\"app-loading\">\n      <img src=\"/moondrop.svg\" alt=\"Loading...\" class=\"light-mode\" draggable=\"false\" />\n      <img src=\"/moondrop-dark.svg\" alt=\"Loading...\" class=\"dark-mode\" draggable=\"false\" />\n    </div>\n    <script>\n      !(function () {\n        var currentColor = localStorage.getItem('currentColor') || 'neutral'\n        var currentRadius = localStorage.getItem('currentRadius') || '0.5'\n        document.body.classList.add(`theme-${currentColor}`)\n        document.body.style.setProperty('--radius', `${currentRadius}rem`)\n      })()\n    </script>\n    <noscript> This website requires JavaScript to function properly. Please enable JavaScript to continue. </noscript>\n  </body>\n</html>\n"
+  },
+  {
+    "url": "https://cdn-service.moondroplab.tech/api/v1/ota-configs/a87f4c45-91f7-45c1-a79a-7da2bee72449",
+    "status": "404",
+    "rc": 0,
+    "file": "/private/tmp/echo-b-firmware-search-deep-20261030/ota-echo-detail.txt",
+    "sha256": "3e2497ddc90786bd8ddc0c780c6ae9224313a837f22a1ce29eb6446ba4e092fd",
+    "body": "{\"statusCode\":404,\"message\":\"Cannot GET /api/v1/ota-configs/a87f4c45-91f7-45c1-a79a-7da2bee72449\",\"error\":\"Not Found\"}"
+  },
+  {
+    "url": "https://cdn-service.moondroplab.tech/api/v1/ota-configs/3946f8a7-6ed2-4f9f-920d-bd469c8edd0f",
+    "status": "404",
+    "rc": 0,
+    "file": "/private/tmp/echo-b-firmware-search-deep-20261030/ota-freedsp-detail.txt",
+    "sha256": "7e6cc8092f8caa9a34134cfd1b6a8431ee9b64ddc4ba715d4c442891e941f9cc",
+    "body": "{\"statusCode\":404,\"message\":\"Cannot GET /api/v1/ota-configs/3946f8a7-6ed2-4f9f-920d-bd469c8edd0f\",\"error\":\"Not Found\"}"
+  },
+  {
+    "url": "https://cdn-service.moondroplab.tech/api/v1/ota-configs/4699ec41-9f8e-4dc3-a510-af5c0c897760",
+    "status": "404",
+    "rc": 0,
+    "file": "/private/tmp/echo-b-firmware-search-deep-20261030/ota-marigold-detail.txt",
+    "sha256": "3ee9ef641a1137a4a64d43077ff482b090ff5f63e0efa54949f20e7c1486821a",
+    "body": "{\"statusCode\":404,\"message\":\"Cannot GET /api/v1/ota-configs/4699ec41-9f8e-4dc3-a510-af5c0c897760\",\"error\":\"Not Found\"}"
+  }
+]
