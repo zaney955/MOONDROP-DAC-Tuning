@@ -6,9 +6,9 @@
 
 官方列明 Kadenz 使用 10 mm ULT-Gen2 单动圈、TAC 镀层复合振膜、可更换导管；附件包括普通耳套和清泉套，均有三种尺寸。标称灵敏度为 122 dB/Vrms（1 kHz），阻抗为 35 Ω ±15%（1 kHz），THD 指标仅给出 1 kHz、94 dB 条件。这些是厂家规格，不是本项目独立测量。[MOONDROP 英文产品页](https://moondroplab.com/en/products/kadenz)
 
-同一官方中文页的特点段写“双规格导管”，附件段写“可换导管（ABC）”；英文页也同时出现 Two Nozzles 与 ABC。**资料本身存在措辞不一致，不能据此建立 A/B/C 的长度、默认型号或音色排序。** 说明书正文没有可核验的本地副本，不能用它消除这一不确定性。[MOONDROP 中文产品页](https://moondroplab.com/cn-products/kadenz)
+同一官方中文页的特点段写“双规格导管”，附件段写“可换导管（ABC）”；英文页也同时出现 Two Nozzles 与 ABC。**资料本身存在措辞不一致，不能据此建立 A/B/C 的长度、默认型号或音色排序。** [MOONDROP 中文产品页](https://moondroplab.com/cn-products/kadenz)
 
-官方说明书链接如下；正文不作为已核验依据：
+中文说明书的“耳塞套的使用”强调选择合适尺寸、保持密封与足够的入耳深度，避免漏音造成低音损失。正文没有 A/B/C 导管的尺寸、默认型号、音色排序或分套频响，不能据此判定用户实际使用的配件。英文说明书正文不作为已核验依据。
 
 - [中文说明书](https://cdn.prod.website-files.com/627128d862c9a44234848dda/674542ab43c879414ec56375_%E7%BB%88%E7%AB%A0%E8%AF%B4%E6%98%8E%E4%B9%A6%EF%BC%88%E4%B8%AD%E6%96%87%E7%AB%96%E7%89%88%EF%BC%89.pdf)
 - [英文说明书](https://cdn.prod.website-files.com/627128d862c9a44234848dda/6745429cf29e218d179a9620_%E7%BB%88%E7%AB%A0%E8%AF%B4%E6%98%8E%E4%B9%A6%EF%BC%88%E8%8B%B1%E6%96%87%E7%AB%96%E7%89%88%EF%BC%89.pdf)

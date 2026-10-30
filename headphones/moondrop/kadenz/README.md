@@ -11,6 +11,7 @@
 | 完整计算结果 | [analysis/statistics.json](analysis/statistics.json) |
 | 外部一手资料与限制 | [research/sources.md](research/sources.md) |
 | 密集金属调音 | [设计依据与验收要求](research/death-metal-structure-v1.md) |
+| 密集金属预设的五采样率响应 | [离线报告](analysis/death-metal-structure-v1.json) / [曲线数据](analysis/death-metal-structure-v1.csv) |
 
 在项目根目录离线复算：
 

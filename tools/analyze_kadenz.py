@@ -1,12 +1,13 @@
 """Reproduce Kadenz descriptive statistics and offline EQ checks; no USB I/O."""
 import bisect
+import cmath
 import csv
 import hashlib
 import json
 import math
 from pathlib import Path
 
-from preset import compile_preset
+from preset import SCALE, compile_preset
 
 ROOT = Path(__file__).resolve().parent.parent
 MODEL = ROOT/'headphones'/'moondrop'/'kadenz'
@@ -32,6 +33,48 @@ def mean_log(x, y, lo, hi):
     grid = [lo] + [f for f in x if lo < f < hi] + [hi]
     vals = [interpolate(x, y, f) for f in grid]
     return sum((a+b)/2*math.log(f2/f1) for f1, f2, a, b in zip(grid, grid[1:], vals, vals[1:])) / math.log(hi/lo)
+
+
+def response_db(rows, frequency, fs):
+    z = cmath.exp(-2j*math.pi*frequency/fs)
+    h = 1
+    for row in rows:
+        b0, b1, b2, p, q = [value/SCALE for value in row]
+        h *= (b0+b1*z+b2*z*z)/(1-p*z-q*z*z)
+    return 20*math.log10(abs(h))
+
+
+def analyze_listening_preset():
+    source = ROOT/'presets/kadenz-death-metal-structure-v1.json'
+    raw = source.read_bytes()
+    plan, binary = compile_preset(json.loads(raw))
+    # A denser grid than the compiler's 601-point check; no hardware claims.
+    grid = [20*1000**(i/6000) for i in range(6001)]
+    rows_by_rate = plan['coefficients_q22']
+    tones = {fs: [response_db(rows[:8], f, int(fs)) for f in grid]
+             for fs, rows in rows_by_rate.items()}
+    result = dict(preset=str(source.relative_to(ROOT)),
+                  source_sha256=hashlib.sha256(raw).hexdigest(),
+                  write_plan_sha256=hashlib.sha256(binary).hexdigest(),
+                  method='Quantized Q22 theoretical steady-state response; 6001 log-spaced points, 20 Hz to 20 kHz. Tone excludes band 9. Cross-rate differences include digital frequency warping and quantization. Prefix peaks do not prove internal headroom or transient clipping safety.',
+                  device_written=False, acoustic_output_measured=False,
+                  rates={})
+    for fs, rows in rows_by_rate.items():
+        tone = tones[fs]
+        output = response_db(rows[8:], 1000, int(fs))
+        result['rates'][fs] = dict(
+            tone_min_db=min(tone), tone_max_db=max(tone),
+            output_gain_quantized_db=output,
+            total_min_db=min(tone)+output, total_max_db=max(tone)+output,
+            maximum_abs_difference_from_48000_db=max(abs(a-b) for a, b in zip(tone, tones['48000'])),
+            tone_at_hz_db={str(f): response_db(rows[:8], f, int(fs)) for f in FREQUENCIES},
+            prefix_max_db_before_output_gain=[max(response_db(rows[:n], f, int(fs)) for f in grid)
+                                              for n in range(1, len(plan['preset']['filters'])+1)])
+    (OUT/'death-metal-structure-v1.json').write_text(json.dumps(result, ensure_ascii=False, indent=2)+'\n')
+    with (OUT/'death-metal-structure-v1.csv').open('w', newline='') as file:
+        writer = csv.writer(file, lineterminator='\n')
+        writer.writerow(['frequency_hz'] + [f'tone_{fs}_db' for fs in rows_by_rate])
+        writer.writerows([f] + [tones[fs][i] for fs in rows_by_rate] for i, f in enumerate(grid))
 
 
 def main():
@@ -94,6 +137,7 @@ def main():
         checks.append(dict(example=preset, quantized_response=plan['response_check'],
                            device_written=False, device_auditioned=False))
     (OUT/'filter-examples.json').write_text(json.dumps(checks, ensure_ascii=False, indent=2)+'\n')
+    analyze_listening_preset()
     print(OUT)
 
 

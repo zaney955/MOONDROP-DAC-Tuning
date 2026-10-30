@@ -2,12 +2,11 @@
   "version": 1,
   "device": "MOONDROP ECHO-B",
   "name": "Kadenz · 死亡金属结构清晰 V1",
-  "description": "为密集死亡金属的 Riff、鼓组与贝斯线条辨识设计，兼顾 Evoken、Esoteric 等葬礼厄运的低频深度与氛围。适度削减 180 Hz 厚重感，微补 900 Hz 中频主体，轻收 3 kHz 压迫感，小幅补充 5.2 kHz 轮廓；不增加深低频或极高频。完整替换配置，基于官方 Kadenz 数据和用户偏好的首版，导管/耳套未知，效果待本人试听确认。",
+  "description": "以音乐结构、Riff 变化、鼓组转换与贝斯线条的可辨识度为优先，兼顾 Evoken、Esoteric 等葬礼厄运的低频深度、密度与氛围。温和削减 150 Hz 一带的低频遮蔽，保留深低频和下中频厚度，微补 1 kHz 中频主体，轻收 3 kHz 存在感；不额外提升高频。整体输出数字增益为 -20 dB。基于 Kadenz 官方两套测量的共同轮廓与个人偏好的试听起点，导管、耳套及耳内响应未知，实际效果需本人试听确认。",
   "output_gain_db": -20,
   "filters": [
-    {"type": "peak", "frequency_hz": 180, "q": 0.9, "gain_db": -2},
-    {"type": "peak", "frequency_hz": 3000, "q": 1.2, "gain_db": -1},
-    {"type": "peak", "frequency_hz": 900, "q": 0.8, "gain_db": 1},
-    {"type": "peak", "frequency_hz": 5200, "q": 1.4, "gain_db": 1}
+    {"type": "peak", "frequency_hz": 150, "q": 0.9, "gain_db": -2},
+    {"type": "peak", "frequency_hz": 1000, "q": 0.8, "gain_db": 1},
+    {"type": "peak", "frequency_hz": 3000, "q": 1.2, "gain_db": -1}
   ]
 }
