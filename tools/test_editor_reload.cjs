@@ -122,11 +122,25 @@ const {spawn} = require('node:child_process');
     assert.equal(result.filters[0].frequency_hz, 137);
     assert.equal(result.filters[0].gain_db, .3);
     assert.equal(result.filters[0].q, 1.2);
+    // Preserve undo/redo branches, including incomplete values, across reload.
+    await page.keyboard.press('Meta+z');
+    assert.equal(await page.locator('#band-0-frequency_hz').inputValue(), '');
+    await page.keyboard.press('Meta+z');await valid();
+    assert.equal(await page.locator('#band-0-frequency_hz').inputValue(), '2836');
+    const historyReload = page.waitForEvent('load', {timeout: 30000});
+    await fs.appendFile(path.join(root, 'web/style.css'), '\n/* history reload check */\n');
+    await historyReload;await valid();
+    assert.equal(await page.locator('#band-0-frequency_hz').inputValue(), '2836');
+    assert.equal(await page.locator('#redo').isDisabled(), false);
+    await page.keyboard.press('Meta+Shift+z');
+    assert.equal(await page.locator('#band-0-frequency_hz').inputValue(), '');
+    await page.keyboard.press('Meta+Shift+z');await valid();
+    assert.equal(await page.locator('#band-0-frequency_hz').inputValue(), '137');
     assert.deepEqual(deviceRequests, []);
     assert.deepEqual(dialogs, [], 'automatic reload must not prompt or discard draft');
     assert.deepEqual(errors, []);
     assert.equal(server.exitCode, null);
-    console.log('PASS: real code edits reload backend + page together; frozen assets, stable token, draft/invalid input/rate recovery, syntax-error fallback and repair, export, no USB operations.');
+    console.log('PASS: real code edits reload backend + page together; frozen assets, stable token, draft/invalid input/rate and undo/redo recovery, syntax-error fallback and repair, export, no USB operations.');
   } catch (error) {
     console.error(logs);
     throw error;

@@ -51,6 +51,11 @@ const fs = require('node:fs/promises');
       const db = g.max - ((point.y - g.top) / g.height * 360 - 18) / 298 * (g.max - g.min);
       assert(Math.abs(db - gain) < .02, `band ${index}: position ${db}, gain ${gain}`);
     }
+    async function assertAllGains() {
+      const gains = await page.locator('.chart-handle').evaluateAll((nodes) => nodes.map((node) =>
+        Number(node.getAttribute('aria-label').match(/，([-\d.]+) dB/)[1])));
+      for (let i = 0; i < gains.length; i++) await assertGainPosition(i, gains[i]);
+    }
     async function assertReadout() {
       const readout = page.locator('#chart-readout');
       await readout.waitFor({state: 'visible'});
@@ -99,12 +104,11 @@ const fs = require('node:fs/promises');
         assert.equal(link.pointerEvents, 'none', 'decoration must not intercept dragging');
       });
     }
-    const before = await positions(), initialGeometry = await geometry();
+    const before = await positions();
     assert.equal(await page.locator('#chart-readout').isVisible(), false, 'no selection has no readout');
     for (let i = 0; i < fixture.filters.length; i++) await assertGainPosition(i, fixture.filters[i].gain_db);
     await assertConnectors();
     const totalBefore = await page.locator('.total-curve').getAttribute('d');
-    const otherBefore = await page.locator('.band-curve[data-band="0"]').getAttribute('d');
     const point = before[1];
     await page.mouse.move(point.x, point.y);await page.mouse.down();
     for (let step = 1; step <= 8; step++) {
@@ -116,9 +120,7 @@ const fs = require('node:fs/promises');
     }
     assert.notEqual(await page.locator('.total-curve').getAttribute('d'), totalBefore, 'total updates during drag');
     await page.mouse.up();await valid();await page.waitForTimeout(250);
-    await assertStill(before, 1);
-    assert.deepEqual(await geometry(), initialGeometry, 'axis remains stable after release');
-    assert.equal(await page.locator('.band-curve[data-band="0"]').getAttribute('d'), otherBefore);
+    await assertAllGains();
     const gain = Number(await page.locator('#band-1-gain_db').inputValue());
     assert(gain > -3);await assertGainPosition(1, gain);
     const selected = page.locator('.band-curve.selected');
@@ -126,15 +128,14 @@ const fs = require('node:fs/promises');
     assert.equal(await selected.evaluate((node) => node === node.parentNode.lastElementChild), true);
     assert(Number(await selected.evaluate((node) => getComputedStyle(node).opacity))
       > Number(await page.locator('.band-curve[data-band="0"]').evaluate((node) => getComputedStyle(node).opacity)));
-    const stable = await positions();
-    await page.locator('#band-1-q').fill('2');await valid();await assertStill(stable);
+    await page.locator('#band-1-q').fill('2');await valid();await assertAllGains();
     await assertReadout();
     await page.locator('.chart-handle[data-band="1"]').dispatchEvent('wheel', {deltaY: -40, bubbles: true, cancelable: true});
-    await assertReadout();await valid();await assertStill(stable);
+    await assertReadout();await valid();await assertAllGains();
     const beforeOutput = await page.locator('.total-curve').getAttribute('d');
-    await page.locator('#output').fill('-6');await valid();await assertStill(stable);
+    await page.locator('#output').fill('-6');await valid();await assertAllGains();
     assert.notEqual(await page.locator('.total-curve').getAttribute('d'), beforeOutput);
-    await page.locator('#rate').selectOption('44100');await assertStill(stable);await assertConnectors();
+    await page.locator('#rate').selectOption('44100');await assertAllGains();await assertConnectors();
     // Shelf control uses the full gain parameter: same dB/pixel ratio as peak.
     await page.locator('.chart-handle[data-band="2"]').click();
     await assertReadout();
@@ -147,17 +148,16 @@ const fs = require('node:fs/promises');
     const expected = Math.round((fixture.filters[2].gain_db + 20 * 360 / g.height * (g.max - g.min) / 298) * 10) / 10;
     assert.equal(shelfGain, expected);
     await assertConnectors();
-    await page.mouse.up();await valid();await assertStill(shelfBefore, 2);
+    await page.mouse.up();await valid();await assertAllGains();
     await assertGainPosition(2, shelfGain);await assertConnectors();
     assert.equal(await page.locator('.shelf-connector.selected').getAttribute('data-band'), '2');
     assert(Number(await page.locator('.shelf-connector.selected').evaluate((node) => getComputedStyle(node).opacity))
       > Number(await page.locator('.shelf-connector[data-band="3"]').evaluate((node) => getComputedStyle(node).opacity)));
-    // Changing type removes the shelf-only decoration without moving handles.
-    const beforeType = await positions();
+    // Type changes preserve the gain parameters even when the axis adapts.
     await page.locator('#type-2').selectOption('peak');await valid();
-    await assertConnectors([3]);await assertStill(beforeType);await assertReadout();
+    await assertConnectors([3]);await assertAllGains();await assertReadout();
     await page.locator('#type-2').selectOption('low_shelf');await valid();
-    await assertConnectors();await assertStill(beforeType);await assertReadout();
+    await assertConnectors();await assertAllGains();await assertReadout();
     const download = page.waitForEvent('download');await page.locator('#export').click();
     const exported = JSON.parse(await fs.readFile(await (await download).path(), 'utf8'));
     assert.deepEqual(exported.filters[0], fixture.filters[0]);
@@ -165,10 +165,19 @@ const fs = require('node:fs/promises');
     assert.equal(exported.filters[1].frequency_hz, 1000);
     assert.equal(exported.filters[2].frequency_hz, 1300);
     assert.equal(exported.output_gain_db, -6);
+    const beforeOutputRange = await geometry();
     await page.locator('#output').fill('-60');await valid();
+    assert((await geometry()).min < beforeOutputRange.min, 'axis automatically includes the lower total');
     const beforeFit = await geometry();await page.locator('#fit-chart').click();
-    assert((await geometry()).min < beforeFit.min, 'explicit fit includes out-of-view total');
+    assert.deepEqual(await geometry(), beforeFit, 'explicit fit agrees with the automatic range');
     await assertGainPosition(0, 4);await assertGainPosition(2, shelfGain);await assertConnectors();
+    await page.locator('#output').fill('-6');await valid();
+    const contracted = await geometry();
+    assert(contracted.max - contracted.min < beforeFit.max - beforeFit.min, 'range contracts when output returns');
+    await page.keyboard.press('Meta+z');await valid();
+    assert.equal((await geometry()).min, beforeFit.min, 'undo restores the wider range');
+    await page.keyboard.press('Meta+Shift+z');await valid();
+    assert.equal((await geometry()).min, contracted.min, 'redo restores the smaller range');
     await page.screenshot({path: '/tmp/echo-independent-handles.png', fullPage: true});
     // Right/top/bottom boundaries, relabeling, and a narrow touch-sized chart.
     // Use peak here: a large shelf at 20 kHz exceeds this device's Q22 range.
@@ -186,7 +195,34 @@ const fs = require('node:fs/promises');
     assert.equal(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth), false);
     await page.locator('#delete').click();await valid();
     assert.equal(await page.locator('#chart-readout').isVisible(), false);
+    // Small edits get a tighter range, with zero and both signs always visible.
+    await page.locator('#file').setInputFiles({name: 'range.json', mimeType: 'application/json', buffer: Buffer.from(JSON.stringify({
+      version: 1, device: 'MOONDROP ECHO-B', name: 'auto-range', output_gain_db: 0,
+      filters: [{type: 'peak', frequency_hz: 1000, gain_db: 1.2, q: 1}]}))});
+    await page.locator('#notice').filter({hasText: '已导入 range.json'}).waitFor();await valid();
+    await page.locator('.chart-handle[data-band="0"]').click();
+    const smallRange = await geometry();
+    assert(smallRange.max - smallRange.min <= 8, 'small gain uses a narrow range');
+    assert(smallRange.min < 0 && smallRange.max > 1.2, 'zero and control have headroom');
+    await page.locator('#band-0-gain_db').fill('16');await valid();
+    const largeRange = await geometry();
+    assert(largeRange.max > 16 && largeRange.max - largeRange.min > smallRange.max - smallRange.min);
+    await assertAllGains();
+    await page.locator('#reset-band').click();await valid();
+    const flatRange = await geometry();
+    assert.equal(flatRange.max - flatRange.min, 6, 'reset contracts to the minimum range');
+    await page.locator('#band-0-gain_db').fill('');
+    await page.locator('#curve-state').filter({hasText: '无有效曲线'}).waitFor();
+    assert.deepEqual(await geometry(), flatRange, 'invalid input retains the valid scale');
+    await page.locator('#band-0-gain_db').fill('-2.3');await valid();
+    const negativeRange = await geometry();
+    assert(negativeRange.min < -2.3 && negativeRange.max > 0, 'negative gains and zero have headroom');
+    const bounds = await page.locator('.total-curve,.band-curve').evaluateAll((nodes) => nodes.map((node) => {
+      const box = node.getBBox();return {min: box.y, max: box.y + box.height};
+    }));
+    assert(bounds.every((box) => box.min >= 18 && box.max <= 316), 'every rendered curve fits');
+    await page.locator('#chart-wrap').screenshot({path: '/tmp/echo-auto-range-mobile.png'});
     assert.deepEqual(errors, []);assert.deepEqual(deviceRequests, []);
-    console.log('PASS: live frequency/gain/Q or shelf slope readout on selection/drag/wheel/type change; desktop/mobile edge positioning and delete hide; independent handles and accurate shelf connectors remain stable; no USB operations.');
+    console.log('PASS: dynamic axis expansion/contraction, reset/undo/redo and invalid input, small/negative gains, fixed drag scale, exact handles/shelf connectors, desktop/mobile readouts; no USB operations.');
   } finally { await browser.close(); }
 })().catch((error) => { console.error(error);process.exitCode = 1; });

@@ -1,1 +1,0 @@
-Expected one ECHO-B; found 0

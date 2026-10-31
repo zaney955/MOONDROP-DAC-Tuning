@@ -9,7 +9,8 @@ let lastError = '', showErrors = false;
 let chartGeometry, chartRange = null, chartDrag = null, dragPreviewTimer, dragPreviewInFlight = false;
 let qWheelInput = null;
 let selectedBand = null;
-let resetUndo = null;
+let historyEntries = [], historyIndex = -1, historyGroup = null, historyAt = 0, historyPaused = false;
+const HISTORY_LIMIT = 100;
 let previewFilterRefs = [];
 const CHART_HEIGHT = 360, PLOT_TOP = 18, PLOT_BOTTOM = 316, PLOT_HEIGHT = PLOT_BOTTOM - PLOT_TOP;
 const formatDb = (v) => `${v > 0 ? '+' : ''}${v.toFixed(2)} dB`;
@@ -48,6 +49,7 @@ function tryAutoReload() {
     const rawValues = Object.fromEntries([...$('#settings').querySelectorAll('input,textarea,select')]
       .filter((control) => control.id).map((control) => [control.id, control.value]));
     sessionStorage.setItem(reloadDraftKey, JSON.stringify({schema: 1, doc, baseline, activePreset, selectedBand, rawValues,
+      history: {entries: historyEntries, index: historyIndex},
       rate: $('#rate').value, scrollY, focusId: document.activeElement?.id,
       focusedBand: document.activeElement?.dataset?.band}));
   } catch {
@@ -71,6 +73,8 @@ async function watchServerVersion() {
     if (state.version !== clientVersion) pendingVersion = state.version;
     $('#apply').disabled = busy || reloadWaiting;
     $('#verify').disabled = busy || !canVerify || reloadWaiting;
+    updateHistoryControls();
+    updateResetControls();
     tryAutoReload();
   } catch {
     // The listening socket may briefly disappear during exec. Never resend a
@@ -96,6 +100,16 @@ function recoverReloadDraft() {
   });
   if ([...$('#rate').options].some((option) => option.value === saved.rate)) $('#rate').value = saved.rate;
   changed();
+  const savedHistory = saved.history;
+  if (Array.isArray(savedHistory?.entries) && savedHistory.entries.length <= HISTORY_LIMIT
+    && Number.isInteger(savedHistory.index) && savedHistory.index >= 0 && savedHistory.index < savedHistory.entries.length
+    && savedHistory.entries.every((entry) => entry?.doc?.device === 'MOONDROP ECHO-B'
+      && Array.isArray(entry.doc.filters) && entry.doc.filters.length <= 8)
+    && JSON.stringify(savedHistory.entries[savedHistory.index].doc) === JSON.stringify(doc)) {
+    historyEntries = savedHistory.entries;
+    historyIndex = savedHistory.index;
+    updateHistoryControls();
+  }
   sessionStorage.removeItem(reloadDraftKey);
   notify('代码已更新，已恢复当前草稿；尚未写入耳放。');
   requestAnimationFrame(() => {
@@ -120,17 +134,24 @@ function setDocument(value, presetId = null) {
   $('#chart-readout').hidden = true;
   baseline = JSON.stringify(doc);
   activePreset = presetId;
-  $('#name').value = doc.name;
-  $('#description').value = doc.description || '';
-  $('#output').value = doc.output_gain_db;
-  $('#output-slider').value = doc.output_gain_db;
+  historyEntries = [];
+  historyIndex = -1;
+  historyGroup = null;
+  syncDocumentInputs();
   renderBands();
   showErrors = false;
   changed();
 }
 
-function changed() {
-  resetUndo = null;
+function syncDocumentInputs() {
+  $('#name').value = doc.name;
+  $('#description').value = doc.description || '';
+  $('#output').value = doc.output_gain_db;
+  $('#output-slider').value = doc.output_gain_db;
+}
+
+function changed(group = null, replaceHistory = false) {
+  recordHistory(group, replaceHistory);
   updateResetControls();
   lastEditAt = performance.now();
   revision++;
@@ -148,6 +169,63 @@ function changed() {
   clearTimeout(timer);
   if (chartDrag) scheduleDragPreview();
   else timer = setTimeout(() => validateCurrent(), 120);
+}
+
+function updateHistoryControls() {
+  const blocked = busy || reloadWaiting || !!chartDrag;
+  $('#undo').disabled = blocked || historyIndex <= 0;
+  $('#redo').disabled = blocked || historyIndex >= historyEntries.length - 1;
+}
+
+function recordHistory(group = null, replace = false) {
+  if (historyPaused || chartDrag || !doc) return;
+  const current = historyEntries[historyIndex];
+  if (current && JSON.stringify(current.doc) === JSON.stringify(doc)) return;
+  const entry = {doc: structuredClone(doc), selectedBand};
+  const now = performance.now();
+  const merge = group !== null && group === historyGroup && now - historyAt < 750;
+  historyEntries.splice(historyIndex + 1);
+  if (historyIndex >= 0 && (replace || (merge && historyIndex > 0))) historyEntries[historyIndex] = entry;
+  else {
+    historyEntries.push(entry);
+    if (historyEntries.length > HISTORY_LIMIT) historyEntries.shift();
+    historyIndex = historyEntries.length - 1;
+  }
+  historyGroup = group;
+  historyAt = now;
+  updateHistoryControls();
+}
+
+function moveHistory(direction) {
+  if (busy || reloadWaiting || !doc) return;
+  finishChartDrag();
+  const next = historyIndex + direction;
+  if (next < 0 || next >= historyEntries.length) return;
+  const focused = document.activeElement;
+  const focusId = focused?.id;
+  const bandField = focusId?.match(/^(band-|type-|frequency-slider-|gain-slider-)\d+(.*)$/);
+  const selection = typeof focused?.selectionStart === 'number'
+    ? [focused.selectionStart, focused.selectionEnd] : null;
+  historyIndex = next;
+  const entry = historyEntries[historyIndex];
+  historyPaused = true;
+  doc = structuredClone(entry.doc);
+  selectedBand = Number.isInteger(entry.selectedBand) && doc.filters[entry.selectedBand] ? entry.selectedBand : null;
+  qWheelInput = null;
+  syncDocumentInputs();
+  renderBands();
+  changed();
+  drawChart();
+  historyPaused = false;
+  historyGroup = null;
+  updateHistoryControls();
+  const targetId = bandField && selectedBand !== null ? `${bandField[1]}${selectedBand}${bandField[2]}` : focusId;
+  const target = document.getElementById(targetId);
+  const fallback = selectedBand !== null ? $(`.chart-handle[data-band="${selectedBand}"]`) : $('#add');
+  const focus = target && !target.disabled ? target : fallback;
+  focus?.focus({preventScroll: true});
+  if (selection && focus === target) target.setSelectionRange(...selection);
+  notify(direction < 0 ? '已撤销上一步编辑；尚未写入耳放。' : '已重做上一步编辑；尚未写入耳放。');
 }
 
 function validationError(error) {
@@ -228,7 +306,7 @@ function numberField(index, property, title, attributes, unit) {
     qWheelInput = null;
     const value = input.value === '' ? NaN : input.valueAsNumber;
     doc.filters[index][property] = value;
-    changed();
+    changed(`input:${id}`);
   });
   return {wrapper, input};
 }
@@ -283,7 +361,7 @@ function renderBands(focusIndex = null) {
       filter.frequency_hz = Math.round(20 * 1000 ** Number(freqSlider.value));
       freq.input.value = filter.frequency_hz;
       freqSlider.setAttribute('aria-valuetext', `${filter.frequency_hz} Hz`);
-      changed();
+      changed(`input:frequency-slider-${index}`);
     });
     // Arrow keys adjust exact integer Hz, rather than the logarithmic slider's
     // default percentage step. The number field also accepts every integer Hz.
@@ -295,8 +373,8 @@ function renderBands(focusIndex = null) {
       freq.input.value = filter.frequency_hz;
       freqSlider.value = Math.log(filter.frequency_hz / 20) / Math.log(1000);
       freqSlider.setAttribute('aria-valuetext', `${filter.frequency_hz} Hz`);
-      changed();
-      if (sortFilters()) changed();
+      changed(`key:frequency-slider-${index}`);
+      if (sortFilters()) changed(null, true);
     });
     freq.input.addEventListener('input', () => {
       if (freq.input.validity.valid) {
@@ -308,7 +386,8 @@ function renderBands(focusIndex = null) {
     const commitFrequency = () => {
       if (!freq.input.validity.valid) return;
       setTimeout(() => {
-        if (sortFilters()) { changed(); drawChart(); }
+        if (!doc.filters.includes(filter)) return;
+        if (sortFilters()) { changed(null, true); drawChart(); }
       }, 0);
     };
     freq.input.addEventListener('change', commitFrequency);
@@ -324,7 +403,7 @@ function renderBands(focusIndex = null) {
     gainSlider.addEventListener('input', () => {
       filter.gain_db = Number(gainSlider.value);
       gain.input.value = filter.gain_db;
-      changed();
+      changed(`input:gain-slider-${index}`);
     });
     gain.input.addEventListener('input', () => {
       if (gain.input.validity.valid) syncGain();
@@ -349,6 +428,8 @@ function selectBand(index) {
   if (selectedBand === index) return;
   finishChartDrag(true);
   selectedBand = index;
+  historyGroup = null;
+  if (historyEntries[historyIndex]) historyEntries[historyIndex].selectedBand = index;
   renderBands();
   drawChart();
 }
@@ -394,8 +475,6 @@ function updateResetControls() {
   const selected = doc?.filters[selectedBand];
   $('#reset-band').disabled = busy || reloadWaiting || !selected || selected.gain_db === 0;
   $('#reset-eq').disabled = busy || reloadWaiting || !doc?.filters.some((filter) => filter.gain_db !== 0);
-  $('#undo-reset').hidden = !resetUndo;
-  $('#undo-reset').disabled = busy || reloadWaiting || !resetUndo;
 }
 
 function resetGains(all = false) {
@@ -403,16 +482,13 @@ function resetGains(all = false) {
   finishChartDrag(true);
   const targets = (all ? doc.filters : [doc.filters[selectedBand]]).filter((filter) => filter.gain_db !== 0);
   if (!targets.length) return;
-  const previous = targets.map((filter) => ({filter, gain: filter.gain_db}));
   targets.forEach((filter) => { filter.gain_db = 0; });
   renderBands();
   changed();
-  resetUndo = previous;
-  updateResetControls();
   drawChart();
-  $('#undo-reset').focus({preventScroll: true});
-  notify(all ? '已将全部 EQ 增益归零，整体输出保持不变。可撤销重置；尚未写入耳放。'
-    : `已将第 ${selectedBand + 1} 段增益归零。可撤销重置；尚未写入耳放。`);
+  $('#undo').focus({preventScroll: true});
+  notify(all ? '已将全部 EQ 增益归零，整体输出保持不变。可撤销；尚未写入耳放。'
+    : `已将第 ${selectedBand + 1} 段增益归零。可撤销；尚未写入耳放。`);
 }
 
 function chartHandleAt(event) {
@@ -434,7 +510,7 @@ function svgElement(name, attributes = {}, content) {
   return element;
 }
 
-function syncChartFilter(index, frequency, gain) {
+function syncChartFilter(index, frequency, gain, group = null) {
   const filter = doc.filters[index];
   frequency = Math.max(20, Math.min(20000, Math.round(frequency)));
   gain = Math.round(gain * 10) / 10;
@@ -450,7 +526,7 @@ function syncChartFilter(index, frequency, gain) {
   gainSlider.min = Math.min(-24, gain);
   gainSlider.max = Math.max(24, gain);
   gainSlider.value = gain;
-  changed();
+  changed(group);
   return true;
 }
 
@@ -500,8 +576,13 @@ function finishChartDrag(cancelled = false) {
   dragPreviewTimer = null;
   const surface = $('#chart-wrap');
   if (surface.hasPointerCapture(gesture.pointerId)) surface.releasePointerCapture(gesture.pointerId);
+  const wasPaused = historyPaused;
+  historyPaused = true;
   if (cancelled && doc.filters[gesture.index]) syncChartFilter(gesture.index, gesture.frequency, gesture.gain);
   if (!cancelled && gesture.moved && sortFilters()) changed();
+  historyPaused = wasPaused;
+  if (!cancelled) recordHistory();
+  updateHistoryControls();
   showErrors = true;
   clearTimeout(timer);
   drawChart();
@@ -513,6 +594,7 @@ $('#chart-wrap').addEventListener('pointerdown', (event) => {
   if (!handle || busy || chartDrag || event.button !== 0 || !event.isPrimary || !chartGeometry) return;
   const index = Number(handle.dataset.band);
   selectBand(index);
+  historyGroup = null;
   const filter = doc.filters[index];
   if (!Number.isFinite(filter.frequency_hz) || !Number.isFinite(filter.gain_db)) return;
   event.preventDefault();
@@ -522,6 +604,7 @@ $('#chart-wrap').addEventListener('pointerdown', (event) => {
     origin: chartPosition(event, chartGeometry), frequency: filter.frequency_hz,
     gain: filter.gain_db, pointY: Number(handle.dataset.y)};
   $('#chart-wrap').setPointerCapture(event.pointerId);
+  updateHistoryControls();
   drawChart();
 });
 $('#chart-wrap').addEventListener('pointermove', (event) => {
@@ -571,8 +654,8 @@ $('#chart-wrap').addEventListener('keydown', (event) => {
   const gainStep = event.shiftKey ? 1 : .1;
   showErrors = true;
   syncChartFilter(index, filter.frequency_hz + (event.key === 'ArrowRight' ? frequencyStep : event.key === 'ArrowLeft' ? -frequencyStep : 0),
-    filter.gain_db + (event.key === 'ArrowUp' ? gainStep : event.key === 'ArrowDown' ? -gainStep : 0));
-  if (sortFilters()) changed();
+    filter.gain_db + (event.key === 'ArrowUp' ? gainStep : event.key === 'ArrowDown' ? -gainStep : 0), `key:band-${index}:${event.key}`);
+  if (sortFilters()) changed(null, true);
   drawChart();
 });
 
@@ -621,7 +704,7 @@ $('#chart-handles').addEventListener('wheel', (event) => {
   $(`#band-${index}-q`).value = q;
   $(`#q-note-${index}`).textContent = '正在计算实际 Q…';
   showErrors = true;
-  changed();
+  changed(`wheel:band-${index}`);
   drawChart();
   $('#curve-state').textContent = `第 ${index + 1} 段 · Q ${q} · ${steps < 0 ? '更窄' : '更宽'}`;
 }, {passive: false});
@@ -637,6 +720,23 @@ $('#fit-chart').addEventListener('click', () => {
   drawChart();
 });
 
+function fitCurveRange(curves, filters = doc.filters) {
+  const values = [0, ...curves.total, ...curves.bands.flat(), ...filters.map((filter) => filter.gain_db)]
+    .filter(Number.isFinite);
+  const low = Math.min(...values), high = Math.max(...values);
+  const padding = Math.max(1, (high - low) * .1);
+  const center = (low + high) / 2;
+  const lower = low - padding, upper = high + padding;
+  // Seven readable ticks, with enough headroom for points as well as curves.
+  const unit = 10 ** Math.floor(Math.log10(Math.max(1, (upper - lower) / 6)));
+  for (const factor of [1, 2, 2.5, 3, 4, 5, 6, 8, 10, 20]) {
+    const step = factor * unit;
+    const min = (Math.round(center / step) - 3) * step;
+    const max = min + 6 * step;
+    if (min <= lower + 1e-9 && max >= upper - 1e-9) return {min, max};
+  }
+}
+
 function drawChart() {
   if (!previewData) return;
   const svg = $('#chart');
@@ -646,13 +746,10 @@ function drawChart() {
   svg.setAttribute('viewBox', `0 0 ${width} ${CHART_HEIGHT}`);
   const rate = $('#rate').value;
   const curves = previewData.curves[rate];
-  // Keep the scale stable across compiler replies and gesture release, too:
-  // automatic rescaling would make untouched handles appear to move again.
-  if (!chartRange) {
-    const all = [...curves.total, ...curves.bands.flat(),
-      ...doc.filters.map((filter) => filter.gain_db).filter(Number.isFinite)];
-    chartRange = {min: Math.floor(Math.min(-24, ...all) / 6) * 6 - 3,
-      max: Math.ceil(Math.max(24, ...all) / 6) * 6 + 3};
+  // Fit each valid preview, but retain the gesture's dB/pixel mapping until
+  // release. Pending or invalid previews keep the last useful scale, too.
+  if (!chartDrag && (validatedRevision === revision || !chartRange)) {
+    chartRange = fitCurveRange(curves, validatedRevision === revision ? doc.filters : previewData.preset.filters);
   }
   const {min, max} = chartRange;
   chartGeometry = {width, right, span, min, max};
@@ -671,7 +768,7 @@ function drawChart() {
   const grid = svgElement('g');
   for (let i = 0; i <= 6; i++) {
     const db = max - (max - min) * i / 6;
-    grid.append(svgElement('line', {x1: 52, x2: right, y1: y(db), y2: y(db), class: 'grid'}), svgElement('text', {x: 41, y: y(db) + 4, 'text-anchor': 'end'}, `${Math.round(db)}`));
+    grid.append(svgElement('line', {x1: 52, x2: right, y1: y(db), y2: y(db), class: 'grid'}), svgElement('text', {x: 41, y: y(db) + 4, 'text-anchor': 'end'}, `${Number(db.toFixed(2))}`));
   }
   const ticks = width < 350 ? [20, 100, 1000, 20000] : width < 500 ? [20, 100, 1000, 10000, 20000] : [20, 50, 100, 200, 500, 1000, 2000, 5000, 10000, 20000];
   ticks.forEach((frequency) => {
@@ -807,6 +904,7 @@ function setBusy(value) {
   $('#add').disabled = value || !doc || doc.filters.length >= 8;
   $('#delete').disabled = value || selectedBand === null;
   updateResetControls();
+  updateHistoryControls();
   $('#import').disabled = value;
   $('#new').disabled = value;
   document.querySelectorAll('.preset').forEach((button) => { button.disabled = value; });
@@ -875,19 +973,19 @@ $('#settings').addEventListener('keydown', (event) => {
 });
 $('#settings').addEventListener('change', () => { showErrors = true; if (lastError) validationError(new Error(lastError)); });
 $('#settings').addEventListener('focusout', () => { showErrors = true; if (lastError) validationError(new Error(lastError)); });
-$('#name').addEventListener('input', () => { doc.name = $('#name').value; changed(); });
-$('#description').addEventListener('input', () => { doc.description = $('#description').value; changed(); });
+$('#name').addEventListener('input', () => { doc.name = $('#name').value; changed('input:name'); });
+$('#description').addEventListener('input', () => { doc.description = $('#description').value; changed('input:description'); });
 $('#output').addEventListener('input', () => {
   doc.output_gain_db = $('#output').value === '' ? NaN : $('#output').valueAsNumber;
   if ($('#output').validity.valid) $('#output-slider').value = doc.output_gain_db;
-  changed();
+  changed('input:output');
 });
 $('#output-slider').addEventListener('input', () => {
   doc.output_gain_db = Math.round(Number($('#output-slider').value) * 100) / 100;
   // Preserve exact valid endpoints instead of rounding them beyond the limits.
   doc.output_gain_db = Math.max(Number($('#output').min), Math.min(Number($('#output').max), doc.output_gain_db));
   $('#output').value = doc.output_gain_db;
-  changed();
+  changed('input:output-slider');
 });
 $('#rate').addEventListener('change', () => { finishChartDrag(true); drawChart(); });
 $('#add').addEventListener('click', () => {
@@ -910,14 +1008,35 @@ $('#delete').addEventListener('click', () => {
 });
 $('#reset-band').addEventListener('click', () => resetGains());
 $('#reset-eq').addEventListener('click', () => resetGains(true));
-$('#undo-reset').addEventListener('click', () => {
-  if (busy || reloadWaiting || !resetUndo) return;
-  resetUndo.forEach(({filter, gain}) => { filter.gain_db = gain; });
-  renderBands();
-  changed();
-  drawChart();
-  $('#reset-eq').focus({preventScroll: true});
-  notify('已撤销重置，恢复之前的增益；尚未写入耳放。');
+$('#undo').addEventListener('click', () => moveHistory(-1));
+$('#redo').addEventListener('click', () => moveHistory(1));
+const macShortcuts = /Mac|iPhone|iPad/.test(navigator.platform);
+$('#undo kbd').textContent = macShortcuts ? '⌘Z' : 'Ctrl+Z';
+$('#redo kbd').textContent = macShortcuts ? '⇧⌘Z' : 'Ctrl+Y';
+$('#undo').title = macShortcuts ? '撤销上一步编辑（⌘Z）' : '撤销上一步编辑（Ctrl+Z）';
+$('#redo').title = macShortcuts ? '重做上一步编辑（⇧⌘Z）' : '重做上一步编辑（Ctrl+Y / Ctrl+Shift+Z）';
+document.addEventListener('keydown', (event) => {
+  if (event.isComposing || event.altKey || (!event.metaKey && !event.ctrlKey)) return;
+  const key = event.key.toLowerCase();
+  const direction = key === 'z' ? (event.shiftKey ? 1 : -1)
+    : key === 'y' && event.ctrlKey && !event.metaKey && !event.shiftKey ? 1 : 0;
+  if (!direction) return;
+  const editable = event.target.closest('input,textarea,[contenteditable]');
+  if (editable && !$('#settings').contains(editable)) return;
+  event.preventDefault();
+  moveHistory(direction);
+});
+// Also keep browser Edit-menu undo in sync with the document history.
+$('#settings').addEventListener('beforeinput', (event) => {
+  if (event.isComposing || !['historyUndo', 'historyRedo'].includes(event.inputType)) return;
+  event.preventDefault();
+  moveHistory(event.inputType === 'historyUndo' ? -1 : 1);
+});
+document.addEventListener('pointerdown', () => { historyGroup = null; }, true);
+document.addEventListener('pointerup', () => { historyGroup = null; });
+document.addEventListener('focusout', () => { historyGroup = null; });
+document.addEventListener('keyup', (event) => {
+  if (event.key.startsWith('Arrow')) historyGroup = null;
 });
 $('#new').addEventListener('click', () => {
   if (!discardAllowed()) return;

@@ -1,8 +1,0 @@
-{
-  "version": 1,
-  "device": "MOONDROP ECHO-B",
-  "name": "原始默认（未调音、无输出衰减）",
-  "description": "依据 2026-10-29 首次连接时的原始备份：模式 0，9 段直通，output_gain_db 为 0 dB。恢复初始 EQ 与数字增益；不是整机恢复出厂或完整闪存镜像。",
-  "output_gain_db": 0,
-  "filters": []
-}

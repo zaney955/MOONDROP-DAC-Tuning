@@ -1,4 +1,5 @@
 """Reproduce Kadenz descriptive statistics and offline EQ checks; no USB I/O."""
+import argparse
 import bisect
 import cmath
 import csv
@@ -47,8 +48,11 @@ def response_db(rows, frequency, fs):
     return 20*math.log10(abs(h))
 
 
-def analyze_listening_preset():
-    source = ROOT/'presets/kadenz-death-metal-structure-v1.json'
+def analyze_listening_preset(source=None):
+    source = (Path(source) if source is not None else
+              ROOT/'presets/kadenz-death-metal-structure-v1.json').resolve()
+    output_stem = source.stem.removeprefix('kadenz-')
+    OUT.mkdir(parents=True, exist_ok=True)
     raw = source.read_bytes()
     plan, binary = compile_preset(json.loads(raw))
     # A denser grid than the compiler's 601-point check; no hardware claims.
@@ -81,8 +85,8 @@ def analyze_listening_preset():
             result['rates'][fs]['tone_bands'].append(dict(
                 low_hz=lo, high_hz=hi, mean_gain_db=mean_log(grid, tone, lo, hi),
                 min_gain_db=min(values), max_gain_db=max(values)))
-    (OUT/'death-metal-structure-v1.json').write_text(json.dumps(result, ensure_ascii=False, indent=2)+'\n')
-    with (OUT/'death-metal-structure-v1.csv').open('w', newline='') as file:
+    (OUT/f'{output_stem}.json').write_text(json.dumps(result, ensure_ascii=False, indent=2)+'\n')
+    with (OUT/f'{output_stem}.csv').open('w', newline='') as file:
         writer = csv.writer(file, lineterminator='\n')
         writer.writerow(['frequency_hz'] + [f'tone_{fs}_db' for fs in rows_by_rate])
         writer.writerows([f] + [tones[fs][i] for fs in rows_by_rate] for i, f in enumerate(grid))
@@ -153,4 +157,12 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--preset', type=Path,
+                        help='Analyze only this preset; leave other reports unchanged')
+    args = parser.parse_args()
+    if args.preset is not None:
+        analyze_listening_preset(args.preset)
+        print(OUT)
+    else:
+        main()
