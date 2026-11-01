@@ -17,7 +17,7 @@ from preset import ROOT, SCALE, compile_preset, read_coefficients, OUTPUT_GAIN_M
 
 class PresetTests(unittest.TestCase):
     def setUp(self):
-        self.doc = json.loads((ROOT/'presets/original-default.json').read_text())
+        self.doc = json.loads((ROOT/'presets/echo-b/general/original-default.json').read_text())
         self.doc['output_gain_db'] = -2  # Synthetic attenuation fixture, not a user preset.
 
     def test_global_attenuation_is_flat_at_all_rates_and_encoded(self):

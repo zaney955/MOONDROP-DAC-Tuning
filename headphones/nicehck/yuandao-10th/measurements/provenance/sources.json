@@ -1,0 +1,86 @@
+{
+  "version": 1,
+  "model": "NICEHCK YUANDAO 10th Anniversary Edition",
+  "files": [
+    {
+      "file": "../raw/04_77e0b5d5-8582-4b31-8e94-233ead9c9a2b.jpg",
+      "url": "https://cdn.shopify.com/s/files/1/0865/0850/3331/files/04_77e0b5d5-8582-4b31-8e94-233ead9c9a2b.jpg?v=1773218492",
+      "source_page": "https://www.nicehck.com/products/yuandao-10th",
+      "retrieved_at_utc": "2026-11-01T04:48:20.449440+00:00",
+      "bytes": 223834,
+      "sha256": "a7d0b2bf157504ed7334c9c51136ae5a717c43c6e1b0df514696ab9ab110a27d",
+      "role": "driver-material",
+      "processing": "none; original downloaded bytes"
+    },
+    {
+      "file": "../raw/06_15b37029-c621-4a3d-bb60-f66028fc9bbb.jpg",
+      "url": "https://cdn.shopify.com/s/files/1/0865/0850/3331/files/06_15b37029-c621-4a3d-bb60-f66028fc9bbb.jpg?v=1773218463",
+      "source_page": "https://www.nicehck.com/products/yuandao-10th",
+      "retrieved_at_utc": "2026-11-01T04:48:20.449997+00:00",
+      "bytes": 117970,
+      "sha256": "f33afca9e0d57c1fe81b5152fd86b82b8d1207d466d5c1be296c5fc40aafa09e",
+      "role": "frequency-response-unfoamed-3.5mm-no-mic-5128",
+      "processing": "none; original downloaded bytes"
+    },
+    {
+      "file": "../raw/07_5da945f6-a44e-42d0-b966-53d07ed656b5.jpg",
+      "url": "https://cdn.shopify.com/s/files/1/0865/0850/3331/files/07_5da945f6-a44e-42d0-b966-53d07ed656b5.jpg?v=1773218492",
+      "source_page": "https://www.nicehck.com/products/yuandao-10th",
+      "retrieved_at_utc": "2026-11-01T04:48:20.450561+00:00",
+      "bytes": 206597,
+      "sha256": "ba8b6300898ed7094d529a25b72b7e8c91bb9538ad5b5b200e144e4c90b5518a",
+      "role": "type-c-dac-and-version-boundary",
+      "processing": "none; original downloaded bytes"
+    },
+    {
+      "file": "../raw/08_12470106-190e-429e-9eb9-590c17266da4.jpg",
+      "url": "https://cdn.shopify.com/s/files/1/0865/0850/3331/files/08_12470106-190e-429e-9eb9-590c17266da4.jpg?v=1773218480",
+      "source_page": "https://www.nicehck.com/products/yuandao-10th",
+      "retrieved_at_utc": "2026-11-01T04:48:20.451762+00:00",
+      "bytes": 185399,
+      "sha256": "34f475fca82f1af5ad0f4a08d2b71d6bf12c4850be77a1b43a0636d67b2de3ad",
+      "role": "type-c-peq-and-platform-limit",
+      "processing": "none; original downloaded bytes"
+    },
+    {
+      "file": "../raw/10_012a0281-c032-4656-9d4f-7689cba48feb.jpg",
+      "url": "https://cdn.shopify.com/s/files/1/0865/0850/3331/files/10_012a0281-c032-4656-9d4f-7689cba48feb.jpg?v=1773218474",
+      "source_page": "https://www.nicehck.com/products/yuandao-10th",
+      "retrieved_at_utc": "2026-11-01T04:48:20.452150+00:00",
+      "bytes": 138412,
+      "sha256": "4da502e43664f5d0212c34474622f9401cb221bc5b406a5eae68da12aec8cfa5",
+      "role": "specifications",
+      "processing": "none; original downloaded bytes"
+    },
+    {
+      "file": "../raw/12_4bfb0b4b-2e94-43aa-b5e0-4c67fc74e7e0.jpg",
+      "url": "https://cdn.shopify.com/s/files/1/0865/0850/3331/files/12_4bfb0b4b-2e94-43aa-b5e0-4c67fc74e7e0.jpg?v=1773218483",
+      "source_page": "https://www.nicehck.com/products/yuandao-10th",
+      "retrieved_at_utc": "2026-11-01T04:48:20.452524+00:00",
+      "bytes": 187763,
+      "sha256": "cf74ad6d876dd91d6e32561fb03140dbd58ad715ecd40818f12121bc2145cce2",
+      "role": "foam-cover-instructions",
+      "processing": "none; original downloaded bytes"
+    }
+  ],
+  "measurement_data_status": {
+    "raw_numeric_fr": false,
+    "covered_foam_fr": false,
+    "personal_in_ear_fr": false,
+    "note": "Official plotted response only; no numeric samples or target-fit data generated."
+  },
+  "other_sources": [
+    {
+      "url": "https://www.nicehck.com/pages/app",
+      "role": "app availability, Android and iOS 17.0+; app installation is distinct from wired DSP support"
+    },
+    {
+      "url": "https://www.sina.cn/news/detail/5320954000443606.html",
+      "role": "manufacturer original post on Sina, 2026-07-15; presets announced for App 2.3.7; coefficients not published in retrieved page"
+    },
+    {
+      "url": "https://www.bilibili.com/video/BV1d7XCB5EHP/",
+      "role": "first-party measurement video lead, 2026-04-01; video frames and raw data not acquired"
+    }
+  ]
+}

@@ -105,7 +105,7 @@ const fs = require('node:fs/promises');
     assert.equal(await page.locator('#type-1').inputValue(), 'low_shelf');
     assert.deepEqual(await fields(), {frequency: 120, gain: 1.5});
     await page.locator('#new').click();await valid();
-    // Output is -16 dB, but handles and new gains are independent of it.
+    // Output gain is omitted (unity); handles and new gains are independent of it.
     const first = await doubleClick(1000, -1.2);
     assert.equal(await page.locator('.chart-handle').count(), 1);
     let value = await fields();
@@ -125,7 +125,7 @@ const fs = require('node:fs/promises');
     assert(Math.abs(await pointDb() - third.db) < .15);
     await assertOrdered();
     const created = await exportDoc();
-    assert.equal(created.output_gain_db, -16);
+    assert.equal(Object.hasOwn(created, 'output_gain_db'), false);
     assert.equal(created.filters.length, 3);
     assert.equal(created.filters[1].gain_db, firstGain, 'relabeling must retain the original filter gain');
     assert(created.filters.every((filter, index, all) => !index || filter.frequency_hz >= all[index - 1].frequency_hz));

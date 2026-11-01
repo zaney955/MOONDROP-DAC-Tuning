@@ -7,6 +7,7 @@ EQ 创建、设备写入与恢复的通用流程见[仓库操作指南](../docs/
 | 品牌 | 型号 | 资料入口 | 调音指南 |
 | --- | --- | --- | --- |
 | MOONDROP 水月雨 | Kadenz 终章 | [型号首页](moondrop/kadenz/README.md) | [声音特性与 EQ 指南](moondrop/kadenz/tuning-guide.md) |
+| NICEHCK / YUANDAO 原道 | 十周年纪念版平头耳机 | [型号资料与一手来源](nicehck/yuandao-10th/README.md) | [全包海绵试听起点与证据边界](nicehck/yuandao-10th/README.md#温和试听起点与历史验收) |
 
 新型号沿用以下结构，只建立实际需要的目录：
 

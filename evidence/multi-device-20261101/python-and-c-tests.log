@@ -1,0 +1,104 @@
+python3 -m unittest discover -s tools -p 'test_*.py'
+[read] 正在只读读取 ECHO-A 的参数、系数与前级
+[confirm_read] 正在再次读取，确认配置未改变
+[complete] 已读取 ECHO-A；未写入设备
+[before_read] 读取 ECHO-A 写入前备份
+[write] 正在发送 ECHO-A EQ 与提交序列；不自动重试
+[after_read] 提交序列已发送，正在重新打开连接只读核对
+[complete] ECHO-A 写入及读回核对通过；物理拔插保持未验证
+[after_read] 只读核对 ECHO-A 历史计划；不重新计算或发送 EQ
+[complete] ECHO-A 当前状态与计划匹配；本次未写入
+...[before_read] 读取 ECHO-A 写入前备份
+[write] 正在发送 ECHO-A EQ 与提交序列；不自动重试
+[after_read] 提交序列已发送，正在重新打开连接只读核对
+[complete] ECHO-A 写入及读回核对通过；物理拔插保持未验证
+.[before_read] 读取 ECHO-A 写入前备份
+[write] 正在发送 ECHO-A EQ 与提交序列；不自动重试
+[failed] 写入状态未确认，请只读复核，不要重复写入
+[after_read] 只读核对 ECHO-A 历史计划；不重新计算或发送 EQ
+[complete] ECHO-A 当前状态与计划匹配；本次未写入
+[before_read] 读取 ECHO-A 写入前备份
+[write] 正在发送 ECHO-A EQ 与提交序列；不自动重试
+[after_read] 提交序列已发送，正在重新打开连接只读核对
+[failed] 写入状态未确认，请只读复核，不要重复写入
+[after_read] 只读核对 ECHO-A 历史计划；不重新计算或发送 EQ
+[complete] ECHO-A 当前状态与计划匹配；本次未写入
+.......[before_read] 读取写入前状态；尚未发送 EQ 写入
+[write] 开始发送 EQ 保存序列；不会自动重试写入
+[after_read] 56 条操作及保存命令已确认；正在读取验证
+[verify] 核对已保存配置的模式、参数和当前运行系数
+[complete] 已写入并保存，读回验证通过；物理拔插尚未验证
+/var/folders/tr/99g7_krx42g8khsv553_r9p40000gn/T/tmp4vpqq6ve/runs/20261101T050101.815323Z-visual-editor/checks/20261101T050101.819069Z
+[after_read] 只读复核历史计划；不会发送 EQ 写入或保存命令
+[verify] 比较当前设备与历史计划，不重新计算滤波系数
+[complete] 当前运行状态与计划匹配；本次未写入，物理拔插需另行记录
+.....[before_read] 读取写入前状态；尚未发送 EQ 写入
+[write] 开始发送 EQ 保存序列；不会自动重试写入
+[after_read] 56 条操作及保存命令已确认；正在读取验证
+[after_read] 连接失效，正在重新连接 after/metadata（1/2）；仅查询和复核，不重发 EQ 或保存命令
+[after_read] 连接失效，正在重新连接 after/metadata（2/2）；仅查询和复核，不重发 EQ 或保存命令
+[verify] 核对已保存配置的模式、参数和当前运行系数
+[complete] 已写入并保存，重新读取后验证通过；物理拔插尚未验证
+[before_read] 读取写入前状态；尚未发送 EQ 写入
+[write] 开始发送 EQ 保存序列；不会自动重试写入
+[after_read] 56 条操作及保存命令已确认；正在读取验证
+[after_read] 连接失效，正在重新连接 after/metadata（1/2）；仅查询和复核，不重发 EQ 或保存命令
+[after_read] 连接失效，正在重新连接 after/metadata（2/2）；仅查询和复核，不重发 EQ 或保存命令
+[after_read] 保存命令已确认，但后续验证未完成或未通过；不要重复写入，请运行 verify
+[before_read] 读取写入前状态；尚未发送 EQ 写入
+[write] 开始发送 EQ 保存序列；不会自动重试写入
+[after_read] 56 条操作及保存命令已确认；正在读取验证
+[after_read] 连接失效，正在重新连接 after/metadata（1/2）；仅查询和复核，不重发 EQ 或保存命令
+[verify] 核对已保存配置的模式、参数和当前运行系数
+[verify] 保存命令已确认，但后续验证未完成或未通过；不要重复写入，请运行 verify
+.[read] 正在只读读取设备参数与实际系数
+[read] 连接失效，正在重新连接 current/metadata（1/2）；仅查询和复核，不重发 EQ 或保存命令
+[confirm_read] 正在再次读取，确认配置在采集期间保持一致
+[complete] 已读取当前设备配置；未写入设备
+.[read] 正在只读读取设备参数与实际系数
+[confirm_read] 正在再次读取，确认配置在采集期间保持一致
+[failed] 读取未完成，当前草稿已保留；未写入设备
+..[before_read] 读取写入前状态；尚未发送 EQ 写入
+[write] 开始发送 EQ 保存序列；不会自动重试写入
+[write] 写入已启动，可能已部分生效或保存结果未知；未自动回滚或重写
+.........[reload] 新代码检查失败，继续运行原版本：syntax fixture
+[reload] 代码已更新，设备操作已结束，正在重载服务…
+..[reload] 代码已更新，设备操作已结束，正在重载服务…
+..........................................
+----------------------------------------------------------------------
+Ran 73 tests in 4.979s
+
+OK
+bin/test_echo_probe
+{"command":90,"argument":90,"length":62,"hex":"01000d005a8100232db35a000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"}
+GetReport cmd=0x5a arg=90 recovered after 4 reads
+{"command":90,"argument":90,"length":62,"hex":"01000d005a8100232db35a000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"}
+GetReport cmd=0x5a arg=90: 0xe00002d8 (NotReady retry limit reached)
+GetReport cmd=0x5a arg=90: 0xe00002e2
+Unexpected reply; stopping without further requests
+Unexpected reply; stopping without further requests
+GetReport cmd=0x5a arg=90: 0x10000003
+SetReport: 0x10000003
+ACK recovered after 4 reads; write was not resent
+ACK read retry limit reached; write will NOT be resent
+GetReport ACK 0xe00002e2; STOP
+ACK read retry limit reached; write will NOT be resent
+GetReport ACK 0x10000003; STOP
+Probe and ACK retry fault tests passed (15 scenarios, no device access).
+bin/test_echo_gain_probe
+before_band8 GetReport 0xe00002e2
+backup (no write): File exists
+gain_test_ack GetReport 0xe00002e2
+restore_band9_ack SetReport 0xe00002e2
+Band 9 restoration unverified; band 8 remains silent. Run restore with the backup.
+Gain probe fault tests passed (8 scenarios, no device access).
+bin/test_echo_filter_probe
+before_band8 GetReport 0xe00002e2
+backup (no write): File exists
+filter_test_ack GetReport 0xe00002e2
+restore_band9_ack SetReport 0xe00002e2
+Band 9 restoration unverified; band 8 remains silent. Run restore with the backup.
+Invalid/out-of-range/unstable vector file; no device write.
+Filter probe fault tests passed (11 scenarios, no device access).
+bin/test_echo_a_hid
+ECHO-A frame validation passed

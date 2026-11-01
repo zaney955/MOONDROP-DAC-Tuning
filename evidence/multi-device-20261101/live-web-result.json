@@ -1,0 +1,124 @@
+{
+  "current": {
+    "version": 1,
+    "device": "MOONDROP ECHO-A",
+    "name": "当前设备调音",
+    "description": "ECHO-A 只读载入；Q30 系数与寄存器已核对，DSP 固定设计率 93750 Hz。",
+    "output_gain_db": -20,
+    "filters": [
+      {
+        "type": "low_shelf",
+        "frequency_hz": 110,
+        "q": 1,
+        "gain_db": 1
+      },
+      {
+        "type": "peak",
+        "frequency_hz": 1600,
+        "q": 1,
+        "gain_db": -1
+      }
+    ]
+  },
+  "applied": {
+    "job": {
+      "id": "c5ba2635f28d0dda",
+      "action": "apply",
+      "device": "MOONDROP ECHO-A",
+      "done": true,
+      "message": "设备操作已完成",
+      "run": "/Users/zane/Projects/reverse/ECHO-B-DAC-Amp-Tuning/runs/20261101T051320.634673Z-visual-editor",
+      "error": null,
+      "device_status": {
+        "action": "apply",
+        "stage": "complete",
+        "status": "saved_verified",
+        "write_attempted": true,
+        "save_command_acknowledged": false,
+        "readback_verified": true,
+        "physical_unplug_tested": false,
+        "device": "MOONDROP ECHO-A",
+        "message": "ECHO-A 写入及读回核对通过；物理拔插保持未验证",
+        "updated_at_utc": "20261101T051326.557287Z",
+        "commit_sequence_sent": true
+      }
+    },
+    "can_verify": true
+  },
+  "verified": {
+    "job": {
+      "id": "20fd2e66e342edac",
+      "action": "verify",
+      "device": "MOONDROP ECHO-A",
+      "done": true,
+      "message": "设备操作已完成",
+      "run": "/Users/zane/Projects/reverse/ECHO-B-DAC-Amp-Tuning/runs/20261101T051320.634673Z-visual-editor/checks/20261101T051430.437412Z",
+      "error": null,
+      "device_status": {
+        "action": "verify",
+        "stage": "complete",
+        "status": "readback_verified",
+        "write_attempted": false,
+        "save_command_acknowledged": false,
+        "readback_verified": true,
+        "physical_unplug_tested": false,
+        "source_run": "/Users/zane/Projects/reverse/ECHO-B-DAC-Amp-Tuning/runs/20261101T051320.634673Z-visual-editor",
+        "message": "ECHO-A 当前状态与计划匹配；本次未写入",
+        "updated_at_utc": "20261101T051431.659001Z"
+      }
+    },
+    "can_verify": true
+  },
+  "read": {
+    "job": {
+      "id": "55214b4485924763",
+      "action": "read",
+      "device": "MOONDROP ECHO-A",
+      "done": true,
+      "message": "设备操作已完成",
+      "run": "/Users/zane/Projects/reverse/ECHO-B-DAC-Amp-Tuning/runs/20261101T051431.997696Z-device-read",
+      "error": null,
+      "preset": {
+        "version": 1,
+        "device": "MOONDROP ECHO-A",
+        "name": "当前设备调音",
+        "description": "ECHO-A 只读载入；Q30 系数与寄存器已核对，DSP 固定设计率 93750 Hz。",
+        "output_gain_db": -20,
+        "filters": [
+          {
+            "type": "low_shelf",
+            "frequency_hz": 110,
+            "q": 1,
+            "gain_db": 1
+          },
+          {
+            "type": "peak",
+            "frequency_hz": 1600,
+            "q": 1,
+            "gain_db": -1
+          }
+        ]
+      },
+      "matching_sample_rates": [
+        93750
+      ],
+      "device_status": {
+        "action": "read",
+        "stage": "complete",
+        "status": "read_complete",
+        "write_attempted": false,
+        "save_command_acknowledged": false,
+        "readback_verified": false,
+        "physical_unplug_tested": false,
+        "device": "MOONDROP ECHO-A",
+        "message": "已读取 ECHO-A；未写入设备",
+        "updated_at_utc": "20261101T051434.480863Z",
+        "matching_sample_rates": [
+          93750
+        ]
+      }
+    },
+    "can_verify": true
+  },
+  "errors": []
+}

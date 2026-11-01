@@ -124,9 +124,7 @@ def compile_preset(doc):
         raise ValueError('Unknown fields, version or device')
     if not isinstance(doc.get('name'), str) or not doc['name'].strip():
         raise ValueError('name is required')
-    if 'output_gain_db' not in doc:
-        raise ValueError('预设缺少 output_gain_db；请明确填写整体输出数字增益，不会自动按 0 dB 写入')
-    output_gain_db = number(doc['output_gain_db'], OUTPUT_GAIN_MIN_DB, OUTPUT_GAIN_MAX_DB)
+    output_gain_db = number(doc.get('output_gain_db', 0), OUTPUT_GAIN_MIN_DB, OUTPUT_GAIN_MAX_DB)
     filters = doc['filters']
     if not isinstance(filters, list) or len(filters) > 8:
         raise ValueError('At most 8 filters; band 9 is reserved for overall output gain')
@@ -204,6 +202,11 @@ def resolve_preset(value):
     path = Path(value).expanduser()
     if not path.is_file():
         path = ROOT / 'presets' / (value.removesuffix('.json') + '.json')
+    if not path.is_file():
+        candidates = sorted((ROOT/'presets').rglob(Path(value).name.removesuffix('.json') + '.json'))
+        if len(candidates) != 1:
+            raise ValueError(f'找不到唯一预设：{value}；请使用分类路径')
+        path = candidates[0]
     return path.resolve()
 
 
@@ -382,10 +385,12 @@ def main():
     parser.add_argument('preset', nargs='?', help='preset name/JSON path; verify: historical run directory')
     args = parser.parse_args()
     if args.action == 'list':
-        for path in sorted((ROOT/'presets').glob('*.json')):
+        for path in sorted((ROOT/'presets').rglob('*.json')):
             doc = json.loads(path.read_text())
-            gain = doc.get('output_gain_db', '缺失，需补充')
-            print(f"{path.stem}: {doc['name']} (output_gain {gain} dB)")
+            if doc.get('device') != 'MOONDROP ECHO-B':
+                continue
+            gain = doc.get('output_gain_db', 0)
+            print(f"{path.relative_to(ROOT/'presets').with_suffix('')}: {doc['name']} (output_gain {gain} dB)")
         return
     if not args.preset:
         parser.error('build/apply requires a preset; verify requires a historical run directory')
@@ -412,7 +417,7 @@ def main():
     (directory/'plan.bin').write_bytes(binary)
     save_json(directory/'manifest.json', dict(plan_sha256=hashlib.sha256(binary).hexdigest(), source=str(source)))
     print(directory, flush=True)
-    print(f'整体输出数字增益 {doc["output_gain_db"]:g} dB', flush=True)
+    print(f'整体输出数字增益 {doc.get("output_gain_db", 0):g} dB', flush=True)
     maximum = max(r['max_gain_db'] for r in plan['response_check'].values())
     print(f'20 Hz–20 kHz sampled peak: {maximum:.6f} dB', flush=True)
     if maximum > 0:

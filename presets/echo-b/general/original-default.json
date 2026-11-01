@@ -1,0 +1,8 @@
+{
+  "version": 1,
+  "device": "MOONDROP ECHO-B",
+  "name": "原始音色 · 默认基准",
+  "description": "依据首次连接备份的原始直通音色，保留频响形状；当前整体数字增益为0 dB，由用户自行调整。不是整机恢复出厂或完整闪存镜像。",
+  "output_gain_db": 0,
+  "filters": []
+}

@@ -1,8 +1,10 @@
 # Kadenz：Riff 线条与适度冲击 V4
 
+本文保留原设计与分析条件；现行文件和历史报告的区别见[型号索引](../README.md#预设与分析报告)。
+
 希望吉他 riff 的音高、节奏和推进容易跟住，鼓与贝斯有适度重量，同时保留密集编曲中的层次。这份配置只少量补充低频支撑，主要提升集中在 60–120 Hz；不额外堆高中低频，也不预设要削弱吉他的存在感。
 
-2026-10-31 定制试听起点：[配置 JSON](../../../../presets/kadenz-riff-impact-v4.json)。已完成离线编译与全频段响应检查，未向设备写入、未试听、未进行模拟输出测量。V4 表示另存的新方案，不表示听感已优于 V3。
+2026-10-31 定制试听起点：[配置 JSON](../../../../presets/echo-b/moondrop/kadenz/kadenz-riff-impact-v4.json)。已完成离线编译与全频段响应检查，未向设备写入、未试听、未进行模拟输出测量。V4 表示另存的新方案，不表示听感已优于 V3。
 
 ## 整理后的听音偏好
 
@@ -78,7 +80,7 @@
 
 ```sh
 python3 tools/preset.py build kadenz-riff-impact-v4
-python3 tools/analyze_kadenz.py --preset presets/kadenz-riff-impact-v4.json
+python3 tools/analyze_kadenz.py --preset presets/echo-b/moondrop/kadenz/kadenz-riff-impact-v4.json
 ```
 
 ## 录音与设备影响、试听方法

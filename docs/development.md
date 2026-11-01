@@ -1,62 +1,67 @@
-# 开发指南
+# 架构与开发
 
-用户操作见[首页](../README.md)。本项目使用 Python 标准库提供本地 HTTP 服务，C 后端通过 macOS IOKit 通信，网页资源位于 `web/`。
+网页 `editor.py` 和统一 CLI `dac.py` 通过设备注册表分派。Python 标准库提供本机 HTTP 服务，C 后端通过 macOS IOKit 通信；用户操作见[首页](../README.md)。
 
-## 检查代码
+## 模块与设备扩展
 
-在仓库根目录运行：
+| 模块 | 职责 |
+| --- | --- |
+| `tools/devices.py` | 设备能力、编译、读写和复核适配器 |
+| `tools/dac.py` | 统一 CLI |
+| `tools/editor.py`、`web/` | 离线预览、HTTP 操作队列、草稿和图表 |
+| `tools/echo_a.py`、`echo_a_hid.c` | WalkPlay Q30、快照匹配、一次性提交及读回 |
+| `tools/echo_b.py` | 从 ECHO-B 系数精确恢复可编辑参数 |
+| `tools/preset.py`、原 ECHO-B C 程序 | Q22 编译、ACK 审计、历史计划及读取恢复 |
+
+新增设备实现 `capability/compile/build_targets/prepare/read/apply/verify_run`，注册后按 VID/PID 与报告布局严格匹配。各适配器拥有独立的系数、传输与保存规则，不能只改 USB ID。新增滤波器也须完成编译、精确读取恢复、边界测试和实机验收，才能加入能力表。
+
+输入约定集中在[预设格式](../presets/README.md)，型号范围集中在[设备参考](devices/README.md)。缺省整体增益按 0 dB 编译但不补入源文档；读取设备保留实际值。前后端分别验证，不能依赖浏览器限制。
+
+## 构建与测试
 
 ```sh
-make test
 make build
+make test
 git diff --check
 ```
 
-`make test` 包含 Python 回归和 C 故障注入，使用模拟设备 I/O，不访问 USB。`make build` 编译设备工具，不运行它们。自动测试不能替代实机读回、模拟输出测量或拔插验证。
+构建不运行设备工具；测试使用模拟 I/O，不能替代实机、模拟输出或断电验收。历史 ECHO-B 迁移样本在 `tools/fixtures/echo-b-legacy-output/`，不依赖可变的用户运行目录。
 
-可选浏览器回归需要能解析 `playwright` 的 Node 环境和本机 Chrome。先启动编辑器，再运行所需脚本；默认地址为 `http://127.0.0.1:8765`，可用 `EDITOR_URL` 指定端口，或用 `NODE_PATH` 指向已有依赖目录。
+浏览器回归需要已安装的 Playwright 和 Chrome。先启动编辑器，再设置 `EDITOR_URL` 指向该服务；可用 `NODE_PATH` 指向已有依赖目录，运行 `node tools/<脚本>`：
 
-| 脚本（位于 `tools/`） | 覆盖范围 |
+| 脚本 | 覆盖范围 |
 | --- | --- |
-| `test_editor_browser.cjs` | 输入、导入导出、拖动、触屏、滚轮与键盘 |
-| `test_editor_creation.cjs` | 新增、排序、焦点、导出顺序与段数上限 |
-| `test_editor_handles.cjs` | 控制点、单段曲线、总频响与显示范围 |
-| `test_editor_probe.cjs` | 曲线点数值、鼠标／键盘／真实触屏跟随、吸附与页面滚动 |
-| `test_editor_history.cjs` | 撤销重做、历史合并、无效输入与快捷键 |
-| `test_editor_recovery.cjs` | 模拟重连状态与结果显示 |
-| `test_editor_read.cjs` | 显式读取、取消、草稿载入、导出、失败保留与断线后查询（模拟设备） |
-| `test_editor_reload.cjs` | 临时项目副本中的服务重载、草稿和历史恢复、语法错误回退 |
+| `test_editor_devices.cjs` | 型号切换、能力、预设筛选、Q8.8 读取导出 |
+| `test_editor_optional_gain.cjs` | 省略增益、显式值、清空、导入导出、撤销重做 |
+| `test_editor_browser.cjs` | 输入、图表、导入导出、触屏与键盘 |
+| `test_editor_creation.cjs` | 新增、排序、选择与段数上限 |
+| `test_editor_handles.cjs` | 控制点、单段响应、自动范围与读数布局 |
+| `test_editor_probe.cjs` | 曲线吸附读数、滚动、鼠标和触屏 |
+| `test_editor_history.cjs` | 历史合并、重置、快捷键与无效输入 |
+| `test_editor_recovery.cjs` | 模拟重连与结果显示 |
+| `test_editor_read.cjs` | 显式读取、失败保留与断线查询 |
+| `test_editor_reload.cjs` | 临时副本中的服务重载和草稿恢复 |
 
-例如 `node tools/test_editor_browser.cjs`。这些脚本不启动真实设备写入；重载脚本自行启动临时副本服务。
+这些脚本不执行真实设备写入，重载脚本自行启动临时服务。已完成的检查与硬件边界见[2026-11-01 验证记录](validation-20261101.md)。
 
 ## 自动重载
 
-编辑器默认监听 `tools/` 的 Python／C 文件、`web/`、`presets/` JSON 和 `Makefile`。保存稳定约 0.6 秒后检查代码，再重启服务和页面；`runs/`、备份和编译产物不在监听范围内。使用 `python3 tools/editor.py --no-reload` 可关闭。
+默认监听 `tools/` 的 Python／C 文件、`web/`、预设 JSON 和 `Makefile`；稳定约 0.6 秒后检查语法与启动，再重启服务和页面。活动设备操作结束前不重载，检查失败保留旧服务；`--no-reload` 可关闭。
 
-每次服务启动固定代码及资源快照，旧页面的写入请求会在访问设备前被拒绝。重载等待设备操作结束，不中断或重发操作。Python 语法或导入错误会保留旧服务，安装了 Node 时还会检查 `web/app.js` 语法。
+服务固定资源快照并校验页面版本、Host、Origin 和会话令牌，仅监听 `127.0.0.1`。页面暂存草稿、原始输入、选中项、历史、设计率和滚动位置；持续编辑期间延后刷新。会话及上次操作结果随重载保留，网络错误只重新查询状态。
 
-页面使用本标签页的 `sessionStorage` 暂存草稿、无效输入、选中项、撤销历史、采样率与滚动位置。持续输入或拖动期间延迟刷新；存储不可用时保留页面并提示导出。服务重载保留会话令牌和上次操作状态；完全退出后，历史计划通过命令行复核。旧版不支持重载的页面需要先导出草稿，再手动刷新。
+## 计划、互斥与证据
 
-本地服务检查 Host、Origin、会话令牌和代码版本，不向局域网开放。状态轮询读取服务端记录，不查询 USB。
+日常入口共用 `.echo-b.lock`，内部名称为兼容旧 CLI 保留，外部 App 不受它控制。写入不自动重试；ECHO-B 的读取恢复见[协议说明](devices/echo-b-readback-recovery.md)。
 
-## 计划与证据
+计划保存 `preset.json`、`plan.json`、`plan.bin`、`manifest.json`。ECHO-A 离线编译为 EQA0；写前采集槽位与快照后生成 EQA1，C 程序再次匹配快照。ECHO-B 继续使用 56×62 字节序列。`verify` 检查完整性并比较保存的字节，不重新计算历史 EQ。
 
-编译目录包含源配置 `preset.json`、系数计划 `plan.json`、写入序列 `plan.bin` 和哈希 `manifest.json`。`response_check` 是量化系数的抽样响应检查。重新编译不保证跨编译器版本字节一致，因此 `verify` 直接核对历史计划。
+`response_check` 是量化系数的抽样检查；编译成功不证明内部无削波或模拟精度。`runs/`、`backups/` 和 `evidence/` 保留原始内容及旧路径；缓存按 [`.gitignore`](../.gitignore) 管理。改名后用新真实目录打开工作区，符号链接可供路径兼容，但不能作为 Codex 的可写工作区根。
 
-`runs/` 由设备操作生成，包含快照、ACK、状态和独立复核。`backups/`、`evidence/` 和测试用 `profiles/` 保存历史采集与分析依据，不代表新用户的设备状态。维护时保留原始证据；`bin/`、`profiles/compiled/`、Python 缓存按 [`.gitignore`](../.gitignore) 管理。
+## 资料复算与诊断
 
-只读诊断可在 `make build` 后运行 `bin/echo_probe` 或 `bin/echo_probe --coefficients`。`tools/backup_metadata.py` 只采集参数标签，不含完整系数。临时修改探测器有严格起始条件与恢复流程，不能作为通用试听或回退工具，见[参数参考](devices/echo-b-parameters.md#诊断工具)。
+新增耳机沿用[资料库结构](../headphones/README.md)，只建立需要的目录，原始测量保留来源和字节。共用分析脚本放在 `tools/`；Kadenz 的复算命令见[型号入口](../headphones/moondrop/kadenz/README.md)。
 
-## 扩展与复算
+官方 Android 算法对比使用[独立分析依赖](../tools/requirements-android-eq.txt)，正常运行和测试不需要。在与证据哈希匹配的 APK／库及尚不存在的输出目录上执行 `python3 tools/compare_android_eq.py /tmp/echo-android-eq-comparison`；此工具不访问 USB，环境须允许 Unicorn 缓存初始化。
 
-新增耳机沿用[资料库结构](../headphones/README.md)，原始测量保留字节和来源；共用分析程序放在 `tools/`。Kadenz 的复算命令见[型号入口](../headphones/moondrop/kadenz/README.md)。
-
-新增耳放需要独立实现设备识别、传输、编码和验收，不能仅更换名称或 USB ID。扩展滤波器也需核对各采样率的系数范围、稳定性和响应，再分别做设备与实际效果验收。
-
-官方 Android 算法对比使用独立分析依赖，正常运行及 `make test` 不需要它们。依赖见 [`requirements-android-eq.txt`](../tools/requirements-android-eq.txt)。使用与证据哈希匹配的 APK 和库，在尚不存在的输出目录运行：
-
-```sh
-python3 tools/compare_android_eq.py /tmp/echo-android-eq-comparison
-```
-
-该工具不访问 USB；运行环境须允许 Unicorn 缓存初始化。
+原生临时修改探测器有严格起始条件与恢复要求，见[诊断工具](devices/echo-b-parameters.md#诊断工具)，不能充当通用试听或回退入口。

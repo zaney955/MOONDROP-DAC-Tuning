@@ -50,7 +50,7 @@ def response_db(rows, frequency, fs):
 
 def analyze_listening_preset(source=None):
     source = (Path(source) if source is not None else
-              ROOT/'presets/kadenz-death-metal-structure-v1.json').resolve()
+              ROOT/'presets/echo-b/moondrop/kadenz/kadenz-death-metal-structure-v1.json').resolve()
     output_stem = source.stem.removeprefix('kadenz-')
     OUT.mkdir(parents=True, exist_ok=True)
     raw = source.read_bytes()

@@ -95,7 +95,7 @@ class WorkflowTests(unittest.TestCase):
         self.addCleanup(self.temp.cleanup)
         self.run = Path(self.temp.name)/'run'
         self.run.mkdir()
-        doc = json.loads((ROOT/'presets/original-default.json').read_text())
+        doc = json.loads((ROOT/'presets/echo-b/general/original-default.json').read_text())
         doc['output_gain_db'] = 0  # FakeUSB replays the original unattenuated backup.
         self.plan, binary = preset.compile_preset(doc)
         preset.save_json(self.run/'plan.json', self.plan)

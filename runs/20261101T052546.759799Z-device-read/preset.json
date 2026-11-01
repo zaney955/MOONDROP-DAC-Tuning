@@ -1,0 +1,8 @@
+{
+  "version": 1,
+  "device": "MOONDROP ECHO-A",
+  "name": "当前设备调音",
+  "description": "ECHO-A 只读载入；Q30 系数与寄存器已核对，DSP 固定设计率 93750 Hz。",
+  "output_gain_db": -10,
+  "filters": []
+}

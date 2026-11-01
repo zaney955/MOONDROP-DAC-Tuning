@@ -1,4 +1,4 @@
-"""Local ECHO-B visual editor. Opening/editing/importing never accesses USB."""
+"""Local MOONDROP DAC visual editor. Opening/editing/importing never accesses USB."""
 import argparse
 import cmath
 import hashlib
@@ -18,6 +18,7 @@ from urllib.parse import urlsplit
 import webbrowser
 
 import preset
+import devices
 
 WEB = preset.ROOT / 'web'
 MAX_BODY = 65536
@@ -161,20 +162,21 @@ def validate_document(doc):
     for f in doc['filters']:
         if not isinstance(f, dict) or not isinstance(f.get('type'), str):
             raise ValueError('每段滤波器必须包含有效的 type')
-    return preset.compile_preset(doc)
+    return devices.for_document(doc).compile(doc)
 
 
 def preview(doc):
     plan, _ = validate_document(doc)
     frequencies = [20 * 1000 ** (i / 600) for i in range(601)]
     curves = {}
-    for rate, rows in plan['coefficients_q22'].items():
+    scale = plan.get('coefficient_scale', preset.SCALE)
+    for rate, rows in plan.get('coefficients_q30', plan.get('coefficients_q22')).items():
         bands = []
         # Plot EQ alone using actual quantized coefficients. Output gain remains
         # in the compiled plan and full-chain clipping checks below.
         for row in rows[:len(doc['filters'])]:
             values = []
-            b0, b1, b2, p, q = [v / preset.SCALE for v in row]
+            b0, b1, b2, p, q = [v / scale for v in row]
             for frequency in frequencies:
                 z = cmath.exp(-2j * math.pi * frequency / int(rate))
                 magnitude = abs((b0 + b1*z + b2*z*z) / (1 - p*z - q*z*z))
@@ -182,82 +184,15 @@ def preview(doc):
             bands.append(values)
         curves[rate] = dict(bands=bands, total=[sum(band[i] for band in bands)
                                                for i in range(len(frequencies))])
-    return dict(preset=doc, frequencies=frequencies, curves=curves,
+    return dict(preset=devices.normalize_document(doc), frequencies=frequencies, curves=curves,
                 response_check=plan['response_check'],
                 quantized_q=[b['q'] for b in plan['bands'][:len(doc['filters'])]],
                 peak_db=max(r['max_gain_db'] for r in plan['response_check'].values()))
 
 
-def device_document(metadata, coefficients):
-    """Recover editable RBJ parameters only when they reproduce every read row.
-
-    The device exposes the active rate's coefficients and integer gain labels,
-    not the original JSON or fractional gain. Never trust labels as DSP values.
-    """
-    if metadata['mode'] != 0:
-        raise ValueError('当前设备不是自定义 EQ 模式；已保存原始读数，未切换设备模式')
-    output = coefficients[8]
-    if output[0] <= 0 or output[1:] != [0, 0, 0, 0]:
-        raise ValueError('第 9 段不是编辑器支持的整体输出增益；已保存原始读数')
-    filters, matching_rates = [], set(preset.RATES.values())
-    names = {value: key for key, value in preset.TYPES.items()}
-    for band, row in zip(metadata['bands'][:8], coefficients[:8]):
-        kind = names.get(band['type_code'])
-        if kind is None:
-            raise ValueError(f'第 {band["band"]} 段滤波器类型不受支持；已保存原始读数')
-        label = band['gain_label_db']
-        candidates = {}
-        # Truncation toward zero leaves at most 19 possible tenths of a dB.
-        for tenth in range(label * 10 - 9, label * 10 + 10):
-            gain = tenth / 10
-            if int(gain) != label:
-                continue
-            filt = dict(type=kind, frequency_hz=band['frequency_hz'], q=band['q'], gain_db=gain)
-            rates = {rate for rate in matching_rates if preset.biquad(filt, rate) == row}
-            if rates:
-                candidates[tenth] = (filt, rates)
-        if len(candidates) != 1:
-            raise ValueError(f'第 {band["band"]} 段实际系数无法精确还原为当前编辑器参数；'
-                             '已保存原始读数，未用整数标签近似替代')
-        filt, matching_rates = next(iter(candidates.values()))
-        filters.append(filt)
-    # Remove only the compiler's unused trailing slots, retaining custom flat EQ.
-    while filters:
-        index = len(filters) - 1
-        if filters[index] != dict(type='low_shelf', frequency_hz=500*(index+1), q=1, gain_db=0):
-            break
-        filters.pop()
-    doc = dict(version=1, device='MOONDROP ECHO-B', name='当前设备调音',
-               description='从设备只读载入；增益已与实际 Q22 系数核对。设备不保存原配置名称和备注。',
-               output_gain_db=20 * math.log10(output[0] / preset.SCALE), filters=filters)
-    plan, _ = validate_document(doc)
-    rates = [rate for rate in matching_rates if plan['coefficients_q22'][str(rate)] == coefficients]
-    if not rates:
-        raise ValueError('读回配置无法精确复现实际系数；已保存原始读数')
-    return doc, sorted(rates)
-
-
-def read_device(directory):
-    status = preset.RunStatus(directory, 'read')
-    try:
-        status.update('read', '正在只读读取设备参数与实际系数')
-        preset.capture(directory, 'current', on_retry=status.read_retry)
-        status.update('confirm_read', '正在再次读取，确认配置在采集期间保持一致')
-        preset.capture(directory, 'confirmed', on_retry=status.read_retry)
-        metadata = preset.decode(directory / 'current-metadata.jsonl')
-        confirmed = preset.decode(directory / 'confirmed-metadata.jsonl')
-        mode, coefficients = preset.read_coefficients(directory / 'current-coefficients.jsonl')
-        if ((metadata['mode'], metadata['bands']) != (confirmed['mode'], confirmed['bands'])
-                or (mode, coefficients) != preset.read_coefficients(directory / 'confirmed-coefficients.jsonl')):
-            raise ValueError('读取期间设备配置发生变化，请关闭其他控制程序后重试')
-        doc, rates = device_document(metadata, coefficients)
-        preset.save_json(directory / 'preset.json', doc)
-        status.update('complete', '已读取当前设备配置；未写入设备', status='read_complete',
-                      matching_sample_rates=rates)
-        return doc, rates
-    except Exception as error:
-        status.update('failed', '读取未完成，当前草稿已保留；未写入设备', status='read_failed', error=str(error))
-        raise
+# Compatibility aliases for the original ECHO-B API. New jobs route through the registry.
+device_document = devices.echo_b.device_document
+read_device = devices.echo_b.read_device
 
 
 class EditorServer(ThreadingHTTPServer):
@@ -275,7 +210,7 @@ class EditorServer(ThreadingHTTPServer):
         self.reload_error = None
         self.auto_reload = False
 
-    def start_job(self, action, doc=None):
+    def start_job(self, action, doc=None, device=None):
         compiled = validate_document(doc) if action == 'apply' else None
         with self.guard:
             if self.reload_pending:
@@ -284,7 +219,8 @@ class EditorServer(ThreadingHTTPServer):
                 raise ValueError('设备操作正在进行，请等待完成')
             if action == 'verify' and self.last_run is None:
                 raise ValueError('本次服务尚无可复核的写入记录')
-            job = dict(id=secrets.token_hex(8), action=action, done=False,
+            backend = devices.for_document(doc) if action == 'apply' else devices.get(device or devices.DEFAULT)
+            job = dict(id=secrets.token_hex(8), action=action, device=backend.name, done=False,
                        message='正在准备设备操作', run=None, error=None)
             self.job = job
             source = self.last_run
@@ -294,8 +230,12 @@ class EditorServer(ThreadingHTTPServer):
     def run_job(self, job, compiled, doc, source):
         try:
             job['message'] = '正在检查本机通信程序'
-            build = subprocess.run(['make', 'bin/echo_probe' if job['action'] == 'read' else 'build'], cwd=preset.ROOT, capture_output=True,
-                                   text=True, timeout=120)
+            backend = devices.get(job.get('device', devices.DEFAULT))
+            if job['action'] == 'verify':
+                backend = devices.for_run(source)
+                job['device'] = backend.name
+            build = subprocess.run(['make', *backend.build_targets(job['action'])], cwd=preset.ROOT,
+                                   capture_output=True, text=True, timeout=120)
             if build.returncode:
                 raise ValueError('通信程序构建失败：' + build.stderr[-3000:])
             with preset.device_lock():
@@ -304,24 +244,20 @@ class EditorServer(ThreadingHTTPServer):
                     directory = preset.ROOT / 'runs' / (preset.timestamp() + '-visual-editor')
                     directory.mkdir(parents=True, exist_ok=False)
                     job['run'] = str(directory)
-                    preset.save_json(directory / 'preset.json', doc)
-                    preset.save_json(directory / 'plan.json', plan)
-                    (directory / 'plan.bin').write_bytes(binary)
-                    preset.save_json(directory / 'manifest.json', dict(
-                        plan_sha256=hashlib.sha256(binary).hexdigest(), source='visual-editor'))
+                    backend.prepare(directory, doc, plan, binary)
                     self.last_run = directory
-                    preset.apply_plan(directory, plan)
+                    backend.apply(directory, plan)
                 elif job['action'] == 'read':
                     directory = preset.ROOT / 'runs' / (preset.timestamp() + '-device-read')
                     directory.mkdir(parents=True, exist_ok=False)
                     job['run'] = str(directory)
-                    document, rates = read_device(directory)
+                    document, rates = backend.read(directory)
                     job.update(preset=document, matching_sample_rates=rates)
                 else:
                     job['message'] = '正在只读复核上次写入的计划'
                     previous = set((source / 'checks').glob('*'))
                     try:
-                        job['run'] = str(preset.verify_run(source))
+                        job['run'] = str(backend.verify_run(source))
                     finally:
                         checks = set((source / 'checks').glob('*')) - previous
                         if checks:
@@ -373,13 +309,18 @@ class Handler(BaseHTTPRequestHandler):
             return self.send(200, dict(version=self.server.version, auto_reload=self.server.auto_reload,
                                       reloading=self.server.reload_pending, error=self.server.reload_error))
         if path == '/api/bootstrap':
-            presets = [dict(id=Path(name).stem, preset=json.loads(content))
+            presets = [dict(id=str(Path(name).relative_to('presets').with_suffix('')), preset=devices.normalize_document(json.loads(content)))
                        for name, content in self.server.sources.items()
                        if name.startswith('presets/') and name.endswith('.json')]
-            return self.send(200, dict(token=self.server.token, presets=presets,
+            return self.send(200, dict(token=self.server.token, presets=presets, devices=devices.capabilities(),
                                       version=self.server.version, auto_reload=self.server.auto_reload,
                                       output_min=preset.OUTPUT_GAIN_MIN_DB,
                                       output_max=preset.OUTPUT_GAIN_MAX_DB))
+        if path == '/api/devices':
+            try:
+                return self.send(200, dict(devices=devices.connected()))
+            except (ValueError, OSError, subprocess.TimeoutExpired) as error:
+                return self.send(400, dict(error=str(error)))
         if path == '/api/job':
             return self.send(200, self.server.job_status())
         files = {'/': ('index.html', 'text/html; charset=utf-8'),
@@ -417,7 +358,7 @@ class Handler(BaseHTTPRequestHandler):
             if self.path == '/api/verify':
                 return self.send(202, self.server.start_job('verify'))
             if self.path == '/api/read':
-                return self.send(202, self.server.start_job('read'))
+                return self.send(202, self.server.start_job('read', device=doc['device']) if isinstance(doc, dict) and doc.get('device') else self.server.start_job('read'))
             return self.send(404, dict(error='未知操作'))
         except (ValueError, TypeError, KeyError, OverflowError) as error:
             self.send(400, dict(error=str(error)))
@@ -448,7 +389,7 @@ def main():
     if not args.no_reload:
         watcher.start()
     url = f'http://127.0.0.1:{server.server_port}'
-    print(f'ECHO-B 可视化编辑器：{url}\n自动重载：{"关闭" if args.no_reload else "开启"}；Ctrl+C 关闭服务。', flush=True)
+    print(f'MOONDROP DAC 可视化编辑器：{url}\n自动重载：{"关闭" if args.no_reload else "开启"}；Ctrl+C 关闭服务。', flush=True)
     if args.open:
         webbrowser.open(url)
     try:

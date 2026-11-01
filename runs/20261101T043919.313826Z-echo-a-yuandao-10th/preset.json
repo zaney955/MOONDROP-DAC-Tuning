@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "device": "MOONDROP ECHO-A",
+  "name": "原道十周年 · 全包海绵 · 温和均衡 V1",
+  "description": "用户选择温和均衡、戴全包海绵。依据官方 3.5mm 无麦/无海绵/5128 图的低频滚降与约 1.6kHz 宽峰，仅做 ±1dB 宽带调整；无全包海绵原始测量，不是 AutoEQ 或个人耳内校正。低架只补少量支撑，不追补深低频。93750Hz Q30，低架 S=1。前级沿用用户 -20dB 偏好，但 ECHO-A 前级不是 ECHO-B 的末级输出增益。",
+  "preamp_db": -20,
+  "filters": [
+    {"type": "low_shelf", "frequency_hz": 110, "gain_db": 1, "q": 1},
+    {"type": "peak", "frequency_hz": 1600, "gain_db": -1, "q": 1}
+  ]
+}

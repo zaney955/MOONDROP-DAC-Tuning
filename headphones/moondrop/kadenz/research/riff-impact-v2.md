@@ -1,6 +1,8 @@
 # Kadenz：Riff 清晰与低频冲击 V2
 
-2026-10-31，根据本次用户陈述设计的个性化试听起点。文件：[kadenz-riff-impact-v2.json](../../../../presets/kadenz-riff-impact-v2.json)。未试听、未向设备写入，不将离线验证当作听感改善的证明。
+本文保留原设计与分析条件；现行文件和历史报告的区别见[型号索引](../README.md#预设与分析报告)。
+
+2026-10-31，根据本次用户陈述设计的个性化试听起点。文件：[kadenz-riff-impact-v2.json](../../../../presets/echo-b/moondrop/kadenz/kadenz-riff-impact-v2.json)。未试听、未向设备写入，不将离线验证当作听感改善的证明。
 
 ## 本次偏好的优先级
 
@@ -70,14 +72,14 @@
 
 ```sh
 python3 tools/preset.py build kadenz-riff-impact-v2
-python3 tools/analyze_kadenz.py --preset presets/kadenz-riff-impact-v2.json
+python3 tools/analyze_kadenz.py --preset presets/echo-b/moondrop/kadenz/kadenz-riff-impact-v2.json
 ```
 
 本次仓库检查：56 项 Python 测试中 55 项通过；历史预设迁移测试因工作区缺少旧格式运行计划而失败（checked=0，相关 runs 文件在本次开始前已处于删除状态）。34 个 C 模拟故障场景通过，make build 通过。未恢复或改动这些历史记录。新预设的五采样率编译及响应检查均通过。
 
 ## 试听与下一步微调
 
-在本地编辑器选择“Kadenz · Riff 清晰与低频冲击 V2”，或导入 JSON 即可查看。固定耳套、导管、密封、播放器及其他音效。基准使用无音色 EQ 的原始声音；若要沿用同样输出衰减，可用 original-minus-20db，但同一系统音量并不保证相同响度，仍需尽量匹配。
+在本地编辑器选择“Kadenz · Riff 清晰与低频冲击 V2”，或导入 JSON 即可查看。固定耳套、导管、密封、播放器及其他音效。基准使用无音色 EQ 的原始声音；若要沿用同样输出衰减，可从 echo-b/general/original-default 开始，再自行匹配整体增益，但同一系统音量并不保证相同响度，仍需尽量匹配。
 
 - 先听 Suffocation 第 1、3 专中熟悉的同一片段：它们原本满意，应重点检查双踩是否堆积、低音吉他音符是否更难跟、riff 的推进是否变钝。它们没有“必须更厚”的任务。
 - 再听《Slit Your Guts》：分别判断冲击是否改善、刺激是否降低、吉他走向是否保留；不要将其中一项改善代替另两项。若仍刺耳，记录片段和是否随佩戴或音量变化，再定位，暂不继续叠加高频削减。

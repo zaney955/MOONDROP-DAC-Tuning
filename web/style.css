@@ -27,3 +27,7 @@
 @media(pointer:coarse){.history-toolbar button{min-height:48px}}
 @media(pointer:coarse){.reset-actions button{min-height:48px}.filter-actions button{min-height:48px}}
 @media(max-width:480px){.chart-readout{width:136px;padding:7px 9px;font-size:10px}.chart-readout strong{font-size:10px}}
+
+.device label{display:block;font-size:.7rem;color:var(--muted);margin:12px 0 6px}.device select{width:100%;margin-bottom:10px}.device button{width:100%;margin-bottom:8px}
+
+@media(max-width:1000px){.sidebar{display:grid}.device{display:block}.device-symbol{display:none}}

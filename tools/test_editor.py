@@ -16,7 +16,7 @@ from test_workflow import FakeUSB
 
 class EditorTests(unittest.TestCase):
     def setUp(self):
-        self.doc = json.loads((preset.ROOT / 'presets/original-default.json').read_text())
+        self.doc = json.loads((preset.ROOT / 'presets/echo-b/general/original-default.json').read_text())
 
     def test_device_parameters_recover_fractional_gain_at_every_rate(self):
         self.doc['output_gain_db'] = -16
@@ -219,7 +219,7 @@ class HTTPTests(unittest.TestCase):
         self.server = editor.EditorServer(('127.0.0.1', 0))
         self.thread = threading.Thread(target=self.server.serve_forever, daemon=True)
         self.thread.start()
-        self.doc = json.loads((preset.ROOT / 'presets/original-default.json').read_text())
+        self.doc = json.loads((preset.ROOT / 'presets/echo-b/general/original-default.json').read_text())
 
     def tearDown(self):
         self.server.shutdown()

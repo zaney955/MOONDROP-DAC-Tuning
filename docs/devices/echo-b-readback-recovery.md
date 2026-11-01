@@ -11,7 +11,7 @@
 | `0x10000003` | Mach `MACH_SEND_INVALID_DEST`，通信目标失效 | 结束失效探测进程，重新枚举并打开设备，只重试查询和复核 |
 | 其他 I/O 错误或非法查询回包 | 不能归为暂未就绪 | 停止，检查状态和原始诊断 |
 
-保存 ACK 完整后出现上述可恢复读取错误，会自动重新连接／读取，并核对本次写入的原计划。恢复次数耗尽后仍保持 `saved_unverified`；可使用 `python3 tools/preset.py verify RUN_DIR` 再做只读复核。不要为恢复读取而重复执行 `apply`。
+保存 ACK 完整后出现上述可恢复读取错误，会自动重新连接／读取，并核对本次写入的原计划。恢复次数耗尽后仍保持 `saved_unverified`；可使用 `python3 tools/dac.py verify RUN_DIR` 再做只读复核。不要为恢复读取而重复执行 `apply`。
 
 ## 重试规则
 
@@ -32,4 +32,4 @@
 
 `apply` 与 `verify` 使用协作锁。外部 App、底层程序、断开设备和强制终止不受该锁完全保护，也不能保证自动回滚。
 
-状态码和完整操作步骤见[操作指南](../operations.md)。实现与模拟故障覆盖见[探测器](../../tools/echo_probe.c)、[写入器](../../tools/echo_apply_plan.c)、[流程测试](../../tools/test_workflow.py)和[原生测试](../../tools/test_echo_probe.c)。原始设备操作证据由各次操作写入 `runs/`。
+状态与完整操作步骤见[操作指南](../operations.md)。实现与模拟故障覆盖见[探测器](../../tools/echo_probe.c)、[写入器](../../tools/echo_apply_plan.c)、[流程测试](../../tools/test_workflow.py)和[原生测试](../../tools/test_echo_probe.c)。原始设备操作证据由各次操作写入 `runs/`。

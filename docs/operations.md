@@ -1,68 +1,62 @@
 # 操作指南
 
-适用于 macOS 上的 MOONDROP ECHO-B（USB `35d8:149b`）。环境要求和网页入口见[首页](../README.md)。以下命令在仓库根目录执行。
+在仓库根目录运行以下命令。统一入口 `tools/dac.py` 根据 JSON 的 `device` 字段选择 ECHO-A 或 ECHO-B；型号和参数范围见[设备参考](devices/README.md)，配置规则见[预设格式](../presets/README.md)。
 
-## 选择与检查
-
-```sh
-python3 tools/preset.py list
-python3 tools/preset.py build presets/original-minus-20db.json
-```
-
-`list` 列出 `presets/` 第一层 JSON；`build` 离线校验并生成 `profiles/compiled/<文件名>/`，不访问设备。可将示例路径替换为自己的 JSON。字段规则见 [JSON 格式](../presets/README.md)。
-
-## 写入配置
-
-先降低播放音量，连接恰好一台 ECHO-B，并关闭其他控制程序：
+## 列出、编译与读取
 
 ```sh
-python3 tools/preset.py apply presets/original-minus-20db.json
+python3 tools/dac.py list
+python3 tools/dac.py list --device echo-a
+python3 tools/dac.py build presets/echo-b/general/original-default.json
+python3 tools/dac.py devices
+python3 tools/dac.py read --device echo-a
 ```
 
-`apply` 重新编译配置，采集写前状态，整体替换 EQ 和输出数字增益，保存后读回核对。每次操作新建 `runs/<UTC时间>-<文件名>/`；终端会输出实际路径。JSON 文件本身不会自动应用到设备。
+`list` 递归列出分类预设，`build` 离线生成 `profiles/compiled/<UTC时间>-<型号>-build/`。`devices` 只枚举 macOS USB 注册表；`read` 对目标型号读取两轮一致的状态，保存原始数据并尝试精确恢复 JSON。读取 ECHO-B 时将参数改为 `--device echo-b`。不支持的模式或系数会保留诊断并报错，不用近似参数替代。
 
-日常使用 `preset.py` 或网页入口。它们使用 `.echo-b.lock` 避免本工具并行操作，但不能阻止其他 App 改写设备。
+## 写入
 
-## 判断结果
+先降低播放音量，连接恰好一台目标型号，关闭其他控制程序：
 
-以运行目录的 `status.json`、`write-log.jsonl` 和 `verification.json` 为准。不能仅凭退出码或 App 参数标签判断设备是否已保存。
+```sh
+python3 tools/dac.py apply presets/echo-b/general/original-default.json
+```
 
-| 状态 | 退出码 | 含义与下一步 |
-| --- | ---: | --- |
-| `saved_verified` | 0 | 保存 ACK 完整，读回匹配 |
-| `not_written` | 2 | 写前失败；检查连接或权限 |
-| `write_uncertain` | 3 | 可能部分生效；保留日志，先检查阶段与 ACK，避免盲目重写 |
-| `saved_unverified` | 4 | 保存已确认；执行只读 `verify`，不要重复 `apply` |
-| `readback_verified` | 0 | 独立只读复核通过 |
-| `readback_failed` | 5 | 查看检查目录；这次复核没有写入 |
+写入会整体替换 EQ 和数字增益，省略 `output_gain_db` 时按 0 dB 编译。每次操作创建新的 `runs/<UTC时间>-<型号>-apply/`；网页操作使用 `*-visual-editor/`。记录包含配置、计划、原始读回、状态和验证结果。
 
-准备阶段错误可能没有状态记录，强制终止可能留下 `running`。底层程序的退出码含义与此表不同。
+以 `status.json`、写入日志和 `verification.json` 联合判断结果：
+
+| 状态 | 含义与下一步 |
+| --- | --- |
+| `saved_verified` | ECHO-B：保存 ACK 完整且读回匹配；ECHO-A：提交序列已发送且读回匹配，无独立保存 ACK |
+| `not_written` | 写前失败，尚未发送 EQ；检查连接和权限 |
+| `write_uncertain` | 可能部分生效；保留日志，先做只读复核 |
+| `saved_unverified` | ECHO-B 保存已确认，但读回未通过；不要重复写入 |
+| `readback_verified` / `readback_failed` | 独立只读复核通过／未通过，本次没有写入 |
+| `read_complete` / `read_failed` | 当前设置读取成功／失败，本次没有写入 |
+
+准备阶段错误可能没有记录，强制终止可能留下 `running`。不要把旧 ECHO-B CLI 或底层 C 的退出码直接套用到统一入口。ECHO-B 的有限读取重连规则见[读取恢复](devices/echo-b-readback-recovery.md)；两型号均不自动重发写入或回滚。
 
 ## 只读复核与回退
 
-将占位路径替换为终端输出的实际运行目录：
-
 ```sh
-python3 tools/preset.py verify runs/实际运行目录
+python3 tools/dac.py verify runs/实际运行目录
 ```
 
-`verify` 校验保存计划的完整性，再按其中的系数核对设备；不重新编译、不写入、不覆盖原记录。结果保存在该目录的 `checks/<UTC时间>/`。读取重试规则见[读取恢复参考](devices/echo-b-readback-recovery.md)。
+`verify` 校验历史计划的完整性，直接比较保存的系数，不重新编译或应用当前草稿。结果写入原目录的 `checks/<UTC时间>/`，不覆盖旧记录。
 
-回退时，选定要恢复的完整 JSON，先 `build` 再 `apply`。空白 EQ、0 dB 输出与空白 EQ、−20 dB 输出是不同设置。回退配置不等于恢复出厂固件；写前采集也不是完整闪存备份，不能直接作为预设重放。
+回退是一次新的写入：选择要恢复的完整配置，先 `build` 再 `apply`。EQ 备份不是完整固件镜像；不要仅修改 JSON 来宣称设备已经回退。ECHO-A 原始帧的专用恢复方式见[型号参考](devices/echo-a-tuning-research.md#原始备份恢复)。
 
-如需验证断电保持，写入并读回成功后手动拔下再接回，对原运行目录执行 `verify`，并在该目录的 `persistence-note.md` 记录拔插过程和结果。自动记录中的 `physical_unplug_tested: false` 不会自动变成物理验证证明；当前采样率读回也不能代替所有采样率验收。
+断电保持须另验：成功写入后手动拔下并接回，再对同一历史计划运行 `verify`，在该目录的 `persistence-note.md` 记录过程。仅重开 HID 连接或一次读回不能替代受控断电测试。
 
-## 排障
+## 排障与兼容入口
 
 | 现象 | 处理 |
 | --- | --- |
-| 参数或系数错误 | 对照 JSON 格式，先离线 `build`；任一采样率不通过都会拒绝写入 |
-| 找不到设备 | 核对型号、数据线与连接数量 |
-| `Open: 0xe00002e2` | 检查运行环境是否允许 USB 访问 |
-| `GetReport` 失败 | 看保存 ACK 和操作阶段；已保存时使用 `verify` |
-| 读回不匹配 | 保留日志，排除其他程序改写或设备状态变化 |
-| 官方 App 标签与预期不同 | 标签不完整表达实际系数；重新保存可能覆盖本工具配置 |
+| 参数或系数无效 | 先离线 `build`，核对[配置规则](../presets/README.md) |
+| 无设备或多个匹配设备 | 核对型号、数据线与连接数量 |
+| `0xe00002e2` | 检查运行环境是否允许 USB 访问 |
+| 写后读取失败、状态未知或不匹配 | 查看阶段与提交／ACK 证据，只读 `verify`，不要盲目重写 |
+| 官方 App 标签不同 | 以实际系数为准；App 重新保存可能覆盖当前调音 |
 
-工具只有限重试读取，不自动重发写入或回滚。保存状态不明时先检查日志。报告问题时附上命令、设备 USB ID、状态与相关诊断；原始操作目录用于复核，分享前检查个人路径等信息。
-
-编译计划、设备协议及开发检查见[开发指南](development.md)和[技术参考](devices/echo-b.md)。
+统一 CLI 和网页使用 `.echo-b.lock` 串行化设备操作；名称为兼容旧入口保留，不代表只锁 ECHO-B，也不能阻止外部 App。旧 `tools/preset.py` 仅供 ECHO-B 使用。关闭网页不取消已启动的写入；退出服务前先等待操作完成。

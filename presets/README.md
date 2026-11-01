@@ -1,57 +1,60 @@
-# JSON 格式
+# 预设分类与 JSON 格式
 
-每个 JSON 是一份完整听音设置，写入时整体替换设备 EQ。名称、用途和具体数值只维护在文件内；用 `python3 tools/preset.py list` 查看列表。操作步骤见[操作指南](../docs/operations.md)。
+每个 JSON 表示一份完整调音，写入时整体替换 EQ 和数字增益。网页与 `python3 tools/dac.py list` 递归加载本目录，并按 `device` 分派协议；操作见[操作指南](../docs/operations.md)。
 
-用户默认偏好（2026-10-31）：以后编写调音配置时，整体输出数字增益 `output_gain_db` 默认填写 `-20` dB，除非用户另有明确要求。这是编写配置的默认值；编译器仍要求显式填写该字段，现有预设库也已按用户后续要求统一为 −20 dB。
+## 分类
 
-## 最小示例
+按 `设备 / 品牌 / 耳机型号` 存放，通用基准使用 `设备 / general`：
+
+```text
+presets/
+├── echo-a/nicehck/yuandao-10th/
+│   └── yuandao-10th-foam-balanced-v1.json
+└── echo-b/
+    ├── general/original-default.json
+    └── moondrop/kadenz/
+        ├── kadenz-death-metal-structure-v1.json
+        ├── kadenz-riff-impact-v2.json
+        ├── kadenz-riff-impact-v3.json
+        └── kadenz-riff-impact-v4.json
+```
+
+CLI 接受分类路径或唯一文件名，重名时须提供分类路径。两份旧平直基准归零后音频参数相同，现保留 `echo-b/general/original-default.json`。旧 `preset.py list` 递归列出 ECHO-B；跨型号使用 `dac.py`。
+
+## 整体增益约定
+
+**新建或编写配置默认省略 `output_gain_db`，由用户自行设置。** 省略时按 0 dB 预览和编译，不修改源文档，也不自动补入导出 JSON。手动填写 0 则保留显式 0；清空网页输入框会删除该字段。读取设备时仍保留实际电平。
+
+2026-11-01 已将当时预设库的整体增益统一为 0；这不是限制后续手动修改的规则。历史计划、备份和分析报告保留原值，不能视为现行文件或设备实时状态。**省略字段不表示保留设备增益**：若执行写入，将使用 0 dB。
+
+## 文档结构
 
 ```json
 {
   "version": 1,
   "device": "MOONDROP ECHO-B",
-  "name": "空白 EQ",
-  "description": "保留频响形状，降低整体输出",
-  "output_gain_db": -20,
-  "filters": []
+  "name": "我的声音配置",
+  "filters": [
+    {"type": "peak", "frequency_hz": 1000, "gain_db": -1, "q": 1}
+  ]
 }
 ```
 
-这是格式示例，不是读取设备的结果。可复制后添加滤波器，并先离线 `build` 检查。
-
-## 整体设置
-
-| 字段 | 含义与范围 |
+| 字段 | 规则 |
 | --- | --- |
-| `version` | `1` |
-| `device` | `MOONDROP ECHO-B`，指耳放而非耳机 |
-| `name` / `description` | 显示名称与用途；名称不能为空 |
-| `output_gain_db` | 必填的整体输出数字增益，约 −132.453198 至 +6.020599 dB，可用小数；`0` 表示单位增益 |
-| `filters` | 最多 8 段，空数组表示不改变频响形状 |
+| `version` | 必填，`1` |
+| `device` | 必填，`MOONDROP ECHO-A` 或 `MOONDROP ECHO-B`；不自动替换型号 |
+| `name` | 必填，非空文字 |
+| `description` | 可选，文字备注 |
+| `output_gain_db` | 可选，缺省 0 dB；含义和合法范围随型号变化 |
+| `filters` | 必填，最多 8 段；空数组保留平直 EQ |
 
-第 9 段实现整体输出增益，前 8 段负责音色滤波。例如 `+6.02` 有效，`+6.03` 超出范围；接近负向极限时量化步进很粗。精确边界与编码见[参数参考](../docs/devices/echo-b-parameters.md#整体输出数字增益)。
+每段须包含且仅包含 `type`、`frequency_hz`、`gain_db`、`q`。频率为 20–20000 的整数 Hz；峰值使用 RBJ Q，范围 0.1–10，按 1/256 量化；架式的 `q=1` 表示固定斜率 S=1，并非官方 App 的架式 Q=1。`gain_db` 控制单段增益，与顶层整体电平不同。
 
-整体输出数字增益不是模拟增益或 EQ 前级控制，不提高耳放最大输出能力，也不改变手机音量键步进。
+型号的滤波器、增益范围和设计率见[能力表](../docs/devices/README.md#编辑能力)。ECHO-A 增益按 1/256 dB 量化后计算 Q30 系数；ECHO-B 接受 0.1 dB 步进并生成五套 Q22 系数。早期 ECHO-A 的 `preamp_db` 在导入时规范为 `output_gain_db`，两字段同时出现会拒绝；ECHO-B 不接受该旧字段。
 
-## 滤波器
+## 编译与兼容性
 
-顶层 `output_gain_db` 控制整体电平；滤波器内的 `gain_db` 控制该段增益。
+编译器拒绝未知字段、非法数值、不支持的类型、定点溢出和量化后不稳定的滤波器。ECHO-B 必须同时通过五种采样率；ECHO-A 按固定 93,750 Hz 设计。预览“输出峰值”包含整体增益，超过 0 dB 时提示可能削波，不自动改变配置。
 
-| 字段 | 范围 |
-| --- | --- |
-| `type` | `peak`、`low_shelf`、`high_shelf` |
-| `frequency_hz` | 20–20000 的整数 Hz |
-| `gain_db` | 有限数值，按 0.1 dB 步进；不设固定上下限，由各采样率的系数校验决定是否可用 |
-| `q` | 峰值为 0.1–10，四舍五入到 1/256；架式必须为 `1`，表示固定斜率 S=1 |
-
-滤波器使用标准 RBJ 语义：峰值采用 Q 定义；低架、高架固定 S=1，频率表示架式增益中点。架式的 `q=1` 是格式标记，不表示官方 App 的架式 Q=1。公式依据为 [Audio EQ Cookbook](https://www.w3.org/TR/audio-eq-cookbook/)。
-
-## 编译校验与兼容性
-
-每个滤波器在 44.1 / 48 / 96 / 192 / 384 kHz 下都必须能计算出有限系数，量化后全部落在有符号 24 位 Q22 范围内，且极点位于单位圆内。任一采样率不通过，整份预设都会在访问设备前被拒绝；增益不会被截断或钳制。未知字段、缺失必填项和非法数值也会停止编译。规则以[编译器](../tools/preset.py)为准。
-
-可表示范围随类型、频率、Q 值和采样率变化，单采样率可编码不等于五种采样率的通用范围。编码和稳定性检查不保证量化增益精度、内部余量或无削波。组合频响超过 0 dB 时，编译器会提示满幅输入可能削波，不会自动修改增益。
-
-本工具使用固定 Gain=3 / Q22。同参数与安卓官方 App 不保证得到相同曲线，差异见[官方算法兼容性](../docs/devices/echo-b-parameters.md)。Android App 的整 dB 参数标签不完整表达实际系数，重新保存可能覆盖本工具的设置；具体状态以读回为准。
-
-单段小数增益保留在 JSON 与 `plan.bands[].gain_db` 中，用于计算五种采样率的精确量化系数。`gain_label_db` 是写入设备的整数标签，沿用官方路径向零截断（例如 +1.9 → +1，−1.9 → −1，±0.1 → 0），不参与系数计算。读回分别核对整数标签及完整系数，不能仅凭标签匹配判定小数增益正确。历史计划没有 `gain_label_db` 时，继续使用原有整数 `gain_db` 校验，不重新计算系数。
+系数可编码不等于模拟输出准确或内部无削波。同参数也不保证与官方 App 得到相同曲线；具体实现、Q22 电平边界及整数标签规则见[ECHO-B 参数与算法](../docs/devices/echo-b-parameters.md)。公式依据为 [Audio EQ Cookbook](https://www.w3.org/TR/audio-eq-cookbook/)。

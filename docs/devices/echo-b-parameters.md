@@ -39,7 +39,7 @@
 
 例如 48 kHz、peak、10 kHz、Q=1、+6 dB 的计算频响最大差约 0.96 dB；20 kHz 同条件约 5.04 dB。它们是数字模型比较，不是模拟输出测量。比较原始整数系数前必须考虑缩放；当前解析器拒绝 Gain≠3，不说明设备不支持其他缩放。
 
-单段小数增益参与完整系数计算，设备整数标签向零截断。官方 App 重新保存可能覆盖本工具设置，不能仅凭标签判定实际 EQ。
+单段小数增益参与完整系数计算，设备整数标签向零截断：如 +1.9 → +1、−1.9 → −1、±0.1 → 0。历史计划没有独立 `gain_label_db` 时，复核继续使用其原整数标签，不重新计算系数。官方 App 重新保存可能覆盖本工具设置，不能仅凭标签判定实际 EQ。
 
 依据为 APK `2.25.0c-260813ai`（versionCode `102034`），SHA-256 `04756b49acfea523758d86101c96c1824b7b209ae3a8836c07837088e795d2d5`。官方函数通过 ARM64 模拟执行，libm 桥接主机数学函数；这不是 Android UI 抓包或物理 Android 全部末位行为的证明。
 
@@ -49,7 +49,7 @@
 - [逐例系数与频响](../../evidence/android-eq-comparison-20261030/comparison.json)、[校验结果](../../evidence/android-eq-comparison-20261030/verification.json)及[Java / JNI 路径](../../evidence/android-eq-path-notes.md)：官方算法对照。
 - [频率检查程序](../../evidence/filter-frequency-range-20261030/check.py)：不访问 USB；复算会覆盖其目录的 `results.json`，`--official` 需要独立分析依赖。
 
-算法对比复算环境见[开发指南](../development.md#扩展与复算)。历史采集只代表对应设备和测试条件，不用于承诺通用调音极限。
+算法对比复算环境见[开发指南](../development.md#资料复算与诊断)。历史采集只代表对应设备和测试条件，不用于承诺通用调音极限。
 
 ## 诊断工具
 
@@ -68,4 +68,4 @@ with preset.device_lock():
     subprocess.run(['bin/echo_gain_probe', 'restore', backup], check=True)
 ```
 
-日常调节使用 `preset.py` 或编辑器；探测器不能代替预设写入和回退流程。
+日常调节使用 `dac.py` 或编辑器；探测器不能代替预设写入和回退流程。

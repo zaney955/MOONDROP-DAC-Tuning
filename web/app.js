@@ -2,6 +2,9 @@
 
 const $ = (selector) => document.querySelector(selector);
 const colors = ['#66824d', '#b6853a', '#65898b', '#9b7587', '#897f46', '#6c78a4', '#ad795d', '#7f8c6a'];
+let deviceCapabilities = [], presetLibrary = [];
+const supportsDevice = (name) => deviceCapabilities.some((device) => device.name === name);
+const capability = () => deviceCapabilities.find((device) => device.name === doc?.device);
 let token, doc, baseline, previewData, revision = 0, validatedRevision = -1, timer;
 let busy = false, canVerify = false, activeJob = null, activePreset = null;
 let jobPollTimer, jobPollSequence = 0;
@@ -91,7 +94,7 @@ async function watchServerVersion() {
 function recoverReloadDraft() {
   let saved;
   try { saved = JSON.parse(sessionStorage.getItem(reloadDraftKey)); } catch { return false; }
-  if (saved?.schema !== 1 || saved.doc?.device !== 'MOONDROP ECHO-B'
+  if (saved?.schema !== 1 || !supportsDevice(saved.doc?.device)
     || !Array.isArray(saved.doc.filters) || saved.doc.filters.length > 8) return false;
   // Restoring an in-progress draft must retain its selection, raw input IDs
   // and history, including a frequency edit not yet committed for sorting.
@@ -109,7 +112,7 @@ function recoverReloadDraft() {
   const savedHistory = saved.history;
   if (Array.isArray(savedHistory?.entries) && savedHistory.entries.length <= HISTORY_LIMIT
     && Number.isInteger(savedHistory.index) && savedHistory.index >= 0 && savedHistory.index < savedHistory.entries.length
-    && savedHistory.entries.every((entry) => entry?.doc?.device === 'MOONDROP ECHO-B'
+    && savedHistory.entries.every((entry) => supportsDevice(entry?.doc?.device)
       && Array.isArray(entry.doc.filters) && entry.doc.filters.length <= 8)
     && JSON.stringify(savedHistory.entries[savedHistory.index].doc) === JSON.stringify(doc)) {
     historyEntries = savedHistory.entries;
@@ -134,7 +137,10 @@ function discardAllowed() {
 function setDocument(value, presetId = null, {sort = true} = {}) {
   finishChartDrag(true);
   qWheelInput = null;
+  const switched = doc?.device !== value.device;
   doc = clone(value);
+  if (switched) { previewData = null; previewFilterRefs = []; }
+  syncDeviceControls();
   if (sort) doc.filters.sort((a, b) => a.frequency_hz - b.frequency_hz);
   chartRange = null;
   selectedBand = null;
@@ -151,11 +157,55 @@ function setDocument(value, presetId = null, {sort = true} = {}) {
   changed();
 }
 
+function blankDocument(device) {
+  return {version: 1, device, name: '我的声音配置', description: '', filters: []};
+}
+
+function syncDeviceControls() {
+  const cap = capability();
+  if (!cap) throw new Error('配置的设备型号不受支持');
+  $('#device-model').value = cap.name;
+  $('#device-title').textContent = cap.name;
+  $('#device-capabilities').textContent = cap.detail;
+  $('#output-title').textContent = cap.output_label;
+  $('#output-help').textContent = `${cap.output_help} 留空按0 dB处理，导出时省略。`;
+  for (const input of [$('#output'), $('#output-slider')]) {
+    input.min = cap.output_min; input.max = cap.output_max; input.step = cap.output_step;
+  }
+  $('#rate-title').textContent = cap.rate_label;
+  const oldRate = Number($('#rate').value);
+  $('#rate').replaceChildren(...cap.rates.map((rate) => new Option(`${rate / 1000} kHz`, rate)));
+  $('#rate').value = String(cap.rates.includes(oldRate) ? oldRate : cap.rates[0]);
+  $('#presets').replaceChildren();
+  presetLibrary.filter((item) => item.preset.device === cap.name).forEach((item) => {
+    const button = document.createElement('button');
+    button.className = 'preset'; button.type = 'button'; button.dataset.id = item.id;
+    const name = document.createElement('span'); name.textContent = item.preset.name;
+    const detail = document.createElement('small');
+    detail.textContent = `${item.preset.filters.length} 段 EQ · ${item.preset.output_gain_db === undefined ? '增益未设置（按0 dB）' : `${item.preset.output_gain_db} dB`}`;
+    button.append(name, detail);
+    button.addEventListener('click', () => {
+      if (!discardAllowed()) return;
+      setDocument(item.preset, item.id);
+      notify('已载入预设，尚未写入耳放。');
+    });
+    $('#presets').append(button);
+  });
+}
+
+function chooseDevice(name) {
+  if (name === doc.device) return true;
+  if (!discardAllowed()) { $('#device-model').value = doc.device; return false; }
+  setDocument(blankDocument(name));
+  notify(`已切换到 ${name} 的空白草稿；尚未读取或写入设备。`);
+  return true;
+}
+
 function syncDocumentInputs() {
   $('#name').value = doc.name;
   $('#description').value = doc.description || '';
-  $('#output').value = doc.output_gain_db;
-  $('#output-slider').value = doc.output_gain_db;
+  $('#output').value = doc.output_gain_db ?? '';
+  $('#output-slider').value = doc.output_gain_db ?? 0;
 }
 
 function changed(group = null, replaceHistory = false) {
@@ -169,7 +219,7 @@ function changed(group = null, replaceHistory = false) {
   $('#draft-state').textContent = dirty() ? '未导出的修改' : '编辑草稿';
   $('#curve-state').textContent = '正在更新预览…';
   $('#validation').className = '';
-  $('#validation').textContent = '正在校验五种采样率…';
+  $('#validation').textContent = `正在校验 ${capability().name} 的参数与系数…`;
   $('#add').disabled = doc.filters.length >= 8 || busy;
   $('#band-count').textContent = `${doc.filters.length} / 8`;
   document.querySelectorAll('.preset').forEach((button) => {
@@ -248,7 +298,7 @@ async function validateCurrent() {
   const currentRevision = revision;
   const filterRefs = doc.filters.slice();
   try {
-    if (!$('#settings').checkValidity()) throw new Error('请检查名称和数值范围：频率 20–20000 整数 Hz，单段增益按 0.1 dB 步进，Q 为 0.1–10。');
+    if (!$('#settings').checkValidity()) throw new Error(`请检查 ${doc.device} 的名称和数值范围；频率为 20–20000 整数 Hz，峰值 Q 为 0.1–10，增益须符合当前设备限制。`);
     const result = await api('/api/preview', clone(doc));
     if (currentRevision !== revision) return false;
     previewData = result;
@@ -259,7 +309,7 @@ async function validateCurrent() {
     $('#validation').className = clipping ? 'warning' : '';
     $('#validation').textContent = clipping
       ? `校验通过 · 输出峰值 ${formatDb(result.peak_db)}，满幅输入可能削波。`
-      : `✓ 五种采样率校验通过 · 输出峰值 ${formatDb(result.peak_db)}`;
+      : `✓ ${Object.keys(result.curves).length} 种设计率校验通过 · 输出峰值 ${formatDb(result.peak_db)}`;
     result.quantized_q.forEach((q, i) => {
       const note = $(`#q-note-${i}`);
       if (note && doc.filters[i].type === 'peak') note.textContent = `实际 Q ${q}`;
@@ -276,7 +326,7 @@ async function requireValid() {
   showErrors = true;
   const invalid = doc.filters.findIndex((filter) => !Number.isFinite(filter.frequency_hz)
     || filter.frequency_hz < 20 || filter.frequency_hz > 20000 || !Number.isInteger(filter.frequency_hz)
-    || !Number.isFinite(filter.gain_db) || Math.abs(filter.gain_db * 10 - Math.round(filter.gain_db * 10)) > 1e-7
+    || !Number.isFinite(filter.gain_db) || (capability().gain_step !== 'any' && Math.abs(filter.gain_db * 10 - Math.round(filter.gain_db * 10)) > 1e-7)
     || !Number.isFinite(filter.q) || filter.q < .1 || filter.q > 10);
   if (invalid >= 0) selectBand(invalid);
   if (!$('#settings').reportValidity()) return false;
@@ -352,7 +402,7 @@ function renderBands(focusIndex = null) {
     typeLabel.textContent = '滤波器类型';
     const select = document.createElement('select');
     select.id = select.name = `type-${index}`;
-    [['peak', '峰值 Peak'], ['low_shelf', '低架 Low shelf'], ['high_shelf', '高架 High shelf']].forEach(([value, text]) => select.add(new Option(text, value)));
+    [['peak', '峰值 Peak'], ['low_shelf', '低架 Low shelf'], ['high_shelf', '高架 High shelf']].filter(([kind]) => capability().types.includes(kind)).forEach(([value, text]) => select.add(new Option(text, value)));
     select.value = filter.type;
     select.addEventListener('change', () => {
       filter.type = select.value;
@@ -401,11 +451,14 @@ function renderBands(focusIndex = null) {
     };
     freq.input.addEventListener('change', commitFrequency);
     freqSlider.addEventListener('change', commitFrequency);
-    const gain = numberField(index, 'gain_db', '增益', {step: .1}, 'dB');
+    const cap = capability();
+    const constraints = {step: cap.gain_step};
+    if (cap.gain_min !== null) { constraints.min = cap.gain_min; constraints.max = cap.gain_max; }
+    const gain = numberField(index, 'gain_db', '增益', constraints, 'dB');
     const gainSlider = makeInput(`gain-slider-${index}`, `gain-slider-${index}`, {type: 'range', step: .1, 'aria-label': `第 ${index + 1} 段增益滑块（dB）`});
     function syncGain() {
-      gainSlider.min = Math.min(-24, filter.gain_db || 0);
-      gainSlider.max = Math.max(24, filter.gain_db || 0);
+      gainSlider.min = cap.gain_min ?? Math.min(-24, filter.gain_db || 0);
+      gainSlider.max = cap.gain_max ?? Math.max(24, filter.gain_db || 0);
       gainSlider.value = filter.gain_db;
     }
     syncGain();
@@ -525,6 +578,7 @@ function syncChartFilter(index, frequency, gain, group = null) {
   const filter = doc.filters[index];
   frequency = Math.max(20, Math.min(20000, Math.round(frequency)));
   gain = Math.round(gain * 10) / 10;
+  if (capability().gain_min !== null) gain = Math.max(capability().gain_min, Math.min(capability().gain_max, gain));
   if (frequency === filter.frequency_hz && gain === filter.gain_db) return false;
   filter.frequency_hz = frequency;
   filter.gain_db = gain;
@@ -534,8 +588,8 @@ function syncChartFilter(index, frequency, gain, group = null) {
   frequencySlider.value = Math.log(frequency / 20) / Math.log(1000);
   frequencySlider.setAttribute('aria-valuetext', `${frequency} Hz`);
   const gainSlider = $(`#gain-slider-${index}`);
-  gainSlider.min = Math.min(-24, gain);
-  gainSlider.max = Math.max(24, gain);
+  gainSlider.min = capability().gain_min ?? Math.min(-24, gain);
+  gainSlider.max = capability().gain_max ?? Math.max(24, gain);
   gainSlider.value = gain;
   changed(group);
   return true;
@@ -1044,6 +1098,8 @@ function setBusy(value) {
   $('#delete').disabled = value || selectedBand === null;
   updateResetControls();
   updateHistoryControls();
+  $('#device-model').disabled = value || reloadWaiting;
+  $('#detect-device').disabled = value || reloadWaiting;
   $('#import').disabled = value;
   $('#new').disabled = value;
   document.querySelectorAll('.preset').forEach((button) => { button.disabled = value; });
@@ -1079,9 +1135,10 @@ async function pollJob() {
         : job.action === 'apply' ? '操作：写入并保存，自动读回' : '操作：只读复核上次写入计划',
       status && `状态：${status.status} / ${status.stage}`,
       job.action === 'read' ? '仅发送读取查询，未写入 EQ、切换模式或保存设备。'
-        : status && `写入已启动：${status.write_attempted ? '是' : '否'} · 保存 ACK：${status.save_command_acknowledged ? '已确认' : '未确认'} · 读回：${status.readback_verified ? '通过' : '尚未通过'}`,
+        : status && `写入已启动：${status.write_attempted ? '是' : '否'} · 保存 ACK：${status.save_command_acknowledged ? '已确认' : status.commit_sequence_sent ? '协议无独立 ACK，提交序列已发送' : '未确认'} · 读回：${status.readback_verified ? '通过' : '尚未通过'}`,
       job.matching_sample_rates?.length && `实际系数匹配采样率：${job.matching_sample_rates.join(' / ')} Hz`,
       status?.read_reconnect_attempts && `只读重新连接：${status.read_reconnect_attempts} 次${status.readback_recovered ? ' · 恢复后已验证' : ''}`,
+      job.device && `设备：${job.device}`,
       job.run && `运行记录：${job.run}`,
       (job.error || status?.error) && `详情：${job.error || status.error}`,
       job.action !== 'read' && '物理拔插保持未验证。',
@@ -1134,15 +1191,16 @@ $('#settings').addEventListener('focusout', () => { showErrors = true; if (lastE
 $('#name').addEventListener('input', () => { doc.name = $('#name').value; changed('input:name'); });
 $('#description').addEventListener('input', () => { doc.description = $('#description').value; changed('input:description'); });
 $('#output').addEventListener('input', () => {
-  doc.output_gain_db = $('#output').value === '' ? NaN : $('#output').valueAsNumber;
-  if ($('#output').validity.valid) $('#output-slider').value = doc.output_gain_db;
+  if ($('#output').value === '' && !$('#output').validity.badInput) delete doc.output_gain_db;
+  else doc.output_gain_db = $('#output').valueAsNumber;
+  if ($('#output').validity.valid) $('#output-slider').value = doc.output_gain_db ?? 0;
   changed('input:output');
 });
 $('#output-slider').addEventListener('input', () => {
-  doc.output_gain_db = Math.round(Number($('#output-slider').value) * 100) / 100;
+  doc.output_gain_db = capability().output_step === 1 ? Math.round(Number($('#output-slider').value)) : Math.round(Number($('#output-slider').value) * 100) / 100;
   // Preserve exact valid endpoints instead of rounding them beyond the limits.
   doc.output_gain_db = Math.max(Number($('#output').min), Math.min(Number($('#output').max), doc.output_gain_db));
-  $('#output').value = doc.output_gain_db;
+  $('#output').value = doc.output_gain_db ?? '';
   changed('input:output-slider');
 });
 $('#rate').addEventListener('change', () => { finishChartDrag(true); drawChart(); });
@@ -1202,10 +1260,23 @@ document.addEventListener('focusout', () => { historyGroup = null; });
 document.addEventListener('keyup', (event) => {
   if (event.key.startsWith('Arrow')) historyGroup = null;
 });
+$('#device-model').addEventListener('change', () => chooseDevice($('#device-model').value));
+$('#detect-device').addEventListener('click', async () => {
+  if (busy || reloadWaiting) return;
+  $('#detect-device').disabled = true;
+  try {
+    const result = await api('/api/devices');
+    if (busy) return;
+    if (result.devices.length !== 1) throw new Error(`检测到 ${result.devices.length} 台支持的耳放，请连接恰好一台设备`);
+    const found = result.devices[0];
+    if (chooseDevice(found.device)) notify(`已识别 ${found.device}；点击“读取当前设备”载入参数。`);
+  } catch (error) { notify(`识别失败：${error.message}`, true); }
+  finally { $('#detect-device').disabled = busy || reloadWaiting; }
+});
 $('#new').addEventListener('click', () => {
   if (!discardAllowed()) return;
-  setDocument({version: 1, device: 'MOONDROP ECHO-B', name: '我的声音配置', description: '', output_gain_db: -16, filters: []});
-  notify('已新建空白配置，初始输出为 −16 dB。每段支持 20–20000 Hz 任意整数频率。');
+  setDocument(blankDocument(doc.device));
+  notify('已新建空白配置，整体增益留空，省略时按0 dB处理，由你自行设置。每段支持 20–20000 Hz 任意整数频率。');
 });
 $('#import').addEventListener('click', () => $('#file').click());
 $('#file').addEventListener('change', async () => {
@@ -1216,9 +1287,9 @@ $('#file').addEventListener('change', async () => {
     if (file.size > 65536) throw new Error('配置文件不能超过 64 KiB');
     const value = JSON.parse((await file.text()).replace(/^\uFEFF/, ''));
     // Validate the entire imported file before replacing the current draft.
-    await api('/api/preview', value);
+    const imported = await api('/api/preview', value);
     if (!discardAllowed()) return;
-    setDocument(value);
+    setDocument(imported.preset);
     notify(`已导入 ${file.name}，尚未写入耳放。`);
   } catch (error) { notify(`导入失败：${error.message}。当前配置已保留。`, true); }
 });
@@ -1235,7 +1306,7 @@ $('#export').addEventListener('click', async () => {
   setTimeout(() => URL.revokeObjectURL(url), 1000);
   baseline = JSON.stringify(doc);
   $('#draft-state').textContent = '已导出配置';
-  notify('已导出完整 JSON，包含音色 EQ 与整体输出增益。');
+  notify('已导出 JSON；未设置的整体增益字段保持省略。');
 });
 $('#verify').addEventListener('click', async () => {
   if (busy) return;
@@ -1257,7 +1328,7 @@ $('#read-device').addEventListener('click', async () => {
   pendingRead = {id: null, previous: activeJob};
   setBusy(true);
   try {
-    const result = await api('/api/read', {});
+    const result = await api('/api/read', {device: doc.device});
     pendingRead.id = result.job.id;
     await pollJob();
   } catch (error) {
@@ -1277,28 +1348,10 @@ async function start() {
   try {
     const initial = await api('/api/bootstrap');
     token = initial.token;
-    $('#output').min = initial.output_min;
-    $('#output').max = initial.output_max;
-    $('#output-slider').min = initial.output_min;
-    $('#output-slider').max = initial.output_max;
-    initial.presets.forEach((item) => {
-      const button = document.createElement('button');
-      button.className = 'preset';
-      button.type = 'button';
-      button.dataset.id = item.id;
-      const name = document.createElement('span');
-      name.textContent = item.preset.name;
-      const detail = document.createElement('small');
-      detail.textContent = `${item.preset.filters.length} 段 EQ · ${item.preset.output_gain_db} dB`;
-      button.append(name, detail);
-      button.addEventListener('click', () => {
-        if (!discardAllowed()) return;
-        setDocument(item.preset, item.id);
-        notify('已载入预设，尚未写入耳放。');
-      });
-      $('#presets').append(button);
-    });
-    const selected = initial.presets.find((item) => item.id === 'original-minus-16db') || initial.presets[0];
+    deviceCapabilities = initial.devices;
+    presetLibrary = initial.presets;
+    $('#device-model').replaceChildren(...deviceCapabilities.map((cap) => new Option(cap.id.toUpperCase(), cap.name)));
+    const selected = initial.presets.find((item) => item.id === 'echo-b/general/original-default') || initial.presets[0];
     if (!selected) throw new Error('预设库为空，请检查 presets 目录');
     setDocument(selected.preset, selected.id);
     recoverReloadDraft();

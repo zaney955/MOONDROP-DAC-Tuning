@@ -1,0 +1,12 @@
+{
+  "action": "read",
+  "stage": "failed",
+  "status": "read_failed",
+  "write_attempted": false,
+  "save_command_acknowledged": false,
+  "readback_verified": false,
+  "physical_unplug_tested": false,
+  "message": "读取未完成，当前草稿已保留；未写入设备",
+  "updated_at_utc": "20261101T043904.727409Z",
+  "error": "current/metadata 读取失败 (exit 6): Expected one ECHO-B; found 0; 日志 /Users/zane/Projects/reverse/ECHO-B-DAC-Amp-Tuning/runs/20261101T043904.719957Z-device-read/current-metadata-attempt1.jsonl"
+}

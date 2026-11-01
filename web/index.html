@@ -4,13 +4,13 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="editor-version" content="__EDITOR_VERSION__">
-  <title>ECHO-B · 声音工作台</title>
+  <title>MOONDROP DAC · 声音工作台</title>
   <link rel="stylesheet" href="/style.css">
   <script src="/app.js" defer></script>
 </head>
 <body>
   <header class="topbar">
-    <a href="/" class="wordmark" aria-label="ECHO-B 声音工作台首页"><span class="mark" aria-hidden="true">e.</span><b>ECHO-B</b><span class="divider"></span><span>声音工作台</span></a>
+    <a href="/" class="wordmark" aria-label="MOONDROP DAC 声音工作台首页"><span class="mark" aria-hidden="true">e.</span><b>MOONDROP DAC</b><span class="divider"></span><span>声音工作台</span></a>
     <span class="local"><i></i> 本地运行</span>
   </header>
   <main>
@@ -21,13 +21,13 @@
     <p id="notice" role="status" aria-live="polite"></p>
     <div class="workspace">
       <aside class="sidebar">
+        <section class="panel device"><span class="device-symbol" aria-hidden="true">▥</span><p class="eyebrow">USB DAC / AMP</p><h2 id="device-title">耳放设备</h2><label for="device-model">编辑与操作的设备</label><select id="device-model" aria-describedby="read-help" disabled></select><button id="detect-device" type="button" disabled>识别已连接设备</button><p id="read-help">读取后可编辑，写入后生效。</p><button id="read-device" type="button" aria-describedby="read-help" disabled>读取当前设备</button><div class="device-tag" id="device-capabilities"></div></section>
         <section class="panel library"><p class="eyebrow">01 / PRESETS</p><h2>预设库</h2><div id="presets"></div><button class="text-button" id="new" type="button">＋ 新建空白配置</button></section>
-        <section class="panel device"><span class="device-symbol" aria-hidden="true">▥</span><p class="eyebrow">USB DAC / AMP</p><h2>MOONDROP ECHO-B</h2><p id="read-help">读取后可编辑，写入后生效。</p><button id="read-device" type="button" aria-describedby="read-help" disabled>读取当前设备</button><div class="device-tag">9 段 DSP · 8 段可调 EQ</div></section>
       </aside>
       <div class="editor">
         <form id="settings" action="/api/apply" method="post">
         <section class="panel response" aria-labelledby="eq-title">
-          <div class="section-head"><div><p class="eyebrow">02 / EQUALIZER</p><h2 id="eq-title">声音曲线 <span id="band-count">0 / 8</span></h2></div><label class="rate-label" for="rate">预览采样率<select id="rate" name="rate"><option value="44100">44.1 kHz</option><option value="48000" selected>48 kHz</option><option value="96000">96 kHz</option><option value="192000">192 kHz</option><option value="384000">384 kHz</option></select></label></div>
+          <div class="section-head"><div><p class="eyebrow">02 / EQUALIZER</p><h2 id="eq-title">声音曲线 <span id="band-count">0 / 8</span></h2></div><label class="rate-label" for="rate"><span id="rate-title">预览采样率</span><select id="rate" name="rate"><option value="44100">44.1 kHz</option><option value="48000" selected>48 kHz</option><option value="96000">96 kHz</option><option value="192000">192 kHz</option><option value="384000">384 kHz</option></select></label></div>
           <div class="history-toolbar" role="group" aria-label="编辑历史"><button id="undo" type="button" aria-keyshortcuts="Meta+Z Control+Z" disabled>↶ 撤销 <kbd>⌘Z</kbd></button><button id="redo" type="button" aria-keyshortcuts="Meta+Shift+Z Control+Shift+Z Control+Y" disabled>↷ 重做 <kbd>⇧⌘Z</kbd></button></div>
           <div class="legend"><span class="line-key total"></span>EQ 组合<span class="line-key band"></span>单段 EQ</div>
           <div id="chart-wrap" role="group" aria-label="频率响应调节"><svg id="chart" viewBox="0 0 900 360" role="img" tabindex="0" aria-labelledby="chart-title chart-description" aria-describedby="chart-help chart-keyboard-help curve-state"><title id="chart-title">EQ 频率响应曲线</title><desc id="chart-description">正在计算频率响应</desc></svg><div id="chart-handles"></div><div id="chart-readout" class="chart-readout" aria-hidden="true" hidden><div class="readout-heading"><strong></strong><span data-value="q"></span></div><div class="readout-values"><span data-value="frequency"></span><span data-value="gain"></span></div></div><div id="curve-readout" class="chart-readout" role="status" aria-live="off" aria-atomic="true" hidden><strong></strong><div class="readout-values"><span data-value="frequency"></span><span data-value="gain"></span></div></div></div>
@@ -43,7 +43,7 @@
             </section>
             <section class="output" aria-labelledby="output-title">
               <div><label id="output-title" for="output">整体输出数字增益</label><p id="output-help">仅调节音量，不影响曲线。</p></div>
-              <div class="output-control"><div class="unit-input"><input id="output" name="output_gain_db" type="number" step="any" required aria-describedby="output-help"><span>dB</span></div><label class="sr-only" for="output-slider">整体输出增益滑块（dB）</label><input type="range" id="output-slider" name="output-slider" min="-132.45319809215172" max="6.020598877840829" step="any" value="-16"></div>
+              <div class="output-control"><div class="unit-input"><input id="output" name="output_gain_db" type="number" step="any" placeholder="0（未设置）" aria-describedby="output-help"><span>dB</span></div><label class="sr-only" for="output-slider">整体输出增益滑块（dB）</label><input type="range" id="output-slider" name="output-slider" min="-132.45319809215172" max="6.020598877840829" step="any" value="0"></div>
             </section>
           </div>
         </section>
@@ -56,7 +56,7 @@
         </form>
       </div>
     </div>
-    <footer><span>ECHO-B / SOUND WORKBENCH</span><span>曲线为数字模型，非耳机实测频响。</span></footer>
+    <footer><span>MOONDROP DAC / SOUND WORKBENCH</span><span>曲线为数字模型，非耳机实测频响。</span></footer>
   </main>
   <noscript>请启用 JavaScript 使用可视化编辑器。也可以运行 python3 tools/preset.py 通过命令行管理配置。</noscript>
 </body>

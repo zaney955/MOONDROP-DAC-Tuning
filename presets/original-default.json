@@ -1,8 +1,0 @@
-{
-  "version": 1,
-  "device": "MOONDROP ECHO-B",
-  "name": "原始音色 · 默认输出 −20 dB",
-  "description": "依据 2026-10-29 首次连接备份的原始直通音色，整体输出按用户要求设为 -20 dB。保留原始频响形状，不恢复初始 0 dB 输出；不是整机恢复出厂或完整闪存镜像。",
-  "output_gain_db": -20,
-  "filters": []
-}

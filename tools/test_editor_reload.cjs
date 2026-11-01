@@ -60,8 +60,8 @@ const {spawn} = require('node:child_process');
     const before = await version();
     const editorPath = path.join(root, 'tools/editor.py');
     const originalEditor = await fs.readFile(editorPath, 'utf8');
-    const updatedEditor = originalEditor.replace('return dict(preset=doc, frequencies=frequencies,',
-      "return dict(reload_marker='new-backend', preset=doc, frequencies=frequencies,");
+    const updatedEditor = originalEditor.replace('return dict(preset=devices.normalize_document(doc), frequencies=frequencies,',
+      "return dict(reload_marker='new-backend', preset=devices.normalize_document(doc), frequencies=frequencies,");
     assert.notEqual(updatedEditor, originalEditor);
     const reloaded = page.waitForEvent('load', {timeout: 30000});
     await fs.writeFile(editorPath, updatedEditor);

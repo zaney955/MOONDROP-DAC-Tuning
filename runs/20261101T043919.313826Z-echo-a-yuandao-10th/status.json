@@ -1,0 +1,13 @@
+{
+  "device": "MOONDROP ECHO-A",
+  "usb": "3302:12c5",
+  "firmware": "0.1",
+  "stage": "verified",
+  "readback_verified": true,
+  "physical_unplug_tested": false,
+  "analog_output_measured": false,
+  "plan_sha256": "ffe1c6e844bff9e937eea9921d7ba67f986f9e269d7bc6ecf210d9c3728880d6",
+  "write_attempted": true,
+  "commit_sequence_sent": true,
+  "independent_reopen_verified": true
+}

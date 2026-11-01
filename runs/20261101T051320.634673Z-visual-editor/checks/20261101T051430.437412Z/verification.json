@@ -1,0 +1,9 @@
+{
+  "verified": true,
+  "bands": 8,
+  "coefficient_bytes": 160,
+  "preamp_db": -20,
+  "slot": 0,
+  "physical_unplug_tested": false,
+  "analog_output_measured": false
+}

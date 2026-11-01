@@ -9,12 +9,13 @@ import unittest
 from unittest.mock import patch
 
 import preset
+import devices
 
 
 class OutputLevelTests(unittest.TestCase):
     def setUp(self):
-        self.flat = json.loads((preset.ROOT/'presets/original-default.json').read_text())
-        self.metal = json.loads((preset.ROOT/'presets/kadenz-death-metal-structure-v1.json').read_text())
+        self.flat = json.loads((preset.ROOT/'presets/echo-b/general/original-default.json').read_text())
+        self.metal = json.loads((preset.ROOT/'presets/echo-b/moondrop/kadenz/kadenz-death-metal-structure-v1.json').read_text())
 
     def test_minus_18_retains_filters_and_shape_at_every_rate(self):
         for source in (self.flat, self.metal):
@@ -28,14 +29,12 @@ class OutputLevelTests(unittest.TestCase):
                 for field in ('min_gain_db', 'max_gain_db'):
                     self.assertAlmostEqual(reduced['response_check'][fs][field]-base['response_check'][fs][field], -18, places=4)
 
-    def test_invalid_or_missing_gain_is_rejected_before_device_access(self):
+    def test_invalid_gain_is_rejected_before_device_access(self):
         with tempfile.TemporaryDirectory() as temp, patch.object(preset.subprocess, 'run') as command:
             path = Path(temp)/'invalid.json'
-            for value in (preset.OUTPUT_GAIN_MAX_DB + 0.01, preset.OUTPUT_GAIN_MIN_DB - 0.01, float('nan'), float('inf'), True, None, '-18', 'missing'):
+            for value in (preset.OUTPUT_GAIN_MAX_DB + 0.01, preset.OUTPUT_GAIN_MIN_DB - 0.01, float('nan'), float('inf'), True, None, '-18'):
                 with self.subTest(value=value):
                     doc = dict(self.flat, output_gain_db=value)
-                    if value == 'missing':
-                        del doc['output_gain_db']
                     preset.save_json(path, doc)
                     with patch('sys.argv', ['preset.py', 'apply', str(path)]), self.assertRaises(ValueError):
                         preset.main()
@@ -98,14 +97,16 @@ class OutputLevelTests(unittest.TestCase):
             self.assertEqual(preset.load_run_plan(Path(temp)/'profiles/compiled/positive')['preset'], doc)
 
     def test_migrated_historical_presets_keep_exact_device_frames(self):
-        folders = sorted((preset.ROOT/'runs').glob('*/plan.json'))
+        folders = [Path(__file__).parent/'fixtures/echo-b-legacy-output/plan.json']
+        folders += sorted((preset.ROOT/'runs').glob('*/plan.json'))
         checked = 0
         for path in folders:
             with self.subTest(run=path.parent.name):
+                raw = json.loads(path.read_text())
+                if raw.get('preset', {}).get('device') != 'MOONDROP ECHO-B' or 'preamp_db' not in raw['preset']:
+                    continue
                 old = preset.load_run_plan(path.parent)
                 doc = dict(old['preset'])
-                if 'preamp_db' not in doc:
-                    continue
                 checked += 1
                 trim = doc.pop('output_trim_db', old.get('gain_staging', {}).get('output_trim_db', 0))
                 doc['output_gain_db'] = doc.pop('preamp_db') + trim
@@ -115,14 +116,32 @@ class OutputLevelTests(unittest.TestCase):
                 self.assertEqual(plan['bands'], [dict(b, gain_label_db=b['gain_db']) for b in old['bands']])
         self.assertGreater(checked, 0)
 
-    def test_all_editable_presets_are_complete_and_valid(self):
-        for path in (preset.ROOT/'presets').glob('*.json'):
-            doc = json.loads(path.read_text())
-            self.assertIn('output_gain_db', doc, str(path))
-            self.assertNotIn('gain_db', doc, str(path))
-            self.assertNotIn('preamp_db', doc, str(path))
-            self.assertNotIn('output_trim_db', doc, str(path))
-            preset.compile_preset(doc)
+    def test_all_editable_presets_are_classified_and_valid(self):
+        files=sorted((preset.ROOT/'presets').rglob('*.json'))
+        self.assertGreater(len(files),0)
+        for path in files:
+            doc=json.loads(path.read_text())
+            self.assertGreaterEqual(len(path.relative_to(preset.ROOT/'presets').parts),3)
+            self.assertNotIn('preamp_db',doc)
+            self.assertNotIn('output_trim_db',doc)
+            devices.for_document(doc).compile(doc)
+
+    def test_omitted_gain_compiles_at_unity_without_inserting_field(self):
+        for source in [self.flat, json.loads((preset.ROOT/'presets/echo-a/nicehck/yuandao-10th/yuandao-10th-foam-balanced-v1.json').read_text())]:
+            doc=dict(source);doc.pop('output_gain_db',None)
+            before=json.dumps(doc,sort_keys=True)
+            with patch.object(preset.subprocess,'run') as command:
+                backend=devices.for_document(doc)
+                plan,binary=backend.compile(doc)
+                explicit=backend.compile(dict(doc,output_gain_db=0))
+                self.assertEqual(binary,explicit[1])
+                self.assertNotIn('output_gain_db',plan['preset'])
+                self.assertEqual(json.dumps(doc,sort_keys=True),before)
+                command.assert_not_called()
+
+    def test_recursive_preset_resolution_keeps_unique_names(self):
+        self.assertEqual(preset.resolve_preset('original-default'),preset.ROOT/'presets/echo-b/general/original-default.json')
+        self.assertEqual(preset.resolve_preset('echo-b/general/original-default'),preset.ROOT/'presets/echo-b/general/original-default.json')
 
 
 if __name__ == '__main__':
