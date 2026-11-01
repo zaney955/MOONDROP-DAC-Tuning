@@ -1,0 +1,10 @@
+{
+  "retrieved_at_utc": "2026-11-01T05:50:19Z",
+  "landing_page": "https://www.nicehck.com/pages/app",
+  "download_endpoint": "https://nicehck.cn/api/app/os-version/latest",
+  "url": "https://bucket.nicehck.cn/os-apk/nicehck-2-3-8.apk",
+  "filename": "nicehck-2-3-8.apk",
+  "bytes": 17987958,
+  "sha256": "68a4a39c824fd8416c3f9a802da7f9edf1f256bf80d640c9bda25e1a211809ff",
+  "analysis_only": true
+}

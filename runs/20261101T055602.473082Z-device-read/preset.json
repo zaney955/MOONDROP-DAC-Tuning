@@ -1,0 +1,21 @@
+{
+  "version": 1,
+  "device": "MOONDROP ECHO-B",
+  "name": "当前设备调音",
+  "description": "从设备只读载入；增益已与实际 Q22 系数核对。设备不保存原配置名称和备注。",
+  "output_gain_db": -20.000008283513814,
+  "filters": [
+    {
+      "type": "low_shelf",
+      "frequency_hz": 120,
+      "q": 1.0,
+      "gain_db": 1.0
+    },
+    {
+      "type": "peak",
+      "frequency_hz": 3200,
+      "q": 1.1015625,
+      "gain_db": -0.4
+    }
+  ]
+}

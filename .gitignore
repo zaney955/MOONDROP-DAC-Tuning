@@ -15,6 +15,7 @@ venv/
 
 # Downloaded vendor packages and extracted native libraries
 /evidence/*.apk
+/evidence/nicehck-app-20261101/*.apk
 /evidence/android-arm64/
 
 # Local analysis sessions and atomic JSON-write temporary files.

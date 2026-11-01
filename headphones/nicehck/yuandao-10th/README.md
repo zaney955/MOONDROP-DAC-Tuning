@@ -2,7 +2,7 @@
 
 资料核对日期：2026-11-01。型号为 **10th Anniversary Edition 平头耳机**，包含蓝／红色的 3.5 mm 无麦、有麦和 Type-C 有麦版本；本档案测量不与其他原道型号混用。[官方商品页](https://www.nicehck.com/products/yuandao-10th)
 
-用户使用 **3.5 mm 版本＋ECHO-A、全包海绵套**，目标为温和均衡。耳放数字读回与耳机声学证据分别记录。
+用户使用 **3.5 mm 版本、全包海绵套**，目标为温和均衡；此前搭配 ECHO-A，本轮确认也会直插 Mac。电脑直插的输出选择、软件 EQ 与参数迁移见 [Mac 调音指南](research/mac-analog-tuning.md)。耳放数字读回与耳机声学证据分别记录。
 
 ## 型号与硬件
 
@@ -49,9 +49,9 @@ B&K 说明耳机测试需要考虑耳廓影响及真实声学负载，5128 模�
 
 ## 官方 App 与预设
 
-官方[PEQ 说明图](https://cdn.shopify.com/s/files/1/0865/0850/3331/files/08_12470106-190e-429e-9eb9-590c17266da4.jpg?v=1773218480)说明十周年 **Type-C** 版本支持 8 段参数 EQ。图中底部同时注明，有线耳机的 App DSP 控制目前只支持 Android，iOS 与 HarmonyOS 暂不支持。与此同时，当前[官方 App 下载页](https://www.nicehck.com/pages/app)已经列出 Android 和 iOS 17.0＋安装入口。两项证据应分别理解：**App 可安装，不等于这一有线型号的 DSP 功能可用**。本仓库没有进行手机实机兼容性验收。
+官方[PEQ 说明图](https://cdn.shopify.com/s/files/1/0865/0850/3331/files/08_12470106-190e-429e-9eb9-590c17266da4.jpg?v=1773218480)说明十周年 **Type-C** 版本支持 8 段参数 EQ。图中底部同时注明，有线耳机的 App DSP 控制目前只支持 Android，iOS 与 HarmonyOS 暂不支持。与此同时，当前[官方 App 下载页](https://www.nicehck.com/pages/app)已经列出 Android 和 iOS 17.0＋安装入口。两项证据应分别理解：**App 可安装，不等于这一有线型号的 DSP 功能可用**。当前中国官网另已提供 [PC 网页调音](https://www.nicehck.cn/app/download)；本轮取得的 Web 设备目录明确包含十周年 Type-C，写入与保存代码证据见[硬件写入调查](research/hardware-write-investigation.md)。旧商品图的 Android 限定不能代表当前全部平台支持。本仓库尚未进行该 Type-C 版本的实机兼容性验收。
 
-制造商于 2026-07-15 的[原始公告](https://www.sina.cn/news/detail/5320954000443606.html)宣布 App 2.3.7 加入十周年官方音效，包括悔恨之泪、摇滚现场、流行人声、均衡杂食、ACG，以及油兔几参与的 DSP 仙人特调。公告可证明这些预设被官方发布，未提供本轮可复算的滤波器参数；本仓库没有导入、反推或声称复现这些官方预设。
+制造商于 2026-07-15 的[原始公告](https://www.sina.cn/news/detail/5320954000443606.html)宣布 App 2.3.7 加入十周年官方音效，包括悔恨之泪、摇滚现场、流行人声、均衡杂食、ACG，以及油兔几参与的 DSP 仙人特调。公告可证明这些预设被官方发布。本轮进一步取得官方 Web 接口的[完整设备配置](../../../evidence/nicehck-web-20261101/device-49664.json)，现已包含具体滤波器与整体 offset；原始来源保留不变；另按用户要求生成了[7 套 ECHO-A 参数移植配置](../../../presets/echo-a/nicehck/yuandao-10th/official/README.md)，全部省略整体增益，仅做离线编译校验，未写入设备。参数迁移不代表两版本耳机的声学效果相同。
 
 ## 温和试听起点与历史验收
 

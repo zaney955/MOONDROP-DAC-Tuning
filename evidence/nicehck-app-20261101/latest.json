@@ -1,0 +1,16 @@
+{
+  "code": 200,
+  "data": {
+    "appDesc": " ",
+    "appName": "nicehck-2-3-8.apk",
+    "appUrl": "https://bucket.nicehck.cn/os-apk/nicehck-2-3-8.apk",
+    "appVersion": "2.3.8",
+    "appVersionCode": 33,
+    "createTime": "2026-09-17T07:39:24",
+    "id": "18",
+    "isDeleted": false,
+    "updateTime": "2026-09-17T07:39:24"
+  },
+  "message": "Success",
+  "msg": "Success"
+}

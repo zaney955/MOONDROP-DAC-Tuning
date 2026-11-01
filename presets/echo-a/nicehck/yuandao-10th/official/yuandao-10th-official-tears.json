@@ -1,0 +1,56 @@
+{
+  "version": 1,
+  "device": "MOONDROP ECHO-A",
+  "name": "原道十周年 · 官方参数移植 · 悔恨之泪",
+  "description": "NICEHCK 十周年 Type-C 官方 悔恨之泪（tears，配置 revision 1，2026-11-01 核对）的 8 段峰值参数移植。保留频率、单段增益和 Q，由 ECHO-A 以 93750 Hz 重新设计 Q30 系数；不复制厂商整体 offset，省略 output_gain_db，由用户自行设置。不是厂商发布的 ECHO-A 预设，也未验证两版本的声学等效。",
+  "filters": [
+    {
+      "type": "peak",
+      "frequency_hz": 50,
+      "gain_db": 8.9,
+      "q": 0.5
+    },
+    {
+      "type": "peak",
+      "frequency_hz": 200,
+      "gain_db": 5.5,
+      "q": 0.6
+    },
+    {
+      "type": "peak",
+      "frequency_hz": 600,
+      "gain_db": -3.5,
+      "q": 0.65
+    },
+    {
+      "type": "peak",
+      "frequency_hz": 2000,
+      "gain_db": -7.8,
+      "q": 1.5
+    },
+    {
+      "type": "peak",
+      "frequency_hz": 2800,
+      "gain_db": 5.5,
+      "q": 0.75
+    },
+    {
+      "type": "peak",
+      "frequency_hz": 7500,
+      "gain_db": -1.0,
+      "q": 1.2
+    },
+    {
+      "type": "peak",
+      "frequency_hz": 11000,
+      "gain_db": 3.0,
+      "q": 0.6
+    },
+    {
+      "type": "peak",
+      "frequency_hz": 16000,
+      "gain_db": 4.0,
+      "q": 0.8
+    }
+  ]
+}

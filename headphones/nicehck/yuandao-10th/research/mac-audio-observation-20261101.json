@@ -1,0 +1,33 @@
+{
+  "observed_at_utc": "2026-11-01T05:45:44Z",
+  "command": "system_profiler SPAudioDataType -json",
+  "scope": "Selected output entries only; unrelated inputs and virtual devices omitted. Not a live status API.",
+  "user_confirmed_connection": "YUANDAO 10th Anniversary, 3.5 mm directly into Mac; full foam covers",
+  "outputs": [
+    {
+      "_name": "ECHO-B",
+      "coreaudio_default_audio_output_device": "spaudio_yes",
+      "coreaudio_device_manufacturer": "MOONDROP",
+      "coreaudio_device_output": 2,
+      "coreaudio_device_srate": 48000,
+      "coreaudio_device_transport": "coreaudio_device_type_usb"
+    },
+    {
+      "_name": "外置耳机",
+      "coreaudio_default_audio_system_device": "spaudio_yes",
+      "coreaudio_device_manufacturer": "Apple Inc.",
+      "coreaudio_device_output": 2,
+      "coreaudio_device_srate": 48000,
+      "coreaudio_device_transport": "coreaudio_device_type_builtin"
+    }
+  ],
+  "application_path_check": {
+    "paths_checked": [
+      "/Applications",
+      "/Users/zane/Applications"
+    ],
+    "eqMac.app_found": false,
+    "SoundSource.app_found": false
+  },
+  "mutations": []
+}

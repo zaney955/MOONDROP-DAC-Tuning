@@ -1,0 +1,57 @@
+{
+  "retrieved_at_utc": "2026-11-01T05:50:47Z",
+  "page": "https://app.nicehck.cn/",
+  "scripts": [
+    {
+      "url": "https://app.nicehck.cn/assets/index-BBjPRS6v.js",
+      "filename": "index-BBjPRS6v.js",
+      "bytes": 2111800,
+      "sha256": "10e07052684635e1c228ce55394fe49830b430cd42aa17f9d67a5025c70607b9"
+    }
+  ],
+  "static_only": true,
+  "api_base": "https://nicehck.cn/api",
+  "api_query": {
+    "platform": "web",
+    "buildType": "official",
+    "appBuild": 1
+  },
+  "catalog_endpoint": "/app/v1/device/config-sync",
+  "device_endpoint_template": "/app/v1/device/config-sync/{id}",
+  "headers": {
+    "X-App-Build": "1"
+  },
+  "public_api_snapshots": [
+    {
+      "filename": "device-14787.json",
+      "bytes": 8286,
+      "sha256": "347a21f195490af765e76594f7fe2bd71ed86d6a3467c4c9348059c325bc33b0"
+    },
+    {
+      "filename": "device-17186.json",
+      "bytes": 17699,
+      "sha256": "4ef6db32b67dd46f502fd8624776977f07fe994199b7a5069186698c0e733746"
+    },
+    {
+      "filename": "device-4753.json",
+      "bytes": 10015,
+      "sha256": "eafdc306cfd4d780940dff1678a32e24e4d095430a4bc9fee6c21a5c540603e7"
+    },
+    {
+      "filename": "device-4766.json",
+      "bytes": 8350,
+      "sha256": "bd91de61770f1a6642fa8ef13646036d9240c2ee566b5388f417a5f41cd7dfde"
+    },
+    {
+      "filename": "device-49664.json",
+      "bytes": 10821,
+      "sha256": "c11727e5fe1e7ee4a3c6c2ca0aa44b51cab8c20b893c8c4a8e596e5006002190"
+    },
+    {
+      "filename": "device-catalog.json",
+      "bytes": 197,
+      "sha256": "1b9ee5988309ca41e185171d03765153579d23da9936de3e5543cf05a361ef04"
+    }
+  ],
+  "html_sha256": "89179a204ca32541c99ef42badd57199cbc585f5792e809e91e0829711b9ead8"
+}

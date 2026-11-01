@@ -1,0 +1,110 @@
+{
+  "source_sha256": "10e07052684635e1c228ce55394fe49830b430cd42aa17f9d67a5025c70607b9",
+  "method": "Literal excerpt selection from UTF-8-decoded shipped JavaScript; offsets are Unicode character indices unless explicitly marked byte. Not execution or REA semantic graph.",
+  "excerpts": [
+    {
+      "name": "webhid-selection",
+      "source": "index-BBjPRS6v.js",
+      "character_offset": 806142,
+      "character_end_exclusive": 806792,
+      "utf8_byte_offset": 807229,
+      "text": "async requestDevice(e){const r=e.map(n=>({productId:n.productId??n.id,vendorId:n.vendorId}));if(this.#e){const[n]=await navigator.hid.requestDevice({filters:r});return this.getDevices(),Gn(n)}return Tn(new P$)}#o(e){O5e(e)}async openDevice(e){try{const r=e.productId;if(e.opened){const a=this.#r.get(r);a&&(e.removeEventListener(\"inputreport\",a),this.#r.delete(r)),await e.close()}await e.open();const n=a=>{this.#o(a)};return e.addEventListener(\"inputreport\",n),this.#r.set(r,n),Gn(!0)}catch(r){return Tn(r)}}async closeDevice(e){try{const r=e.productId,n=this.#r.get(r);return n&&(e.removeEventListener(\"inputreport\",n),this.#r.delete(r)),e.opened&"
+    },
+    {
+      "name": "webhid-send",
+      "source": "index-BBjPRS6v.js",
+      "character_offset": 806839,
+      "character_end_exclusive": 808289,
+      "utf8_byte_offset": 807926,
+      "text": "async#s(e){if(this.#n.get(e))return;const r=this.#t.get(e);if(!(!r||r.length===0)){for(this.#n.set(e,!0);r.length>0;){r.sort((i,o)=>{const s=(o.priority||0)-(i.priority||0);return s!==0?s:i.timestamp-o.timestamp});const n=r.shift();if(n.abortController?.signal.aborted){n.reject(new Error(\"CANCELLED\"));continue}const a=this.#a.find(i=>i.productId===e);if(!a){n.reject(new Error(\"DEVICE_NOT_FOUND\"));continue}if(!a.opened){n.reject(new Error(\"DEVICE_NOT_OPENED\"));continue}try{for(let i=0;i<n.data.length;i++){if(n.abortController?.signal.aborted){n.reject(new Error(\"CANCELLED\"));break}const o=n.data[i];await a.sendReport(75,new Uint8Array(o));const s=r.length>0;(i<n.data.length-1||s)&&await new Promise(l=>setTimeout(l,this.#i))}n.abortController?.signal.aborted||n.resolve(Gn(!0))}catch(i){n.abortController?.signal.aborted||n.reject(i)}}this.#n.set(e,!1)}}async sendData(e,r,n){return new Promise((a,i)=>{if(n?.abortController?.signal.aborted){i(new Error(\"CANCELLED\"));return}this.#t.has(e)||this.#t.set(e,[]);const o=this.#t.get(e),s={deviceId:e,data:r,resolve:a,reject:i,priority:n?.priority??0,abortController:n?.abortController,timestamp:Date.now()};n?.abortController&&n.abortController.signal.addEventListener(\"abort\",()=>{const l=o.indexOf(s);l>-1&&(o.splice(l,1),i(new Error(\"CANCELLED\")))}),o.push(s),this.#s(e).catch(i)})}cancelPendingRequests(e){const r=this.#t.get(e);r&&(r.forEach(n=>{n.abortController?.abort(),n.reject(new Error"
+    },
+    {
+      "name": "protocol-constants",
+      "source": "index-BBjPRS6v.js",
+      "character_offset": 801422,
+      "character_end_exclusive": 801802,
+      "utf8_byte_offset": 802509,
+      "text": "const Ll=128,_s=1,Or={SET_EQ_TO_FLASH:1,MIC_GAIN:2,DAC:3,DAC_DONE:4,EQ:9,EQ_DONE:10,VERSION:12,FILTER_TYPE:17,CHANNEL_BALANCE:22,GAIN_LEVEL:25,WORK_MODE:29,DEVICE_VOLUME:133};function dN(t){const e=t&65535;return[e&255,e>>8&255]}function f5e(t){return dN(Math.round(t*256))}function d5e(){return[Ll,Or.VERSION]}function N$(){return[Ll,Or.DAC]}function h5e(t){const[e,r]=dN(t*256);"
+    },
+    {
+      "name": "coefficient-builder",
+      "source": "index-BBjPRS6v.js",
+      "character_offset": 802652,
+      "character_end_exclusive": 803552,
+      "utf8_byte_offset": 803739,
+      "text": "function A5e(t,e,r,n,a,i,o){const s=new Array(36).fill(0);s[0]=_s,s[1]=Or.EQ,s[2]=33,s[3]=0,s[4]=n&255,s[5]=0,s[6]=0;const l=kre(r,t,e,o,!0);let u=7;for(const d of l.b){const v=Math.round(d*1073741824);s[u++]=v&255,s[u++]=v>>8&255,s[u++]=v>>16&255,s[u++]=v>>24&255}for(let d=1;d<=2;d++){const v=Math.round(-l.a[d]*1073741824);s[u++]=v&255,s[u++]=v>>8&255,s[u++]=v>>16&255,s[u++]=v>>24&255}s[27]=t&255,s[28]=t>>8&255;const c=Math.round(e*256);s[29]=c&255,s[30]=c>>8&255;const f=Math.round(r*256);return s[31]=f&255,s[32]=f>>8&255,s[33]=2,s[34]=i&255,s[35]=a&255,s}function M5e(t,e){return t.getInt16(e,!0)}function $D(t,e){return M5e(t,e)/256}function zre(t){if(t.byteLength<3||t.getUint8(0)!==Ll)return null;switch(t.getUint8(1)){case Or.VERSION:return{type:\"version\",value:D5e(t)};case Or.DAC:return{type:\"offset\",value:Math.round($D(t,3))};case Or.EQ:return R5e(t);case Or.FILTER_TYPE:return{type:\""
+    },
+    {
+      "name": "write-sequence",
+      "source": "index-BBjPRS6v.js",
+      "character_offset": 809051,
+      "character_end_exclusive": 809501,
+      "utf8_byte_offset": 810138,
+      "text": "setEqualizerCommand(e,r){const n=[],a=Math.round(Number(e.offset));return e.bands.forEach((i,o)=>{n.push(A5e(i.frequency,i.qValue,i.gain,o,e.presetIndex,a,r))}),n.push(T5e()),n.push(E5e()),n.push(h5e(a)),n.push(k$()),n}setFilterTypeCommand(e){return[g5e(e)]}setWorkModeCommand(e){return[x5e(e)]}setGainLevelCommand(e){return[y5e(e)]}setDeviceVolumeCommand(e){return[C5e(e)]}setMicGainCommand(e){return[w5e(e),k$()]}getChannelBalanceCommand(){return[z"
+    },
+    {
+      "name": "eq-done-and-flash",
+      "source": "index-BBjPRS6v.js",
+      "character_offset": 802556,
+      "character_end_exclusive": 802721,
+      "utf8_byte_offset": 803643,
+      "text": "function T5e(){return[_s,Or.EQ_DONE,4,0,0,255,255]}function E5e(){return[_s,Or.SET_EQ_TO_FLASH]}function A5e(t,e,r,n,a,i,o){const s=new Array(36).fill(0);s[0]=_s,s[1"
+    },
+    {
+      "name": "read-commands",
+      "source": "index-BBjPRS6v.js",
+      "character_offset": 801696,
+      "character_end_exclusive": 802096,
+      "utf8_byte_offset": 802783,
+      "text": "function d5e(){return[Ll,Or.VERSION]}function N$(){return[Ll,Or.DAC]}function h5e(t){const[e,r]=dN(t*256);return[_s,Or.DAC,2,e,r]}function k$(){return[_s,Or.DAC_DONE]}function v5e(t){const e=[];for(let r=0;r<t;r++)e.push([Ll,Or.EQ,0,0,r]);return e}function p5e(){return[Ll,Or.FILTER_TYPE]}function g5e(t){return[_s,Or.FILTER_TYPE,1,t&255]}function m5e(){return[Ll,Or.GAIN_LEVEL]}function y5e(t){retur"
+    },
+    {
+      "name": "reply-band-parser",
+      "source": "index-BBjPRS6v.js",
+      "character_offset": 804215,
+      "character_end_exclusive": 804735,
+      "utf8_byte_offset": 805302,
+      "text": "function R5e(t){const e=t.getUint8(4),r=(t.getUint8(28)<<8)+t.getUint8(27),n=t.getInt16(29,!0)/256,a=t.getInt16(31,!0)/256;return{type:\"band\",filterIndex:e,band:{id:e,presetId:\"device\",type:0,frequency:r,gain:Number(a.toFixed(2)),qValue:Number(n.toFixed(2))},eqIndex:t.getUint8(35),offset:t.getInt8(34)}}function L5e(t,e,r){return Math.min(r,Math.max(e,t))}function I5e(t,e,r){const n=Math.round(L5e(t,e,r));return n>0?{leftGainDb:-n,rightGainDb:0}:n<0?{leftGainDb:0,rightGainDb:n}:{leftGainDb:0,rightGainDb:0}}function "
+    },
+    {
+      "name": "indexeddb-storage",
+      "source": "index-BBjPRS6v.js",
+      "character_offset": 794991,
+      "character_end_exclusive": 796791,
+      "utf8_byte_offset": 796058,
+      "text": "class t5e{db=null;storeName=\"eq_presets\";constructor(){this.initDB()}getAllKeys=async()=>(this.db,new Promise((e,r)=>{const i=this.db.transaction([this.storeName],\"readonly\").objectStore(this.storeName).getAllKeys();i.onsuccess=()=>{e(i.result)},i.onerror=()=>{const o=`Failed to get keys: ${i.error?.message}`;r(new Error(o))}}));getItem=async e=>{if(!this.db)throw new Error(\"Database not initialized\");return new Promise((r,n)=>{const o=this.db.transaction([this.storeName],\"readonly\").objectStore(this.storeName).get(e);o.onsuccess=()=>{const s=o.result||null;r(s)},o.onerror=()=>{const s=`Failed to get item: ${o.error?.message}`;n(new Error(s))}})};removeItem=async e=>{if(!this.db)throw new Error(\"Database not initialized\");return new Promise((r,n)=>{const o=this.db.transaction([this.storeName],\"readwrite\").objectStore(this.storeName).delete(e);o.onsuccess=()=>{r()},o.onerror=()=>{const s=`Failed to remove item: ${o.error?.message}`;n(new Error(s))}})};setItem=async(e,r)=>{if(!this.db)throw new Error(\"Database not initialized\");return new Promise((n,a)=>{const s=this.db.transaction([this.storeName],\"readwrite\").objectStore(this.storeName).put(r,e);s.onsuccess=()=>{n()},s.onerror=()=>{const l=`Failed to set item: ${s.error?.message}`;a(new Error(l))}})};initDB=async()=>{try{const e=indexedDB.open(\"NICEHCK_APP\",1);e.onerror=()=>{console.error(`Failed to open database: ${e.error?.message}`)},e.onsuccess=()=>{this.db=e.result},e.onupgradeneeded=()=>{const r=e.result;r.objectStoreNames.contains(\"eq_presets\")||r.createObjectStore(\"eq_presets\"),Gn(!0)}}catch(e){console.error(e)}};onUpgradeNeeded(){}}const qf=new t5e,Pre=e5e,r5e=new Map(Pre.map(t=>[t.deviceId,t])),Mi={getAllSavedPresets:async()=>{try{const t=await qf.getAllKeys(),e=[];for(const r of t){const n=await qf.getItem(r)"
+    },
+    {
+      "name": "preset-save",
+      "source": "index-BBjPRS6v.js",
+      "character_offset": 797177,
+      "character_end_exclusive": 797677,
+      "utf8_byte_offset": 798244,
+      "text": "savePreset:async(t,e)=>{try{const r=e.id,n=Date.now(),a={id:r,name:t,deviceId:e.deviceId,preset:e,createdAt:n,updatedAt:n};return await qf.setItem(String(r),a),Gn(a)}catch(r){return Tn(r)}},updatePreset:async t=>{try{const e=await qf.getItem(t.id);if(!e)return Tn(new Error(\"预设不存在\"));const r={...e,preset:t,updatedAt:Date.now()};return await qf.setItem(r.id,r),Gn(r)}catch(e){return Tn(e)}},saveAs:async(t,e)=>Mi.savePreset(t,e),deletePreset:async t=>{try{const e=t.presetIndex,r=await Mi.getAllCusto"
+    },
+    {
+      "name": "config-sync-api",
+      "source": "index-BBjPRS6v.js",
+      "character_offset": 790483,
+      "character_end_exclusive": 791203,
+      "utf8_byte_offset": 791550,
+      "text": "Are=\"/app/v1/device/config-sync\",Mre=\"web\",Dre=\"official\";function Rre(){return Number.isSafeInteger(1),1}async function GLe(){return await cN.get(Are,{params:{platform:Mre,buildType:Dre,appBuild:Rre()}})}async function L$(t,e){return await cN.get(`${Are}/${t}`,{params:{platform:Mre,buildType:Dre,appBuild:Rre(),...e!=null?{expectedRevision:e}:{}}})}const OS=new Map;let _y=null;async function ULe(){return _y||(_y=qLe().finally(()=>{_y=null}),_y)}async function qLe(){const t=await GLe(),e=[];for(const r of t.devices){const n=OS.get(r.id);if(n&&n.revision===r.revision){e.push({id:r.id,revision:r.revision,configuration:n.configuration});continue}const a=await WLe(r.id,n?.revision);OS.set(r.id,{revision:a.revision,c"
+    },
+    {
+      "name": "edit-also-writes",
+      "source": "index-BBjPRS6v.js",
+      "character_offset": 829924,
+      "character_end_exclusive": 830074,
+      "utf8_byte_offset": 831115,
+      "text": "setEditBands:i}}function bb(){const{setEq:t,setEditBands:e,getBands:r}=X5e(),n=nn(s=>s.setEqualizerPreset),a=M.useCallback(async s=>{await t(s),n(s)},"
+    },
+    {
+      "name": "browser-requirement",
+      "source": "index-BBjPRS6v.js",
+      "character_offset": 66330,
+      "character_end_exclusive": 66460,
+      "utf8_byte_offset": 66536,
+      "text": "browserNotSupported:\"你的浏览器不支持 Web HID 请使用谷歌浏览器或者 Edge 浏览器\"},Hve={preset:\"预设\",presets:\"预设列表\",selectPreset:\"选择预设\",noPresets:\"暂无预设\",s"
+    }
+  ]
+}
