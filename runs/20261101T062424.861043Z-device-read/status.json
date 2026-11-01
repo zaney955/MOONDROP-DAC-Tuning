@@ -1,0 +1,15 @@
+{
+  "action": "read",
+  "stage": "complete",
+  "status": "read_complete",
+  "write_attempted": false,
+  "save_command_acknowledged": false,
+  "readback_verified": false,
+  "physical_unplug_tested": false,
+  "device": "MOONDROP ECHO-A",
+  "message": "已读取 ECHO-A；未写入设备",
+  "updated_at_utc": "20261101T062427.375565Z",
+  "matching_sample_rates": [
+    93750
+  ]
+}

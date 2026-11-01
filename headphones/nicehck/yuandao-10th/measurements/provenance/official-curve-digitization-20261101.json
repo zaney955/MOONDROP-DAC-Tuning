@@ -1,0 +1,182 @@
+{
+  "data_kind": "image_digitization_estimate_not_raw_measurement",
+  "source_file": "../raw/06_15b37029-c621-4a3d-bb60-f66028fc9bbb.jpg",
+  "source_sha256": "f33afca9e0d57c1fe81b5152fd86b82b8d1207d466d5c1be296c5fc40aafa09e",
+  "source_url": "https://cdn.shopify.com/s/files/1/0865/0850/3331/files/06_15b37029-c621-4a3d-bb60-f66028fc9bbb.jpg?v=1773218463",
+  "source_page": "https://www.nicehck.com/products/yuandao-10th",
+  "measurement_conditions": {
+    "model": "NICEHCK Yuandao 10th Anniversary",
+    "connector": "3.5 mm",
+    "microphone": false,
+    "foam": "none",
+    "fixture": "B&K 5128 HATS",
+    "drive_level": "not stated",
+    "channel": "not stated",
+    "smoothing": "not stated"
+  },
+  "csv_file": "../digitized/official-unfoamed-5128-image-estimate.csv",
+  "csv_sha256": "6b3c2f10ed4d3af53c97605a20aee40200b83c98f9ef1f4350e54aaaa5629438",
+  "script_file": "../digitized/digitize_official_curve.py",
+  "script_sha256": "6ab99d1c07d031864c780e80e39e6a66c6ce70ca41e451b90cb6b791c7081a79",
+  "row_count": 825,
+  "frequency_range_hz": [
+    20.123940799425917,
+    19806.14425597553
+  ],
+  "source_image_size_px": [
+    960,
+    889
+  ],
+  "calibration": {
+    "frequency_tick_hz_and_x_px": [
+      [
+        20,
+        66
+      ],
+      [
+        30,
+        115
+      ],
+      [
+        40,
+        149
+      ],
+      [
+        50,
+        176
+      ],
+      [
+        60,
+        198
+      ],
+      [
+        80,
+        232
+      ],
+      [
+        100,
+        259
+      ],
+      [
+        200,
+        341
+      ],
+      [
+        400,
+        424.5
+      ],
+      [
+        500,
+        451
+      ],
+      [
+        1000,
+        533.5
+      ],
+      [
+        2000,
+        616.5
+      ],
+      [
+        3000,
+        665
+      ],
+      [
+        4000,
+        700
+      ],
+      [
+        6000,
+        749
+      ],
+      [
+        8000,
+        783
+      ],
+      [
+        10000,
+        809.5
+      ],
+      [
+        12000,
+        831
+      ],
+      [
+        16000,
+        865
+      ]
+    ],
+    "level_tick_db_and_y_px": [
+      [
+        105,
+        394
+      ],
+      [
+        100,
+        435.5
+      ],
+      [
+        95,
+        477.5
+      ],
+      [
+        90,
+        519
+      ],
+      [
+        85,
+        561
+      ],
+      [
+        80,
+        602.5
+      ],
+      [
+        75,
+        645.5
+      ],
+      [
+        70,
+        686.5
+      ],
+      [
+        65,
+        727.5
+      ]
+    ],
+    "x_equals_slope_times_log10_hz_plus_intercept": [
+      275.30106062868776,
+      -291.91358020318626
+    ],
+    "y_equals_slope_times_db_plus_intercept": [
+      -8.355,
+      1271.1750000000002
+    ],
+    "max_frequency_anchor_residual_px": 0.7845337569663116,
+    "max_level_anchor_residual_px": 0.9499999999998181
+  },
+  "extraction": {
+    "plot_roi_xyxy": [
+      67,
+      380,
+      891,
+      758
+    ],
+    "rgb_mask": "B-R > 25 and B-G > 25 and R-G > 0",
+    "centre": "median detected y per integer x; no smoothing",
+    "missing_columns": 0,
+    "max_detected_stroke_height_px": 7,
+    "normalization": "subtract linearly interpolated log-frequency response at 1000 Hz",
+    "graph_level_at_1khz_estimate_db": 96.78872541489392,
+    "extrapolation": "none; outer borders without a reliable trace are excluded"
+  },
+  "precision_note": "Two decimal places are formatting, not accuracy. One vertical pixel is about 0.12 dB; JPEG stroke and tick selection introduce additional error. No calibrated uncertainty bound is available. Acoustic uncertainty is unknown.",
+  "limitations": [
+    "Not full-foam response",
+    "Not personal in-ear response",
+    "Graph level is not calibrated user listening SPL",
+    "Relative normalization is not target compensation",
+    "No exact 20 Hz or 20000 Hz endpoints are fabricated",
+    "Do not treat image estimates as precision AutoEQ measurement input"
+  ]
+}

@@ -1,0 +1,351 @@
+{
+  "source_csv": "headphones/nicehck/yuandao-10th/measurements/digitized/official-unfoamed-5128-image-estimate.csv",
+  "source_sha256": "6b3c2f10ed4d3af53c97605a20aee40200b83c98f9ef1f4350e54aaaa5629438",
+  "source_points": 825,
+  "intended_use": "3.5 mm Yuandao 10th + full foam + ECHO-A; preference-based audition revision",
+  "method": "Actual 93750 Hz Q30 EQ. 12001-point scan, 20-20000 Hz. CSV reference is image-digitized UNFOAMED response; no foam correction assumed. Source+EQ columns are unfoamed reference models, independently normalized at 1 kHz, NOT predicted full-foam or personal response.",
+  "not_an_optimization_objective": "No acoustic target, no claimed error minimum or proven improvement; finite changes selected for user preferences with uncertain foam response.",
+  "models": {
+    "v1": {
+      "preset": "presets/echo-a/nicehck/yuandao-10th/custom/yuandao-10th-riff-impact-v1.json",
+      "sha256": "049e621a5de97291c1fece9135cb845c547ea52365adc74aa51b54b29a72228d",
+      "quantized_filters": [
+        {
+          "type": "peak",
+          "frequency_hz": 90,
+          "gain_db": 3.0,
+          "q": 0.80078125
+        },
+        {
+          "type": "peak",
+          "frequency_hz": 250,
+          "gain_db": -1.80078125,
+          "q": 0.8984375
+        },
+        {
+          "type": "peak",
+          "frequency_hz": 850,
+          "gain_db": 0.80078125,
+          "q": 0.80078125
+        },
+        {
+          "type": "peak",
+          "frequency_hz": 1600,
+          "gain_db": -1.19921875,
+          "q": 1.1015625
+        },
+        {
+          "type": "peak",
+          "frequency_hz": 3000,
+          "gain_db": 2.0,
+          "q": 0.8984375
+        }
+      ],
+      "coefficients_q30": [
+        [
+          1075141069,
+          -2140661103,
+          1065558976,
+          2140661103,
+          -1066958221
+        ],
+        [
+          1071683727,
+          -2125202092,
+          1053816709,
+          2125202092,
+          -1051758612
+        ],
+        [
+          1077146711,
+          -2073602877,
+          999825454,
+          2073602877,
+          -1003230342
+        ],
+        [
+          1066890911,
+          -2029508654,
+          974342494,
+          2029508654,
+          -967491581
+        ],
+        [
+          1098799254,
+          -1914572337,
+          855134986,
+          1914572337,
+          -880192416
+        ],
+        [
+          1073741824,
+          -2051087574,
+          981960891,
+          2051087574,
+          -981960891
+        ],
+        [
+          1073741824,
+          -2051087574,
+          981960891,
+          2051087574,
+          -981960891
+        ],
+        [
+          1073741824,
+          -2051087574,
+          981960891,
+          2051087574,
+          -981960891
+        ]
+      ],
+      "maximum_pole_radius": 0.9968361336693563,
+      "preview_max_error_db": 5.662137425588298e-15,
+      "eq_minimum": {
+        "db": -1.099931788223859,
+        "frequency_hz": 269.7925765183307
+      },
+      "eq_maximum": {
+        "db": 2.709421375591125,
+        "frequency_hz": 86.60241354760082
+      },
+      "eq_at_1khz_db": 0.3819373048087732,
+      "q30_range_and_stability": "passed",
+      "editor_preview": "passed"
+    },
+    "v2": {
+      "preset": "presets/echo-a/nicehck/yuandao-10th/custom/yuandao-10th-riff-impact-foam-v2.json",
+      "sha256": "63104a54ad13f0749098f9e10feaf9f3b9eda93cb6cf7f238ab9db94a9aac694",
+      "quantized_filters": [
+        {
+          "type": "peak",
+          "frequency_hz": 90,
+          "gain_db": 2.0,
+          "q": 0.80078125
+        },
+        {
+          "type": "peak",
+          "frequency_hz": 250,
+          "gain_db": -1.5,
+          "q": 0.8984375
+        },
+        {
+          "type": "peak",
+          "frequency_hz": 850,
+          "gain_db": 0.5,
+          "q": 0.80078125
+        },
+        {
+          "type": "peak",
+          "frequency_hz": 1600,
+          "gain_db": -2.19921875,
+          "q": 1.19921875
+        },
+        {
+          "type": "peak",
+          "frequency_hz": 3000,
+          "gain_db": 2.19921875,
+          "q": 1.0
+        }
+      ],
+      "coefficients_q30": [
+        [
+          1074671911,
+          -2140260501,
+          1065627525,
+          2140260501,
+          -1066557612
+        ],
+        [
+          1072028125,
+          -2125575591,
+          1053845863,
+          2125575591,
+          -1052132164
+        ],
+        [
+          1075866125,
+          -2072414434,
+          999915667,
+          2072414434,
+          -1002039968
+        ],
+        [
+          1062164067,
+          -2032223913,
+          981800283,
+          2032223913,
+          -970222527
+        ],
+        [
+          1098760358,
+          -1934061846,
+          875064078,
+          1934061846,
+          -900082612
+        ],
+        [
+          1073741824,
+          -2051087574,
+          981960891,
+          2051087574,
+          -981960891
+        ],
+        [
+          1073741824,
+          -2051087574,
+          981960891,
+          2051087574,
+          -981960891
+        ],
+        [
+          1073741824,
+          -2051087574,
+          981960891,
+          2051087574,
+          -981960891
+        ]
+      ],
+      "maximum_pole_radius": 0.9966489759105643,
+      "preview_max_error_db": 6.661338147750939e-15,
+      "eq_minimum": {
+        "db": -1.257225500580442,
+        "frequency_hz": 1524.1580200508238
+      },
+      "eq_maximum": {
+        "db": 1.7560827478972154,
+        "frequency_hz": 85.75905675470145
+      },
+      "eq_at_1khz_db": -0.2855813478832743,
+      "q30_range_and_stability": "passed",
+      "editor_preview": "passed"
+    }
+  },
+  "frequency_checks": [
+    {
+      "frequency_hz": 40,
+      "source_rel1k_db": -22.190498932303463,
+      "v1_eq_db": 0.9193139268862917,
+      "v2_eq_db": 0.6009676267999382,
+      "v2_minus_v1_db": -0.31834630008635345
+    },
+    {
+      "frequency_hz": 60,
+      "source_rel1k_db": -16.384836575539843,
+      "v1_eq_db": 1.9420374429916654,
+      "v2_eq_db": 1.2729698090818675,
+      "v2_minus_v1_db": -0.6690676339097978
+    },
+    {
+      "frequency_hz": 90,
+      "source_rel1k_db": -11.723806939385964,
+      "v1_eq_db": 2.6970715326890997,
+      "v2_eq_db": 1.7428780476968093,
+      "v2_minus_v1_db": -0.9541934849922904
+    },
+    {
+      "frequency_hz": 150,
+      "source_rel1k_db": -8.019354415167678,
+      "v1_eq_db": 0.8305449486852063,
+      "v2_eq_db": 0.3902638084370424,
+      "v2_minus_v1_db": -0.44028114024816395
+    },
+    {
+      "frequency_hz": 250,
+      "source_rel1k_db": -6.939354415167677,
+      "v1_eq_db": -1.0593751888392557,
+      "v2_eq_db": -1.0309910323008944,
+      "v2_minus_v1_db": 0.02838415653836135
+    },
+    {
+      "frequency_hz": 500,
+      "source_rel1k_db": -3.1093544151676777,
+      "v1_eq_db": -0.07504823052401094,
+      "v2_eq_db": -0.2584654962269983,
+      "v2_minus_v1_db": -0.1834172657029874
+    },
+    {
+      "frequency_hz": 850,
+      "source_rel1k_db": -0.8923011945951339,
+      "v1_eq_db": 0.4862828086564349,
+      "v2_eq_db": -0.052562625014756226,
+      "v2_minus_v1_db": -0.5388454336711912
+    },
+    {
+      "frequency_hz": 1000,
+      "source_rel1k_db": 0.0,
+      "v1_eq_db": 0.3819373048087732,
+      "v2_eq_db": -0.2855813478832743,
+      "v2_minus_v1_db": -0.6675186526920475
+    },
+    {
+      "frequency_hz": 1600,
+      "source_rel1k_db": 4.550645584832322,
+      "v1_eq_db": -0.05944762993032103,
+      "v2_eq_db": -1.2229424244413287,
+      "v2_minus_v1_db": -1.1634947945110077
+    },
+    {
+      "frequency_hz": 2000,
+      "source_rel1k_db": 1.8769991976895049,
+      "v1_eq_db": 0.5250321795842661,
+      "v2_eq_db": -0.2829960134076144,
+      "v2_minus_v1_db": -0.8080281929918804
+    },
+    {
+      "frequency_hz": 3000,
+      "source_rel1k_db": -0.2393544151676777,
+      "v1_eq_db": 1.7166871411213644,
+      "v2_eq_db": 1.6420791634828766,
+      "v2_minus_v1_db": -0.07460797763848781
+    },
+    {
+      "frequency_hz": 4000,
+      "source_rel1k_db": -1.1393544151676775,
+      "v1_eq_db": 1.424515336225762,
+      "v2_eq_db": 1.3626990133352457,
+      "v2_minus_v1_db": -0.06181632289051642
+    },
+    {
+      "frequency_hz": 5500,
+      "source_rel1k_db": 1.6093848295522,
+      "v1_eq_db": 0.7772935920610242,
+      "v2_eq_db": 0.6866381093449918,
+      "v2_minus_v1_db": -0.09065548271603241
+    },
+    {
+      "frequency_hz": 8000,
+      "source_rel1k_db": -2.749354415167678,
+      "v1_eq_db": 0.3390459208686669,
+      "v2_eq_db": 0.2829573017789503,
+      "v2_minus_v1_db": -0.05608861908971663
+    },
+    {
+      "frequency_hz": 10000,
+      "source_rel1k_db": -2.681674710613744,
+      "v1_eq_db": 0.2050138167161496,
+      "v2_eq_db": 0.16802736540134766,
+      "v2_minus_v1_db": -0.03698645131480194
+    }
+  ],
+  "unfoamed_model_1600_minus_3000_db": {
+    "v1": 3.0138652289483145,
+    "v2": 1.9249784120757947
+  },
+  "v2_suggested_manual_output_db": -3,
+  "v2_modeled_peak_with_suggestion_db": -1.2439172521027846,
+  "comparison_gain_note": "Preset files omit output_gain_db and compile at 0 dB. Match loudness for A/B; 1 kHz normalization is for plots, not a loudness-matching claim.",
+  "device_io_performed": false,
+  "subjective_improvement_verified": false,
+  "implementation_sha256": {
+    "tools/echo_a.py": "121ced2795e9a855c8d696365119a34cf28816c6ebf720b9b921282e74b39149",
+    "tools/devices.py": "c1322d4864da9337bef09a04427f503bdae6b3ad1de6cf53baaac79db6f61298",
+    "tools/editor.py": "1d2b75ebd76dd828c847bcba637c1826ff71a41af78ec98cfda74f9bd6b34c65"
+  },
+  "analyzer_sha256": "eab0f9a812f6aec8bbd5baa6cf6b3f4502a898b368d7d44dab7ae3770d06531e",
+  "cli_build": {
+    "status": "passed",
+    "directory": "profiles/compiled/20261101T063626.195986Z-echo-a-build",
+    "matches_analyzer_coefficients": true
+  }
+}

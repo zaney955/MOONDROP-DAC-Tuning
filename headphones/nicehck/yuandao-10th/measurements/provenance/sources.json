@@ -67,7 +67,12 @@
     "raw_numeric_fr": false,
     "covered_foam_fr": false,
     "personal_in_ear_fr": false,
-    "note": "Official plotted response only; no numeric samples or target-fit data generated."
+    "note": "Official plotted response; no source raw numeric samples or target-fit data. Image-digitized estimates are separately available with provenance.",
+    "image_digitized_estimates": {
+      "file": "../digitized/official-unfoamed-5128-image-estimate.csv",
+      "provenance": "official-curve-digitization-20261101.json",
+      "is_raw_measurement": false
+    }
   },
   "other_sources": [
     {

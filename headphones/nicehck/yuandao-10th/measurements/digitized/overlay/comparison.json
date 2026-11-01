@@ -1,0 +1,28 @@
+{
+  "scope": "CSV back-projection onto the same source image; internal digitization check, not independent acoustic validation",
+  "rows": 825,
+  "source_sha256": "f33afca9e0d57c1fe81b5152fd86b82b8d1207d466d5c1be296c5fc40aafa09e",
+  "csv_sha256": "6b3c2f10ed4d3af53c97605a20aee40200b83c98f9ef1f4350e54aaaa5629438",
+  "csv_roundtrip_vs_original_median": {
+    "mean_absolute_px": 0.019265030303018564,
+    "rms_px": 0.022659902176891993,
+    "p95_absolute_px": 0.03934999999989941,
+    "max_absolute_px": 0.04159999999990305,
+    "max_equivalent_db": 0.004979054458396534
+  },
+  "alternative_colour_weighted_centre": {
+    "mean_absolute_px": 0.2108353531413725,
+    "rms_px": 0.2695004955344944,
+    "p95_absolute_px": 0.4856632492113704,
+    "max_absolute_px": 1.716111538461746,
+    "max_equivalent_db": 0.20539934631499054
+  },
+  "alternative_method": "Centroid per column weighted by max(0,min(B-R,B-G)-35); this is another extraction of the SAME image, not ground truth.",
+  "points_within_detected_original_stroke": 825,
+  "max_distance_to_detected_pixel_centre_px": 0.49990001390409633,
+  "axis_calibration_residual_px": {
+    "frequency": 0.7845337569663116,
+    "level": 0.9499999999998181
+  },
+  "note": "The near-zero roundtrip error primarily verifies CSV rounding and inverse mapping. It does not validate selected ticks or the underlying measurement."
+}

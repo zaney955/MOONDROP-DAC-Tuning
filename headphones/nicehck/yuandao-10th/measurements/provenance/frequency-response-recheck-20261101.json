@@ -1,0 +1,28 @@
+{
+  "checked_at_utc": "2026-11-01T06:24:28.623140+00:00",
+  "source_page": "https://www.nicehck.com/products/yuandao-10th",
+  "url": "https://cdn.shopify.com/s/files/1/0865/0850/3331/files/06_15b37029-c621-4a3d-bb60-f66028fc9bbb.jpg?v=1773218463",
+  "archive_file": "headphones/nicehck/yuandao-10th/measurements/raw/06_15b37029-c621-4a3d-bb60-f66028fc9bbb.jpg",
+  "bytes": 117970,
+  "content_type": "image/jpeg",
+  "sha256": "f33afca9e0d57c1fe81b5152fd86b82b8d1207d466d5c1be296c5fc40aafa09e",
+  "matches_existing_archive": true,
+  "measurement_conditions": {
+    "model": "NICEHCK Yuandao 10th Anniversary",
+    "connector": "3.5 mm",
+    "microphone": false,
+    "foam": "none",
+    "fixture": "B&K 5128 HATS",
+    "source": "printed caption on original image"
+  },
+  "not_provided_in_graph": [
+    "raw numeric samples",
+    "left/right separate traces",
+    "drive level",
+    "sample count",
+    "placement repeats",
+    "smoothing method",
+    "target curve",
+    "full-foam measurement"
+  ]
+}

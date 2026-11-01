@@ -23,6 +23,10 @@
 
 ## 频响证据与测量条件
 
+可计算的衍生文件：[官方无海绵曲线 CSV（图像估算，825 点）](measurements/digitized/README.md)，含 1 kHz 归零相对值，不是原始测量数据。
+
+本轮专题：[频响曲线调研与原图](research/frequency-response-20261101.md) · [独立来源核验记录](research/independent-frequency-response-20261101.md)。已补存中文官网曲线展示图，并复核英文完整图原件；全包海绵独立曲线与原始数值仍未取得。
+
 已直接从 **NICEHCK 官方商品页 CDN** 取得[频响原图](https://cdn.shopify.com/s/files/1/0865/0850/3331/files/06_15b37029-c621-4a3d-bb60-f66028fc9bbb.jpg?v=1773218463)，本地未改动原件见[06 号图](measurements/raw/06_15b37029-c621-4a3d-bb60-f66028fc9bbb.jpg)。
 
 | 条件 | 官方图中明确写明的内容 |
@@ -70,6 +74,6 @@ B&K 说明耳机测试需要考虑耳廓影响及真实声学负载，5128 模�
 
 ## 归档与追溯
 
-本档案仅保存实际取得的官方原件，没有从图片生成测量数值。相关原件保存在 `measurements/raw/`，上游文件名和字节保持不变；URL、获取时间、用途、字节数与 SHA-256 见[来源清单](measurements/provenance/sources.json)。其中 06 为频响，04 为单元，07/08 为版本与 App DSP 边界，10 为规格，12 为海绵安装说明。
+本档案保留实际取得的官方原件；按用户后续要求另保存图片数字化估算 CSV，明确与原始测量数据区分。相关原件保存在 `measurements/raw/`，上游文件名和字节保持不变；URL、获取时间、用途、字节数与 SHA-256 见[来源清单](measurements/provenance/sources.json)。其中 06 为频响，04 为单元，07/08 为版本与 App DSP 边界，10 为规格，12 为海绵安装说明。
 
 返回[耳机资料库](../../README.md)。

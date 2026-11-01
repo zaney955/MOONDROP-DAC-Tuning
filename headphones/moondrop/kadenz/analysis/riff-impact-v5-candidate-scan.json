@@ -1,0 +1,536 @@
+{
+  "purpose": "Numerical consistency search only, not acoustic target optimization",
+  "fixed_gains_db": [
+    -1.2,
+    1.2,
+    0.6
+  ],
+  "grid_points": 301,
+  "candidates": [
+    {
+      "shelf_hz": 78,
+      "punch_hz": 100,
+      "max_cross_rate_difference_db": 0.08949814095751452
+    },
+    {
+      "shelf_hz": 77,
+      "punch_hz": 90,
+      "max_cross_rate_difference_db": 0.09537001913417487
+    },
+    {
+      "shelf_hz": 72,
+      "punch_hz": 100,
+      "max_cross_rate_difference_db": 0.1330869213109782
+    },
+    {
+      "shelf_hz": 74,
+      "punch_hz": 100,
+      "max_cross_rate_difference_db": 0.14085476374183337
+    },
+    {
+      "shelf_hz": 72,
+      "punch_hz": 90,
+      "max_cross_rate_difference_db": 0.14235036028459847
+    },
+    {
+      "shelf_hz": 74,
+      "punch_hz": 90,
+      "max_cross_rate_difference_db": 0.1537255533494839
+    },
+    {
+      "shelf_hz": 77,
+      "punch_hz": 100,
+      "max_cross_rate_difference_db": 0.23672835322290497
+    },
+    {
+      "shelf_hz": 80,
+      "punch_hz": 95,
+      "max_cross_rate_difference_db": 0.2473304414341521
+    },
+    {
+      "shelf_hz": 78,
+      "punch_hz": 90,
+      "max_cross_rate_difference_db": 0.2547662317584257
+    },
+    {
+      "shelf_hz": 75,
+      "punch_hz": 95,
+      "max_cross_rate_difference_db": 0.3189850012110163
+    },
+    {
+      "shelf_hz": 70,
+      "punch_hz": 100,
+      "max_cross_rate_difference_db": 0.32013686539718056
+    },
+    {
+      "shelf_hz": 76,
+      "punch_hz": 95,
+      "max_cross_rate_difference_db": 0.32109896047094694
+    },
+    {
+      "shelf_hz": 69,
+      "punch_hz": 100,
+      "max_cross_rate_difference_db": 0.3385804315779932
+    },
+    {
+      "shelf_hz": 69,
+      "punch_hz": 90,
+      "max_cross_rate_difference_db": 0.3514512211856413
+    },
+    {
+      "shelf_hz": 70,
+      "punch_hz": 90,
+      "max_cross_rate_difference_db": 0.3899996875193841
+    },
+    {
+      "shelf_hz": 71,
+      "punch_hz": 95,
+      "max_cross_rate_difference_db": 0.4026121385187108
+    },
+    {
+      "shelf_hz": 73,
+      "punch_hz": 95,
+      "max_cross_rate_difference_db": 0.46950585759496255
+    },
+    {
+      "shelf_hz": 80,
+      "punch_hz": 110,
+      "max_cross_rate_difference_db": 0.4731686213354238
+    },
+    {
+      "shelf_hz": 76,
+      "punch_hz": 110,
+      "max_cross_rate_difference_db": 0.47707664382308224
+    },
+    {
+      "shelf_hz": 75,
+      "punch_hz": 110,
+      "max_cross_rate_difference_db": 0.4930644405662987
+    },
+    {
+      "shelf_hz": 73,
+      "punch_hz": 110,
+      "max_cross_rate_difference_db": 0.49738799458450944
+    },
+    {
+      "shelf_hz": 69,
+      "punch_hz": 105,
+      "max_cross_rate_difference_db": 0.5146417155154335
+    },
+    {
+      "shelf_hz": 79,
+      "punch_hz": 105,
+      "max_cross_rate_difference_db": 0.5225976829769756
+    },
+    {
+      "shelf_hz": 71,
+      "punch_hz": 110,
+      "max_cross_rate_difference_db": 0.5269091005036527
+    },
+    {
+      "shelf_hz": 74,
+      "punch_hz": 105,
+      "max_cross_rate_difference_db": 0.5426663439512811
+    },
+    {
+      "shelf_hz": 63,
+      "punch_hz": 95,
+      "max_cross_rate_difference_db": 0.5485948595292784
+    },
+    {
+      "shelf_hz": 72,
+      "punch_hz": 105,
+      "max_cross_rate_difference_db": 0.5509775955066364
+    },
+    {
+      "shelf_hz": 62,
+      "punch_hz": 105,
+      "max_cross_rate_difference_db": 0.5613827569859486
+    },
+    {
+      "shelf_hz": 70,
+      "punch_hz": 105,
+      "max_cross_rate_difference_db": 0.5638644703762163
+    },
+    {
+      "shelf_hz": 67,
+      "punch_hz": 100,
+      "max_cross_rate_difference_db": 0.5673232174877836
+    },
+    {
+      "shelf_hz": 67,
+      "punch_hz": 90,
+      "max_cross_rate_difference_db": 0.5801940070954319
+    },
+    {
+      "shelf_hz": 64,
+      "punch_hz": 105,
+      "max_cross_rate_difference_db": 0.5910284041811784
+    },
+    {
+      "shelf_hz": 63,
+      "punch_hz": 110,
+      "max_cross_rate_difference_db": 0.5971752026776075
+    },
+    {
+      "shelf_hz": 65,
+      "punch_hz": 105,
+      "max_cross_rate_difference_db": 0.6073105644775523
+    },
+    {
+      "shelf_hz": 60,
+      "punch_hz": 95,
+      "max_cross_rate_difference_db": 0.6076284275347005
+    },
+    {
+      "shelf_hz": 66,
+      "punch_hz": 100,
+      "max_cross_rate_difference_db": 0.6171176122611037
+    },
+    {
+      "shelf_hz": 77,
+      "punch_hz": 105,
+      "max_cross_rate_difference_db": 0.617256974582201
+    },
+    {
+      "shelf_hz": 66,
+      "punch_hz": 105,
+      "max_cross_rate_difference_db": 0.6244018881721187
+    },
+    {
+      "shelf_hz": 78,
+      "punch_hz": 105,
+      "max_cross_rate_difference_db": 0.6258884846220809
+    },
+    {
+      "shelf_hz": 66,
+      "punch_hz": 90,
+      "max_cross_rate_difference_db": 0.6299884018687523
+    },
+    {
+      "shelf_hz": 65,
+      "punch_hz": 90,
+      "max_cross_rate_difference_db": 0.6305312401725192
+    },
+    {
+      "shelf_hz": 67,
+      "punch_hz": 105,
+      "max_cross_rate_difference_db": 0.6436579183307369
+    },
+    {
+      "shelf_hz": 64,
+      "punch_hz": 100,
+      "max_cross_rate_difference_db": 0.6462723861429285
+    },
+    {
+      "shelf_hz": 60,
+      "punch_hz": 110,
+      "max_cross_rate_difference_db": 0.6491529553688082
+    },
+    {
+      "shelf_hz": 62,
+      "punch_hz": 100,
+      "max_cross_rate_difference_db": 0.6503640577824781
+    },
+    {
+      "shelf_hz": 64,
+      "punch_hz": 90,
+      "max_cross_rate_difference_db": 0.6591431757505748
+    },
+    {
+      "shelf_hz": 62,
+      "punch_hz": 90,
+      "max_cross_rate_difference_db": 0.6632348473901271
+    },
+    {
+      "shelf_hz": 77,
+      "punch_hz": 110,
+      "max_cross_rate_difference_db": 0.7387172841256269
+    },
+    {
+      "shelf_hz": 65,
+      "punch_hz": 100,
+      "max_cross_rate_difference_db": 0.7416781014821328
+    },
+    {
+      "shelf_hz": 78,
+      "punch_hz": 110,
+      "max_cross_rate_difference_db": 0.7449929893499856
+    },
+    {
+      "shelf_hz": 61,
+      "punch_hz": 105,
+      "max_cross_rate_difference_db": 0.7689540134095609
+    },
+    {
+      "shelf_hz": 72,
+      "punch_hz": 110,
+      "max_cross_rate_difference_db": 0.7845985954286034
+    },
+    {
+      "shelf_hz": 74,
+      "punch_hz": 110,
+      "max_cross_rate_difference_db": 0.7970728183409324
+    },
+    {
+      "shelf_hz": 70,
+      "punch_hz": 110,
+      "max_cross_rate_difference_db": 0.9763549199962791
+    },
+    {
+      "shelf_hz": 69,
+      "punch_hz": 110,
+      "max_cross_rate_difference_db": 0.9947984861770931
+    },
+    {
+      "shelf_hz": 61,
+      "punch_hz": 100,
+      "max_cross_rate_difference_db": 0.9979711348513578
+    },
+    {
+      "shelf_hz": 77,
+      "punch_hz": 95,
+      "max_cross_rate_difference_db": 0.9980434298160006
+    },
+    {
+      "shelf_hz": 78,
+      "punch_hz": 95,
+      "max_cross_rate_difference_db": 1.0043191350403604
+    },
+    {
+      "shelf_hz": 61,
+      "punch_hz": 90,
+      "max_cross_rate_difference_db": 1.010841924459009
+    },
+    {
+      "shelf_hz": 63,
+      "punch_hz": 90,
+      "max_cross_rate_difference_db": 1.0384391896886007
+    },
+    {
+      "shelf_hz": 72,
+      "punch_hz": 95,
+      "max_cross_rate_difference_db": 1.043924741118978
+    },
+    {
+      "shelf_hz": 63,
+      "punch_hz": 100,
+      "max_cross_rate_difference_db": 1.0513099792962508
+    },
+    {
+      "shelf_hz": 74,
+      "punch_hz": 95,
+      "max_cross_rate_difference_db": 1.0563989640313078
+    },
+    {
+      "shelf_hz": 60,
+      "punch_hz": 90,
+      "max_cross_rate_difference_db": 1.0650618383500148
+    },
+    {
+      "shelf_hz": 60,
+      "punch_hz": 100,
+      "max_cross_rate_difference_db": 1.0779326279576635
+    },
+    {
+      "shelf_hz": 71,
+      "punch_hz": 90,
+      "max_cross_rate_difference_db": 1.1163634454303706
+    },
+    {
+      "shelf_hz": 80,
+      "punch_hz": 90,
+      "max_cross_rate_difference_db": 1.1165158863268723
+    },
+    {
+      "shelf_hz": 76,
+      "punch_hz": 90,
+      "max_cross_rate_difference_db": 1.1204239088145336
+    },
+    {
+      "shelf_hz": 71,
+      "punch_hz": 100,
+      "max_cross_rate_difference_db": 1.12923423503802
+    },
+    {
+      "shelf_hz": 80,
+      "punch_hz": 100,
+      "max_cross_rate_difference_db": 1.1293866759345208
+    },
+    {
+      "shelf_hz": 76,
+      "punch_hz": 100,
+      "max_cross_rate_difference_db": 1.1332946984221814
+    },
+    {
+      "shelf_hz": 73,
+      "punch_hz": 90,
+      "max_cross_rate_difference_db": 1.1359177682114565
+    },
+    {
+      "shelf_hz": 75,
+      "punch_hz": 90,
+      "max_cross_rate_difference_db": 1.136411705557746
+    },
+    {
+      "shelf_hz": 73,
+      "punch_hz": 100,
+      "max_cross_rate_difference_db": 1.1487885578191055
+    },
+    {
+      "shelf_hz": 75,
+      "punch_hz": 100,
+      "max_cross_rate_difference_db": 1.149282495165396
+    },
+    {
+      "shelf_hz": 79,
+      "punch_hz": 100,
+      "max_cross_rate_difference_db": 1.2019558193131163
+    },
+    {
+      "shelf_hz": 79,
+      "punch_hz": 90,
+      "max_cross_rate_difference_db": 1.2148266089207675
+    },
+    {
+      "shelf_hz": 67,
+      "punch_hz": 110,
+      "max_cross_rate_difference_db": 1.2235412720868812
+    },
+    {
+      "shelf_hz": 70,
+      "punch_hz": 95,
+      "max_cross_rate_difference_db": 1.2356810656866568
+    },
+    {
+      "shelf_hz": 69,
+      "punch_hz": 95,
+      "max_cross_rate_difference_db": 1.25412463186747
+    },
+    {
+      "shelf_hz": 66,
+      "punch_hz": 110,
+      "max_cross_rate_difference_db": 1.2733356668602047
+    },
+    {
+      "shelf_hz": 65,
+      "punch_hz": 110,
+      "max_cross_rate_difference_db": 1.2738785051639752
+    },
+    {
+      "shelf_hz": 64,
+      "punch_hz": 110,
+      "max_cross_rate_difference_db": 1.302490440742028
+    },
+    {
+      "shelf_hz": 62,
+      "punch_hz": 110,
+      "max_cross_rate_difference_db": 1.306582112381577
+    },
+    {
+      "shelf_hz": 68,
+      "punch_hz": 105,
+      "max_cross_rate_difference_db": 1.3274599652355517
+    },
+    {
+      "shelf_hz": 67,
+      "punch_hz": 95,
+      "max_cross_rate_difference_db": 1.4828674177772598
+    },
+    {
+      "shelf_hz": 66,
+      "punch_hz": 95,
+      "max_cross_rate_difference_db": 1.5326618125505789
+    },
+    {
+      "shelf_hz": 65,
+      "punch_hz": 95,
+      "max_cross_rate_difference_db": 1.5332046508543486
+    },
+    {
+      "shelf_hz": 64,
+      "punch_hz": 95,
+      "max_cross_rate_difference_db": 1.5618165864324043
+    },
+    {
+      "shelf_hz": 62,
+      "punch_hz": 95,
+      "max_cross_rate_difference_db": 1.5659082580719543
+    },
+    {
+      "shelf_hz": 61,
+      "punch_hz": 110,
+      "max_cross_rate_difference_db": 1.654189189450461
+    },
+    {
+      "shelf_hz": 63,
+      "punch_hz": 105,
+      "max_cross_rate_difference_db": 1.7306681156323926
+    },
+    {
+      "shelf_hz": 60,
+      "punch_hz": 105,
+      "max_cross_rate_difference_db": 1.7572907642938036
+    },
+    {
+      "shelf_hz": 71,
+      "punch_hz": 105,
+      "max_cross_rate_difference_db": 1.808592371374159
+    },
+    {
+      "shelf_hz": 80,
+      "punch_hz": 105,
+      "max_cross_rate_difference_db": 1.8087448122706618
+    },
+    {
+      "shelf_hz": 76,
+      "punch_hz": 105,
+      "max_cross_rate_difference_db": 1.8126528347583233
+    },
+    {
+      "shelf_hz": 73,
+      "punch_hz": 105,
+      "max_cross_rate_difference_db": 1.8281466941552464
+    },
+    {
+      "shelf_hz": 75,
+      "punch_hz": 105,
+      "max_cross_rate_difference_db": 1.8286406315015387
+    },
+    {
+      "shelf_hz": 79,
+      "punch_hz": 110,
+      "max_cross_rate_difference_db": 1.8581738739122184
+    },
+    {
+      "shelf_hz": 61,
+      "punch_hz": 95,
+      "max_cross_rate_difference_db": 1.9135153351408345
+    },
+    {
+      "shelf_hz": 68,
+      "punch_hz": 100,
+      "max_cross_rate_difference_db": 2.0068181015716924
+    },
+    {
+      "shelf_hz": 68,
+      "punch_hz": 90,
+      "max_cross_rate_difference_db": 2.019688891179345
+    },
+    {
+      "shelf_hz": 79,
+      "punch_hz": 95,
+      "max_cross_rate_difference_db": 2.117500019602592
+    },
+    {
+      "shelf_hz": 68,
+      "punch_hz": 110,
+      "max_cross_rate_difference_db": 2.663036156170795
+    },
+    {
+      "shelf_hz": 68,
+      "punch_hz": 95,
+      "max_cross_rate_difference_db": 2.9223623018611695
+    }
+  ]
+}

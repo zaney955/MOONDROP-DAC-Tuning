@@ -1,0 +1,47 @@
+{
+  "preset": "presets/echo-b/moondrop/kadenz/kadenz-riff-impact-v5.json",
+  "preset_sha256": "7f3feb33bd5a5231e0fd3c36f48ed4a9ab9b42ec2ed9ba749ae4b7005d7e6985",
+  "source_validation": {
+    "5128": {
+      "sha256": "a8a187adfe44d58c75b32e690201a61a9836c345d389873d8e07eb8e660af479",
+      "points": 957,
+      "processed_matches_official": true
+    },
+    "4128": {
+      "sha256": "8ac81768385540190d3558f94b67924614994dc04bca05357019878bc255fb6b",
+      "points": 957,
+      "processed_matches_official": true
+    }
+  },
+  "preview_validation": {
+    "44100": {
+      "max_error_db": 5.10702591327572e-15,
+      "status": "passed"
+    },
+    "48000": {
+      "max_error_db": 4.47428552541318e-15,
+      "status": "passed"
+    },
+    "96000": {
+      "max_error_db": 6.9414959891211936e-15,
+      "status": "passed"
+    },
+    "192000": {
+      "max_error_db": 6.432354648922001e-15,
+      "status": "passed"
+    },
+    "384000": {
+      "max_error_db": 4.884981308350689e-15,
+      "status": "passed"
+    }
+  },
+  "device_io_performed": false,
+  "subjective_improvement_verified": false,
+  "official_models_note": "Apply 48 kHz quantized digital EQ to each official fixture separately; normalize each pre/post curve at 500 Hz. This is not personal in-ear output, an acoustic target fit or a cross-fixture correction.",
+  "cli_build": {
+    "directory": "profiles/compiled/20261101T064720.513015Z-echo-b-build",
+    "coefficients_match": true
+  },
+  "manual_output_gain_suggestion_db": -3,
+  "peak_with_manual_output_gain_db": -2.046609571351681
+}

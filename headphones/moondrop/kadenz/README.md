@@ -17,6 +17,7 @@
 
 | 方案 | 设计与现行配置 | 历史分析 |
 | --- | --- | --- |
+| Riff 清晰与适度冲击 V5（2026-11-01） | [设计](research/riff-impact-v5.md) / [JSON](../../../presets/echo-b/moondrop/kadenz/kadenz-riff-impact-v5.json) | [离线报告](analysis/riff-impact-v5.json) / [官方数据叠加模型](analysis/riff-impact-v5-official-models.csv) |
 | Riff 线条与适度冲击 V4 | [设计](research/riff-impact-v4.md) / [JSON](../../../presets/echo-b/moondrop/kadenz/kadenz-riff-impact-v4.json) | [报告](analysis/riff-impact-v4.json) / [曲线](analysis/riff-impact-v4.csv) |
 | Riff 清晰与低频冲击 V3 | [JSON](../../../presets/echo-b/moondrop/kadenz/kadenz-riff-impact-v3.json) | — |
 | Riff 清晰与低频冲击 V2 | [设计](research/riff-impact-v2.md) / [JSON](../../../presets/echo-b/moondrop/kadenz/kadenz-riff-impact-v2.json) | [报告](analysis/riff-impact-v2.json) / [曲线](analysis/riff-impact-v2.csv) |

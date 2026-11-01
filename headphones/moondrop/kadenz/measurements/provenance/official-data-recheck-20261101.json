@@ -1,0 +1,76 @@
+{
+  "checked_at_utc": "2026-11-01T06:40:05.045445+00:00",
+  "official_catalog_url": "https://cdn-service.moondroplab.tech/api/v1/refresponse/all?pageSize=999&type=OFFICIAL",
+  "official_catalog_response_sha256": "d14582895cd8a6401dd1b9f9b8bf9889f17dead8bf54b196b6b2bb8be25af680",
+  "results": {
+    "5128": {
+      "official_entry": {
+        "uuid": "198576d3-da62-4803-9e58-e9bd717b6571",
+        "name": "kadenz 终章 5128",
+        "file": "peq-config-file/UDFyUvjf1JV01ZnhvQSQ1kadenz5128.txt",
+        "tags": [
+          "moondrop"
+        ],
+        "userUuid": null,
+        "status": true,
+        "type": "OFFICIAL"
+      },
+      "official_download_url": "https://cdn.moondroplab.tech/peq-config-file/UDFyUvjf1JV01ZnhvQSQ1kadenz5128.txt",
+      "bytes": 26676,
+      "sha256": "a8a187adfe44d58c75b32e690201a61a9836c345d389873d8e07eb8e660af479",
+      "official_download_matches_local_bytes": true,
+      "points": 957,
+      "frequency_range_hz": [
+        20.0,
+        19896.974609
+      ],
+      "csv_numeric_text_matches_official": true,
+      "json_numbers_match_official": true,
+      "utf8_lines_match_official": true,
+      "preview_500hz_source_db": 56.02995433215813,
+      "preview_only_offset_db": 3.970045667841873,
+      "preview_coordinate_max_error_px": {
+        "x": 0.0004994061293928098,
+        "y": 0.00041101057698256227
+      },
+      "preview_equivalent_max_spl_rounding_error_db": 4.566784188695136e-05
+    },
+    "4128": {
+      "official_entry": {
+        "uuid": "9868f61b-bab7-4b37-a662-266d66c1fb02",
+        "name": "kadenz 终章 4128",
+        "file": "peq-config-file/PT-Zgr2njD1VuGt3GMy8Hkadenz4128.txt",
+        "tags": [
+          "moondrop"
+        ],
+        "userUuid": null,
+        "status": true,
+        "type": "OFFICIAL"
+      },
+      "official_download_url": "https://cdn.moondroplab.tech/peq-config-file/PT-Zgr2njD1VuGt3GMy8Hkadenz4128.txt",
+      "bytes": 26917,
+      "sha256": "8ac81768385540190d3558f94b67924614994dc04bca05357019878bc255fb6b",
+      "official_download_matches_local_bytes": true,
+      "points": 957,
+      "frequency_range_hz": [
+        20.0,
+        19896.974609
+      ],
+      "csv_numeric_text_matches_official": true,
+      "json_numbers_match_official": true,
+      "utf8_lines_match_official": true,
+      "preview_500hz_source_db": 74.68251845057749,
+      "preview_only_offset_db": -14.68251845057749,
+      "preview_coordinate_max_error_px": {
+        "x": 0.0004994061293928098,
+        "y": 0.00033394480271908833
+      },
+      "preview_equivalent_max_spl_rounding_error_db": 3.7104978079898705e-05
+    }
+  },
+  "combined_csv_matches_official": true,
+  "conclusion": "Official numeric files are available; local source files and all derived numeric datasets match. SVG follows documented independent 500 Hz to 60 dB alignment within coordinate formatting precision. No correction required.",
+  "scope": "Source-data and SVG-coordinate validation; no new live website screenshot or product marketing image alignment. Different fixture traces are not forced to match.",
+  "files_modified_for_alignment": [],
+  "device_io_performed": false
+}

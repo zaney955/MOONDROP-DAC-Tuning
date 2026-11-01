@@ -1,0 +1,38 @@
+{
+  "version": 1,
+  "device": "MOONDROP ECHO-A",
+  "name": "原道十周年 · 死亡金属 · Riff 与冲击 v1",
+  "description": "为 3.5 mm 原道十周年＋全包海绵＋ECHO-A 设计的个人试听起点：优先吉他 riff 的音高与节奏辨识、复杂编曲层次，以及适度低频冲击。90 Hz 宽峰补充鼓与贝斯支撑，250 Hz 轻收堆积，850 Hz 保留吉他主体，1600 Hz 温和约束中频突出，3000 Hz 补充轮廓。依据官方无海绵图的定性趋势与个人偏好设计，并非全包海绵或个人耳内测量校正。使用当前 ECHO-A 93750 Hz／Q30 算法，Q 与单段增益先按 1/256 量化。按仓库约定省略 output_gain_db，缺省为 0 dB；建议试听前手动设为 −4 dB，为约 +2.71 dB 的 EQ 峰值留余量。仅离线验证，未写入设备，主观效果待试听。",
+  "filters": [
+    {
+      "type": "peak",
+      "frequency_hz": 90,
+      "gain_db": 3,
+      "q": 0.8
+    },
+    {
+      "type": "peak",
+      "frequency_hz": 250,
+      "gain_db": -1.8,
+      "q": 0.9
+    },
+    {
+      "type": "peak",
+      "frequency_hz": 850,
+      "gain_db": 0.8,
+      "q": 0.8
+    },
+    {
+      "type": "peak",
+      "frequency_hz": 1600,
+      "gain_db": -1.2,
+      "q": 1.1
+    },
+    {
+      "type": "peak",
+      "frequency_hz": 3000,
+      "gain_db": 2,
+      "q": 0.9
+    }
+  ]
+}
