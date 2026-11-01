@@ -1,0 +1,32 @@
+{
+  "source": {
+    "original_path": "/Users/zane/Downloads/当前设备调音.json",
+    "archive": "headphones/nicehck/yuandao-10th/research/community/20261101-current-device-tuning.json",
+    "sha256": "9b7bd1581d1e6b90c63e71927beaf8c30bc3d0159e89befcfebea4a598ae6a7a",
+    "declared_device": "MOONDROP ECHO-A",
+    "declared_design_rate_hz": 93750,
+    "original_output_gain_db": -10,
+    "author": null,
+    "original_publication_url": null
+  },
+  "preset": "presets/echo-a/nicehck/yuandao-10th/community/yuandao-10th-community-20261101.json",
+  "conversion": {
+    "bands_preserved_exactly": true,
+    "design_rate_hz": 93750,
+    "coefficient_format": "signed Q30",
+    "q_and_gain_quantization": "1/256 before coefficient design",
+    "output_gain_omitted": true,
+    "compiled_default_gain_db": 0,
+    "compiled_directory": "profiles/compiled/20261101T061141.852076Z-echo-a-community-offline",
+    "compiled_plan_sha256": "13a813c86eee5ed1e825f2ef959c1072d8db9d2580b36bafdc8ff75e5ec8204d",
+    "offline_compile": "passed",
+    "editor_preview": "passed",
+    "response_check": {
+      "93750": {
+        "min_gain_db": -2.229688906285591,
+        "max_gain_db": 10.875555638469569
+      }
+    }
+  },
+  "device_io_performed": false
+}

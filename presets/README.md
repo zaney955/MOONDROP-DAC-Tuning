@@ -9,7 +9,7 @@
 ```text
 presets/
 ├── echo-a/nicehck/yuandao-10th/
-│   ├── yuandao-10th-foam-balanced-v1.json
+│   ├── community/             # 网友调音，保留来源档案
 │   └── official/              # 官方 Type-C 的 7 套参数移植，目标 ECHO-A
 └── echo-b/
     ├── general/original-default.json
@@ -21,6 +21,8 @@ presets/
 ```
 
 原道十周年的[官方参数移植目录](echo-a/nicehck/yuandao-10th/official/README.md)保存 7 套 ECHO-A 配置，来源、整体 offset 的处理和离线校验记录见该目录说明。
+
+[网友调音目录](echo-a/nicehck/yuandao-10th/community/README.md)与官方参数分开存放；来源原件保留在耳机资料库，可编辑预设按整体增益约定处理。
 
 CLI 接受分类路径或唯一文件名，重名时须提供分类路径。两份旧平直基准归零后音频参数相同，现保留 `echo-b/general/original-default.json`。旧 `preset.py list` 递归列出 ECHO-B；跨型号使用 `dac.py`。
 

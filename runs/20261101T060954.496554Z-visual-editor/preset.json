@@ -1,0 +1,56 @@
+{
+  "version": 1,
+  "device": "MOONDROP ECHO-A",
+  "name": "原道十周年 · 网友调音 V1",
+  "description": "用户于 2026-11-01 提供的网友调音；按原道十周年上下文归档，原作者、耳套条件与声学测量未注明。保留原文件 8 段 EQ，按用户约定省略 output_gain_db，由用户自行设置。原件整体增益为 -10 dB，保留于来源档案；文件中的设备读回说明未由本次操作重新验证。",
+  "filters": [
+    {
+      "type": "peak",
+      "frequency_hz": 50,
+      "gain_db": 6.5,
+      "q": 0.5
+    },
+    {
+      "type": "peak",
+      "frequency_hz": 125,
+      "gain_db": 5,
+      "q": 0.5
+    },
+    {
+      "type": "peak",
+      "frequency_hz": 225,
+      "gain_db": -6.5,
+      "q": 0.5
+    },
+    {
+      "type": "peak",
+      "frequency_hz": 1000,
+      "gain_db": 1,
+      "q": 0.7
+    },
+    {
+      "type": "peak",
+      "frequency_hz": 3000,
+      "gain_db": 8.2,
+      "q": 0.6
+    },
+    {
+      "type": "peak",
+      "frequency_hz": 5500,
+      "gain_db": -5.5,
+      "q": 6
+    },
+    {
+      "type": "peak",
+      "frequency_hz": 10000,
+      "gain_db": 5,
+      "q": 0.8
+    },
+    {
+      "type": "peak",
+      "frequency_hz": 14000,
+      "gain_db": 3.5,
+      "q": 0.2
+    }
+  ]
+}

@@ -1,0 +1,57 @@
+{
+  "version": 1,
+  "device": "MOONDROP ECHO-A",
+  "name": "当前设备调音",
+  "description": "ECHO-A 只读载入；Q30 系数与寄存器已核对，DSP 固定设计率 93750 Hz。",
+  "output_gain_db": 0,
+  "filters": [
+    {
+      "type": "peak",
+      "frequency_hz": 50,
+      "q": 0.69921875,
+      "gain_db": 6.0
+    },
+    {
+      "type": "peak",
+      "frequency_hz": 200,
+      "q": 0.69921875,
+      "gain_db": -2.0
+    },
+    {
+      "type": "peak",
+      "frequency_hz": 600,
+      "q": 0.69921875,
+      "gain_db": -5.0
+    },
+    {
+      "type": "peak",
+      "frequency_hz": 1500,
+      "q": 1.0,
+      "gain_db": -8.0
+    },
+    {
+      "type": "peak",
+      "frequency_hz": 3000,
+      "q": 1.0,
+      "gain_db": 7.0
+    },
+    {
+      "type": "peak",
+      "frequency_hz": 5000,
+      "q": 2.0,
+      "gain_db": -5.0
+    },
+    {
+      "type": "peak",
+      "frequency_hz": 8000,
+      "q": 1.0,
+      "gain_db": -2.0
+    },
+    {
+      "type": "peak",
+      "frequency_hz": 12000,
+      "q": 0.69921875,
+      "gain_db": 2.5
+    }
+  ]
+}

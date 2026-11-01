@@ -1,0 +1,13 @@
+{
+  "action": "apply",
+  "stage": "complete",
+  "status": "saved_verified",
+  "write_attempted": true,
+  "save_command_acknowledged": false,
+  "readback_verified": true,
+  "physical_unplug_tested": false,
+  "device": "MOONDROP ECHO-A",
+  "message": "ECHO-A 写入及读回核对通过；物理拔插保持未验证",
+  "updated_at_utc": "20261101T060447.377024Z",
+  "commit_sequence_sent": true
+}
