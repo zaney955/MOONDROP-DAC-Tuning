@@ -5,10 +5,13 @@ const colors = ['#66824d', '#b6853a', '#65898b', '#9b7587', '#897f46', '#6c78a4'
 let token, doc, baseline, previewData, revision = 0, validatedRevision = -1, timer;
 let busy = false, canVerify = false, activeJob = null, activePreset = null;
 let jobPollTimer, jobPollSequence = 0;
+let pendingRead = null;
 let lastError = '', showErrors = false;
 let chartGeometry, chartRange = null, chartDrag = null, dragPreviewTimer, dragPreviewInFlight = false;
+let curveProbe = null, curvePointer = null;
 let qWheelInput = null;
 let selectedBand = null;
+let bandReadoutOpen = false;
 let historyEntries = [], historyIndex = -1, historyGroup = null, historyAt = 0, historyPaused = false;
 const HISTORY_LIMIT = 100;
 let previewFilterRefs = [];
@@ -27,7 +30,7 @@ function notify(message = '', error = false) {
 }
 
 async function api(path, value) {
-  if (reloadWaiting && ['/api/apply', '/api/verify'].includes(path)) throw new Error('代码正在更新，请等待页面恢复后再操作');
+  if (reloadWaiting && ['/api/apply', '/api/verify', '/api/read'].includes(path)) throw new Error('代码正在更新，请等待页面恢复后再操作');
   const options = value === undefined ? {priority: path === '/api/job' && !busy ? 'low' : 'auto'} : {method: 'POST', headers: {
     'Content-Type': 'application/json', 'X-Editor-Token': token, 'X-Editor-Version': clientVersion,
   }, body: JSON.stringify(value)};
@@ -44,7 +47,7 @@ async function api(path, value) {
 }
 
 function tryAutoReload() {
-  if (!pendingVersion || !initialized || autoReloading || busy || chartDrag || performance.now() - lastEditAt < 600) return;
+  if (!pendingVersion || !initialized || autoReloading || busy || chartDrag || curvePointer !== null || performance.now() - lastEditAt < 600) return;
   try {
     const rawValues = Object.fromEntries([...$('#settings').querySelectorAll('input,textarea,select')]
       .filter((control) => control.id).map((control) => [control.id, control.value]));
@@ -73,6 +76,7 @@ async function watchServerVersion() {
     if (state.version !== clientVersion) pendingVersion = state.version;
     $('#apply').disabled = busy || reloadWaiting;
     $('#verify').disabled = busy || !canVerify || reloadWaiting;
+    $('#read-device').disabled = busy || reloadWaiting;
     updateHistoryControls();
     updateResetControls();
     tryAutoReload();
@@ -89,7 +93,9 @@ function recoverReloadDraft() {
   try { saved = JSON.parse(sessionStorage.getItem(reloadDraftKey)); } catch { return false; }
   if (saved?.schema !== 1 || saved.doc?.device !== 'MOONDROP ECHO-B'
     || !Array.isArray(saved.doc.filters) || saved.doc.filters.length > 8) return false;
-  setDocument(saved.doc, saved.activePreset);
+  // Restoring an in-progress draft must retain its selection, raw input IDs
+  // and history, including a frequency edit not yet committed for sorting.
+  setDocument(saved.doc, saved.activePreset, {sort: false});
   const previousBand = 'selectedBand' in saved ? saved.selectedBand
     : Number((saved.focusId || '').match(/^(?:band-|type-)(\d+)/)?.[1] ?? saved.focusedBand ?? -1);
   if (Number.isInteger(previousBand) && previousBand >= 0 && previousBand < doc.filters.length) selectBand(previousBand);
@@ -125,12 +131,14 @@ function discardAllowed() {
   return !dirty() || window.confirm('当前配置有未导出的修改，是否放弃这些修改？');
 }
 
-function setDocument(value, presetId = null) {
+function setDocument(value, presetId = null, {sort = true} = {}) {
   finishChartDrag(true);
   qWheelInput = null;
   doc = clone(value);
+  if (sort) doc.filters.sort((a, b) => a.frequency_hz - b.frequency_hz);
   chartRange = null;
   selectedBand = null;
+  bandReadoutOpen = false;
   $('#chart-readout').hidden = true;
   baseline = JSON.stringify(doc);
   activePreset = presetId;
@@ -151,6 +159,7 @@ function syncDocumentInputs() {
 }
 
 function changed(group = null, replaceHistory = false) {
+  clearCurveProbe();
   recordHistory(group, replaceHistory);
   updateResetControls();
   lastEditAt = performance.now();
@@ -249,8 +258,8 @@ async function validateCurrent() {
     const clipping = result.peak_db > 0;
     $('#validation').className = clipping ? 'warning' : '';
     $('#validation').textContent = clipping
-      ? `五种采样率校验通过。组合峰值 ${formatDb(result.peak_db)}，满幅输入可能削波，请降低音源电平或调整 EQ。`
-      : `✓ 五种采样率校验通过 · 组合峰值 ${formatDb(result.peak_db)}。数字模型不保证滤波级内部余量。`;
+      ? `校验通过 · 输出峰值 ${formatDb(result.peak_db)}，满幅输入可能削波。`
+      : `✓ 五种采样率校验通过 · 输出峰值 ${formatDb(result.peak_db)}`;
     result.quantized_q.forEach((q, i) => {
       const note = $(`#q-note-${i}`);
       if (note && doc.filters[i].type === 'peak') note.textContent = `实际 Q ${q}`;
@@ -425,7 +434,8 @@ function renderBands(focusIndex = null) {
 }
 
 function selectBand(index) {
-  if (selectedBand === index) return;
+  bandReadoutOpen = true;
+  if (selectedBand === index) { drawChart(); return; }
   finishChartDrag(true);
   selectedBand = index;
   historyGroup = null;
@@ -466,6 +476,7 @@ function addFilter(frequency, gain = 0) {
   doc.filters.push({type: 'peak', frequency_hz: Math.max(20, Math.min(20000, Math.round(frequency))),
     gain_db: Math.round(gain * 10) / 10, q: 1});
   selectedBand = doc.filters.length - 1;
+  bandReadoutOpen = true;
   if (!sortFilters()) renderBands();
   changed();
   drawChart();
@@ -563,6 +574,106 @@ function chartPosition(event, geometry) {
     y: (event.clientY - rect.top) * CHART_HEIGHT / rect.height};
 }
 
+function finishCurvePointer() {
+  if (curvePointer === null) return;
+  const pointerId = curvePointer;
+  curvePointer = null;
+  if ($('#chart-wrap').hasPointerCapture(pointerId)) $('#chart-wrap').releasePointerCapture(pointerId);
+}
+
+function clearCurveProbe() {
+  finishCurvePointer();
+  curveProbe = null;
+  $('#curve-probe')?.setAttribute('hidden', '');
+  $('#curve-readout').hidden = true;
+  $('#chart-readout').hidden = !bandReadoutOpen || selectedBand === null || !doc?.filters[selectedBand];
+  if (previewData && validatedRevision === revision && !chartDrag) {
+    $('#curve-state').textContent = `${Number($('#rate').value) / 1000} kHz · EQ 峰值 ${formatDb(Math.max(...previewData.curves[$('#rate').value].total))}`;
+  }
+}
+
+function curveValue(values, ratio) {
+  // Interpolate the displayed polyline in log-frequency space, rather than
+  // jumping between the 601 samples or reporting the pointer's screen Y.
+  const position = ratio * (values.length - 1);
+  const low = Math.floor(position), high = Math.min(values.length - 1, low + 1);
+  return values[low] + (values[high] - values[low]) * (position - low);
+}
+
+function renderCurveProbe(keyboard = false) {
+  if (!curveProbe || !chartGeometry || validatedRevision !== revision || busy) return;
+  const {width, span, min, max, right} = chartGeometry;
+  const curves = previewData.curves[$('#rate').value];
+  const index = curveProbe.band === null ? -1 : previewFilterRefs.indexOf(curveProbe.band);
+  const values = index < 0 ? curves.total : curves.bands[index];
+  if (curveProbe.band !== null && index < 0) { clearCurveProbe(); return; }
+  const gain = curveValue(values, curveProbe.ratio);
+  const frequency = 20 * 1000 ** curveProbe.ratio;
+  const x = 52 + span * curveProbe.ratio;
+  const y = PLOT_TOP + (max - gain) / (max - min) * PLOT_HEIGHT;
+  const band = curveProbe.band === null ? -1 : doc.filters.indexOf(curveProbe.band);
+  const color = band < 0 ? '#275c48' : colors[band];
+  let marker = $('#curve-probe');
+  if (!marker) {
+    marker = svgElement('g', {id: 'curve-probe', 'aria-hidden': 'true', 'pointer-events': 'none'});
+    marker.append(svgElement('line', {class: 'curve-probe-guide'}), svgElement('circle', {r: 4.5}));
+    $('#chart').append(marker);
+  }
+  marker.removeAttribute('hidden');
+  marker.setAttribute('stroke', color);
+  Object.entries({x1: x, x2: x, y1: PLOT_TOP, y2: PLOT_BOTTOM})
+    .forEach(([key, value]) => marker.querySelector('line').setAttribute(key, value));
+  marker.querySelector('circle').setAttribute('cx', x);
+  marker.querySelector('circle').setAttribute('cy', y);
+  const readout = $('#curve-readout');
+  readout.setAttribute('aria-live', keyboard ? 'polite' : 'off');
+  readout.hidden = false;
+  readout.dataset.frequency = frequency;
+  readout.dataset.gain = gain;
+  readout.dataset.band = band < 0 ? 'total' : band;
+  readout.style.setProperty('--band-color', color);
+  readout.querySelector('strong').textContent = band < 0 ? 'EQ 组合' : `第 ${band + 1} 段`;
+  readout.querySelector('[data-value="frequency"]').textContent = `${Math.round(frequency)} Hz`;
+  readout.querySelector('[data-value="gain"]').textContent = formatDb(gain);
+  const rect = $('#chart').getBoundingClientRect();
+  const pointX = x * rect.width / width, pointY = y * rect.height / CHART_HEIGHT;
+  const boxWidth = readout.offsetWidth, boxHeight = readout.offsetHeight;
+  const left = pointX + 18 + boxWidth <= right * rect.width / width ? pointX + 18 : pointX - 18 - boxWidth;
+  readout.style.left = `${Math.max(4, Math.min(rect.width - boxWidth - 4, left))}px`;
+  // Place the label above the touch point where possible so it stays readable.
+  readout.style.top = `${Math.max(PLOT_TOP * rect.height / CHART_HEIGHT,
+    Math.min(PLOT_BOTTOM * rect.height / CHART_HEIGHT - boxHeight, pointY - boxHeight - 16))}px`;
+  $('#chart-readout').hidden = true;
+  $('#curve-state').textContent = `${band < 0 ? 'EQ 组合' : `第 ${band + 1} 段`} · ${Math.round(frequency)} Hz · ${formatDb(gain)}`;
+}
+
+function trackCurve(event, locked = false) {
+  if (busy || reloadWaiting || chartDrag || !chartGeometry || validatedRevision !== revision) return false;
+  const {span, min, max, right} = chartGeometry;
+  const position = chartPosition(event, chartGeometry);
+  if (!locked && (position.x < 52 || position.x > right || position.y < PLOT_TOP || position.y > PLOT_BOTTOM)) {
+    clearCurveProbe(); return false;
+  }
+  const ratio = Math.max(0, Math.min(1, (position.x - 52) / span));
+  if (!locked) {
+    const curves = previewData.curves[$('#rate').value];
+    const candidates = [{band: null, values: curves.total}, ...curves.bands.map((values, index) =>
+      ({band: previewFilterRefs[index], values}))].filter(candidate => candidate.band === null || doc.filters.includes(candidate.band));
+    let nearest, distance = Infinity;
+    for (const candidate of candidates) {
+      const y = PLOT_TOP + (max - curveValue(candidate.values, ratio)) / (max - min) * PLOT_HEIGHT;
+      const delta = Math.abs(y - position.y) * $('#chart').getBoundingClientRect().height / CHART_HEIGHT;
+      if (delta < distance) { distance = delta; nearest = candidate; }
+    }
+    if (distance <= (event.pointerType === 'touch' ? 24 : 14)) curveProbe = {band: nearest.band, ratio};
+    else if (!curveProbe) return false;
+  }
+  if (!curveProbe) return false;
+  curveProbe.ratio = ratio;
+  renderCurveProbe();
+  return true;
+}
+
 // The chart is an interactive surface. Prevent native SVG/text selection and
 // drag previews when double-clicking blank space or dragging across its axes.
 $('#chart-wrap').addEventListener('selectstart', (event) => event.preventDefault());
@@ -591,7 +702,16 @@ function finishChartDrag(cancelled = false) {
 
 $('#chart-wrap').addEventListener('pointerdown', (event) => {
   const handle = chartHandleAt(event);
-  if (!handle || busy || chartDrag || event.button !== 0 || !event.isPrimary || !chartGeometry) return;
+  if (busy || chartDrag || curvePointer !== null || event.button !== 0 || !event.isPrimary || !chartGeometry) return;
+  if (!handle) {
+    if (trackCurve(event)) {
+      curvePointer = event.pointerId;
+      $('#chart-wrap').setPointerCapture(event.pointerId);
+      event.preventDefault();
+    }
+    return;
+  }
+  clearCurveProbe();
   const index = Number(handle.dataset.band);
   selectBand(index);
   historyGroup = null;
@@ -609,10 +729,16 @@ $('#chart-wrap').addEventListener('pointerdown', (event) => {
 });
 $('#chart-wrap').addEventListener('pointermove', (event) => {
   if (!chartDrag) {
+    if (curvePointer !== null) {
+      if (event.pointerId === curvePointer) trackCurve(event, true);
+      return;
+    }
     const hovered = chartHandleAt(event);
     $('#chart-handles').querySelectorAll('.chart-handle').forEach((handle) => {
       handle.style.zIndex = handle === hovered ? 3 : Number(handle.dataset.band) === selectedBand ? 2 : 1;
     });
+    if (hovered) clearCurveProbe();
+    else if (event.pointerType !== 'touch') trackCurve(event);
     return;
   }
   if (event.pointerId !== chartDrag.pointerId) return;
@@ -629,14 +755,34 @@ $('#chart-wrap').addEventListener('pointermove', (event) => {
   }
 });
 $('#chart-wrap').addEventListener('pointerup', (event) => {
+  if (curvePointer === event.pointerId) finishCurvePointer();
   if (chartDrag?.pointerId === event.pointerId) finishChartDrag();
 });
 $('#chart-wrap').addEventListener('pointercancel', (event) => {
+  if (curvePointer === event.pointerId) clearCurveProbe();
   if (chartDrag?.pointerId === event.pointerId) finishChartDrag(true);
 });
 $('#chart-wrap').addEventListener('lostpointercapture', (event) => {
+  if (curvePointer === event.pointerId) clearCurveProbe();
   if (chartDrag?.pointerId === event.pointerId) finishChartDrag(true);
 });
+$('#chart-wrap').addEventListener('pointerleave', (event) => {
+  // Touch pointers leave on lift; keep their final reading until the next
+  // interaction. Native scrolling still dismisses it through pointercancel.
+  if (event.pointerType !== 'touch' && curvePointer === null && !chartDrag) clearCurveProbe();
+});
+$('#chart').addEventListener('keydown', (event) => {
+  if (busy || reloadWaiting || chartDrag || curvePointer !== null || validatedRevision !== revision) return;
+  if (event.key === 'Escape') { bandReadoutOpen = false; clearCurveProbe(); return; }
+  if (!['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(event.key)) return;
+  event.preventDefault();
+  if (!curveProbe) curveProbe = {band: null, ratio: Math.log10(1000 / 20) / 3};
+  const step = event.shiftKey ? .05 : .01;
+  curveProbe.ratio = event.key === 'Home' ? 0 : event.key === 'End' ? 1
+    : Math.max(0, Math.min(1, curveProbe.ratio + (event.key === 'ArrowRight' ? step : -step)));
+  renderCurveProbe(true);
+});
+$('#chart').addEventListener('blur', () => { if (curvePointer === null) clearCurveProbe(); });
 $('#chart-wrap').addEventListener('keydown', (event) => {
   const handle = event.target.closest('.chart-handle');
   if (!handle || busy) return;
@@ -645,6 +791,7 @@ $('#chart-wrap').addEventListener('keydown', (event) => {
     finishChartDrag(true);
     return;
   }
+  if (event.key === 'Escape') { bandReadoutOpen = false; clearCurveProbe(); return; }
   if (chartDrag || !['ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown'].includes(event.key)) return;
   event.preventDefault();
   const index = Number(handle.dataset.band);
@@ -763,7 +910,7 @@ function drawChart() {
     artwork = svgElement('g', {class: 'chart-artwork', 'aria-hidden': 'true'});
     svg.append(artwork);
   }
-  $('#chart-description').textContent = `${Number(rate) / 1000} kHz 下的数字频响，实线含整体输出增益，控制点仅表示各段自身的频率和增益，架式控制点通过细线连接其单段响应。组合响应从 ${formatDb(Math.min(...curves.total))} 到 ${formatDb(Math.max(...curves.total))}。`;
+  $('#chart-description').textContent = `${Number(rate) / 1000} kHz 下的 EQ 数字频响，实线为 EQ 组合响应，不含整体输出数字增益，控制点仅表示各段自身的频率和增益，架式控制点通过细线连接其单段响应。EQ 组合响应从 ${formatDb(Math.min(...curves.total))} 到 ${formatDb(Math.max(...curves.total))}。`;
   artwork.replaceChildren();
   const grid = svgElement('g');
   for (let i = 0; i <= 6; i++) {
@@ -830,14 +977,14 @@ function drawChart() {
         svgElement('circle', {cx, cy: responseY, r: 2.5}));
       connectors.append(connector);
     }
-    const qLabel = filter.type === 'peak' ? `Q ${filter.q}；滚轮调 Q，Shift 精调` : '架式固定 S=1';
-    const label = `第 ${index + 1} 段：${filter.frequency_hz} Hz，${filter.gain_db} dB，${qLabel}${incomplete ? '；参数待补全' : ''}；左右方向键调频率，上下方向键调增益`;
+    const qLabel = filter.type === 'peak' ? `Q ${filter.q}` : 'S 1';
+    const label = `第 ${index + 1} 段：${filter.frequency_hz} Hz，${filter.gain_db} dB，${qLabel}${incomplete ? '；待补全' : ''}`;
     let group = handles.querySelector(`[data-band="${index}"]`);
     if (!group) {
       group = document.createElement('button');
       group.type = 'button';
       group.dataset.band = index;
-      group.setAttribute('aria-describedby', 'chart-help');
+      group.setAttribute('aria-describedby', 'chart-help chart-keyboard-help');
       const dot = document.createElement('span');
       dot.className = 'dot';
       dot.style.background = colors[index];
@@ -848,23 +995,23 @@ function drawChart() {
     Object.entries({class: `chart-handle${chartDrag?.index === index ? ' dragging' : ''}${incomplete ? ' incomplete' : ''}`, 'data-y': cy,
       'aria-pressed': String(selectedBand === index), 'aria-controls': 'selected-filter',
       tabindex: busy ? -1 : 0, 'aria-label': label, 'aria-disabled': String(busy)}).forEach(([key, value]) => group.setAttribute(key, value));
-    group.title = label;
+    group.removeAttribute('title');
     group.style.left = `${cx * renderedBounds.width / width}px`;
     group.style.top = `${cy * renderedBounds.height / CHART_HEIGHT}px`;
   });
   const readout = $('#chart-readout');
   const selectedFilter = doc.filters[selectedBand];
   const selectedHandle = handles.querySelector('.chart-handle[aria-pressed="true"]');
-  readout.hidden = !selectedFilter || !selectedHandle;
+  readout.hidden = !bandReadoutOpen || !selectedFilter || !selectedHandle;
   if (!readout.hidden) {
     readout.dataset.band = selectedBand;
     readout.style.setProperty('--band-color', colors[selectedBand]);
     const type = {peak: '峰值', low_shelf: '低架', high_shelf: '高架'}[selectedFilter.type];
     readout.querySelector('strong').textContent = `${selectedBand + 1} · ${type}`;
-    readout.querySelector('[data-value="frequency"]').textContent = `频率  ${Number.isFinite(selectedFilter.frequency_hz) ? `${selectedFilter.frequency_hz} Hz` : '待补全'}`;
-    readout.querySelector('[data-value="gain"]').textContent = `增益  ${Number.isFinite(selectedFilter.gain_db) ? formatDb(selectedFilter.gain_db) : '待补全'}`;
+    readout.querySelector('[data-value="frequency"]').textContent = Number.isFinite(selectedFilter.frequency_hz) ? `${selectedFilter.frequency_hz} Hz` : '待补全';
+    readout.querySelector('[data-value="gain"]').textContent = Number.isFinite(selectedFilter.gain_db) ? formatDb(selectedFilter.gain_db) : '待补全';
     readout.querySelector('[data-value="q"]').textContent = selectedFilter.type === 'peak'
-      ? `Q  ${Number.isFinite(selectedFilter.q) ? selectedFilter.q : '待补全'}` : 'S  1（架式固定）';
+      ? `Q ${Number.isFinite(selectedFilter.q) ? selectedFilter.q : '待补全'}` : 'S 1';
     // This is a non-interactive duplicate of the handle's accessible label.
     // Keep it beside the point, flip at the right edge and clamp vertically.
     const pointX = parseFloat(selectedHandle.style.left), pointY = parseFloat(selectedHandle.style.top);
@@ -876,21 +1023,13 @@ function drawChart() {
     readout.style.left = `${Math.max(4, Math.min(renderedBounds.width - boxWidth - 4, left))}px`;
     readout.style.top = `${Math.max(plotTop, Math.min(plotBottom - boxHeight, pointY - boxHeight / 2))}px`;
   }
-  const summary = `${Number(rate) / 1000} kHz · 峰值 ${formatDb(Math.max(...curves.total))}`;
+  const summary = `${Number(rate) / 1000} kHz · EQ 峰值 ${formatDb(Math.max(...curves.total))}`;
   $('#curve-state').textContent = chartDrag ? `第 ${chartDrag.index + 1} 段 · ${doc.filters[chartDrag.index].frequency_hz} Hz · ${doc.filters[chartDrag.index].gain_db} dB` : validatedRevision === revision ? summary : '图中保留上次有效预览';
-  svg.onpointermove = (event) => {
-    if (chartDrag || validatedRevision !== revision) return;
-    const rect = svg.getBoundingClientRect();
-    const position = (event.clientX - rect.left) / rect.width * width;
-    const index = Math.max(0, Math.min(600, Math.round((position - 52) / span * 600)));
-    $('#curve-state').textContent = `${Math.round(previewData.frequencies[index])} Hz · ${formatDb(curves.total[index])}`;
-  };
-  svg.onpointerleave = () => {
-    if (validatedRevision === revision) $('#curve-state').textContent = summary;
-  };
+  renderCurveProbe();
 }
 
 function setBusy(value) {
+  if (value) clearCurveProbe();
   if (value) finishChartDrag(true);
   busy = value;
   $('#chart-wrap').classList.toggle('device-busy', value);
@@ -910,6 +1049,8 @@ function setBusy(value) {
   document.querySelectorAll('.preset').forEach((button) => { button.disabled = value; });
   $('#apply').disabled = value || reloadWaiting;
   $('#verify').disabled = value || !canVerify || reloadWaiting;
+  $('#read-device').disabled = value || reloadWaiting;
+  $('#read-device').textContent = value && pendingRead ? '正在读取设备…' : '读取当前设备';
   $('#apply').textContent = value ? '设备操作进行中…' : '写入耳放 ↗';
   $('#apply-title').textContent = value ? '请保持设备连接' : '准备好再应用';
 }
@@ -927,22 +1068,39 @@ async function pollJob() {
     if (sequence !== jobPollSequence) return;
     canVerify = result.can_verify;
     const job = result.job;
-    if (!job) { setBusy(false); return; }
+    if (!job) { pendingRead = null; setBusy(false); return; }
     activeJob = job.id;
     $('#operation').hidden = false;
     const status = job.device_status;
     const summary = status?.message || job.message;
     if ($('#job-summary').textContent !== summary) $('#job-summary').textContent = summary;
     const detail = [
-      job.action === 'apply' ? '操作：写入并保存，自动读回' : '操作：只读复核上次写入计划',
+      job.action === 'read' ? '操作：只读读取当前设备配置'
+        : job.action === 'apply' ? '操作：写入并保存，自动读回' : '操作：只读复核上次写入计划',
       status && `状态：${status.status} / ${status.stage}`,
-      status && `写入已启动：${status.write_attempted ? '是' : '否'} · 保存 ACK：${status.save_command_acknowledged ? '已确认' : '未确认'} · 读回：${status.readback_verified ? '通过' : '尚未通过'}`,
+      job.action === 'read' ? '仅发送读取查询，未写入 EQ、切换模式或保存设备。'
+        : status && `写入已启动：${status.write_attempted ? '是' : '否'} · 保存 ACK：${status.save_command_acknowledged ? '已确认' : '未确认'} · 读回：${status.readback_verified ? '通过' : '尚未通过'}`,
+      job.matching_sample_rates?.length && `实际系数匹配采样率：${job.matching_sample_rates.join(' / ')} Hz`,
       status?.read_reconnect_attempts && `只读重新连接：${status.read_reconnect_attempts} 次${status.readback_recovered ? ' · 恢复后已验证' : ''}`,
       job.run && `运行记录：${job.run}`,
       (job.error || status?.error) && `详情：${job.error || status.error}`,
-      '物理拔插保持未验证。',
+      job.action !== 'read' && '物理拔插保持未验证。',
     ].filter(Boolean).join('\n');
     if ($('#job-detail').textContent !== detail) $('#job-detail').textContent = detail;
+    if (pendingRead && job.action === 'read'
+      && (pendingRead.id === job.id || (!pendingRead.id && pendingRead.previous !== job.id)) && job.done) {
+      pendingRead = null;
+      if (job.preset && !job.error) {
+        setDocument(job.preset);
+        const rates = job.matching_sample_rates || [];
+        if (rates.length === 1) $('#rate').value = String(rates[0]);
+        notify('已载入当前设备调音，包含 EQ 与整体输出增益。可继续编辑或导出；未写入设备。');
+      } else {
+        notify(`读取失败：${job.error || '未获得有效配置'}。当前草稿已保留。`, true);
+      }
+    } else if (pendingRead && job.done) {
+      pendingRead = null;
+    }
     setBusy(!job.done);
   } catch (error) {
     if (sequence !== jobPollSequence) return;
@@ -1033,6 +1191,12 @@ $('#settings').addEventListener('beforeinput', (event) => {
   moveHistory(event.inputType === 'historyUndo' ? -1 : 1);
 });
 document.addEventListener('pointerdown', () => { historyGroup = null; }, true);
+document.addEventListener('pointerdown', (event) => {
+  if (event.button !== 0 || chartDrag || curvePointer !== null) return;
+  if (event.target.closest('.chart-handle,button,input,select,textarea,a,label')) return;
+  bandReadoutOpen = false;
+  clearCurveProbe();
+}, true);
 document.addEventListener('pointerup', () => { historyGroup = null; });
 document.addEventListener('focusout', () => { historyGroup = null; });
 document.addEventListener('keyup', (event) => {
@@ -1084,6 +1248,20 @@ $('#verify').addEventListener('click', async () => {
   } catch (error) {
     notify(`复核请求未能确认：${error.message}。正在查询操作状态。`, true);
     activeJob = 'pending';
+    await pollJob();
+  }
+});
+$('#read-device').addEventListener('click', async () => {
+  if (busy || reloadWaiting || !discardAllowed()) return;
+  pauseJobPoll();
+  pendingRead = {id: null, previous: activeJob};
+  setBusy(true);
+  try {
+    const result = await api('/api/read', {});
+    pendingRead.id = result.job.id;
+    await pollJob();
+  } catch (error) {
+    notify(`读取请求未能确认：${error.message}。正在查询操作状态，当前草稿已保留。`, true);
     await pollJob();
   }
 });

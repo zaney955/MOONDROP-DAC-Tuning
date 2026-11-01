@@ -22,27 +22,27 @@
     <div class="workspace">
       <aside class="sidebar">
         <section class="panel library"><p class="eyebrow">01 / PRESETS</p><h2>预设库</h2><div id="presets"></div><button class="text-button" id="new" type="button">＋ 新建空白配置</button></section>
-        <section class="panel device"><span class="device-symbol" aria-hidden="true">▥</span><p class="eyebrow">USB DAC / AMP</p><h2>MOONDROP ECHO-B</h2><p>编辑器参数与设备状态独立。<br>点击写入后才会应用到耳放。</p><div class="device-tag">9 段 DSP · 8 段可调 EQ</div></section>
+        <section class="panel device"><span class="device-symbol" aria-hidden="true">▥</span><p class="eyebrow">USB DAC / AMP</p><h2>MOONDROP ECHO-B</h2><p id="read-help">读取后可编辑，写入后生效。</p><button id="read-device" type="button" aria-describedby="read-help" disabled>读取当前设备</button><div class="device-tag">9 段 DSP · 8 段可调 EQ</div></section>
       </aside>
       <div class="editor">
         <form id="settings" action="/api/apply" method="post">
         <section class="panel response" aria-labelledby="eq-title">
           <div class="section-head"><div><p class="eyebrow">02 / EQUALIZER</p><h2 id="eq-title">声音曲线 <span id="band-count">0 / 8</span></h2></div><label class="rate-label" for="rate">预览采样率<select id="rate" name="rate"><option value="44100">44.1 kHz</option><option value="48000" selected>48 kHz</option><option value="96000">96 kHz</option><option value="192000">192 kHz</option><option value="384000">384 kHz</option></select></label></div>
-          <div class="history-toolbar" role="group" aria-label="编辑历史"><button id="undo" type="button" aria-keyshortcuts="Meta+Z Control+Z" disabled>↶ 撤销 <kbd>⌘Z</kbd></button><button id="redo" type="button" aria-keyshortcuts="Meta+Shift+Z Control+Shift+Z Control+Y" disabled>↷ 重做 <kbd>⇧⌘Z</kbd></button><span>支持连续撤销、重做</span></div>
-          <div class="legend"><span class="line-key total"></span>组合响应（含输出增益）<span class="line-key band"></span>各段 EQ（选中高亮）</div>
-          <div id="chart-wrap" role="group" aria-label="频率响应调节"><svg id="chart" viewBox="0 0 900 360" role="img" aria-labelledby="chart-title chart-description"><title id="chart-title">EQ 频率响应曲线</title><desc id="chart-description">正在计算频率响应</desc></svg><div id="chart-handles"></div><div id="chart-readout" class="chart-readout" aria-hidden="true" hidden><strong></strong><span data-value="frequency"></span><span data-value="gain"></span><span data-value="q"></span></div></div>
-          <p id="chart-help">控制点表示单段频率与增益 · 双击空白处新增 · 拖动调频率与增益 · 滚轮调 Q（Shift 精调）</p>
-          <div class="chart-footer"><span id="curve-state">等待配置</span><button id="fit-chart" type="button" title="纵轴随当前值自动适配；拖动时固定范围，松手后更新">适应范围</button><span>纵轴自动适配 · 20 Hz — 20 kHz</span></div>
+          <div class="history-toolbar" role="group" aria-label="编辑历史"><button id="undo" type="button" aria-keyshortcuts="Meta+Z Control+Z" disabled>↶ 撤销 <kbd>⌘Z</kbd></button><button id="redo" type="button" aria-keyshortcuts="Meta+Shift+Z Control+Shift+Z Control+Y" disabled>↷ 重做 <kbd>⇧⌘Z</kbd></button></div>
+          <div class="legend"><span class="line-key total"></span>EQ 组合<span class="line-key band"></span>单段 EQ</div>
+          <div id="chart-wrap" role="group" aria-label="频率响应调节"><svg id="chart" viewBox="0 0 900 360" role="img" tabindex="0" aria-labelledby="chart-title chart-description" aria-describedby="chart-help chart-keyboard-help curve-state"><title id="chart-title">EQ 频率响应曲线</title><desc id="chart-description">正在计算频率响应</desc></svg><div id="chart-handles"></div><div id="chart-readout" class="chart-readout" aria-hidden="true" hidden><div class="readout-heading"><strong></strong><span data-value="q"></span></div><div class="readout-values"><span data-value="frequency"></span><span data-value="gain"></span></div></div><div id="curve-readout" class="chart-readout" role="status" aria-live="off" aria-atomic="true" hidden><strong></strong><div class="readout-values"><span data-value="frequency"></span><span data-value="gain"></span></div></div></div>
+          <p id="chart-help">拖点调节 · 滚轮调 Q · 双击新增 · 空白处收起信息</p>
+          <p id="chart-keyboard-help" class="sr-only">移到曲线或触屏横滑查看数值。控制点左右键调频率、上下键调增益，Shift 加速。聚焦图表后用左右键查看数值，Home / End 到两端，Esc 收起信息。</p><div class="chart-footer"><span id="curve-state">等待配置</span><button id="fit-chart" type="button">适应范围</button><span>纵轴自动适配 · 20 Hz — 20 kHz</span></div>
           <p id="validation" role="status" aria-live="polite">正在载入编辑器…</p>
           <div class="eq-controls">
             <section id="selected-filter" class="filter-inspector" aria-labelledby="selected-title">
-              <div class="inspector-head"><div class="selection-title"><span id="selected-color" hidden></span><h3 id="selected-title">选择滤波器</h3></div><div class="filter-actions"><button id="add" type="button">＋ 新增</button><button id="reset-band" type="button" title="将此段增益归零，保留频率、类型和 Q" disabled>重置此段</button><button id="delete" type="button" disabled>删除此段</button></div></div>
+              <div class="inspector-head"><div class="selection-title"><span id="selected-color" hidden></span><h3 id="selected-title">选择滤波器</h3></div><div class="filter-actions"><button id="add" type="button">＋ 新增</button><button id="reset-band" type="button" title="此段增益归零" disabled>重置此段</button><button id="delete" type="button" disabled>删除此段</button></div></div>
               <div id="bands"></div>
-              <div class="reset-actions"><button id="reset-eq" type="button" disabled>重置全部 EQ</button><span>仅将增益归零，保留频率、类型、Q 和整体输出。</span></div>
-              <p class="filter-help">频率 20–20000 Hz · 增益步进 0.1 dB · 峰值 Q 按 1/256 量化</p>
+              <div class="reset-actions"><button id="reset-eq" type="button" disabled>重置全部 EQ</button><span>仅将 EQ 增益归零。</span></div>
+              <p class="filter-help">20–20000 Hz · 0.1 dB 步进</p>
             </section>
             <section class="output" aria-labelledby="output-title">
-              <div><label id="output-title" for="output">整体输出数字增益</label><p id="output-help">独立调整整体电平，保留 EQ 形状。</p></div>
+              <div><label id="output-title" for="output">整体输出数字增益</label><p id="output-help">仅调节音量，不影响曲线。</p></div>
               <div class="output-control"><div class="unit-input"><input id="output" name="output_gain_db" type="number" step="any" required aria-describedby="output-help"><span>dB</span></div><label class="sr-only" for="output-slider">整体输出增益滑块（dB）</label><input type="range" id="output-slider" name="output-slider" min="-132.45319809215172" max="6.020598877840829" step="any" value="-16"></div>
             </section>
           </div>

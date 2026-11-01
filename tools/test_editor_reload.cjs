@@ -47,6 +47,8 @@ const {spawn} = require('node:child_process');
     await valid();
     const initial = await (await page.request.get(url + '/api/bootstrap')).json();
     assert.equal(initial.auto_reload, true);
+    // Preset libraries can change independently; this scenario needs one band.
+    await page.locator('#new').click();
     await page.locator('#add').click();
     await page.locator('#name').fill('自动重载 · 未导出草稿');
     await page.locator('#description').fill('保留参数、原始输入和未导出状态');

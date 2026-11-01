@@ -1,7 +1,7 @@
 {
   "preset": "presets/kadenz-riff-impact-v2.json",
-  "source_sha256": "7b05b4fcc4598c01c939fcffbeb9f08327df6b440de47541105e8e25f192330a",
-  "write_plan_sha256": "9eaaf9a2f728918dc7a9111e6b4ca20611c6f6b83b51ddaa3d6a6839170a2202",
+  "source_sha256": "888a5b2456c51192dbef1b76126da558493b98547c8ff4b3cc25af97ff68c8d0",
+  "write_plan_sha256": "53303395293e4a2d2dffab6b673bc5e6e530bd20ea3c843c69dde64f4db6c103",
   "method": "Quantized Q22 theoretical steady-state response; 6001 log-spaced points, 20 Hz to 20 kHz. Tone excludes band 9. Band means integrate dB over log frequency, not loudness or energy. Band extrema also include exact endpoints. Cross-rate differences include digital frequency warping and quantization. Prefix peaks do not prove internal headroom or transient clipping safety. Theoretical EQ at 20 kHz does not extend the acoustic measurements beyond 19896.974609 Hz.",
   "device_written": false,
   "acoustic_output_measured": false,
@@ -9,9 +9,9 @@
     "44100": {
       "tone_min_db": -1.0986609909552016,
       "tone_max_db": 2.182630686333316,
-      "output_gain_quantized_db": -16.00000503931823,
-      "total_min_db": -17.09866603027343,
-      "total_max_db": -13.817374352984913,
+      "output_gain_quantized_db": -20.000008283513814,
+      "total_min_db": -21.098669274469017,
+      "total_max_db": -17.8173775971805,
       "maximum_abs_difference_from_48000_db": 0.012493706451667475,
       "tone_at_hz_db": {
         "20": 1.0844328822064755,
@@ -125,9 +125,9 @@
     "48000": {
       "tone_min_db": -1.0986693749707086,
       "tone_max_db": 2.18757274972379,
-      "output_gain_quantized_db": -16.00000503931823,
-      "total_min_db": -17.098674414288936,
-      "total_max_db": -13.812432289594438,
+      "output_gain_quantized_db": -20.000008283513814,
+      "total_min_db": -21.098677658484522,
+      "total_max_db": -17.812435533790023,
       "maximum_abs_difference_from_48000_db": 0.0,
       "tone_at_hz_db": {
         "20": 1.096926588658143,
@@ -241,9 +241,9 @@
     "96000": {
       "tone_min_db": -1.0986987901457637,
       "tone_max_db": 2.1960815005558896,
-      "output_gain_quantized_db": -16.00000503931823,
-      "total_min_db": -17.098703829463993,
-      "total_max_db": -13.803923538762339,
+      "output_gain_quantized_db": -20.000008283513814,
+      "total_min_db": -21.09870707365958,
+      "total_max_db": -17.803926782957923,
       "maximum_abs_difference_from_48000_db": 0.06046497690588848,
       "tone_at_hz_db": {
         "20": 1.1573915655640314,
@@ -357,9 +357,9 @@
     "192000": {
       "tone_min_db": -1.0985206474130234,
       "tone_max_db": 2.1636770053743155,
-      "output_gain_quantized_db": -16.00000503931823,
-      "total_min_db": -17.09852568673125,
-      "total_max_db": -13.836328033943913,
+      "output_gain_quantized_db": -20.000008283513814,
+      "total_min_db": -21.09852893092684,
+      "total_max_db": -17.8363312781395,
       "maximum_abs_difference_from_48000_db": 0.061846347047765704,
       "tone_at_hz_db": {
         "20": 1.0350802416103773,
@@ -473,9 +473,9 @@
     "384000": {
       "tone_min_db": -1.0987253105691264,
       "tone_max_db": 2.2165372770661773,
-      "output_gain_quantized_db": -16.00000503931823,
-      "total_min_db": -17.098730349887354,
-      "total_max_db": -13.783467762252052,
+      "output_gain_quantized_db": -20.000008283513814,
+      "total_min_db": -21.09873359408294,
+      "total_max_db": -17.783471006447638,
       "maximum_abs_difference_from_48000_db": 0.0772761822044763,
       "tone_at_hz_db": {
         "20": 1.1742027708626193,

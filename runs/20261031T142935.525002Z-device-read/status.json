@@ -1,0 +1,14 @@
+{
+  "action": "read",
+  "stage": "complete",
+  "status": "read_complete",
+  "write_attempted": false,
+  "save_command_acknowledged": false,
+  "readback_verified": false,
+  "physical_unplug_tested": false,
+  "message": "已读取当前设备配置；未写入设备",
+  "updated_at_utc": "20261031T142936.616138Z",
+  "matching_sample_rates": [
+    48000
+  ]
+}

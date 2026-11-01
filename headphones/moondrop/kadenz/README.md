@@ -10,6 +10,8 @@
 | 频点及频段统计 | [analysis/summary.md](analysis/summary.md) |
 | 完整计算结果 | [analysis/statistics.json](analysis/statistics.json) |
 | 外部一手资料与限制 | [research/sources.md](research/sources.md) |
+| Riff 线条与适度冲击 V4（2026-10-31 定制试听版） | [设计、参数与试听方法](research/riff-impact-v4.md) / [预设 JSON](../../../presets/kadenz-riff-impact-v4.json) |
+| V4 五采样率响应 | [离线报告](analysis/riff-impact-v4.json) / [曲线数据](analysis/riff-impact-v4.csv) |
 | Riff 清晰与低频冲击 V2（2026-10-31 定制） | [设计、参数与试听方法](research/riff-impact-v2.md) / [预设 JSON](../../../presets/kadenz-riff-impact-v2.json) |
 | V2 五采样率响应 | [离线报告](analysis/riff-impact-v2.json) / [曲线数据](analysis/riff-impact-v2.csv) |
 | 密集金属调音示例 | [设计依据与试听方法](research/death-metal-structure-v1.md) |

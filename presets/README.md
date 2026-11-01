@@ -2,6 +2,8 @@
 
 每个 JSON 是一份完整听音设置，写入时整体替换设备 EQ。名称、用途和具体数值只维护在文件内；用 `python3 tools/preset.py list` 查看列表。操作步骤见[操作指南](../docs/operations.md)。
 
+用户默认偏好（2026-10-31）：以后编写调音配置时，整体输出数字增益 `output_gain_db` 默认填写 `-20` dB，除非用户另有明确要求。这是编写配置的默认值；编译器仍要求显式填写该字段，现有预设库也已按用户后续要求统一为 −20 dB。
+
 ## 最小示例
 
 ```json
@@ -10,7 +12,7 @@
   "device": "MOONDROP ECHO-B",
   "name": "空白 EQ",
   "description": "保留频响形状，降低整体输出",
-  "output_gain_db": -16,
+  "output_gain_db": -20,
   "filters": []
 }
 ```

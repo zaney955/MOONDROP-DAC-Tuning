@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "device": "MOONDROP ECHO-B",
+  "name": "Kadenz · Riff 清晰与低频冲击 V2",
+  "description": "依据 2026-10-31 听音偏好定制的试听起点：优先保留 Kadenz 吉他 riff 的音高、节奏和走向辨识，在约 60–120 Hz 适度补充冲击，深低频少量支撑；不另加中低频厚度。3.2 kHz 轻收作为部分密集录音整体刺激感的试验，尚未定位刺激来源，不声称已解决。采用当前 RBJ 峰值 Q / 架式 S=1 算法与 0.1 dB 增益，五采样率 Q22 离线检查；不是官方 App 同参数曲线或个人耳内校正。整体输出沿用现有预设的 -16 dB，位于末级，不是 EQ 前级余量保证。以 Suffocation 第 1、3 专的原始满意听感检查是否损失辨识度，以 Cryptopsy《Slit Your Guts》检查改善与代价。未试听、未写入设备。",
+  "output_gain_db": -16,
+  "filters": [
+    {
+      "type": "low_shelf",
+      "frequency_hz": 120,
+      "q": 1,
+      "gain_db": 1
+    }
+  ]
+}

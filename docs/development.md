@@ -21,8 +21,10 @@ git diff --check
 | `test_editor_browser.cjs` | 输入、导入导出、拖动、触屏、滚轮与键盘 |
 | `test_editor_creation.cjs` | 新增、排序、焦点、导出顺序与段数上限 |
 | `test_editor_handles.cjs` | 控制点、单段曲线、总频响与显示范围 |
+| `test_editor_probe.cjs` | 曲线点数值、鼠标／键盘／真实触屏跟随、吸附与页面滚动 |
 | `test_editor_history.cjs` | 撤销重做、历史合并、无效输入与快捷键 |
 | `test_editor_recovery.cjs` | 模拟重连状态与结果显示 |
+| `test_editor_read.cjs` | 显式读取、取消、草稿载入、导出、失败保留与断线后查询（模拟设备） |
 | `test_editor_reload.cjs` | 临时项目副本中的服务重载、草稿和历史恢复、语法错误回退 |
 
 例如 `node tools/test_editor_browser.cjs`。这些脚本不启动真实设备写入；重载脚本自行启动临时副本服务。

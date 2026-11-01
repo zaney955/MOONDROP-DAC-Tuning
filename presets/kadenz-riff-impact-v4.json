@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "device": "MOONDROP ECHO-B",
+  "name": "Kadenz · Riff 线条与适度冲击 V4",
+  "description": "优先保留吉他 riff 的音高、节奏和推进，少量增加低频支撑，把主要提升放在约 60–120 Hz。依据 2026-10-31 本次偏好及官方 5128/4128 数据设计；不预设中低频浑浊或上中频刺耳，不对录音差异作统一纠正。以原本满意的 Suffocation 第 1、3 张专辑检验是否过调，以 Cryptopsy《Slit Your Guts》检验重量改善及辨识度代价。RBJ 峰值 Q / 架式 S=1；整体 -20 dB 为末级输出。定制试听起点，非个人耳内校正；尚未试听或写入设备。",
+  "output_gain_db": -20,
+  "filters": [
+    {"type": "low_shelf", "frequency_hz": 110, "q": 1, "gain_db": 0.6},
+    {"type": "peak", "frequency_hz": 90, "q": 0.9, "gain_db": 1.0}
+  ]
+}

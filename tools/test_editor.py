@@ -2,6 +2,7 @@
 import copy
 import http.client
 import json
+import math
 from pathlib import Path
 import tempfile
 import threading
@@ -17,6 +18,79 @@ class EditorTests(unittest.TestCase):
     def setUp(self):
         self.doc = json.loads((preset.ROOT / 'presets/original-default.json').read_text())
 
+    def test_device_parameters_recover_fractional_gain_at_every_rate(self):
+        self.doc['output_gain_db'] = -16
+        self.doc['filters'] = [dict(type=kind, frequency_hz=freq, gain_db=gain, q=q)
+                               for kind, freq, gain, q in [('low_shelf', 120, 1.5, 1),
+                                   ('peak', 90, -.7, .9), ('peak', 3200, -1.1, 1.1),
+                                   ('high_shelf', 8000, .3, 1)]]
+        plan, _ = preset.compile_preset(self.doc)
+        metadata = dict(mode=0, bands=plan['bands'])
+        for band in metadata['bands']:
+            band['gain_label_db'] = int(band['gain_db'])
+        for rate, coefficients in plan['coefficients_q22'].items():
+            with self.subTest(rate=rate):
+                doc, rates = editor.device_document(metadata, coefficients)
+                rebuilt, _ = preset.compile_preset(doc)
+                self.assertIn(int(rate), rates)
+                self.assertEqual(rebuilt['coefficients_q22'][rate], coefficients)
+                self.assertEqual([f['gain_db'] for f in doc['filters']], [1.5, -.7, -1.1, .3])
+                self.assertAlmostEqual(doc['output_gain_db'], -16, places=4)
+
+    def test_read_device_is_readonly_and_does_not_replace_last_write(self):
+        self.doc['filters'] = [dict(type='peak', frequency_hz=1000, gain_db=-1.9, q=1)]
+        fake = FakeUSB('lost_once_readonly', plan=preset.compile_preset(self.doc)[0])
+        with tempfile.TemporaryDirectory() as temp:
+            server = editor.EditorServer(('127.0.0.1', 0))
+            self.addCleanup(server.server_close)
+            previous = server.last_run = Path(temp) / 'previous-write'
+            job = dict(action='read', done=False, error=None, run=None)
+            def command(args, **kwargs):
+                if args[0] == 'make':
+                    return preset.subprocess.CompletedProcess(args, 0)
+                return fake(args, **kwargs)
+            with patch.object(preset, 'ROOT', Path(temp)), patch.object(preset.subprocess, 'run', command), patch.object(preset.time, 'sleep'):
+                server.run_job(job, None, None, None)
+            self.assertTrue(job['done'])
+            self.assertIsNone(job['error'])
+            self.assertEqual(fake.writes, 0)
+            self.assertEqual(fake.reads, 5)
+            self.assertEqual(server.last_run, previous)
+            self.assertEqual(job['preset']['filters'][0]['gain_db'], -1.9)
+            state = json.loads((Path(job['run']) / 'status.json').read_text())
+            self.assertEqual(state['status'], 'read_complete')
+            self.assertFalse(state['write_attempted'])
+            self.assertEqual(state['read_reconnect_attempts'], 1)
+
+    def test_read_rejects_configuration_changes_and_saves_failure_evidence(self):
+        plan, _ = preset.compile_preset(self.doc)
+        fake = FakeUSB(plan=plan)
+        with tempfile.TemporaryDirectory() as temp:
+            def command(args, **kwargs):
+                if fake.reads == 2:
+                    fake.plan['bands'][0]['frequency_hz'] += 1
+                return fake(args, **kwargs)
+            with patch.object(preset.subprocess, 'run', command):
+                with self.assertRaisesRegex(ValueError, '配置发生变化'):
+                    editor.read_device(Path(temp))
+            self.assertEqual(fake.writes, 0)
+            self.assertFalse((Path(temp) / 'preset.json').exists())
+            self.assertEqual(json.loads((Path(temp) / 'status.json').read_text())['status'], 'read_failed')
+
+    def test_unsupported_device_state_is_not_approximated(self):
+        plan, _ = preset.compile_preset(self.doc)
+        metadata = dict(mode=0, bands=plan['bands'])
+        for scenario in ('mode', 'output', 'coefficients'):
+            meta, rows = copy.deepcopy(metadata), copy.deepcopy(plan['coefficients_q22']['48000'])
+            if scenario == 'mode':
+                meta['mode'] = 1
+            elif scenario == 'output':
+                rows[8][1] = 1
+            else:
+                rows[0][0] += 1
+            with self.subTest(scenario=scenario), self.assertRaises(ValueError):
+                editor.device_document(meta, rows)
+
     def test_arbitrary_integer_frequencies_and_actual_quantized_curves(self):
         self.doc['filters'] = [dict(type='peak', frequency_hz=f, gain_db=0 if f == 20 else -2.3, q=.9)
                                for f in (20, 137, 2836, 20000)]
@@ -27,14 +101,29 @@ class EditorTests(unittest.TestCase):
         for rate, curves in data['curves'].items():
             self.assertEqual(len(curves['total']), 601)
             self.assertEqual(len(curves['bands']), 4)
-            self.assertAlmostEqual(max(curves['total']), plan['response_check'][rate]['max_gain_db'], places=8)
-            self.assertAlmostEqual(min(curves['total']), plan['response_check'][rate]['min_gain_db'], places=8)
+            output_db = 20 * math.log10(plan['coefficients_q22'][rate][8][0] / preset.SCALE)
+            self.assertAlmostEqual(max(curves['total']), plan['response_check'][rate]['max_gain_db'] - output_db, places=8)
+            self.assertAlmostEqual(min(curves['total']), plan['response_check'][rate]['min_gain_db'] - output_db, places=8)
+
+    def test_eq_curves_do_not_change_with_output_gain(self):
+        self.doc['filters'] = [dict(type='low_shelf', frequency_hz=120, gain_db=1.5, q=1),
+                               dict(type='peak', frequency_hz=3200, gain_db=-1.1, q=1.1)]
+        reference = editor.preview(dict(self.doc, output_gain_db=0))
+        for gain in (preset.OUTPUT_GAIN_MIN_DB, -60, -20, preset.OUTPUT_GAIN_MAX_DB):
+            with self.subTest(gain=gain):
+                result = editor.preview(dict(self.doc, output_gain_db=gain))
+                self.assertEqual(result['curves'], reference['curves'])
+                self.assertNotEqual(result['peak_db'], reference['peak_db'])
 
     def test_flat_extreme_output_gain_remains_in_exportable_document(self):
+        self.doc['filters'] = []
         for gain in (preset.OUTPUT_GAIN_MIN_DB, -16, preset.OUTPUT_GAIN_MAX_DB):
             self.doc['output_gain_db'] = gain
             result = editor.preview(self.doc)
             self.assertEqual(result['preset']['output_gain_db'], gain)
+            for curves in result['curves'].values():
+                self.assertEqual(curves['total'], [0] * 601)
+                self.assertEqual(curves['bands'], [])
             exported = json.loads(json.dumps(result['preset']))
             self.assertEqual(preset.compile_preset(exported), preset.compile_preset(self.doc))
 
@@ -178,7 +267,14 @@ class HTTPTests(unittest.TestCase):
         self.server.job = dict(done=False)
         with patch.object(self.server, 'run_job') as worker:
             self.assertEqual(self.post('/api/apply', self.doc)[0], 400)
+            self.assertEqual(self.post('/api/read', {})[0], 400)
             worker.assert_not_called()
+
+    def test_read_endpoint_requires_token_and_starts_only_explicitly(self):
+        self.assertEqual(self.post('/api/read', {}, **{'X-Editor-Token': ''})[0], 403)
+        with patch.object(self.server, 'start_job', return_value={'job': {'id': 'read-fixture'}}) as start:
+            self.assertEqual(self.post('/api/read', {})[0], 202)
+            start.assert_called_once_with('read')
 
     def test_stale_page_cannot_start_device_operation(self):
         with patch.object(self.server, 'run_job') as worker:
@@ -187,6 +283,7 @@ class HTTPTests(unittest.TestCase):
             worker.assert_not_called()
         self.server.auto_reload = True
         self.assertEqual(self.post('/api/apply', self.doc)[0], 409)
+        self.assertEqual(self.post('/api/read', {})[0], 409)
         self.assertEqual(self.post('/api/preview', self.doc)[0], 200)
         self.server.reload_pending = True
         self.assertEqual(self.post('/api/apply', self.doc, **{'X-Editor-Version': self.server.version})[0], 503)

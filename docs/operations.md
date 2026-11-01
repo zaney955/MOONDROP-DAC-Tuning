@@ -6,7 +6,7 @@
 
 ```sh
 python3 tools/preset.py list
-python3 tools/preset.py build presets/original-minus-16db.json
+python3 tools/preset.py build presets/original-minus-20db.json
 ```
 
 `list` 列出 `presets/` 第一层 JSON；`build` 离线校验并生成 `profiles/compiled/<文件名>/`，不访问设备。可将示例路径替换为自己的 JSON。字段规则见 [JSON 格式](../presets/README.md)。
@@ -16,7 +16,7 @@ python3 tools/preset.py build presets/original-minus-16db.json
 先降低播放音量，连接恰好一台 ECHO-B，并关闭其他控制程序：
 
 ```sh
-python3 tools/preset.py apply presets/original-minus-16db.json
+python3 tools/preset.py apply presets/original-minus-20db.json
 ```
 
 `apply` 重新编译配置，采集写前状态，整体替换 EQ 和输出数字增益，保存后读回核对。每次操作新建 `runs/<UTC时间>-<文件名>/`；终端会输出实际路径。JSON 文件本身不会自动应用到设备。
@@ -48,7 +48,7 @@ python3 tools/preset.py verify runs/实际运行目录
 
 `verify` 校验保存计划的完整性，再按其中的系数核对设备；不重新编译、不写入、不覆盖原记录。结果保存在该目录的 `checks/<UTC时间>/`。读取重试规则见[读取恢复参考](devices/echo-b-readback-recovery.md)。
 
-回退时，选定要恢复的完整 JSON，先 `build` 再 `apply`。空白 EQ、0 dB 输出与空白 EQ、−16 dB 输出是不同设置。回退配置不等于恢复出厂固件；写前采集也不是完整闪存备份，不能直接作为预设重放。
+回退时，选定要恢复的完整 JSON，先 `build` 再 `apply`。空白 EQ、0 dB 输出与空白 EQ、−20 dB 输出是不同设置。回退配置不等于恢复出厂固件；写前采集也不是完整闪存备份，不能直接作为预设重放。
 
 如需验证断电保持，写入并读回成功后手动拔下再接回，对原运行目录执行 `verify`，并在该目录的 `persistence-note.md` 记录拔插过程和结果。自动记录中的 `physical_unplug_tested: false` 不会自动变成物理验证证明；当前采样率读回也不能代替所有采样率验收。
 

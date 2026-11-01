@@ -8,6 +8,17 @@ const fs = require('node:fs/promises');
   try {
     const page = await browser.newPage({viewport: {width: 1440, height: 1100}, acceptDownloads: true});
     const errors = [], deviceRequests = [];
+    const loadedFixture = {version: 1, device: 'MOONDROP ECHO-B', name: '载入排序', output_gain_db: -20,
+      filters: [{type: 'peak', frequency_hz: 5000, gain_db: -1.1, q: 1.2},
+        {type: 'low_shelf', frequency_hz: 120, gain_db: 1.5, q: 1},
+        {type: 'peak', frequency_hz: 90, gain_db: 1.4, q: .9},
+        {type: 'peak', frequency_hz: 120, gain_db: -1, q: 2}]};
+    const expectedLoaded = {...loadedFixture, filters: [...loadedFixture.filters].sort((a, b) => a.frequency_hz - b.frequency_hz)};
+    await page.route('**/api/bootstrap', async route => {
+      const response = await route.fetch(), initial = await response.json();
+      initial.presets.push({id: 'load-sorting-fixture', preset: loadedFixture});
+      await route.fulfill({response, json: initial});
+    });
     page.on('pageerror', (error) => errors.push(error.message));
     page.on('dialog', (dialog) => dialog.accept());
     page.on('request', (request) => {
@@ -16,6 +27,7 @@ const fs = require('node:fs/promises');
     await page.goto(process.env.EDITOR_URL || 'http://127.0.0.1:8765/');
     const valid = () => page.locator('#validation').filter({hasText: '校验通过'}).waitFor();
     await valid();
+    await assertOrdered();
     await page.locator('#new').click();await valid();
     async function geometry() {
       await page.locator('#chart').scrollIntoViewIfNeeded();
@@ -75,8 +87,26 @@ const fs = require('node:fs/promises');
       const dot = await page.locator('.chart-handle[aria-pressed="true"] .dot').boundingBox();
       return g.max - (((dot.y + dot.height / 2 - g.top) / g.height * 360 - 18) / 298) * (g.max - g.min);
     }
+    // Presets and imports normalize before establishing the draft baseline.
+    await page.locator('.preset[data-id="load-sorting-fixture"]').click();await valid();
+    await assertOrdered();
+    assert.equal(await page.locator('#draft-state').textContent(), '编辑草稿');
+    assert(await page.locator('#undo').isDisabled());
+    assert.deepEqual(await exportDoc(), expectedLoaded, 'preset sorting preserves each complete filter and equal-frequency order');
+    await page.locator('#file').setInputFiles({name: 'load-sorting.json', mimeType: 'application/json',
+      buffer: Buffer.from(JSON.stringify(loadedFixture))});
+    await page.locator('#notice').filter({hasText: '已导入 load-sorting.json'}).waitFor();await valid();
+    await assertOrdered();
+    assert(await page.locator('#undo').isDisabled());
+    assert.deepEqual(await exportDoc(), expectedLoaded, 'imports export in the same ascending order');
+    await page.locator('.chart-handle[data-band="0"]').click();
+    assert.deepEqual(await fields(), {frequency: 90, gain: 1.4});
+    await page.locator('.chart-handle[data-band="1"]').click();
+    assert.equal(await page.locator('#type-1').inputValue(), 'low_shelf');
+    assert.deepEqual(await fields(), {frequency: 120, gain: 1.5});
+    await page.locator('#new').click();await valid();
     // Output is -16 dB, but handles and new gains are independent of it.
-    const first = await doubleClick(1000, -12.8);
+    const first = await doubleClick(1000, -1.2);
     assert.equal(await page.locator('.chart-handle').count(), 1);
     let value = await fields();
     assert.equal(value.frequency, first.frequency);
@@ -84,13 +114,13 @@ const fs = require('node:fs/promises');
     assert.equal(value.gain, firstGain);
     assert(Math.abs(await pointDb() - first.db) < .15);
     // Insert to the left of the first point; the new point becomes number 1.
-    const second = await doubleClick(137, -18);
+    const second = await doubleClick(137, -2);
     assert.equal(await selected(), 0);
     assert.equal(await page.locator('.chart-handle').count(), 2);
     assert.equal((await fields()).frequency, second.frequency);
     assert(Math.abs(await pointDb() - second.db) < .15);
     await assertOrdered();
-    const third = await doubleClick(5000, -14.5);
+    const third = await doubleClick(5000, 1.5);
     assert.equal(await selected(), 2);
     assert(Math.abs(await pointDb() - third.db) < .15);
     await assertOrdered();
@@ -142,7 +172,7 @@ const fs = require('node:fs/promises');
     while (await page.locator('.chart-handle').count() < 8) { await page.locator('#add').click();await valid(); }
     await assertOrdered();
     const capped = await fields();
-    g = await geometry();const blank = coordinates(g, 333, -9);
+    g = await geometry();const blank = coordinates(g, 333, g.min + (g.max - g.min) * .12);
     await page.mouse.dblclick(blank.x, blank.y);
     assert.equal(await page.locator('.chart-handle').count(), 8);
     assert.deepEqual(await fields(), capped);
